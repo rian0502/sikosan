@@ -11,3 +11,6 @@ Anggota Kelompok
 | Muhammad Febrian Hasibuan | 2017051033 | A |
 | Yogi Andaru | 2017051062 | B|
 | Dwi Kurniawan | 2017051074 |B|
+
+## License
+[MIT](https://choosealicense.com/licenses/mit/)
