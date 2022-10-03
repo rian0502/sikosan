@@ -24,7 +24,7 @@ Anggota Kelompok
 
 ## USE CASE DIAGRAM
 
-![image](https://user-images.githubusercontent.com/83405871/193564525-150dcbd4-8468-44f8-973a-b310a90f5481.png)
+[image](https://user-images.githubusercontent.com/49912837/193618998-8a095a50-d9c6-4a14-a2b1-0b1b1ffb4f68.png)
 
 
 ## ERD
