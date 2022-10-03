@@ -2,7 +2,13 @@
 # SIKOSAN
 ## TASK WEB LANJUT
 ## Sistem informasi Kost-kostan
-Sistem ini digunakan untuk pencari kost sebagai informasi untuk mencari kost kostannya, sedangkan untuk pemilik kost sistem ini bertujuan untuk memasarkan kost"annya.
+Sistem ini digunakan untuk pencari kost sebagai informasi untuk mencari kost kostannya, 
+sedangkan untuk pemilik kost sistem ini bertujuan untuk memasarkan kost"annya.
+
+## Teknologi 
+- Codeigniter 4
+- Bootstrap
+- Jquery
 
 Anggota Kelompok
 
@@ -15,3 +21,12 @@ Anggota Kelompok
 
 ## License
 [MIT](https://choosealicense.com/licenses/mit/)
+
+## USE CASE DIAGRAM
+
+image.png
+
+
+## ERD
+
+image.png
