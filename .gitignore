@@ -120,7 +120,11 @@ nb-configuration.xml
 
 # Visual Studio Code
 .vscode/
+<<<<<<< HEAD
 .env
+=======
+
+>>>>>>> 75d0a80054ebcadf8e931e0a6bb197f8bed74590
 /results/
 /phpunit*.xml
 /.phpunit.*.cache
