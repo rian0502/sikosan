@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "content-hash": "631af174721be61b389b2d61c575438e",
+=======
+    "content-hash": "d648ee3b65e8d352e12e15817702e7cd",
+>>>>>>> 75d0a80054ebcadf8e931e0a6bb197f8bed74590
     "packages": [
         {
             "name": "codeigniter4/framework",
@@ -203,6 +207,7 @@
             "time": "2022-03-08T20:15:36+00:00"
         },
         {
+<<<<<<< HEAD
             "name": "myth/auth",
             "version": "v1.2.1",
             "source": {
@@ -277,6 +282,8 @@
             "time": "2022-07-13T18:35:46+00:00"
         },
         {
+=======
+>>>>>>> 75d0a80054ebcadf8e931e0a6bb197f8bed74590
             "name": "psr/log",
             "version": "1.1.4",
             "source": {
@@ -2181,6 +2188,7 @@
         },
         {
             "name": "symfony/deprecation-contracts",
+<<<<<<< HEAD
             "version": "v3.0.2",
             "source": {
                 "type": "git",
@@ -2195,11 +2203,31 @@
             },
             "require": {
                 "php": ">=8.0.2"
+=======
+            "version": "v3.1.1",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/symfony/deprecation-contracts.git",
+                "reference": "07f1b9cc2ffee6aaafcf4b710fbc38ff736bd918"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/symfony/deprecation-contracts/zipball/07f1b9cc2ffee6aaafcf4b710fbc38ff736bd918",
+                "reference": "07f1b9cc2ffee6aaafcf4b710fbc38ff736bd918",
+                "shasum": ""
+            },
+            "require": {
+                "php": ">=8.1"
+>>>>>>> 75d0a80054ebcadf8e931e0a6bb197f8bed74590
             },
             "type": "library",
             "extra": {
                 "branch-alias": {
+<<<<<<< HEAD
                     "dev-main": "3.0-dev"
+=======
+                    "dev-main": "3.1-dev"
+>>>>>>> 75d0a80054ebcadf8e931e0a6bb197f8bed74590
                 },
                 "thanks": {
                     "name": "symfony/contracts",
@@ -2228,7 +2256,11 @@
             "description": "A generic function and convention to trigger deprecation notices",
             "homepage": "https://symfony.com",
             "support": {
+<<<<<<< HEAD
                 "source": "https://github.com/symfony/deprecation-contracts/tree/v3.0.2"
+=======
+                "source": "https://github.com/symfony/deprecation-contracts/tree/v3.1.1"
+>>>>>>> 75d0a80054ebcadf8e931e0a6bb197f8bed74590
             },
             "funding": [
                 {
@@ -2244,7 +2276,11 @@
                     "type": "tidelift"
                 }
             ],
+<<<<<<< HEAD
             "time": "2022-01-02T09:55:41+00:00"
+=======
+            "time": "2022-02-25T11:15:52+00:00"
+>>>>>>> 75d0a80054ebcadf8e931e0a6bb197f8bed74590
         },
         {
             "name": "theseer/tokenizer",
