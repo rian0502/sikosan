@@ -2,8 +2,8 @@
 
 <?= $this->section('content') ?>
 
-
 <div class="row">
+
     <div class="col-lg-4 ms-3">
         <div class="col">
             <a href="#" class="rounded-circle">
@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </a>
-            <h2 class="mt-4">Daftar Pemilik Kost</h2>
+            <h2 class="mt-4">Daftar Pencari Kost</h2>
         </div>
         <form>
             <div class="mb-4 mt-5">
@@ -57,5 +57,6 @@
         </form>
     </div>
 
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
     <?= $this->endSection(); ?>
