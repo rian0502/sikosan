@@ -15,7 +15,7 @@
                     </div>
                 </div>
             </a>
-            <h2 class="mt-4">Login Pemilik Kost</h2>
+            <h2 class="mt-4">Login Customers</h2>
         </div>
         <form>
             <div class="mb-4 mt-5">
@@ -28,6 +28,7 @@
             </div>
             <button type="submit" class="btn btn-primary">Masuk</button>
         </form>
+
     </div>
 </div>
-<?= $this->endSection(); ?>
+    <?= $this->endSection(); ?>
