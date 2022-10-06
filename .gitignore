@@ -108,7 +108,6 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 .nb-gradle/
-node_modules/
 
 # Sublime Text
 *.tmlanguage.cache
@@ -121,6 +120,7 @@ node_modules/
 
 # Visual Studio Code
 .vscode/
+
 /results/
 /phpunit*.xml
 /.phpunit.*.cache
