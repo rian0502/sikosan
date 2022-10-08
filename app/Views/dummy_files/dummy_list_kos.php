@@ -108,7 +108,7 @@
                     <span class="ms-2 align-self-center">Rp600.000/Bulan</span>
                 </div>
                 <h5 class="card-title mt-2">Kos Batara</h5>
-                <p class="card-text">Kecamatan Teluk Betung, Desa Kamboja.</p>
+                <p class="card-text">Kecamatan Teluk Betung, Desa Mawar.</p>
                 <a href="/" class="btn btn-outline-success">Detail</a>
             </div>
         </div>
