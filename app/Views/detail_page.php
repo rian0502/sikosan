@@ -1,6 +1,5 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
@@ -10,13 +9,9 @@
     <!-- Bootstrap icons-->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css" rel="stylesheet" />
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <!-- Core theme CSS (includes Bootstrap)-->
-
 </head>
 
 <body>
-    <!-- Header-->
-
     <!-- Content-->
     <section class="py-5">
         <div class="container px-4 px-lg-5 my-5">
@@ -43,7 +38,6 @@
                         </div>
                     </div>
 
-                    <!-- Garis Batas -->
                     <div class="row">
                         <div class="col">
                             <hr>
@@ -55,7 +49,6 @@
                         <p class="fs-6 ">Terakhir dilihat 1 bulan yang lalu</p>
                     </div>
 
-                    <!-- Garis Batas -->
                     <div class="row">
                         <div class="col">
                             <hr>
@@ -70,7 +63,6 @@
                         <p class="fs-6 "><i class="bi bi-door-open"></i></i>&nbsp Kamar Mandi Dalam</p>
                     </div>
 
-                    <!-- Garis Batas -->
                     <div class="row">
                         <div class="col">
                             <hr>
@@ -82,7 +74,6 @@
                         <p class="fs-6 "><i class="bi bi-bicycle"></i>&nbsp Parkiran Motor & Mobil</p>
                     </div>
 
-                    <!-- Garis Batas -->
                     <div class="row">
                         <div class="col">
                             <hr>
@@ -95,9 +86,6 @@
                         <p class="fs-6 "><i class="bi bi-gender-male"></i>&nbsp Khusus putra, lawan jenis tidak boleh masuk</p>
                         <p class="fs-6 "><i class="bi bi-clock-history"></i>&nbsp Akses 24 Jam</p>
                     </div>
-
-
-
                 </div>
 
                 <div class="col-md-4 mt-5">
@@ -132,7 +120,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Related items section-->
     <section class="py-5 bg-light">
@@ -251,7 +238,6 @@
             </div>
         </div>
     </section>
-
 
     <!-- Bootstrap core JS-->
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
