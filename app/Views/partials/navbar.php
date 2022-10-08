@@ -1,4 +1,4 @@
-<nav class="navbar navbar-expand-lg bg-light">
+<nav class="navbar navbar-expand-lg shadow-sm">
     <div class="container">
         <a class="navbar-brand fw-bold" href="/" style="font-size: 25px;">SIKOSAN</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
@@ -8,6 +8,9 @@
             <ul class="navbar-nav ms-auto">
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">About</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/">Pusat Bantuan</a>
@@ -26,8 +29,6 @@
         </div>
     </div>
 </nav>
-
-
 
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">

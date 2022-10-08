@@ -1,7 +1,7 @@
 <div class="row mb-3">
     <div class="col-3">
-        <div class="card" style="width: 18rem;">
-            <img src="/assets/img/dummy_img/dummy-img1.jpg" class="card-img-top" alt="...">
+        <div class="card shadow" style="width: 18rem; height: 450px;">
+            <img src="/assets/img/dummy_img/dummy-img1.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
                     <a href="/"><button class="btn p-1 btn-outline-primary" style="font-size: 10px;">Putra</button></a>
@@ -14,8 +14,8 @@
         </div>
     </div>
     <div class="col-3">
-        <div class="card" style="width: 18rem;">
-            <img src="/assets/img/dummy_img/dummy-img2.jpg" class="card-img-top" alt="...">
+        <div class="card shadow" style="width: 18rem; height: 450px;">
+            <img src="/assets/img/dummy_img/dummy-img2.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
                     <a href="/"><button class="btn p-1 btn-outline-warning" style="font-size: 10px;">Putri</button></a>
@@ -28,8 +28,8 @@
         </div>
     </div>
     <div class="col-3">
-        <div class="card" style="width: 18rem;">
-            <img src="/assets/img/dummy_img/dummy-img3.jpg" class="card-img-top" alt="...">
+        <div class="card shadow" style="width: 18rem; height: 450px;">
+            <img src="/assets/img/dummy_img/dummy-img3.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
                     <a href="/"><button class="btn p-1 btn-outline-primary" style="font-size: 10px;">Putra</button></a>
@@ -42,8 +42,8 @@
         </div>
     </div>
     <div class="col-3">
-        <div class="card" style="width: 18rem;">
-            <img src="/assets/img/dummy_img/dummy-img4.jpg" class="card-img-top" alt="...">
+        <div class="card shadow" style="width: 18rem; height: 450px;">
+            <img src="/assets/img/dummy_img/dummy-img4.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
                     <a href="/"><button class="btn p-1 btn-outline-warning" style="font-size: 10px;">Putri</button></a>
@@ -58,8 +58,8 @@
 </div>
 <div class="row mb-3">
     <div class="col-3">
-        <div class="card" style="width: 18rem;">
-            <img src="/assets/img/dummy_img/dummy-img5.jpg" class="card-img-top" alt="...">
+        <div class="card shadow" style="width: 18rem; height: 450px;">
+            <img src="/assets/img/dummy_img/dummy-img5.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
                     <a href="/"><button class="btn p-1 btn-outline-primary" style="font-size: 10px;">Putra</button></a>
@@ -72,8 +72,8 @@
         </div>
     </div>
     <div class="col-3">
-        <div class="card" style="width: 18rem;">
-            <img src="/assets/img/dummy_img/dummy-img6.jpg" class="card-img-top" alt="...">
+        <div class="card shadow" style="width: 18rem; height: 450px;">
+            <img src="/assets/img/dummy_img/dummy-img6.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
                     <a href="/"><button class="btn p-1 btn-outline-primary" style="font-size: 10px;">Putra</button></a>
@@ -86,8 +86,8 @@
         </div>
     </div>
     <div class="col-3">
-        <div class="card" style="width: 18rem;">
-            <img src="/assets/img/dummy_img/dummy-img7.jpg" class="card-img-top" alt="...">
+        <div class="card shadow" style="width: 18rem; height: 450px;">
+            <img src="/assets/img/dummy_img/dummy-img7.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
                     <a href="/"><button class="btn p-1 btn-outline-warning" style="font-size: 10px;">Putri</button></a>
@@ -100,8 +100,8 @@
         </div>
     </div>
     <div class="col-3">
-        <div class="card" style="width: 18rem;">
-            <img src="/assets/img/dummy_img/dummy-img8.jpg" class="card-img-top" alt="...">
+        <div class="card shadow" style="width: 18rem; height: 450px;">
+            <img src="/assets/img/dummy_img/dummy-img8.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
                     <a href="/"><button class="btn p-1 btn-outline-primary" style="font-size: 10px;">Putra</button></a>

@@ -15,7 +15,7 @@
 <body>
     <!-- Menggunakan file navbar -->
     <div class="container-fluid">
-        <?= $this->include('templates/navbar'); ?>
+        <?= $this->include('/partials/navbar'); ?>
     </div>
     <!-- Section -->
     <div class="container mt-4">
