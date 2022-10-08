@@ -1,0 +1,43 @@
+[33ma2748b8[m[33m ([m[1;36mHEAD -> [m[1;32mmaster[m[33m, [m[1;31morigin/master[m[33m)[m revert gegara ripan
+[33m2be0d1f[m Merge pull request #12 from rian0502/dwi
+[33m8d4dd00[m[33m ([m[1;31morigin/dwi[m[33m)[m logo extension change
+[33mdb07863[m Merge pull request #11 from rian0502/dwi
+[33mf574f57[m penambahan logo sikosan
+[33m8bd841a[m Merge pull request #10 from rian0502/rifan
+[33m68146e0[m[33m ([m[1;31morigin/rifan[m[33m)[m Merubah file README.md
+[33m405ded3[m Update README.md
+[33m9912b76[m Undefined Commit
+[33m470e5bf[m[33m ([m[1;31morigin/yogi[m[33m, [m[1;32myogi[m[33m)[m Merge pull request #9 from rian0502/dwi
+[33m7307676[m delet for merge
+[33m484a993[m add login register customers
+[33m8463be9[m penambahan template dan edit error page
+[33mffdf901[m Merge branch 'master' of https://github.com/rian0502/sikosan
+[33mca533db[m composer isue
+[33m2f2e849[m change konfigurasi master
+[33mc6e400c[m Merge remote-tracking branch 'origin/master'
+[33mee079de[m change konfigurasi master
+[33mc2e9d15[m membuat halaman login dan register
+[33m4ed03f2[m merge
+[33mf12bf73[m ignore env
+[33mf43bb19[m change konfigurasi master
+[33m6b26082[m add myauth
+[33m286b4c3[m inisiasi
+[33m75d0a80[m Merge pull request #8 from rian0502/rian
+[33m7d2a09f[m[33m ([m[1;31morigin/rian[m[33m)[m mengubah env
+[33m882fad1[m Merge pull request #7 from rian0502/rifan
+[33m4c503eb[m Memperbaiki salah kesalahan commit
+[33m32c60c3[m Merge pull request #6 from rian0502/rifan
+[33m4bb41e1[m Menambahkan use case
+[33mf329176[m Update README.md
+[33mc4b5745[m Merge pull request #5 from rian0502/rian
+[33me4a23d5[m menambahkan usecase dan erd
+[33m2797e59[m[33m ([m[1;33mtag: hacktoberfest-accepted[m[33m)[m Merge pull request #4 from rian0502/rian
+[33m4df8faf[m pulll testing
+[33m5442f32[m Merge pull request #3 from rian0502/yogi
+[33m416dc2a[m task web lanjut
+[33mcab133f[m Merge pull request #2 from rian0502/yogi
+[33m3e90012[m Merge pull request #1 from yogiandaru98/master
+[33md5f2c7a[m license
+[33m8454104[m Update README.md
+[33m32e12a7[m Sistem informasi Kost kostan
+[33m5b20329[m Initial commit
