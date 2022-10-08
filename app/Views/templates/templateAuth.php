@@ -7,7 +7,7 @@
     <title>SIKOSAN</title>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/bootstrap/dist/css/bootstrap.css">
 
 </head>
 
@@ -18,8 +18,8 @@
         </div>
     </main>
 </body>
-<script src="/jquery/jquery.min.js"></script>
-<script src="/bootstrap/js/bootstrap.bundle.js"></script>
+<script src="/jquery/dist/jquery.min.js"></script>
+<script src="/bootstrap/dist/js/bootstrap.bundle.js"></script>
 <script>
     $('#ulangi-password').change(function(e) {
         e.preventDefault();
