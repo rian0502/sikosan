@@ -42,7 +42,7 @@
                 <div class="card pt-2 pb-2" style="width: 100%;">
                     <div class="row">
                         <div class="col-4">
-                            <img src="/assets/img/customer-login.png" class="card-img-top" style="width: 90px;">
+                            <img src="/assets/img/customer-login.png" class="" style="width: 90px;">
                         </div>
                         <div class="col-8 m-auto">
                             <p class="card-text fw-bold">Pencari Kos</p>
@@ -52,7 +52,7 @@
                 <div class="card pt-2 pb-2 mt-2" style="width: 100%;">
                     <div class="row">
                         <div class="col-4">
-                            <img src="/assets/img/owner-login.png" class="card-img-top" style="width: 90px;">
+                            <img src="/assets/img/owner-login.png" class="" style="width: 90px;">
                         </div>
                         <div class="col-8 m-auto">
                             <p class="card-text fw-bold">Pencari Kos</p>
