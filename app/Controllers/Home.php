@@ -6,7 +6,7 @@ class Home extends BaseController
 {
     public function index()
     {
-        return view('landing_page');
+        return view('detail_page');
     }
     public function owner(){
         return view('owners/login');
@@ -25,7 +25,7 @@ class Home extends BaseController
     }
 
     public function about(){
-        return view('about');
+        return view('partials/about');
     }
     public function pusatBantuan(){
         return view('pusatBantuan');
@@ -34,4 +34,3 @@ class Home extends BaseController
         return view('terms');
     }
 }
-<?= $ ?>
