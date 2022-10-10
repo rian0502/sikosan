@@ -10,13 +10,13 @@
                     <a class="nav-link active" aria-current="page" href="/">Home</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">About</a>
+                    <a class="nav-link active" aria-current="page" href="/about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Pusat Bantuan</a>
+                    <a class="nav-link active" aria-current="page" href="/pusatBantuan">Pusat Bantuan</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Syarat & Ketentuan</a>
+                    <a class="nav-link active" aria-current="page" href="/terms">Syarat & Ketentuan</a>
                 </li>
                 <li class="nav-item">
                     <form class="form-inline">
@@ -39,26 +39,31 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body">
-                <div class="card pt-2 pb-2" style="width: 100%;">
-                    <div class="row">
-                        <div class="col-4">
-                            <img src="/assets/img/customer-login.png" class="" style="width: 90px;">
-                        </div>
-                        <div class="col-8 m-auto">
-                            <p class="card-text fw-bold">Pencari Kos</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="card pt-2 pb-2 mt-2" style="width: 100%;">
-                    <div class="row">
-                        <div class="col-4">
-                            <img src="/assets/img/owner-login.png" class="" style="width: 90px;">
-                        </div>
-                        <div class="col-8 m-auto">
-                            <p class="card-text fw-bold">Pencari Kos</p>
+                <a class="text-decoration-none text-dark" href="<?= base_url('/customer'); ?>">
+                    <div class="card pt-2 pb-2" style="width: 100%;">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="/assets/img/customer-login.png" class="" style="width: 90px;">
+                            </div>
+                            <div class="col-8 m-auto">
+                                <p class="card-text fw-bold">Pencari Kos</p>
+                            </div>
                         </div>
                     </div>
-                </div>
+                </a>
+                
+                <a class="text-decoration-none text-dark" href="<?= base_url('/owner'); ?>">
+                    <div class="card pt-2 pb-2 mt-2" style="width: 100%;">
+                        <div class="row">
+                            <div class="col-4">
+                                <img src="/assets/img/owner-login.png" class="" style="width: 90px;">
+                            </div>
+                            <div class="col-8 m-auto">
+                                <p class="card-text fw-bold">Pemilik Kos</p>
+                            </div>
+                        </div>
+                    </div>
+                </a>
 
             </div>
         </div>

@@ -1,62 +1,64 @@
 <?= $this->extend('templates/templateAuth') ?>
 
 <?= $this->section('content') ?>
+<div id="auth">
+    <div class="row h-100">
+        <div class="col-lg-5 col-12">
+            <div id="auth-left">
+                <div class="auth-logo">
+                    <a href="/"><img src="/assets/img/sikosan.png" alt="Logo"></a>
+                </div>
+                <h1 class="auth-title">Daftar</h1>
+                <p class="auth-subtitle mb-5">Mendaftar Sebagai Pencari Kost.</p>
 
-<div class="row">
+                <form action="index.html">
 
-    <div class="col-lg-4 ms-3">
-        <div class="col">
-            <a href="#" class="rounded-circle">
-                <div class="container">
-                    <div class="row">
-                        <div class="col">
-                            <i class="bi bi-arrow-left-circle-fill" style="font-size: 2rem; color: #000000;"></i>
+                    <div class="form-group position-relative has-icon-left mb-4">
+                        <input type="text" class="form-control form-control-xl" placeholder="Nama Lengkap">
+                        <div class="form-control-icon">
+                            <i class="bi bi-person"></i>
                         </div>
                     </div>
+
+                    <div class="form-group position-relative has-icon-left mb-4">
+                        <input type="text" class="form-control form-control-xl" placeholder="Email">
+                        <div class="form-control-icon">
+                            <i class="bi bi-envelope"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group position-relative has-icon-left mb-4">
+                        <input type="number" class="form-control form-control-xl" placeholder="No. Handphone">
+                        <div class="form-control-icon">
+                            <i class="bi bi-phone"></i>
+                        </div>
+                    </div>
+
+                    <div class="form-group position-relative has-icon-left mb-4">
+                        <input type="password" class="form-control form-control-xl" placeholder="Password">
+                        <div class="form-control-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                    </div>
+                    <div class="form-group position-relative has-icon-left mb-4">
+                        <input type="password" class="form-control form-control-xl" placeholder="Confirm Password">
+                        <div class="form-control-icon">
+                            <i class="bi bi-shield-lock"></i>
+                        </div>
+                    </div>
+                    <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
+                </form>
+                <div class="text-center mt-5 text-lg fs-4">
+                    <p class='text-gray-600'>Sudah memiliki akun? <a href="/customer" class="font-bold">Login</a>.</p>
                 </div>
-            </a>
-            <h2 class="mt-4">Daftar Pencari Kost</h2>
+            </div>
         </div>
-        <form>
-            <div class="mb-4 mt-5">
-                <label for="nama-lengkap" class="form-label">Nama Lengkap</label>
-                <input type="text" class="form-control" id="nama-lengkap">
+        <div class="col-lg-7 d-none d-lg-block">
+            <div id="auth-right">
             </div>
-
-            <div class="mb-4">
-                <label for="email" class="form-label">Email address</label>
-                <input name="email" type="email" class="form-control" id="email">
-            </div>
-
-            <div class="mb-4">
-                <label for="phone" class="form-label">No. Handphone</label>
-                <div class="input-group flex-nowrap" id="phone">
-                    <span class="input-group-text" id="addon-wrapping">+62</span>
-                    <input name="phone" type="text" class="form-control" placeholder="8123456789987" maxlength="12" aria-describedby="addon-wrapping">
-                </div>
-            </div>
-
-            <div class="mb-4">
-                <label for="password" class="form-label">Password</label>
-                <input name="password" type="password" class="form-control" id="password">
-                <div id="validationServer04Feedback" class="invalid-feedback">
-                    Password Minimal 8 Karakter
-                </div>
-            </div>
-
-            <div class="mb-4">
-                <label for="ulangi-password" class="form-label">Ulangi Password</label>
-                <input name="ulangiPassword" type="password" class="form-control q" id="ulangi-password">
-
-                <div id="validationServer04Feedback" class="invalid-feedback">
-                    Password tidak cocok
-                </div>
-            </div>
-
-            <button type="submit" class="btn btn-primary">Daftar</button>
-        </form>
+        </div>
     </div>
+</div>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
 
-    <?= $this->endSection(); ?>
+<?= $this->endSection(); ?>
