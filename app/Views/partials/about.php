@@ -1,4 +1,4 @@
-<section class="mt-5">
+<section class="mt-5" id="about">
     <h2>Sikosan - Temukan Kos di Lampung</h2>
     <div class="row">
         <div class="col">
