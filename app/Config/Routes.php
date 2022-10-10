@@ -39,6 +39,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
 $routes->get('/pusatBantuan', 'Home::pusatBantuan');
 $routes->get('/terms', 'Home::terms');
+$routes->get('/detail', 'Home::detail');
 
 //routing untuk halaman login
 $routes->get('/customer', 'Home::customer');

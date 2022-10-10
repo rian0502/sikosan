@@ -8,29 +8,40 @@ class Home extends BaseController
     {
         return view('landing_page');
     }
-    public function owner(){
+    public function owner()
+    {
         return view('owners/login');
     }
 
-    public function registerOwner(){
+    public function registerOwner()
+    {
         return view('owners/register');
     }
 
-    public function customer(){
+    public function customer()
+    {
         return view('customer/login');
     }
 
-    public function registerCustomer(){
+    public function registerCustomer()
+    {
         return view('customer/register');
     }
 
-    public function about(){
+    public function about()
+    {
         return view('about');
     }
-    public function pusatBantuan(){
+    public function pusatBantuan()
+    {
         return view('pusatBantuan');
     }
-    public function terms(){
+    public function terms()
+    {
         return view('terms');
+    }
+    public function detail()
+    {
+        return view('detail_page');
     }
 }
