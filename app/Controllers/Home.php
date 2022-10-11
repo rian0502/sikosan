@@ -17,6 +17,15 @@ class Home extends BaseController
     {
         return view('owners/register');
     }
+    public function fpOwner()
+    {
+        return view('fp_owner');
+    }
+
+    public function fpCustomer()
+    {
+        return view('fp_customer');
+    }
 
     public function customer()
     {
