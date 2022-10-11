@@ -1,25 +1,28 @@
 <style>
-    @media screen and (min-width: 758px){
-        .kartu{
+    @media screen and (min-width: 758px) {
+        .kartu {
             width: 18rem;
         }
     }
+
     @media only screen and (max-width: 768px) {
-        .card-img-top{
-            height:auto;
+        .card-img-top {
+            height: auto;
         }
-        element.style{
+
+        element.style {
             width: auto;
         }
-        .kartu{
+
+        .kartu {
             width: auto;
         }
-        
+
     }
 </style>
 <div class="row mb-3">
     <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
-        <div class="card shadow" style="height: 500px;" name="kartu" >
+        <div class="card shadow" style="height: 420px;" name="kartu">
             <img src="/assets/img/dummy_img/dummy-img1.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
@@ -33,7 +36,7 @@
         </div>
     </div>
     <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
-        <div class="card shadow" style="height: 500px;" name="kartu">
+        <div class="card shadow" style="height: 420px;" name="kartu">
             <img src="/assets/img/dummy_img/dummy-img2.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
@@ -47,7 +50,7 @@
         </div>
     </div>
     <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
-        <div class="card shadow" style="height: 500px;" name="kartu">
+        <div class="card shadow" style="height: 420px;" name="kartu">
             <img src="/assets/img/dummy_img/dummy-img3.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
@@ -61,7 +64,7 @@
         </div>
     </div>
     <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
-        <div class="card shadow" style="height: 500px;" name="kartu">
+        <div class="card shadow" style="height: 420px;" name="kartu">
             <img src="/assets/img/dummy_img/dummy-img4.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
@@ -75,7 +78,7 @@
         </div>
     </div>
     <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
-        <div class="card shadow" style="height: 500px;" name="kartu">
+        <div class="card shadow" style="height: 420px;" name="kartu">
             <img src="/assets/img/dummy_img/dummy-img5.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
@@ -89,7 +92,7 @@
         </div>
     </div>
     <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
-        <div class="card shadow" style="height: 500px;" name="kartu">
+        <div class="card shadow" style="height: 420px;" name="kartu">
             <img src="/assets/img/dummy_img/dummy-img6.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
@@ -103,7 +106,7 @@
         </div>
     </div>
     <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
-        <div class="card shadow" style="height: 500px;" name="kartu">
+        <div class="card shadow" style="height: 420px;" name="kartu">
             <img src="/assets/img/dummy_img/dummy-img7.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
@@ -117,7 +120,7 @@
         </div>
     </div>
     <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
-        <div class="card shadow" style="height: 500px;" name="kartu">
+        <div class="card shadow" style="height: 420px;" name="kartu">
             <img src="/assets/img/dummy_img/dummy-img8.jpg" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
