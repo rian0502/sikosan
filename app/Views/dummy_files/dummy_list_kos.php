@@ -71,8 +71,8 @@
                     <a href="/"><button class="btn p-1 btn-outline-warning" style="font-size: 10px;">Putri</button></a>
                     <span class="ms-2 align-self-center">Rp750.000/Bulan</span>
                 </div>
-                <h5 class="card-title mt-2">Asrama Sari</h5>
-                <p class="card-text">Kecamatan Rajabasa, Desa Rajabasa.</p>
+                <h5 class="card-title mt-2">Asrama Sariandaaaa</h5>
+                <p class="card-text">Kecamatan Labuan Ratu, Desa Semungkur.</p>
                 <a href="/detail" class="btn btn-outline-success">Detail</a>
             </div>
         </div>
