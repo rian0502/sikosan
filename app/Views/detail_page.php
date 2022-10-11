@@ -4,7 +4,7 @@
 <section class="py-5">
     <div class="container px-4 px-lg-5 my-5">
         <div class="row">
-            <div class="col-md-8 align-items-center"><img class="card-img-top img-fluid" src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/06/06/1021374220.jpg"></div>
+            <div class="col-md-8 align-items-center"><img class="img-fluid" src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/06/06/1021374220.jpg"></div>
             <div class="col-md-4">
                 <div class="row"><img class="card-img-top img-fluid mb-3" style="height: 200px ;" src="https://www.uhb.ac.id/uploads/images/dsc052972_1.jpg"></div>
                 <div class="row"><img class="card-img-top img-fluid mt-3" src="https://cdn-image.hipwee.com/wp-content/uploads/2019/06/hipwee-54446509_344272106258262_4677517404827874741_n-750x422.jpg"></div>
