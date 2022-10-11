@@ -1,6 +1,8 @@
 <nav class="navbar navbar-expand-lg shadow-sm">
     <div class="container">
-        <a class="navbar-brand fw-bold" href="/" style="font-size: 25px;">SIKOSAN</a>
+        <a class="navbar-brand fw-bold" href="/">
+            <img src="/assets/img/sikosan.png" alt="SIKOSAN" style="width: 130px;">
+        </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
@@ -51,7 +53,7 @@
                         </div>
                     </div>
                 </a>
-                
+
                 <a class="text-decoration-none text-dark" href="<?= base_url('/owner'); ?>">
                     <div class="card pt-2 pb-2 mt-2" style="width: 100%;">
                         <div class="row">
