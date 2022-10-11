@@ -7,7 +7,7 @@
 
     @media only screen and (max-width: 768px) {
         .card-img-top {
-            height: auto;
+            height: 30vw;
         }
 
         element.style {
