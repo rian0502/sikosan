@@ -29,7 +29,7 @@ class Home extends BaseController
     }
 
     public function about(){
-        return view('partials/about');
+        return view('about');
     }
     public function pusatBantuan()
     {
