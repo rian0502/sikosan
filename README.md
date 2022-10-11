@@ -15,8 +15,6 @@ sedangkan untuk pemilik kost sistem ini bertujuan untuk memasarkan kost"annya.
 
 Anggota Kelompok
 
--
-
 | Nama                      | NPM        | Kelas |
 | ------------------------- | ---------- | ----- |
 | Rifan Setiadi             | 2017051019 | B     |
