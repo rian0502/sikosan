@@ -28,7 +28,7 @@
                 </form>
                 <div class="text-center mt-5 text-lg fs-4">
                     <p class="text-gray-600">Tidak mempunyai akun? <a href="/registerCustomer" class="font-bold">Daftar</a>.</p>
-                    <p><a class="font-bold" href="auth-forgot-password.html">Lupa Password?</a>.</p>
+                    <p><a class="font-bold" href="/fpCustomer">Lupa Password?</a>.</p>
                 </div>
             </div>
         </div>
