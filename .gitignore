@@ -97,9 +97,9 @@ vendor/nikic
 /vendor/phar-io
 /vendor/psr
 /vendor/sebastian
-vendor/symfony
-vendor/theseer
-vendor/autoload.php
+/vendor/symfony
+/vendor/theseer
+/vendor/autoload.php
 
 
 #-------------------------
