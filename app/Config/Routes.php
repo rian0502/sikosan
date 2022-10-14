@@ -40,6 +40,14 @@ $routes->get('/about', 'Home::index');
 $routes->get('/pusatBantuan', 'Home::pusatBantuan');
 $routes->get('/terms', 'Home::terms');
 $routes->get('/detail', 'Home::detail');
+
+
+
+
+
+
+
+//@yogiandaru98 route testing
 $routes->get('/newpw', function(){
     return view('auth/newPass');
 });
