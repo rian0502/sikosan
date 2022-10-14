@@ -20,11 +20,20 @@
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/terms">Syarat & Ketentuan</a>
                 </li>
-                <li class="nav-item">
-                    <a href="<?= url_to('login'); ?>" class="btn btn-outline-primary ms-2">
-                        Login
-                    </a>
-                </li>
+                <?php if (logged_in() === false) : ?>
+                    <li class="nav-item">
+                        <a href="<?= url_to('login'); ?>" class="btn btn-outline-primary ms-2">
+                            Login
+                        </a>
+                    </li>
+                <?php endif ?>
+                <?php if (logged_in() === true) : ?>
+                    <li class="nav-item">
+                        <a href="<?= url_to('logout'); ?>" class="btn btn-outline-primary ms-2">
+                            Logout
+                        </a>
+                    </li>
+                <?php endif ?>
             </ul>
         </div>
     </div>
