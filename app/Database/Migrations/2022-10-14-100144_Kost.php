@@ -61,10 +61,13 @@ class Kost extends Migration
                 'null' => true,
             ],
         ]);
+        $this->forge->addKey('id', true);
+        $this->forge->createTable('kost');
     }
 
     public function down()
     {
         //
+        $this->forge->dropTable('kost');
     }
 }
