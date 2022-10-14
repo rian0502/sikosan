@@ -40,6 +40,9 @@ $routes->get('/about', 'Home::index');
 $routes->get('/pusatBantuan', 'Home::pusatBantuan');
 $routes->get('/terms', 'Home::terms');
 $routes->get('/detail', 'Home::detail');
+$routes->get('/newpw', function(){
+    return view('auth/newPass');
+});
 
 /*
  * --------------------------------------------------------------------
