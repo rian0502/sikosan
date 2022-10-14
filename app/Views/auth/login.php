@@ -9,7 +9,7 @@
                     <a href="/"><img src="/assets/img/sikosan.png" alt="Logo"></a>
                 </div>
                 <h1 class="auth-title">Login.</h1>
-                <p class="auth-subtitle mb-5">Masuk Sebagai Pemilik Kost.</p>
+                <p class="auth-subtitle mb-5">Masuk SIKOSAN</p>
                 <?= view('Myth\Auth\Views\_message_block') ?>
                 <form action="<?= url_to('login') ?>" method="post">
                     <?= csrf_field(); ?>
@@ -24,7 +24,7 @@
                     </div>
 
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input  name="password" type="password" class="form-control form-control-xl  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password">
+                        <input name="password" type="password" class="form-control form-control-xl  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
