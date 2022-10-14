@@ -48,6 +48,10 @@
                             <i class="bi bi-shield-lock"></i>
                         </div>
                     </div>
+                    <select class="form-select" aria-label="Default select example" name="group_id">
+                        <option value="Owner">Owner</option>
+                        <option value="Customer">Customer</option>
+                    </select>
                     <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
                 </form>
                 <div class="text-center mt-5 text-lg fs-4">
