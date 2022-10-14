@@ -8,7 +8,7 @@ use CodeIgniter\Filters\DebugToolbar;
 use CodeIgniter\Filters\Honeypot;
 use CodeIgniter\Filters\InvalidChars;
 use CodeIgniter\Filters\SecureHeaders;
-use App\Filters\Auth;
+
 
 class Filters extends BaseConfig
 {
@@ -24,10 +24,9 @@ class Filters extends BaseConfig
         'honeypot'      => Honeypot::class,
         'invalidchars'  => InvalidChars::class,
         'secureheaders' => SecureHeaders::class,
-        'auth'          => Auth::class,
-        'login'      => LoginFilter::class,
-        'role'       => RoleFilter::class,
-        'permission' => PermissionFilter::class,
+        'login'      => \Myth\Auth\Filters\LoginFilter::class,
+        'role'       => \Myth\Auth\Filters\RoleFilter::class,
+        'permission' => \Myth\Auth\Filters\PermissionFilter::class,
     ];
 
     /**
@@ -73,5 +72,6 @@ class Filters extends BaseConfig
      *
      * @var array
      */
-    public $filters = [];
+    public $filters = [
+    ];
 }
