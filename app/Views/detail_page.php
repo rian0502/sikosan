@@ -3,15 +3,55 @@
 <!-- Content-->
 <section class="py-5">
     <div class="container px-4 px-lg-5 my-5">
-        <div class="row">
+        <!-- <div class="row">
             <div class="col-md-8 align-items-center"><img class="img-fluid" src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/06/06/1021374220.jpg"></div>
             <div class="col-md-4">
                 <div class="row"><img class="card-img-top img-fluid mb-3" style="height: 200px ;" src="https://www.uhb.ac.id/uploads/images/dsc052972_1.jpg"></div>
                 <div class="row"><img class="card-img-top img-fluid mt-3" src="https://cdn-image.hipwee.com/wp-content/uploads/2019/06/hipwee-54446509_344272106258262_4677517404827874741_n-750x422.jpg"></div>
             </div>
+        </div> -->
+
+        <div class="card">
+            <div class="card-header">
+                <h4>With Captions</h4>
+                <p>A carousel with captions over the top</p>
+            </div>
+            <div class="card-body">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <div class="carousel-item active">
+                            <img src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/06/06/1021374220.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>First slide label</h5>
+                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://www.uhb.ac.id/uploads/images/dsc052972_1.jpg" class="d-block w-100" alt="...">
+                            <div class="carousel-caption d-none d-md-block">
+                                <h5>Second slide label</h5>
+                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                            </div>
+                        </div>
+                    </div>
+                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
+                </div>
+            </div>
         </div>
 
-        <!-- Detail KOS = nama,spesifikasi,dll-->
+        <!-- Detail KOS = nama,spefsifikasi,dll-->
         <div class="row">
             <div class="col-md-8 mt-5">
                 <div class="row">
