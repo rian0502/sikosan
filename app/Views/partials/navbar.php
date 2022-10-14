@@ -21,11 +21,9 @@
                     <a class="nav-link active" aria-current="page" href="/terms">Syarat & Ketentuan</a>
                 </li>
                 <li class="nav-item">
-                    <form class="form-inline">
-                        <button class="btn btn-outline-primary ms-2" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                            Masuk
-                        </button>
-                    </form>
+                    <a href="<?= url_to('login'); ?>" class="btn btn-outline-primary ms-2">
+                        Celup
+                    </a>
                 </li>
             </ul>
         </div>
