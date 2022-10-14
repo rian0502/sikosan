@@ -188,13 +188,13 @@ class Auth extends BaseConfig
      *
      * @var string|null Name of the ActivatorInterface class
      */
-<<<<<<< HEAD
-    public $requireActivation = 'Myth\Auth\Authentication\Activators\EmailActivator';
+
+    //public $requireActivation = 'Myth\Auth\Authentication\Activators\EmailActivator';
     //public $requireActivation = null;
-=======
+
     // public $requireActivation = 'Myth\Auth\Authentication\Activators\EmailActivator';
     public $requireActivation = null;
->>>>>>> 25d3dbce3b8de6979b5f3dc53c3d92239292c2e5
+
 
     /**
      * --------------------------------------------------------------------
@@ -206,13 +206,13 @@ class Auth extends BaseConfig
      *
      * @var string|null Name of the ResetterInterface class
      */
-<<<<<<< HEAD
-    public $activeResetter = 'Myth\Auth\Authentication\Resetters\EmailResetter';
+
+    //public $activeResetter = 'Myth\Auth\Authentication\Resetters\EmailResetter';
     //public $activeResetter = null;
-=======
+
     // public $activeResetter = 'Myth\Auth\Authentication\Resetters\EmailResetter';
     public $activeResetter = null;
->>>>>>> 25d3dbce3b8de6979b5f3dc53c3d92239292c2e5
+
 
     /**
      * --------------------------------------------------------------------
