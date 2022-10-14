@@ -41,15 +41,6 @@ $routes->get('/pusatBantuan', 'Home::pusatBantuan');
 $routes->get('/terms', 'Home::terms');
 $routes->get('/detail', 'Home::detail');
 
-//routing untuk halaman login
-$routes->get('/customer', 'Home::customer');
-$routes->get('/registerCustomer', 'Home::registerCustomer');
-$routes->get('/fpCustomer', 'Home::fpCustomer');
-
-$routes->get('/owner', 'Home::owner');
-$routes->get('/registerOwner', 'Home::registerOwner');
-$routes->get('/fpOwner', 'Home::fpOwner');
-
 /*
  * --------------------------------------------------------------------
  * Additional Routing
