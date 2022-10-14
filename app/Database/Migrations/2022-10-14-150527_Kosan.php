@@ -4,13 +4,13 @@ namespace App\Database\Migrations;
 
 use CodeIgniter\Database\Migration;
 
-class Kost extends Migration
+class Kosan extends Migration
 {
     public function up()
     {
         //
         $this->forge->addField([
-            'id' => [
+            'id_kosan' => [
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true,
@@ -61,13 +61,17 @@ class Kost extends Migration
                 'null' => true,
             ],
         ]);
-        $this->forge->addKey('id', true);
-        $this->forge->createTable('kost');
+        $this->forge->addKey('id_kosan', true);
+        $this->forge->createTable('kosan');
     }
 
     public function down()
     {
         //
-        $this->forge->dropTable('kost');
+        $this->forge->dropTable('kosan');
     }
 }
+
+
+
+
