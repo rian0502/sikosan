@@ -4,22 +4,28 @@ namespace App\Controllers;
 
 class Home extends BaseController
 {
-    public function index(){
-        return view('landing_page');
+    public function index()
+    {
+        return view('globals/index');
     }
-    public function about(){
-        return view('about');
+
+    public function about()
+    {
+        return view('globals/about');
     }
+
     public function pusatBantuan()
     {
-        return view('pusatBantuan');
+        return view('globals/pusat_bantuan');
     }
+
     public function terms()
     {
-        return view('terms');
+        return view('globals/terms');
     }
+
     public function detail()
     {
-        return view('detail_page');
+        return view('globals/detail_page');
     }
 }
