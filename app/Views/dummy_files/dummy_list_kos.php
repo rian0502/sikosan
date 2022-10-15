@@ -65,7 +65,7 @@
     </div>
     <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
         <div class="card shadow" style="height: 420px;" name="kartu">
-            <img src="/assets/img/dummy_img/dummy-img4.jpg" class="card-img-top">
+            <img src="/assets/img/dummy_img/" class="card-img-top">
             <div class="card-body">
                 <div class="d-flex">
                     <a href="/"><button class="btn p-1 btn-outline-warning" style="font-size: 10px;">Putri</button></a>

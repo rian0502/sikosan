@@ -9,6 +9,10 @@ class FotoKosanModel extends Model
     protected $table            = 'foto_kosan';
     protected $primaryKey       = 'id_photo';
     protected $useAutoIncrement = true;
+    protected $insertID         = 0;
+    protected $returnType       = 'array';
+    // protected $useSoftDeletes   = false;
+    protected $protectFields    = true;
     protected $allowedFields    = [
         'id_kosan'
     ];
