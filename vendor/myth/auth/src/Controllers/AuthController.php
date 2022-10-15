@@ -138,8 +138,8 @@ class AuthController extends Controller
      */
     public function attemptRegister()
     {
-
-        $this->config->defaultUserGroup = $this->request->getPost('group_id');
+        // get role choice when registration
+        $userGroup = $this->request->getPost('group_id');
 
         // Check if registration is allowed
         if (!$this->config->allowRegistration) {
@@ -147,6 +147,7 @@ class AuthController extends Controller
         }
 
         $users = model(UserModel::class);
+        $users->withGroup($userGroup);
 
         // Validate basics first since some password rules rely on these fields
         $rules = config('Validation')->registrationRules ?? [
