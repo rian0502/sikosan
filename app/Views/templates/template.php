@@ -1,10 +1,11 @@
 <!doctype html>
 <html lang="en">
 <style>
-    html{
+    html {
         scroll-behavior: smooth;
     }
 </style>
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -19,7 +20,7 @@
 <body>
     <!-- Menggunakan file navbar -->
     <div class="container-fluid">
-        <?= $this->include('/partials/navbar'); ?>
+        <?= $this->include('/globals/partials/navbar'); ?>
     </div>
     <!-- Section -->
     <div class="container mt-4">
