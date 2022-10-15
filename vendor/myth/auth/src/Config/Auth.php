@@ -211,7 +211,7 @@ class Auth extends BaseConfig
     //public $activeResetter = null;
 
     // public $activeResetter = 'Myth\Auth\Authentication\Resetters\EmailResetter';
-    public $activeResetter = null;
+    public $activeResetter = true;
 
 
     /**

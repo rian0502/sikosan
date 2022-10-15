@@ -55,7 +55,7 @@
                     <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
                 </form>
                 <div class="text-center mt-5 text-lg fs-4">
-                    <p class='text-gray-600'>Sudah memiliki akun? <a href="/owner" class="font-bold">Login</a>.</p>
+                    <p class='text-gray-600'>Sudah memiliki akun? <a href=<?= url_to('login') ?> class="font-bold">Login</a>.</p>
                 </div>
             </div>
         </div>
