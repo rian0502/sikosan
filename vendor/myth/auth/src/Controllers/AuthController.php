@@ -138,12 +138,15 @@ class AuthController extends Controller
      */
     public function attemptRegister()
     {
+        
+        $this->config->defaultUserGroup = $this->request->getPost('group_id');
         // Check if registration is allowed
         if (!$this->config->allowRegistration) {
             return redirect()->back()->withInput()->with('error', lang('Auth.registerDisabled'));
         }
 
         $users = model(UserModel::class);
+    
 
         // Validate basics first since some password rules rely on these fields
         $rules = config('Validation')->registrationRules ?? [
@@ -167,6 +170,7 @@ class AuthController extends Controller
         // Save the user
         $allowedPostFields = array_merge(['password'], $this->config->validFields, $this->config->personalFields);
         $user              = new User($this->request->getPost($allowedPostFields));
+        $defaultUserGroup  = $this->config->defaultUserGroup;
 
         $this->config->requireActivation === null ? $user->activate() : $user->generateActivateHash();
 
