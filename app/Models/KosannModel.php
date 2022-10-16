@@ -35,4 +35,13 @@ class KosannModel extends Model
     protected $updatedField  = 'updated_at';
     // protected $deletedField  = 'deleted_at';
 
+    public function getKosan()  
+    {
+        $queryKosan = $this->db->table('kosan')
+        ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')
+        ->get();
+        return $queryKosan;
+        
+    }
+
 }
