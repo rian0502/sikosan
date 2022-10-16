@@ -21,7 +21,7 @@
     }
 </style>
 <div class="row mb-3">
-    <<?php foreach ($kosan as $dataKos) : ?>
+    <?php foreach ($kosan as $dataKos) : ?>
      
     <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
         <div class="card shadow" style="height: 420px;" name="kartu">
@@ -38,5 +38,4 @@
         </div>
     </div>
     <?php endforeach ?>
-    
 </div>
