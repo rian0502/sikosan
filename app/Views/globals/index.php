@@ -12,7 +12,8 @@
     </form>
 </div>
 
-<?= $this->include('dummy_files/dummy_list_kos'); ?>
-<?= $this->include('partials/about'); ?>
+<?= $this->include('globals/landing_page'); ?>
+
+<?= $this->include('globals/about'); ?>
 
 <?= $this->endSection(); ?>

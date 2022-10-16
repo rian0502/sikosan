@@ -23,17 +23,12 @@
                     <div class="carousel-inner">
                         <div class="carousel-item active">
                             <img src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/06/06/1021374220.jpg" style="object-fit: cover; height: 450px;" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>First slide label</h5>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                            </div>
                         </div>
                         <div class="carousel-item">
                             <img src="https://www.uhb.ac.id/uploads/images/dsc052972_1.jpg" style="object-fit: cover; height: 450px;" class="d-block w-100" alt="...">
-                            <div class="carousel-caption d-none d-md-block">
-                                <h5>Second slide label</h5>
-                                <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
-                            </div>
+                        </div>
+                        <div class="carousel-item">
+                            <img src="https://cdn-image.hipwee.com/wp-content/uploads/2019/06/hipwee-54446509_344272106258262_4677517404827874741_n-750x422.jpg" style="object-fit: cover; height: 450px;" class="d-block w-100" alt="...">
                         </div>
                     </div>
                     <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
