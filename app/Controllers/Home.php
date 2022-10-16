@@ -1,13 +1,25 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\KosanModel; //
 
 class Home extends BaseController
 {
-    public function index()
+    protected $ModelKosan;
+    public function __construct()
     {
-        return view('globals/index');
+        $this->ModelKosan = new KosanModel();
+        # code...
     }
+    public function index(){
+        $data_kosan = $this->ModelKosan->getKosan()->getResult();
+        $data = array(
+            'title'=>'Data Kosan',
+            'kosan'=>$data_kosan
+        );
+        return view('globals/index',  $data);
+    }
+
 
     public function about()
     {
