@@ -13,9 +13,8 @@
                 <form action="<?= url_to('reset-password') ?>" method="post">
                     <?= csrf_field(); ?>
 
-
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input  name="password" type="text" class="form-control form-control-xl  <?php if (session('errors.token')) : ?>is-invalid<?php endif ?>" 
+                        <input  name="token" type="text" class="form-control form-control-xl  <?php if (session('errors.token')) : ?>is-invalid<?php endif ?>" 
                             placeholder="Token" value="<?= old('token', $token ?? '') ?>">
                         <div class="form-control-icon">
                             <i class="bi bi-key-fill"></i>
@@ -26,7 +25,7 @@
                     </div>
 
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input  name="password" type="email" class="form-control form-control-xl  <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Email">
+                        <input  name="email" type="email" class="form-control form-control-xl  <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Email">
                         <div class="form-control-icon">
                             <i class="bi bi-person-circle"></i>
                         </div>
@@ -46,7 +45,7 @@
                     </div>
 
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input  name="password" type="password" class="form-control form-control-xl  <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" placeholder="Password Confirmation">
+                        <input  name="pass_confirm" type="password" class="form-control form-control-xl  <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" placeholder="Password Confirmation">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
