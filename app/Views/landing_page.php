@@ -12,6 +12,7 @@
     </form>
 </div>
 
+
 <?= $this->include('dummy_files/dummy_list_kos'); ?>
 <?= $this->include('partials/about'); ?>
 
