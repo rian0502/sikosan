@@ -77,7 +77,7 @@ class Auth extends BaseConfig
         'login'           => 'App\Views\auth\login',
         'register'        => 'App\Views\auth\register',
         'forgot'          => 'App\Views\auth\forgot',
-        'reset'           => 'Myth\Auth\Views\reset',
+        'reset'           => 'App\Views\auth\newPass',
         'emailForgot'     => 'Myth\Auth\Views\emails\forgot',
         'emailActivation' => 'Myth\Auth\Views\emails\activation',
     ];
@@ -189,11 +189,10 @@ class Auth extends BaseConfig
      * @var string|null Name of the ActivatorInterface class
      */
 
-    //public $requireActivation = 'Myth\Auth\Authentication\Activators\EmailActivator';
-    //public $requireActivation = null;
 
-    // public $requireActivation = 'Myth\Auth\Authentication\Activators\EmailActivator';
-    public $requireActivation = null;
+
+    public $requireActivation = 'Myth\Auth\Authentication\Activators\EmailActivator';
+    //public $requireActivation = null;
 
 
     /**
@@ -207,11 +206,9 @@ class Auth extends BaseConfig
      * @var string|null Name of the ResetterInterface class
      */
 
-    //public $activeResetter = 'Myth\Auth\Authentication\Resetters\EmailResetter';
+    public $activeResetter = 'Myth\Auth\Authentication\Resetters\EmailResetter';
     //public $activeResetter = null;
 
-    // public $activeResetter = 'Myth\Auth\Authentication\Resetters\EmailResetter';
-    public $activeResetter = true;
 
 
     /**
