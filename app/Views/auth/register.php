@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input name="password" type="password" class="form-control form-control-xl  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password  autocomplete=" off">
+                        <input name="password" type="password" class="form-control form-control-xl  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password" autocomplete="off">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
@@ -49,13 +49,13 @@
                         </div>
                     </div>
                     <select class="form-select" aria-label="Default select example" name="group_id">
-                        <option value="Owner">Owner</option>
-                        <option value="Customer">Customer</option>
+                        <option value="customer">Customer</option>
+                        <option value="owner">Owner</option>
                     </select>
                     <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
                 </form>
                 <div class="text-center mt-5 text-lg fs-4">
-                    <p class='text-gray-600'>Sudah memiliki akun? <a href="/owner" class="font-bold">Login</a>.</p>
+                    <p class='text-gray-600'>Sudah memiliki akun? <a href=<?= url_to('login') ?> class="font-bold">Login</a>.</p>
                 </div>
             </div>
         </div>

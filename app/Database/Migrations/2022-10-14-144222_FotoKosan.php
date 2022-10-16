@@ -13,14 +13,14 @@ class FotoKosan extends Migration
             'constraint' => 11,
             'unsigned' => true,
         ],
-        'id_photo' => [
+        'id_foto' => [
             'type' => 'INT',
             'constraint' => 11,
             'unsigned' => true,
             'auto_increment' => true,
         ]
     ]);
-    $this->forge->addKey('id_photo', true);
+    $this->forge->addKey('id_foto', true);
     $this->forge->createTable('foto_kosan');
     //
     }
