@@ -4,7 +4,7 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class KosannModel extends Model
+class KosanModel extends Model
 {
     protected $DBGroup          = 'default';
     protected $table            = 'kosan';
