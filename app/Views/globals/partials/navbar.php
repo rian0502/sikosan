@@ -8,9 +8,11 @@
         </button>
         <div class="collapse navbar-collapse ms-auto" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/">Home</a>
-                </li>
+                <?php if (in_groups('owner') || in_groups('customer')) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/">Home</a>
+                    </li>
+                <?php endif; ?>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/#about">About</a>
                 </li>
@@ -23,15 +25,34 @@
                 <?php if (logged_in() === false) : ?>
                     <li class="nav-item">
                         <a href="<?= url_to('login'); ?>" class="btn btn-outline-primary ms-2">
-                            Login
+                            Masuk
                         </a>
                     </li>
                 <?php endif ?>
                 <?php if (logged_in() === true) : ?>
                     <li class="nav-item">
-                        <a href="<?= url_to('logout'); ?>" class="btn btn-outline-primary ms-2">
-                            Logout
-                        </a>
+                        <div class="dropdown">
+                            <div class="row">
+                                <div class="col">
+                                    <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                        <?= user()->namaLengkap; ?>
+                                    </button>
+                                    <ul class="dropdown-menu outline-primary" style="min-width: 100px !important;">
+                                        <?php if (in_groups('owner')) : ?>
+                                            <li><a class="dropdown-item" href="owner/halaman_pemilik">Halaman Pemilik</a></li>
+                                        <?php endif; ?>
+                                        <?php if (in_groups('customer')) : ?>
+                                            <li><a class="dropdown-item" href="owner/halaman_pemilik">Profil</a></li>
+                                        <?php endif; ?>
+                                        <li><a class="dropdown-item" href="<?= url_to('logout'); ?>">Logout</a></li>
+                                    </ul>
+                                </div>
+                                <div class="col">
+                                    <img src="/assets/img/user_logged.png" alt="" style="width: 30px;" class="">
+                                </div>
+                            </div>
+
+                        </div>
                     </li>
                 <?php endif ?>
             </ul>

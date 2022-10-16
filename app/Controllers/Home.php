@@ -28,4 +28,9 @@ class Home extends BaseController
     {
         return view('globals/detail_page');
     }
+
+    // public function owner($halaman)
+    // {
+    //     return view('auth/owner/' . $halaman);
+    // }
 }
