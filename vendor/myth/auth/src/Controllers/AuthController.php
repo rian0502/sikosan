@@ -141,6 +141,7 @@ class AuthController extends Controller
         // get role choice when registration
         $userGroup = $this->request->getPost('group_id');
 
+
         // Check if registration is allowed
         if (!$this->config->allowRegistration) {
             return redirect()->back()->withInput()->with('error', lang('Auth.registerDisabled'));
@@ -148,7 +149,6 @@ class AuthController extends Controller
 
         $users = model(UserModel::class);
         $users->withGroup($userGroup);
-
         // Validate basics first since some password rules rely on these fields
         $rules = config('Validation')->registrationRules ?? [
             'email'    => 'required|valid_email|is_unique[users.email]',
@@ -171,6 +171,7 @@ class AuthController extends Controller
         // Save the user
         $allowedPostFields = array_merge(['password'], $this->config->validFields, $this->config->personalFields);
         $user              = new User($this->request->getPost($allowedPostFields));
+        $defaultUserGroup  = $this->config->defaultUserGroup;
 
         $this->config->requireActivation === null ? $user->activate() : $user->generateActivateHash();
 
