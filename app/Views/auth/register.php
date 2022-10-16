@@ -37,7 +37,7 @@
                     </div>
 
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input name="password" type="password" class="form-control form-control-xl  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password  autocomplete=" off">
+                        <input name="password" type="password" class="form-control form-control-xl  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password" autocomplete="off">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
