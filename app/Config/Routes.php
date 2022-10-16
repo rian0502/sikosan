@@ -35,11 +35,31 @@ $routes->set404Override();
 
 // We get a performance increase by specifying the default
 // route since we don't have to scan directories.
+
+// For user guest, pencari kos, and penyewa kos
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::index');
 $routes->get('/pusatBantuan', 'Home::pusatBantuan');
 $routes->get('/terms', 'Home::terms');
 $routes->get('/detail', 'Home::detail');
+// -------------------------------------------
+
+// For admin
+$routes->get('/admin/data_owner', 'OwnerController::index', ['filter' => 'role:admin']);
+$routes->get('/admin/data_customer', 'CustomerController::index', ['filter' => 'role:admin']);
+$routes->get('/admin/data_kosan', 'KosanController::index', ['filter' => 'role:admin']);
+$routes->get('/admin/data_laporan', 'LaporanController::index', ['filter' => 'role:admin']);
+// -----------------------------------------------------------------------------------------------
+
+// For Penyewa Kos
+$routes->get('/owner/halaman_pemilik', 'OwnerController::halaman_pemilik', ['filter' => 'role:owner']);
+$routes->get('/owner/kosan_anda', 'OwnerController::kosan_anda', ['filter' => 'role:owner']);
+$routes->get('/owner/profil', 'OwnerController::profil', ['filter' => 'role:owner']);
+// ----------------------------------------------------------------------------------------------------
+
+// For Customer / Pencari Kos
+$routes->get('/customer/profil', 'CustomerController::profil', ['filter' => 'role:customer']);
+// --------------------------------------------------------------------------------------------------------
 
 //@yogiandaru98 route testing
 $routes->get('/newpw', function () {
