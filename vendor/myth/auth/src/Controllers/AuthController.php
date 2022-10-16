@@ -148,7 +148,7 @@ class AuthController extends Controller
         }
 
         $users = model(UserModel::class);
-
+        $users->withGroup($userGroup);
         // Validate basics first since some password rules rely on these fields
         $rules = config('Validation')->registrationRules ?? [
             'email'    => 'required|valid_email|is_unique[users.email]',
