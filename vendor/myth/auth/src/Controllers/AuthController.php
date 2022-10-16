@@ -136,10 +136,13 @@ class AuthController extends Controller
     /**
      * Attempt to register a new user.
      */
-    public function attemptRegister()
-    {
+    public function attemptRegister(){
+
         
+
         $this->config->defaultUserGroup = $this->request->getPost('group_id');
+
+
         // Check if registration is allowed
         if (!$this->config->allowRegistration) {
             return redirect()->back()->withInput()->with('error', lang('Auth.registerDisabled'));
