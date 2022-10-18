@@ -61,10 +61,6 @@ $routes->get('/owner/profil', 'OwnerController::profil', ['filter' => 'role:owne
 $routes->get('/customer/profil', 'CustomerController::profil', ['filter' => 'role:customer']);
 // --------------------------------------------------------------------------------------------------------
 
-//@yogiandaru98 route testing
-$routes->get('/newpw', function () {
-    return view('auth/newPass');
-});
 
 /*
  * --------------------------------------------------------------------
