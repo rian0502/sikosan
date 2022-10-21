@@ -3,7 +3,7 @@
 namespace App\Database\Seeds;
 
 use CodeIgniter\Database\Seeder;
-use App\Models\KosannModel;
+use App\Models\KosanModel;
 use Faker\Factory;
 
 class KosanSeed extends Seeder
@@ -11,7 +11,7 @@ class KosanSeed extends Seeder
     public function run()
     {
         $faker = Factory::create('id_ID');
-        $kosan = new KosannModel();
+        $kosan = new KosanModel();
         for ($i = 0; $i <= 8; $i++) {
             $kosan->save(
                 [

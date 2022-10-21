@@ -41,8 +41,8 @@ class Kosan extends Migration
                 'constraint' => 11,
             ],
             'type' => [
-                'type' => 'VARCHAR',
-                'constraint' => '20',
+                'type' => 'ENUM',
+                'constraint' => ['Pria', 'Putri'],
             ],
             'idPemilik' => [
                 'type' => 'INT',
