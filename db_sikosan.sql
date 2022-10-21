@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 16 Okt 2022 pada 14.01
+-- Waktu pembuatan: 21 Okt 2022 pada 15.57
 -- Versi server: 10.4.21-MariaDB
 -- Versi PHP: 8.0.12
 
@@ -175,7 +175,7 @@ CREATE TABLE `kosan` (
   `deskripsi` text DEFAULT NULL,
   `fasilitas` text DEFAULT NULL,
   `harga` int(11) NOT NULL,
-  `type` varchar(20) NOT NULL,
+  `type` enum('Pria','Putri') NOT NULL,
   `idPemilik` int(11) NOT NULL,
   `created_at` datetime DEFAULT NULL,
   `updated_at` datetime DEFAULT NULL,
@@ -217,25 +217,9 @@ CREATE TABLE `migrations` (
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
-(1, '2017-11-20-223112', 'Myth\\Auth\\Database\\Migrations\\CreateAuthTables', 'default', 'Myth\\Auth', 1665753403, 1),
-(2, '2022-10-14-100144', 'App\\Database\\Migrations\\Kost', 'default', 'App', 1665753403, 1),
-(3, '2022-10-14-144222', 'App\\Database\\Migrations\\FotoKosan', 'default', 'App', 1665759308, 2),
-(4, '2022-10-14-150053', 'App\\Database\\Migrations\\Kosan', 'default', 'App', 1665759755, 3),
-(5, '2022-10-14-150527', 'App\\Database\\Migrations\\Kosan', 'default', 'App', 1665759936, 4);
-
--- --------------------------------------------------------
-
---
--- Struktur dari tabel `owner`
---
-
-CREATE TABLE `owner` (
-  `owner_id` int(100) NOT NULL,
-  `display_name` varchar(100) NOT NULL,
-  `number_phone` int(100) NOT NULL,
-  `username` int(100) NOT NULL,
-  `password` int(100) NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
+(16, '2017-11-20-223112', 'Myth\\Auth\\Database\\Migrations\\CreateAuthTables', 'default', 'Myth\\Auth', 1666359947, 1),
+(19, '2022-10-14-150527', 'App\\Database\\Migrations\\Kosan', 'default', 'App', 1666360428, 2),
+(20, '2022-10-14-150528', 'App\\Database\\Migrations\\FotoKosan', 'default', 'App', 1666360428, 2);
 
 -- --------------------------------------------------------
 
@@ -332,7 +316,8 @@ ALTER TABLE `auth_users_permissions`
 -- Indeks untuk tabel `foto_kosan`
 --
 ALTER TABLE `foto_kosan`
-  ADD PRIMARY KEY (`id_foto`);
+  ADD PRIMARY KEY (`id_foto`),
+  ADD KEY `foto_kosan_id_kosan_foreign` (`id_kosan`);
 
 --
 -- Indeks untuk tabel `kosan`
@@ -345,12 +330,6 @@ ALTER TABLE `kosan`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
-
---
--- Indeks untuk tabel `owner`
---
-ALTER TABLE `owner`
-  ADD PRIMARY KEY (`owner_id`);
 
 --
 -- Indeks untuk tabel `users`
@@ -404,7 +383,7 @@ ALTER TABLE `auth_tokens`
 -- AUTO_INCREMENT untuk tabel `foto_kosan`
 --
 ALTER TABLE `foto_kosan`
-  MODIFY `id_foto` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=72;
+  MODIFY `id_foto` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT untuk tabel `kosan`
@@ -416,13 +395,7 @@ ALTER TABLE `kosan`
 -- AUTO_INCREMENT untuk tabel `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
-
---
--- AUTO_INCREMENT untuk tabel `owner`
---
-ALTER TABLE `owner`
-  MODIFY `owner_id` int(100) NOT NULL AUTO_INCREMENT;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- AUTO_INCREMENT untuk tabel `users`
@@ -460,6 +433,12 @@ ALTER TABLE `auth_tokens`
 ALTER TABLE `auth_users_permissions`
   ADD CONSTRAINT `auth_users_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `auth_users_permissions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
+
+--
+-- Ketidakleluasaan untuk tabel `foto_kosan`
+--
+ALTER TABLE `foto_kosan`
+  ADD CONSTRAINT `foto_kosan_id_kosan_foreign` FOREIGN KEY (`id_kosan`) REFERENCES `kosan` (`id_kosan`) ON DELETE CASCADE ON UPDATE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
