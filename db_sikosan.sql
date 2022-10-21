@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.1
+-- version 5.2.0
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Waktu pembuatan: 21 Okt 2022 pada 15.57
--- Versi server: 10.4.21-MariaDB
--- Versi PHP: 8.0.12
+-- Generation Time: Oct 21, 2022 at 07:16 PM
+-- Server version: 10.4.25-MariaDB
+-- PHP Version: 8.1.10
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -24,7 +24,7 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_activation_attempts`
+-- Table structure for table `auth_activation_attempts`
 --
 
 CREATE TABLE `auth_activation_attempts` (
@@ -38,7 +38,7 @@ CREATE TABLE `auth_activation_attempts` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_groups`
+-- Table structure for table `auth_groups`
 --
 
 CREATE TABLE `auth_groups` (
@@ -47,10 +47,19 @@ CREATE TABLE `auth_groups` (
   `description` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
+--
+-- Dumping data for table `auth_groups`
+--
+
+INSERT INTO `auth_groups` (`id`, `name`, `description`) VALUES
+(1, 'admin', 'administrator'),
+(2, 'customer', 'customer'),
+(3, 'owner', 'owner');
+
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_groups_permissions`
+-- Table structure for table `auth_groups_permissions`
 --
 
 CREATE TABLE `auth_groups_permissions` (
@@ -61,7 +70,7 @@ CREATE TABLE `auth_groups_permissions` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_groups_users`
+-- Table structure for table `auth_groups_users`
 --
 
 CREATE TABLE `auth_groups_users` (
@@ -72,7 +81,7 @@ CREATE TABLE `auth_groups_users` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_logins`
+-- Table structure for table `auth_logins`
 --
 
 CREATE TABLE `auth_logins` (
@@ -87,7 +96,7 @@ CREATE TABLE `auth_logins` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_permissions`
+-- Table structure for table `auth_permissions`
 --
 
 CREATE TABLE `auth_permissions` (
@@ -99,7 +108,7 @@ CREATE TABLE `auth_permissions` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_reset_attempts`
+-- Table structure for table `auth_reset_attempts`
 --
 
 CREATE TABLE `auth_reset_attempts` (
@@ -114,7 +123,7 @@ CREATE TABLE `auth_reset_attempts` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_tokens`
+-- Table structure for table `auth_tokens`
 --
 
 CREATE TABLE `auth_tokens` (
@@ -128,7 +137,7 @@ CREATE TABLE `auth_tokens` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `auth_users_permissions`
+-- Table structure for table `auth_users_permissions`
 --
 
 CREATE TABLE `auth_users_permissions` (
@@ -139,32 +148,33 @@ CREATE TABLE `auth_users_permissions` (
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `foto_kosan`
+-- Table structure for table `foto_kosan`
 --
 
 CREATE TABLE `foto_kosan` (
   `id_kosan` int(11) UNSIGNED NOT NULL,
-  `id_foto` int(11) UNSIGNED NOT NULL
+  `id_foto` int(11) UNSIGNED NOT NULL,
+  `nama_foto` varchar(255) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `foto_kosan`
+-- Dumping data for table `foto_kosan`
 --
 
-INSERT INTO `foto_kosan` (`id_kosan`, `id_foto`) VALUES
-(1, 1),
-(2, 2),
-(3, 3),
-(4, 4),
-(5, 5),
-(6, 6),
-(7, 7),
-(8, 8);
+INSERT INTO `foto_kosan` (`id_kosan`, `id_foto`, `nama_foto`) VALUES
+(1, 1, ''),
+(2, 2, ''),
+(3, 3, ''),
+(4, 4, ''),
+(5, 5, ''),
+(6, 6, ''),
+(7, 7, ''),
+(8, 8, '');
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `kosan`
+-- Table structure for table `kosan`
 --
 
 CREATE TABLE `kosan` (
@@ -183,7 +193,7 @@ CREATE TABLE `kosan` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `kosan`
+-- Dumping data for table `kosan`
 --
 
 INSERT INTO `kosan` (`id_kosan`, `namaKost`, `alamat`, `kecamatan`, `deskripsi`, `fasilitas`, `harga`, `type`, `idPemilik`, `created_at`, `updated_at`, `deleted_at`) VALUES
@@ -199,7 +209,7 @@ INSERT INTO `kosan` (`id_kosan`, `namaKost`, `alamat`, `kecamatan`, `deskripsi`,
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `migrations`
+-- Table structure for table `migrations`
 --
 
 CREATE TABLE `migrations` (
@@ -213,18 +223,18 @@ CREATE TABLE `migrations` (
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
--- Dumping data untuk tabel `migrations`
+-- Dumping data for table `migrations`
 --
 
 INSERT INTO `migrations` (`id`, `version`, `class`, `group`, `namespace`, `time`, `batch`) VALUES
-(16, '2017-11-20-223112', 'Myth\\Auth\\Database\\Migrations\\CreateAuthTables', 'default', 'Myth\\Auth', 1666359947, 1),
-(19, '2022-10-14-150527', 'App\\Database\\Migrations\\Kosan', 'default', 'App', 1666360428, 2),
-(20, '2022-10-14-150528', 'App\\Database\\Migrations\\FotoKosan', 'default', 'App', 1666360428, 2);
+(1, '2017-11-20-223112', 'Myth\\Auth\\Database\\Migrations\\CreateAuthTables', 'default', 'Myth\\Auth', 1666361438, 1),
+(2, '2022-10-14-150527', 'App\\Database\\Migrations\\Kosan', 'default', 'App', 1666361438, 1),
+(3, '2022-10-14-150528', 'App\\Database\\Migrations\\FotoKosan', 'default', 'App', 1666361438, 1);
 
 -- --------------------------------------------------------
 
 --
--- Struktur dari tabel `users`
+-- Table structure for table `users`
 --
 
 CREATE TABLE `users` (
@@ -252,33 +262,33 @@ CREATE TABLE `users` (
 --
 
 --
--- Indeks untuk tabel `auth_activation_attempts`
+-- Indexes for table `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `auth_groups`
+-- Indexes for table `auth_groups`
 --
 ALTER TABLE `auth_groups`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `auth_groups_permissions`
+-- Indexes for table `auth_groups_permissions`
 --
 ALTER TABLE `auth_groups_permissions`
   ADD KEY `auth_groups_permissions_permission_id_foreign` (`permission_id`),
   ADD KEY `group_id_permission_id` (`group_id`,`permission_id`);
 
 --
--- Indeks untuk tabel `auth_groups_users`
+-- Indexes for table `auth_groups_users`
 --
 ALTER TABLE `auth_groups_users`
   ADD KEY `auth_groups_users_user_id_foreign` (`user_id`),
   ADD KEY `group_id_user_id` (`group_id`,`user_id`);
 
 --
--- Indeks untuk tabel `auth_logins`
+-- Indexes for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
   ADD PRIMARY KEY (`id`),
@@ -286,19 +296,19 @@ ALTER TABLE `auth_logins`
   ADD KEY `user_id` (`user_id`);
 
 --
--- Indeks untuk tabel `auth_permissions`
+-- Indexes for table `auth_permissions`
 --
 ALTER TABLE `auth_permissions`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `auth_reset_attempts`
+-- Indexes for table `auth_reset_attempts`
 --
 ALTER TABLE `auth_reset_attempts`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `auth_tokens`
+-- Indexes for table `auth_tokens`
 --
 ALTER TABLE `auth_tokens`
   ADD PRIMARY KEY (`id`),
@@ -306,33 +316,33 @@ ALTER TABLE `auth_tokens`
   ADD KEY `selector` (`selector`);
 
 --
--- Indeks untuk tabel `auth_users_permissions`
+-- Indexes for table `auth_users_permissions`
 --
 ALTER TABLE `auth_users_permissions`
   ADD KEY `auth_users_permissions_permission_id_foreign` (`permission_id`),
   ADD KEY `user_id_permission_id` (`user_id`,`permission_id`);
 
 --
--- Indeks untuk tabel `foto_kosan`
+-- Indexes for table `foto_kosan`
 --
 ALTER TABLE `foto_kosan`
   ADD PRIMARY KEY (`id_foto`),
   ADD KEY `foto_kosan_id_kosan_foreign` (`id_kosan`);
 
 --
--- Indeks untuk tabel `kosan`
+-- Indexes for table `kosan`
 --
 ALTER TABLE `kosan`
   ADD PRIMARY KEY (`id_kosan`);
 
 --
--- Indeks untuk tabel `migrations`
+-- Indexes for table `migrations`
 --
 ALTER TABLE `migrations`
   ADD PRIMARY KEY (`id`);
 
 --
--- Indeks untuk tabel `users`
+-- Indexes for table `users`
 --
 ALTER TABLE `users`
   ADD PRIMARY KEY (`id`),
@@ -340,102 +350,102 @@ ALTER TABLE `users`
   ADD UNIQUE KEY `username` (`username`);
 
 --
--- AUTO_INCREMENT untuk tabel yang dibuang
+-- AUTO_INCREMENT for dumped tables
 --
 
 --
--- AUTO_INCREMENT untuk tabel `auth_activation_attempts`
+-- AUTO_INCREMENT for table `auth_activation_attempts`
 --
 ALTER TABLE `auth_activation_attempts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_groups`
+-- AUTO_INCREMENT for table `auth_groups`
 --
 ALTER TABLE `auth_groups`
-  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
+  MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_logins`
+-- AUTO_INCREMENT for table `auth_logins`
 --
 ALTER TABLE `auth_logins`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_permissions`
+-- AUTO_INCREMENT for table `auth_permissions`
 --
 ALTER TABLE `auth_permissions`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_reset_attempts`
+-- AUTO_INCREMENT for table `auth_reset_attempts`
 --
 ALTER TABLE `auth_reset_attempts`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `auth_tokens`
+-- AUTO_INCREMENT for table `auth_tokens`
 --
 ALTER TABLE `auth_tokens`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- AUTO_INCREMENT untuk tabel `foto_kosan`
+-- AUTO_INCREMENT for table `foto_kosan`
 --
 ALTER TABLE `foto_kosan`
   MODIFY `id_foto` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
--- AUTO_INCREMENT untuk tabel `kosan`
+-- AUTO_INCREMENT for table `kosan`
 --
 ALTER TABLE `kosan`
-  MODIFY `id_kosan` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
+  MODIFY `id_kosan` int(11) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
--- AUTO_INCREMENT untuk tabel `migrations`
+-- AUTO_INCREMENT for table `migrations`
 --
 ALTER TABLE `migrations`
-  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
+  MODIFY `id` bigint(20) UNSIGNED NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
--- AUTO_INCREMENT untuk tabel `users`
+-- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
   MODIFY `id` int(11) UNSIGNED NOT NULL AUTO_INCREMENT;
 
 --
--- Ketidakleluasaan untuk tabel pelimpahan (Dumped Tables)
+-- Constraints for dumped tables
 --
 
 --
--- Ketidakleluasaan untuk tabel `auth_groups_permissions`
+-- Constraints for table `auth_groups_permissions`
 --
 ALTER TABLE `auth_groups_permissions`
   ADD CONSTRAINT `auth_groups_permissions_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `auth_groups` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `auth_groups_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `auth_groups_users`
+-- Constraints for table `auth_groups_users`
 --
 ALTER TABLE `auth_groups_users`
   ADD CONSTRAINT `auth_groups_users_group_id_foreign` FOREIGN KEY (`group_id`) REFERENCES `auth_groups` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `auth_groups_users_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `auth_tokens`
+-- Constraints for table `auth_tokens`
 --
 ALTER TABLE `auth_tokens`
   ADD CONSTRAINT `auth_tokens_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `auth_users_permissions`
+-- Constraints for table `auth_users_permissions`
 --
 ALTER TABLE `auth_users_permissions`
   ADD CONSTRAINT `auth_users_permissions_permission_id_foreign` FOREIGN KEY (`permission_id`) REFERENCES `auth_permissions` (`id`) ON DELETE CASCADE,
   ADD CONSTRAINT `auth_users_permissions_user_id_foreign` FOREIGN KEY (`user_id`) REFERENCES `users` (`id`) ON DELETE CASCADE;
 
 --
--- Ketidakleluasaan untuk tabel `foto_kosan`
+-- Constraints for table `foto_kosan`
 --
 ALTER TABLE `foto_kosan`
   ADD CONSTRAINT `foto_kosan_id_kosan_foreign` FOREIGN KEY (`id_kosan`) REFERENCES `kosan` (`id_kosan`) ON DELETE CASCADE ON UPDATE CASCADE;
