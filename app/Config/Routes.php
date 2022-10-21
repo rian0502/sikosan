@@ -61,6 +61,8 @@ $routes->get('/owner/profil', 'OwnerController::profil', ['filter' => 'role:owne
 $routes->get('/customer/profil', 'CustomerController::profil', ['filter' => 'role:customer']);
 // --------------------------------------------------------------------------------------------------------
 
+// $routes->get('/dummy_test/(:any)', 'KosanController::edit/$1');
+
 
 /*
  * --------------------------------------------------------------------
