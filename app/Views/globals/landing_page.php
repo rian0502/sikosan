@@ -33,7 +33,7 @@
                 </div>
                 <h5 class="card-title mt-2"><?= $dataKos->namaKost ?></h5>
                 <p class="card-text"><?= $dataKos->alamat?>.</p>
-                <a href="/detail" class="btn btn-outline-success">Detail</a>
+                <a href="/detail" class="btn btn-outline-primary">Detail</a>
             </div>
         </div>
     </div>
