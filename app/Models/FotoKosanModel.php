@@ -14,6 +14,6 @@ class FotoKosanModel extends Model
     // protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'id_kosan'
+        'id_kosan', 'nama_foto'
     ];
 }

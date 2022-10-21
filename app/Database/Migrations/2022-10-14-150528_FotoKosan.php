@@ -19,6 +19,10 @@ class FotoKosan extends Migration
                 'constraint' => 11,
                 'unsigned' => true,
                 'auto_increment' => true,
+            ],
+            'nama_foto' => [
+                'type' => 'VARCHAR',
+                'constraint' => 255,
             ]
         ]);
         $this->forge->addKey('id_foto', true);
