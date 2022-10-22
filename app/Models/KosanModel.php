@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use CodeIgniter\Database\Query;
 use CodeIgniter\Model;
 
 class KosanModel extends Model
@@ -42,7 +41,7 @@ class KosanModel extends Model
     public function getAllKosan()
     {
         $queryKosan = $this->db->table('kosan')
-            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')
+            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->groupBy('kosan.id_kosan')
             ->get();
         return $queryKosan;
     }
