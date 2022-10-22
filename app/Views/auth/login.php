@@ -36,8 +36,8 @@
                     <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Log in</button>
                 </form>
                 <div class="text-center mt-5 text-lg fs-4">
-                    <p class="text-gray-600">Tidak mempunyai akun? <a href="<?= url_to('register') ?>" class="font-bold">Daftar</a>.</p>
-                    <p><a class="font-bold" href="<?= url_to('forgot') ?>">Lupa Password?</a>.</p>
+                    <p class="text-gray-600">Tidak mempunyai akun? <a href="<?= url_to('register') ?>" class="font-bold text-decoration-none">Daftar</a>.</p>
+                    <p><a class="font-bold text-decoration-none" href="<?= url_to('forgot') ?>">Lupa Password?</a>.</p>
                 </div>
             </div>
         </div>

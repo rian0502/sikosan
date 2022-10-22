@@ -26,8 +26,10 @@ class KosanModel extends Model
         'idPemilik',
         'created_at',
         'updated_at',
-        'deleted_at'
+        'deleted_at',
+        'kota'
     ];
+
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
@@ -35,13 +37,17 @@ class KosanModel extends Model
     protected $updatedField  = 'updated_at';
     // protected $deletedField  = 'deleted_at';
 
-    public function getKosan()  
+    public function getKosan($id = false)
     {
-        $queryKosan = $this->db->table('kosan')
-        ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')
-        ->get();
-        return $queryKosan;
-        
-    }
+        if ($id == false) {
+            $queryKosan = $this->db->table('kosan')
+                ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')
+                ->get();
+            return $queryKosan;
+        }
 
+        $queryKosan = $this->db->table('kosan')
+            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->getWhere(['kosan.id_kosan' => $id])->getFirstRow();
+        return $queryKosan;
+    }
 }
