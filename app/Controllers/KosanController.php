@@ -30,11 +30,12 @@ class KosanController extends BaseController
     }
 
     public function save()
-    {   
-        $data = [
+    {
+        // Ambil data kosan dari input
+        $data_kosan = [
             'namaKost' => $this->request->getVar('namaKost'),
             'alamat' => $this->request->getVar('alamat'),
-            'kecamatan' => $this->request->getVar('kecamatan'),
+            'kota' => $this->request->getVar('kota'),
             'deskripsi' => $this->request->getVar('deskripsi'),
             'fasilitas' => $this->request->getVar('fasilitas'),
             'harga' => $this->request->getVar('harga'),
@@ -43,6 +44,8 @@ class KosanController extends BaseController
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ];
+
+        // validasi data kosan
         $validated = [
             'namaKost' => [
                 'rules' => 'required|min_length[5]|max_length[50]',
@@ -52,7 +55,6 @@ class KosanController extends BaseController
                     'max_length' => 'Nama kosan maksimal 50 karakter',
                 ]
             ],
-         
             'alamat' => [
                 'rules' => 'required|min_length[5]',
                 'errors' => [
@@ -60,7 +62,6 @@ class KosanController extends BaseController
                     'min_length' => 'Alamat kosan minimal 5 karakter',
                 ]
             ],
-
             'kota' => [
                 'rules' => 'required|inlist[Lampung Barat,Tanggamus,Lampung Selatan,Lampung Timur,Lampung Tengah,Lampung Utara,Way Kanan,Pesawaran,Tulang Bawang Barat,Tulang Bawang,Pesisir Barat,Bandar Lampung,Metro]',
                 'errors' => [
@@ -68,7 +69,6 @@ class KosanController extends BaseController
                     'inlist' => 'Kota/Kabupaten kosan harus dipilih dengan benar',
                 ]
             ],
-
             'deskripsi' => [
                 'rules' => 'required|min_length[5]',
                 'errors' => [
@@ -97,46 +97,57 @@ class KosanController extends BaseController
                 ]
             ],
         ];
+
+        // jika validasi error
         if (!$validated) {
             return redirect()->to('/onlyOwners/create')->withInput();
         }
+
+        // Insert data kosan ke database
+        $this->kosanModel->insert($data_kosan);
+
+        // mengambil id kosan yang baru saja diinputkan
         $idKosanInsert = $this->kosanModel->getInsertID();
 
+        // Mengambil data foto kosan dari input form
         $foto_1 = $this->request->getFile('foto_1');
         $name_foto1 = $foto_1->getRandomName();
         $foto_2 = $this->request->getFile('foto_2');
-        $name_foto2 = $foto_2->getRandomName();
         $foto_3 = $this->request->getFile('foto_3');
-        $name_foto3 = $foto_3->getRandomName();
 
-        $data = [
+        $data_foto_kosan = [
             'id_kosan' => $idKosanInsert,
             'nama_foto' => $name_foto1,
         ];
-        $this->fotoKosanModel->insert($data);
-        $foto_1->move(WRITEPATH . '../public/foto_kosan',$name_foto1);
-        if ($foto_2 !== null) {
-            $data = [
+
+        $this->fotoKosanModel->insert($data_foto_kosan);
+
+        // Memindahkan foto kosan ke local storage
+        $foto_1->move(WRITEPATH . '../public/foto_kosan', $name_foto1);
+
+        if ($foto_2->getName() !== '') {
+            $name_foto2 = $foto_2->getRandomName();
+            $data_foto_kosan = [
                 'id_kosan' => $idKosanInsert,
-                'nama_foto' => $foto_2->getName(),
+                'nama_foto' => $name_foto2,
             ];
 
-            $this->fotoKosanModel->insert($data);
+            $this->fotoKosanModel->insert($data_foto_kosan);
 
-            $foto_2->move(WRITEPATH . '../public/foto_kosan/');
+            $foto_2->move(WRITEPATH . '../public/foto_kosan', $name_foto2);
         }
 
-        if ($foto_2 !== null) {
-            $data = [
+        if ($foto_3->getName() !== '') {
+            $name_foto3 = $foto_3->getRandomName();
+            $data_foto_kosan = [
                 'id_kosan' => $idKosanInsert,
-                'nama_foto' => $foto_3->getName(),
+                'nama_foto' => $name_foto3,
             ];
-
-            $this->fotoKosanModel->insert($data);
-            $foto_3->move(WRITEPATH . '../public/foto_kosan/');
+            $this->fotoKosanModel->insert($data_foto_kosan);
+            $foto_3->move(WRITEPATH . '../public/foto_kosan', $name_foto3);
         }
 
-        return redirect()->to('auth/owner/kosan_anda_page');
+        return redirect()->to('/owner/kosan_anda');
     }
 
     public function delete($id_kosan)

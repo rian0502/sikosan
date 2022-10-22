@@ -54,6 +54,8 @@ $routes->get('/admin/data_laporan', 'LaporanController::index', ['filter' => 'ro
 // For Penyewa Kos
 $routes->get('/owner/halaman_pemilik', 'OwnerController::halaman_pemilik', ['filter' => 'role:owner']);
 $routes->get('/owner/kosan_anda', 'OwnerController::kosan_anda', ['filter' => 'role:owner']);
+$routes->get('/owner/tambah_kosan', 'KosanController::create', ['filter' => 'role:owner']);
+$routes->post('/owner/save_kosan', 'KosanController::save', ['filter' => 'role:owner']);
 $routes->get('/owner/profil', 'OwnerController::profil', ['filter' => 'role:owner']);
 // ----------------------------------------------------------------------------------------------------
 
@@ -61,14 +63,11 @@ $routes->get('/owner/profil', 'OwnerController::profil', ['filter' => 'role:owne
 $routes->get('/customer/profil', 'CustomerController::profil', ['filter' => 'role:customer']);
 // --------------------------------------------------------------------------------------------------------
 
-// $routes->get('/dummy_test/(:any)', 'KosanController::edit/$1');
-
 // save testing method
-$routes->post('/dummy_test', 'KosanController::save');
-$routes->get('/creat_dummy',function()
-{
-    return view('onlyOwners/create');
-});
+// $routes->post('/dummy_test', 'KosanController::save');
+// $routes->get('/creat_dummy', function () {
+//     return view('onlyOwners/create');
+// });
 
 
 /*
