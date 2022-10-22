@@ -1,3 +1,7 @@
+<?= $this->extend('templates/sidebar_menu'); ?>
+
+<?= $this->section('content'); ?>
+
 <a href="/owner/tambah_kosan">Tambah Data Kosan</a>
 <br>
 <a href="/">Home</a>
@@ -22,3 +26,6 @@
         </form>
     </ul>
 <?php endforeach; ?>
+
+
+<?= $this->endSection(); ?>
