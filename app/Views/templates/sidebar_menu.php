@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Mazer Admin Dashboard</title>
+    <title><?= $title ?></title>
 
     <link rel="stylesheet" href="/adminTemplate/assets/css/main/app.css">
     <link rel="stylesheet" href="/adminTemplate/assets/css/main/app-dark.css">
@@ -56,8 +56,7 @@
                                     <img src="/adminTemplate/assets/images/faces/1.jpg" alt="Face 1">
                                 </div>
                                 <div class="ms-3 name">
-                                    <h5 class="font-bold">Sugeng</h5>
-                                    <h6 class="text-muted mb-0">@admin1</h6>
+                                    <h5 class="font-bold"><?= user()->namaLengkap ?></h5>
                                 </div>
                             </div>
                         </div>
@@ -442,16 +441,16 @@
                     <i class="bi bi-justify fs-3"></i>
                 </a>
             </header>
-
+            <?= $this->renderSection('content'); ?>
 
 
             <footer>
                 <div class="footer clearfix mb-0 text-muted">
                     <div class="float-start">
-                        <p>2021 &copy; Mazer</p>
+                        <p>2022 &copy; SIKOSAN</p>
                     </div>
                     <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i class="bi bi-heart"></i></span> by <a href="https://saugi.me">Saugi</a></p>
+                        <p>Crafted with <span class="text-danger"><i></i></span> by <a href="https://saugi.me">SIKOSAN</a></p>
                     </div>
                 </div>
             </footer>
