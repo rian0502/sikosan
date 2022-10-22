@@ -10,7 +10,8 @@
 
 <body>
     <div class="container">
-        <form action="/dummy_test" method="POST" enctype="multipart/form-data">
+        <form action="<?= base_url('/dodo'); ?>" method="POST" enctype="multipart/form-data">
+            <?= csrf_field(); ?>
 
             <div class="mb-3">
                 <label for="namaKost" class="form-label">Nama Kostan Anda</label>
@@ -33,11 +34,11 @@
             </div>
             <div class="mb-3">
                 <label for="foto" class="form-label">Foto</label>
-                <input name="foto_1" type="file" class="form-control" id="foto">
+                <input name="foto_2" type="file" class="form-control" id="foto">
             </div>
             <div class="mb-3">
                 <label for="foto" class="form-label">Foto</label>
-                <input name="foto_1" type="file" class="form-control" id="foto">
+                <input name="foto_3" type="file" class="form-control" id="foto">
             </div>
             <button type="submit" class="btn btn-primary">Submit</button>
         </form>

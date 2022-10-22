@@ -31,10 +31,11 @@ class KosanController extends BaseController
 
     public function save()
     {   
+
         $data = [
             'namaKost' => $this->request->getVar('namaKost'),
             'alamat' => $this->request->getVar('alamat'),
-            'kecamatan' => $this->request->getVar('kecamatan'),
+            'kota' => $this->request->getVar('kota'),
             'deskripsi' => $this->request->getVar('deskripsi'),
             'fasilitas' => $this->request->getVar('fasilitas'),
             'harga' => $this->request->getVar('harga'),
@@ -105,9 +106,7 @@ class KosanController extends BaseController
         $foto_1 = $this->request->getFile('foto_1');
         $name_foto1 = $foto_1->getRandomName();
         $foto_2 = $this->request->getFile('foto_2');
-        $name_foto2 = $foto_2->getRandomName();
         $foto_3 = $this->request->getFile('foto_3');
-        $name_foto3 = $foto_3->getRandomName();
 
         $data = [
             'id_kosan' => $idKosanInsert,
