@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Controllers\BaseController;
+use App\Models\KosanModel;
 
 class OwnerController extends BaseController
 {
@@ -19,7 +20,15 @@ class OwnerController extends BaseController
 
     public function kosan_anda()
     {
-        return view('auth/owner/kosan_anda_page');
+        $kosanModel = new KosanModel();
+        $kosan = $kosanModel->getKosanByIdUser();
+
+        $data = [
+            'title' => 'Kosan Anda | Owner',
+            'kosan' => $kosan
+        ];
+
+        return view('auth/owner/kosan_anda_page', $data);
     }
 
     public function profil()

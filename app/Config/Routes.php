@@ -56,6 +56,7 @@ $routes->get('/owner/halaman_pemilik', 'OwnerController::halaman_pemilik', ['fil
 $routes->get('/owner/kosan_anda', 'OwnerController::kosan_anda', ['filter' => 'role:owner']);
 $routes->get('/owner/tambah_kosan', 'KosanController::create', ['filter' => 'role:owner']);
 $routes->post('/owner/save_kosan', 'KosanController::save', ['filter' => 'role:owner']);
+$routes->delete('/owner/delete_kosan/(:any)', 'KosanController::delete/$1', ['filter' => 'role:owner']);
 $routes->get('/owner/profil', 'OwnerController::profil', ['filter' => 'role:owner']);
 // ----------------------------------------------------------------------------------------------------
 
