@@ -26,8 +26,10 @@ class KosanModel extends Model
         'idPemilik',
         'created_at',
         'updated_at',
-        'deleted_at'
+        'deleted_at',
+        'kota'
     ];
+
     // Dates
     protected $useTimestamps = true;
     protected $dateFormat    = 'datetime';
