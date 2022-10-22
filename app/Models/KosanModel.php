@@ -2,6 +2,7 @@
 
 namespace App\Models;
 
+use CodeIgniter\Database\Query;
 use CodeIgniter\Model;
 
 class KosanModel extends Model
@@ -37,17 +38,30 @@ class KosanModel extends Model
     protected $updatedField  = 'updated_at';
     // protected $deletedField  = 'deleted_at';
 
-    public function getKosan($id = false)
+    // Ambil semua data kosan
+    public function getAllKosan()
     {
-        if ($id == false) {
-            $queryKosan = $this->db->table('kosan')
-                ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')
-                ->get();
-            return $queryKosan;
-        }
-
         $queryKosan = $this->db->table('kosan')
-            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->getWhere(['kosan.id_kosan' => $id])->getFirstRow();
+            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')
+            ->get();
+        return $queryKosan;
+    }
+
+    // Ambil kosan berdasarkan id user
+    public function getKosanByIdUser()
+    {
+        $query = $this->db->table($this->table)
+            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')
+            ->getWhere(['kosan.idPemilik' => user_id()])->getResult();
+        return $query;
+        // dd($query->getResult());
+    }
+
+    // Ambil data kosan berdasarkan id kosan
+    public function getKosanByIdKosan($id_kosan)
+    {
+        $queryKosan = $this->db->table('kosan')
+            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->getWhere(['kosan.id_kosan' => $id_kosan])->getFirstRow();
         return $queryKosan;
     }
 }

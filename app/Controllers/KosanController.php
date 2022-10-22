@@ -9,17 +9,20 @@ use App\Models\KosanModel;
 class KosanController extends BaseController
 {
 
+    // CONSTRUCTOR
     public function __construct()
     {
         $this->kosanModel = new KosanModel();
         $this->fotoKosanModel = new FotoKosanModel();
     }
 
+    // INDEX
     public function index()
     {
         return view('auth/admin/data_kosan_page');
     }
 
+    // CREATE DATA KOSAN
     public function create()
     {
         $data = [
@@ -29,6 +32,7 @@ class KosanController extends BaseController
         return view('auth/owner/tambah_kosan_page', $data);
     }
 
+    // SAVE CREATE DATA KOSAN
     public function save()
     {
         // Ambil data kosan dari input
@@ -150,13 +154,15 @@ class KosanController extends BaseController
         return redirect()->to('/owner/kosan_anda');
     }
 
+    // DELETE DATA KOSAN
     public function delete($id_kosan)
     {
-        $this->fotoKosanModel->delete($id_kosan);
+        $this->kosanModel->delete($id_kosan);
 
-        return redirect()->to('auth/owner/kosan_anda_page');
+        return redirect()->to('/owner/kosan_anda');
     }
 
+    // EDIT DATA KOSAN
     public function edit($id_kosan)
     {
         $data = [
@@ -167,6 +173,7 @@ class KosanController extends BaseController
         return view('auth/owner/edit_kosan', $data);
     }
 
+    // UPDATE EDITED DATA KOSAN
     public function update($id_kosan)
     {
     }
