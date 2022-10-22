@@ -14,7 +14,7 @@ class Home extends BaseController
     }
     public function index()
     {
-        $data_kosan = $this->ModelKosan->getKosan()->getResult();
+        $data_kosan = $this->ModelKosan->getAllKosan()->getResult();
         $data = array(
             'title' => 'Data Kosan',
             'kosan' => $data_kosan
