@@ -45,10 +45,6 @@ class KosanModel extends Model
             ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')
             ->get();
         return $queryKosan;
-
-        // $queryKosan = $this->db->table('kosan')
-        //     ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->getWhere(['kosan.id_kosan' => $id])->getFirstRow();
-        // return $queryKosan;
     }
 
     // Ambil kosan berdasarkan id user
@@ -59,5 +55,13 @@ class KosanModel extends Model
             ->getWhere(['kosan.idPemilik' => user_id()])->getResult();
         return $query;
         // dd($query->getResult());
+    }
+
+    // Ambil data kosan berdasarkan id kosan
+    public function getKosanByIdKosan($id_kosan)
+    {
+        $queryKosan = $this->db->table('kosan')
+            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->getWhere(['kosan.id_kosan' => $id_kosan])->getFirstRow();
+        return $queryKosan;
     }
 }

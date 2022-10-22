@@ -12,7 +12,9 @@
         <li>Fasilitas : <?= $kos->fasilitas ?></li>
         <li>Harga : <?= $kos->harga ?></li>
         <li>Tipe : <?= $kos->type ?></li>
-        <li>ID : <?= $kos->id_kosan ?></li>
+        <li>
+            <a href="/owner/detail_kosan_anda/<?= $kos->id_kosan; ?>; ?>" class="btn btn-success">Detail</a>
+        </li>
         <form action="/owner/delete_kosan/<?= $kos->id_kosan; ?>" method="post">
             <?= csrf_field() ?>
             <input type="hidden" name="_method" value="DELETE">
