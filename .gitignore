@@ -110,7 +110,7 @@ nbdist/
 nbactions.xml
 nb-configuration.xml
 .nb-gradle/
-
+public/foto_kosan
 # Sublime Text
 *.tmlanguage.cache
 *.tmPreferences.cache
