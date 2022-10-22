@@ -14,20 +14,20 @@
                 <form action="<?= url_to('login') ?>" method="post">
                     <?= csrf_field(); ?>
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input type="text" name="login" class="form-control form-control-xl <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" placeholder="E-mail">
                         <div class="form-control-icon">
                             <i class="bi bi-person"></i>
                         </div>
+                            <input type="text" name="login" class="form-control form-control-xl <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" placeholder="E-mail">
                         <div class="invalid-feedback">
                             <?= session('errors.login') ?>
                         </div>
                     </div>
 
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input name="password" type="password" class="form-control form-control-xl  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
+                        <input name="password" type="password" class="form-control form-control-xl  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="Password">
                         <div class="invalid-feedback">
                             <?= session('errors.password') ?>
                         </div>

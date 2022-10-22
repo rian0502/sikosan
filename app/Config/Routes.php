@@ -62,8 +62,8 @@ $routes->get('/customer/profil', 'CustomerController::profil', ['filter' => 'rol
 // --------------------------------------------------------------------------------------------------------
 
 //@yogiandaru98 route testing
-$routes->get('/newpw', function () {
-    return view('auth/newPass');
+$routes->get('/sidebar_menu', function () {
+    return view('templates/sidebar_menu');
 });
 
 /*
