@@ -450,7 +450,7 @@
                         <p>2022 &copy; SIKOSAN</p>
                     </div>
                     <div class="float-end">
-                        <p>Crafted with <span class="text-danger"><i></i></span> by <a href="https://saugi.me">SIKOSAN</a></p>
+                        <p>Crafted with <span class="text-danger"><i></i></span> by SIKOSAN</p>
                     </div>
                 </div>
             </footer>
@@ -458,11 +458,29 @@
     </div>
     <script src="/adminTemplate/assets/js/bootstrap.js"></script>
     <script src="/adminTemplate/assets/js/app.js"></script>
-
+    <script src="/jquery/jquery.min.js"></script>
     <!-- Need: Apexcharts -->
     <script src="/adminTemplate/assets/extensions/apexcharts/apexcharts.min.js"></script>
     <script src="/adminTemplate/assets/js/pages/dashboard.js"></script>
+    <script>
+    $.ajax({
+        type: "GET",
+        url: "http://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=18",
+        crossDomain: true,
+        dataType: "json",
+        success: function(response) {
+            for (let i = 0; i < response['kota_kabupaten'].length; i++) {
+                var element = response['kota_kabupaten'][i]['nama'];
+                element = element.split(" ");
+                element.shift();
+                element = element.join(" ");
+                $('#nama_kota').append('<option value="' + element + '">' + response['kota_kabupaten'][i]['nama'] + '</option>');
+            }
 
+        }
+    });
+    
+</script>
 </body>
 
 </html>
