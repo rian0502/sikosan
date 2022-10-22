@@ -63,6 +63,13 @@ $routes->get('/customer/profil', 'CustomerController::profil', ['filter' => 'rol
 
 // $routes->get('/dummy_test/(:any)', 'KosanController::edit/$1');
 
+// save testing method
+$routes->post('/dummy_test', 'KosanController::save');
+$routes->get('/creat_dummy',function()
+{
+    return view('onlyOwners/create');
+});
+
 
 /*
  * --------------------------------------------------------------------

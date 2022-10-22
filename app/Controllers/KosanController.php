@@ -30,8 +30,8 @@ class KosanController extends BaseController
     }
 
     public function save()
-    {
-        $this->kosanModel->save([
+    {   
+        $data = [
             'namaKost' => $this->request->getVar('namaKost'),
             'alamat' => $this->request->getVar('alamat'),
             'kecamatan' => $this->request->getVar('kecamatan'),
@@ -42,23 +42,79 @@ class KosanController extends BaseController
             'idPemilik' => user_id(),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
-        ]);
+        ];
+        $validated = [
+            'namaKost' => [
+                'rules' => 'required|min_length[5]|max_length[50]',
+                'errors' => [
+                    'required' => 'Nama kosan harus diisi',
+                    'min_length' => 'Nama kosan minimal 5 karakter',
+                    'max_length' => 'Nama kosan maksimal 50 karakter',
+                ]
+            ],
+         
+            'alamat' => [
+                'rules' => 'required|min_length[5]',
+                'errors' => [
+                    'required' => 'Alamat kosan harus diisi',
+                    'min_length' => 'Alamat kosan minimal 5 karakter',
+                ]
+            ],
 
+            'kota' => [
+                'rules' => 'required|inlist[Lampung Barat,Tanggamus,Lampung Selatan,Lampung Timur,Lampung Tengah,Lampung Utara,Way Kanan,Pesawaran,Tulang Bawang Barat,Tulang Bawang,Pesisir Barat,Bandar Lampung,Metro]',
+                'errors' => [
+                    'required' => 'Kecamatan kosan harus diisi',
+                    'inlist' => 'Kota/Kabupaten kosan harus dipilih dengan benar',
+                ]
+            ],
+
+            'deskripsi' => [
+                'rules' => 'required|min_length[5]',
+                'errors' => [
+                    'required' => 'Deskripsi kosan harus diisi',
+                    'min_length' => 'Deskripsi kosan minimal 5 karakter',
+                ]
+            ],
+            'fasilitas' => [
+                'rules' => 'required',
+                'errors' => [
+                    'required' => 'Fasilitas kosan harus diisi',
+                ]
+            ],
+            'harga' => [
+                'rules' => 'required|numeric',
+                'errors' => [
+                    'required' => 'Harga kosan harus diisi',
+                    'numeric' => 'Harga kosan harus berupa angka',
+                ]
+            ],
+            'type' => [
+                'rules' => 'required|inlist[Putra,Putri]',
+                'errors' => [
+                    'required' => 'Type kosan harus diisi',
+                    'inlist' => 'Type kosan harus dipilih dengan benar',
+                ]
+            ],
+        ];
+        if (!$validated) {
+            return redirect()->to('/onlyOwners/create')->withInput();
+        }
         $idKosanInsert = $this->kosanModel->getInsertID();
 
         $foto_1 = $this->request->getFile('foto_1');
+        $name_foto1 = $foto_1->getRandomName();
         $foto_2 = $this->request->getFile('foto_2');
+        $name_foto2 = $foto_2->getRandomName();
         $foto_3 = $this->request->getFile('foto_3');
+        $name_foto3 = $foto_3->getRandomName();
 
         $data = [
             'id_kosan' => $idKosanInsert,
-            'nama_foto' => $foto_1->getName(),
+            'nama_foto' => $name_foto1,
         ];
-
         $this->fotoKosanModel->insert($data);
-
-        $foto_1->move(WRITEPATH . '../public/foto_kosan/');
-
+        $foto_1->move(WRITEPATH . '../public/foto_kosan',$name_foto1);
         if ($foto_2 !== null) {
             $data = [
                 'id_kosan' => $idKosanInsert,
