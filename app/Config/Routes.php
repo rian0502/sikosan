@@ -64,9 +64,12 @@ $routes->get('/customer/profil', 'CustomerController::profil', ['filter' => 'rol
 // --------------------------------------------------------------------------------------------------------
 
 //@yogiandaru98 route testing
-$routes->get('/sidebar_menu', function () {
-    return view('templates/sidebar_menu');
-});
+// $routes->get('/sidebar_menu', function () {
+//     return view('templates/sidebar_menu');
+// });
+// $routes->get('/tambah_kosan', function () {
+//     return view('auth\owner\tambah_kosan_page');
+// });
 // save testing method
 // $routes->post('/dummy_test', 'KosanController::save');
 // $routes->get('/creat_dummy', function () {
