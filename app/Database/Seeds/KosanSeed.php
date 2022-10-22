@@ -15,17 +15,9 @@ class KosanSeed extends Seeder
         for ($i = 0; $i <= 8; $i++) {
             $kosan->save(
                 [
-                    'npm' => $faker->unique()->numberBetween(1000000000, 9999999999),
-                    'nama' => $faker->name(),
-                    'alamat' => $faker->address(),
-                    'deskripsi' => $faker->text(100),
-                    'created_at' => date('Y-m-d H:i:s'),
-                    'updated_at' => date('Y-m-d H:i:s'),
-
-                    'id_kosan' => $i,
                     'namaKost' => "Kosan " . $faker->LastName(),
                     'alamat' => $faker->address(),
-                    'kecamatan' => "tanjung karang",
+                    'kota' => $faker->city(),
                     'deskripsi' => $faker->sentence(5),
                     'fasilitas' => $faker->sentence(10),
                     'harga' => $faker->numberBetween(500000, 1000000),

@@ -1,3 +1,7 @@
+<?= $this->extend('templates/sidebar_menu'); ?>
+
+<?= $this->section('content'); ?>
+
 <section class="section">
     <div class="card">
         <div class="card-header">
@@ -5,13 +9,15 @@
         </div>
 
         <div class="card-body">
-            <form action="/owner/save_kosan" method="POST" enctype="multipart/form-data">
+
+            <form action="/owner/update_kosan" method="POST" enctype="multipart/form-data">
+
                 <?= csrf_field(); ?>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="namaKost" class="form-label">Nama Kost</label>
-                            <input type="text" class="form-control" id="namaKost" name="namaKost" placeholder="Nama Kost">
+                            <input type="text" value="<?= $kosan['namaKost'] ?>" class="form-control" id="namaKost" name="namaKost" placeholder="Nama Kost">
                         </div>
                         <label for="kota" class="form-label">Kota/Kabupaten</label>
                         <fieldset class="form-group">
@@ -24,80 +30,112 @@
                             <label for="type" class="form-label">Type</label>
                             <fieldset class="form-group">
                                 <select class="form-select" id="type" name="type">
-                                    <option value="Pria">Pria</option>
-                                    <option value="Putri">Putri</option>
+                                    <option <?= ($kosan['type'] == 'Pria') ? 'selected' : '' ?> value="Pria">Putra</option>
+                                    <option <?= ($kosan['type'] == 'Putri') ? 'selected' : '' ?> value="Putri">Putri</option>
                                 </select>
                             </fieldset>
                         </div>
-                        <div class="mb-3">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input name="foto_1" type="file" class="form-control" id="foto" required>
-                        </div>
-                        <div class="mb-3">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input name="foto_2" type="file" class="form-control" id="foto">
-                        </div>
-                        <div class="mb-3">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input name="foto_3" type="file" class="form-control" id="foto">
+                        <div class="form-group">
+                            <label for="alamat" class="form-label">Alamat Lengkap</label>
+                            <textarea class="form-control" id="alamat" name="alamat" rows="3"><?= $kosan['alamat'] ?></textarea>
                         </div>
                         <div class="form-group">
-                            <label for="harga" class="form-label">Harga</label>
-                            <input type="number" class="form-control" id="harga" name="harga" placeholder="Harga">
+                            <label for="fasilitas" class="form-label">Fasilitas</label>
+                            <textarea class="form-control" id="fasilitas" name="fasilitas" rows="3"><?= $kosan['fasilitas'] ?></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="deskripsi" class="form-label">Deskripsi</label>
+                            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"><?= $kosan['deskripsi'] ?></textarea>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
-                            <label for="alamat" class="form-label">Alamat Lengkap</label>
-                            <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+                            <label for="harga" class="form-label">Harga</label>
+                            <input type="number" value="<?= $kosan['harga'] ?>" class="form-control" id="harga" name="harga" placeholder="Harga" onchange="previewImage1()">
                         </div>
-                        <div class="form-group">
-                            <label for="deskripsi" class="form-label">Deskripsi</label>
-                            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"></textarea>
+                        <div class="mb-3">
+                            <label for="foto" class="form-label">Foto</label>
+                            <input name="foto_1" type="file" class="form-control" id="foto1">
+                            <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalFoto1">
+                                Lihat Foto
+                            </button>
+                            <div class="modal fade" id="modalFoto1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                <div class="modal-dialog">
+                                    <div class="modal-body d-flex justify-content-center">
+                                        <img src="/foto_kosan/<?= $foto[0]['nama_foto'] ?>" width="600">
+                                    </div>
+                                </div>
+                            </div>
                         </div>
-                        <div class="form-group">
-                            <label for="fasilitas" class="form-label">Fasilitas</label>
-                            <textarea class="form-control" id="fasilitas" name="fasilitas" rows="3"></textarea>
-                        </div>
+                        <div class="mb-3">
 
-                    </div>
-                    <div class="col-sm-12 d-flex justify-content-end">
-                        <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
-                        <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                            <label for="foto" class="form-label">Foto</label>
+                            <input name="foto_2" type="file" class="form-control" id="foto2" onchange="previewImage2()">
+                            <?php if (count($foto) >= 2) : ?>
+                                <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalFoto2">
+                                    Lihat Foto
+                                </button>
+                                <div class="modal fade" id="modalFoto2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-body d-flex justify-content-center">
+                                            <img src="/foto_kosan/<?= $foto[1]['nama_foto'] ?>" width="600">
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        <div class="mb-3">
+                            <label for="foto" class="form-label">Foto</label>
+                            <input name="foto_3" type="file" class="form-control" id="foto3" onchange="previewImage3()">
+                            <?php if (count($foto) >= 3) : ?>
+                                <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalFoto3">
+                                    Lihat Foto
+                                </button>
+                                <div class="modal fade" id="modalFoto3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-body d-flex justify-content-center">
+                                            <img src="/foto_kosan/<?= $foto[2]['nama_foto'] ?>" width="600" height="auto">
+                                        </div>
+                                    </div>
+                                </div>
+                        </div>
+                    <?php endif; ?>
                     </div>
                 </div>
-            </form>
+                <input type="hidden" name="id_kosan" value="<?= $kosan['id_kosan'] ?>">
+                <div class="col-sm-12 d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary me-3 mb-1">Submit</button>
+                    <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
+                </div>
         </div>
+        </form>
+    </div>
     </div>
 </section>
 
-
-
-
-
-
-
-
 </div>
 
-<!-- JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<script>
-    $.ajax({
-        type: "GET",
-        url: "http://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=18",
-        crossDomain: true,
-        dataType: "json",
-        success: function(response) {
-            for (let i = 0; i < response['kota_kabupaten'].length; i++) {
-                var element = response['kota_kabupaten'][i]['nama'];
-                element = element.split(" ");
-                element.shift();
-                element = element.join(" ");
-                $('#nama_kota').append('<option value="' + element + '">' + response['kota_kabupaten'][i]['nama'] + '</option>');
-            }
 
-        }
-    });
+<script>
+    function previewImage1() {
+        const image = document.querySelector('#foto1');
+        const imgPreview = document.querySelector('.img-preview');
+        const blob = URL.createObjectURL(image.files[0]);
+        imgPreview.src = blob;
+    }
+    function previewImage2() {
+        const image = document.querySelector('#foto2');
+        const imgPreview = document.querySelector('.img-preview');
+        const blob = URL.createObjectURL(image.files[0]);
+        imgPreview.src = blob;
+    }
+    function previewImage3() {
+        const image = document.querySelector('#foto3');
+        const imgPreview = document.querySelector('.img-preview');
+        const blob = URL.createObjectURL(image.files[0]);
+        imgPreview.src = blob;
+    }
 </script>
+
+
+<?= $this->endSection(); ?>
