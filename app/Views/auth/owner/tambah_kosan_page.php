@@ -5,7 +5,7 @@
 <section class="section">
     <div class="card">
         <div class="card-header">
-            <h4 class="card-title">Tambah Kostan</h4>
+            <h4 class="card-title"><?= $title ?></h4>
         </div>
 
         <div class="card-body">
@@ -81,48 +81,7 @@
 
 
 
-<!-- <form action="/owner/save_kosan" method="POST" enctype="multipart/form-data">
-    <?= csrf_field(); ?>
-    <div class="mb-3">
-        <label for="namaKost" class="form-label">Nama Kostan Anda</label>
-        <input name="namaKost" type="text" class="form-control" id="namaKost" aria-describedby="emailHelp">
-    </div>
 
-    <div class="mb-3">
-        <label for="alamat" class="form-label">alamat</label>
-        <input name="alamat" type="text" class="form-control" id="alamat">
-    </div>
-    <div class="mb-3">
-        <label for="nama_kota" class="form-label">Kota/Kabupaten</label>
-        <select name="kota" id="nama_kota" class="form-select form-select-sm" aria-label=".form-select-sm example">
-        </select>
-    </div>
-
-    <div class="mb-3">
-        <label for="foto" class="form-label">Foto</label>
-        <input name="foto_1" type="file" class="form-control" id="foto" required>
-    </div>
-    <div class="mb-3">
-        <label for="foto" class="form-label">Foto</label>
-        <input name="foto_2" type="file" class="form-control" id="foto">
-    </div>
-    <div class="mb-3">
-        <label for="foto" class="form-label">Foto</label>
-        <input name="foto_3" type="file" class="form-control" id="foto">
-    </div>
-    <div class="mb-3">
-        <label for="harga" class="form-label">harga</label>
-        <input name="harga" type="number" class="form-control" id="harga">
-    </div>
-    <div class="mb-3">
-        <label for="type" class="form-label">type</label>
-        <select name="type" id="type" class="form-select form-select-sm" aria-label=".form-select-sm example">
-            <option value="Pria">Pria</option>
-            <option value="Putri">Putri</option>
-        </select>
-    </div>
-    <button type="submit" class="btn btn-primary">Submit</button>
-</form> -->
 </div>
 
 <!-- JS -->
