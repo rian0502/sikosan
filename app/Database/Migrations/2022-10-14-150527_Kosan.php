@@ -24,7 +24,7 @@ class Kosan extends Migration
                 'type' => 'VARCHAR',
                 'constraint' => '255',
             ],
-            'kecamatan' => [
+            'kota' => [
                 'type' => 'VARCHAR',
                 'constraint' => '50',
             ],
