@@ -26,6 +26,9 @@
     <div class="container mt-4">
         <?= $this->renderSection('content'); ?>
     </div>
+    <div class="container-fluid mt-5">
+        <?= $this->include('/globals/partials/footer'); ?>
+    </div>
 
 </body>
 
