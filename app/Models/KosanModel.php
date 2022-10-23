@@ -2,7 +2,6 @@
 
 namespace App\Models;
 
-use CodeIgniter\Database\Query;
 use CodeIgniter\Model;
 
 class KosanModel extends Model
@@ -42,7 +41,7 @@ class KosanModel extends Model
     public function getAllKosan()
     {
         $queryKosan = $this->db->table('kosan')
-            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')
+            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->groupBy('kosan.id_kosan')
             ->get();
         return $queryKosan;
     }
@@ -51,10 +50,9 @@ class KosanModel extends Model
     public function getKosanByIdUser()
     {
         $query = $this->db->table($this->table)
-            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')
+            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->groupBy('kosan.id_kosan')
             ->getWhere(['kosan.idPemilik' => user_id()])->getResult();
         return $query;
-        // dd($query->getResult());
     }
 
     // Ambil data kosan berdasarkan id kosan
