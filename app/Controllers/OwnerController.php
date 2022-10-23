@@ -15,7 +15,10 @@ class OwnerController extends BaseController
 
     public function halaman_pemilik()
     {
-        return view('auth/owner/halaman_pemilik_page');
+        $data = [
+            'title' => 'Profile',
+        ];
+        return view('auth/owner/halaman_pemilik_page', $data);
     }
 
     public function kosan_anda()
