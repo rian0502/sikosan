@@ -50,10 +50,9 @@ class KosanModel extends Model
     public function getKosanByIdUser()
     {
         $query = $this->db->table($this->table)
-            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')
+            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->groupBy('kosan.id_kosan')
             ->getWhere(['kosan.idPemilik' => user_id()])->getResult();
         return $query;
-        // dd($query->getResult());
     }
 
     // Ambil data kosan berdasarkan id kosan
