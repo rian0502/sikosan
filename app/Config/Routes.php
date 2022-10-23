@@ -57,6 +57,7 @@ $routes->get('/owner/kosan_anda', 'OwnerController::kosan_anda', ['filter' => 'r
 $routes->get('/owner/detail_kosan_anda/(:any)', 'OwnerController::detail_kosan_anda/$1', ['filter' => 'role:owner']);
 $routes->get('/owner/tambah_kosan', 'KosanController::create', ['filter' => 'role:owner']);
 $routes->post('/owner/save_kosan', 'KosanController::save', ['filter' => 'role:owner']);
+$routes->post('/owner/update_kosan', 'KosanController::update', ['filter' => 'role:owner']);
 $routes->delete('/owner/delete_kosan/(:any)', 'KosanController::delete/$1', ['filter' => 'role:owner']);
 $routes->get('/owner/profil', 'OwnerController::profil', ['filter' => 'role:owner']);
 // ----------------------------------------------------------------------------------------------------
@@ -74,9 +75,10 @@ $routes->get('/customer/profil', 'CustomerController::profil', ['filter' => 'rol
 // });
 // save testing method
 // $routes->post('/dummy_test', 'KosanController::save');
-// $routes->get('/creat_dummy', function () {
-//     return view('onlyOwners/create');
-// });
+
+$routes->get('/editkost_dummy/(:any)', 'KosanController::edit/$1');
+$routes->post('/updatekost_dummy', 'KosanController::update');
+
 
 
 /*

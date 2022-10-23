@@ -19,6 +19,7 @@ class Home extends BaseController
             'title' => 'Data Kosan',
             'kosan' => $data_kosan
         );
+      
         return view('globals/index',  $data);
     }
 
