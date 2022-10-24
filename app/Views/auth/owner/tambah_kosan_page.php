@@ -1,7 +1,7 @@
 <?= $this->extend('templates/sidebar_menu'); ?>
 <?= $this->section('content'); ?>
 <style>
-    <style>body {
+    body {
         font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -113,7 +113,6 @@
         }
     }
 </style>
-</style>
 <section class="section">
     <div class="card">
         <div class="card-header">
@@ -166,11 +165,11 @@
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 1</label>
                             <input name="foto_1" class="form-control" id="foto1" type='file' onchange="readURL1(this);" />
-                            <small class="text-muted">Foto pertama akan menjadi thumbnail postingan kosan anda.</small>  <br>
+                            <small class="text-muted">Foto pertama akan menjadi thumbnail postingan kosan anda.</small> <br>
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" id="btnft1">
                                 Lihat Foto
                             </button>
-                            <img src="/foto_kosan/" id="foto1img" width="600" height="auto" hidden >
+                            <img src="/foto_kosan/" id="foto1img" width="600" height="auto" hidden>
                             <div id="modalFoto1" class="modal">
 
                                 <span class="close" id="close" data-dismiss="modal">&times;</span>
@@ -181,7 +180,7 @@
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 2</label>
                             <input name="foto_2" class="form-control" id="foto2" type='file' onchange="readURL2(this);" />
-                            
+
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" id="btnft2">
                                 Lihat Foto
                             </button>
