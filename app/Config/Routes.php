@@ -60,6 +60,7 @@ $routes->post('/owner/save_kosan', 'KosanController::save', ['filter' => 'role:o
 $routes->post('/owner/update_kosan', 'KosanController::update', ['filter' => 'role:owner']);
 $routes->delete('/owner/delete_kosan/(:any)', 'KosanController::delete/$1', ['filter' => 'role:owner']);
 $routes->get('/owner/profil', 'OwnerController::profil', ['filter' => 'role:owner']);
+$routes->get('/owner/edit_kost/(:any)', 'KosanController::edit/$1', ['filter' => 'role:owner']);
 // ----------------------------------------------------------------------------------------------------
 
 // For Customer / Pencari Kos
