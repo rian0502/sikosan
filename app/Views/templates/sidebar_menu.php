@@ -22,7 +22,7 @@
                 <div class="sidebar-header position-relative">
                     <div class="d-flex justify-content-between align-items-center">
                         <div class="logo">
-                            <a href="index.html"><img src="/adminTemplate/assets/images/logo/logo.svg" alt="Logo" srcset=""></a>
+                            <a href="/"><img src="/assets/svg/logo_sikosan_and_text.svg" alt="SIKOSAN" style="height: 25px;"></a>
                         </div>
                         <div class="theme-toggle d-flex gap-2  align-items-center mt-2">
                             <svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" aria-hidden="true" role="img" class="iconify iconify--system-uicons" width="20" height="20" preserveAspectRatio="xMidYMid meet" viewBox="0 0 21 21">
@@ -64,16 +64,16 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item">
-                            <a href="index.html" class='sidebar-link'>
+                        <li class="sidebar-item <?= ($title == "Profile") ? 'active' : ''?>" >
+                            <a href="/owner/halaman_pemilik" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item active">
+                        <li class="sidebar-item <?= ($title == "Kosan Anda | Owner") ? 'active' : ''?>">
                             <a href="/owner/kosan_anda" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
+                                <i class="bi bi-collection-fill"></i>
                                 <span>Kosan</span>
                             </a>
                         </li>
@@ -91,18 +91,9 @@
             </a>
         </header>
         <?= $this->renderSection('content'); ?>
-
-
-        <footer>
-            <div class="footer clearfix mb-0 text-muted">
-                <div class="float-start">
-                    <p>2022 &copy; SIKOSAN</p>
-                </div>
-                <div class="float-end">
-                    <p>Crafted with <span class="text-danger"><i></i></span> by SIKOSAN</p>
-                </div>
-            </div>
-        </footer>
+        
+        
+        <?= $this->include('/globals/partials/footer'); ?>
     </div>
     </div>
     <script src="/adminTemplate/assets/js/bootstrap.js"></script>
