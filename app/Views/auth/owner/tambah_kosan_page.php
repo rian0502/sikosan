@@ -1,5 +1,4 @@
 <?= $this->extend('templates/sidebar_menu'); ?>
-
 <?= $this->section('content'); ?>
 <style>
     <style>body {
