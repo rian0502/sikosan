@@ -173,7 +173,8 @@
                             <div id="modalFoto1" class="modal">
 
                                 <span class="close" id="close" data-dismiss="modal">&times;</span>
-                                <img class="modal-content" id="foto1imgs" alt="Belum ada Foto">
+                                <div ></div>
+                                <img class="modal-content" id="foto1imgs" alt="Belum ada Foto" style="object-fit:contain;width:700px; height:700px;">
                                 <!-- <div id="caption"></div> -->
                             </div>
                         </div>
@@ -187,7 +188,7 @@
                             <img src="/foto_kosan/" id="foto2img" width="600" height="auto" hidden>
                             <div id="modalFoto2" class="modal">
                                 <span class="close" id="close">&times;</span>
-                                <img class="modal-content" id="foto2imgs" alt="Belum ada Foto">
+                                <img class="modal-content" id="foto2imgs" alt="Belum ada Foto" style="object-fit:contain;width:700px; height:700px;">
                                 <!-- <div id="caption"></div> -->
                             </div>
                         </div>
@@ -200,7 +201,7 @@
                             <img src="/foto_kosan/" id="foto3img" width="600" height="auto" hidden>
                             <div id="modalFoto3" class="modal">
                                 <span class="close" id="close">&times;</span>
-                                <img class="modal-content" id="foto3imgs" alt="Belum ada Foto">
+                                <img class="modal-content" id="foto3imgs" alt="Belum ada Foto" style="object-fit:contain;width:700px; height:700px;">
                                 <!-- <div id="caption"></div> -->
                             </div>
                         </div>
