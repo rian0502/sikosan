@@ -6,6 +6,8 @@ use App\Controllers\BaseController;
 use App\Models\FotoKosanModel;
 use App\Models\KosanModel;
 
+use function PHPUnit\Framework\fileExists;
+
 class KosanController extends BaseController
 {
 
@@ -157,6 +159,13 @@ class KosanController extends BaseController
     // DELETE DATA KOSAN
     public function delete($id_kosan)
     {
+        $imageFile = $this->fotoKosanModel->find($id_kosan);
+        $imageName = $imageFile['nama_foto'];
+
+        if (fileExists('public/foto_kosan/' . $imageName)) {
+            unlink('../public/foto_kosan/' . $imageName);
+        }
+
         $this->kosanModel->delete($id_kosan);
 
         return redirect()->to('/owner/kosan_anda');
@@ -212,7 +221,7 @@ class KosanController extends BaseController
             if ($jumlahFoto > 1) {
                 unlink(WRITEPATH . '../public/foto_kosan/' . $this->fotoKosanModel->where('id_kosan', $this->request->getVar('id_kosan'))->findAll()[1]['nama_foto']);
                 $this->fotoKosanModel->update($this->fotoKosanModel->where('id_kosan', $this->request->getVar('id_kosan'))->findAll()[1]['id_foto'], $data_foto);
-            }else{
+            } else {
                 $this->fotoKosanModel->insert($data_foto);
             }
             $foto->move(WRITEPATH . '../public/foto_kosan', $namaFoto);
@@ -226,11 +235,11 @@ class KosanController extends BaseController
             ];
             if ($jumlahFoto > 2) {
                 unlink(WRITEPATH . '../public/foto_kosan/' . $this->fotoKosanModel->where('id_kosan', $this->request->getVar('id_kosan'))->findAll()[2]['nama_foto']);
-                $this->fotoKosanModel->update($this->fotoKosanModel->where('id_kosan', $this->request->getVar('id_kosan'))->findAll()[2]['id_foto'],$data_foto);
-            }else{
+                $this->fotoKosanModel->update($this->fotoKosanModel->where('id_kosan', $this->request->getVar('id_kosan'))->findAll()[2]['id_foto'], $data_foto);
+            } else {
                 $this->fotoKosanModel->insert($data_foto);
             }
-           
+
             $foto->move(WRITEPATH . '../public/foto_kosan', $namaFoto);
         }
         return redirect()->to('/owner/kosan_anda');
