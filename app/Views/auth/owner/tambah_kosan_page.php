@@ -1,7 +1,7 @@
 <?= $this->extend('templates/sidebar_menu'); ?>
 <?= $this->section('content'); ?>
 <style>
-    <style>body {
+    body {
         font-family: Arial, Helvetica, sans-serif;
     }
 
@@ -112,7 +112,6 @@
             width: 100%;
         }
     }
-</style>
 </style>
 <section class="section">
     <div class="card">
