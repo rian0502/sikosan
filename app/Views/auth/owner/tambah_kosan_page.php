@@ -166,7 +166,7 @@
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 1</label>
                             <input name="foto_1" class="form-control" id="foto1" type='file' onchange="readURL1(this);" />
-                            <small class="text-muted">Foto pertama akan menjadi thumnail postingan kosan anda.</small>  <br>
+                            <small class="text-muted">Foto pertama akan menjadi thumbnail postingan kosan anda.</small>  <br>
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" id="btnft1">
                                 Lihat Foto
                             </button>
