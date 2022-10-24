@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title><?= $title ?></title>
-
     <link rel="stylesheet" href="/adminTemplate/assets/css/main/app.css">
     <link rel="stylesheet" href="/adminTemplate/assets/css/main/app-dark.css">
     <link rel="shortcut icon" href="/adminTemplate/assets/images/logo/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="/adminTemplate/assets/images/logo/favicon.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/adminTemplate/assets/css/shared/iconly.css">
+    <link rel="stylesheet" href="/adminTemplate/assets/extensions/sweetalert2/sweetalert2.min.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 
 </head>
 
@@ -114,6 +115,10 @@
     <!-- Need: Apexcharts -->
     <script src="/adminTemplate/assets/extensions/apexcharts/apexcharts.min.js"></script>
     <script src="/adminTemplate/assets/js/pages/dashboard.js"></script>
+    
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
+
     <script>
         $.ajax({
             type: "GET",
@@ -130,6 +135,24 @@
                 }
 
             }
+        });
+
+        $('.btn-delete').click(function(e) {
+            e.preventDefault();
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Data yang dihapus tidak dapat dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                  $('#formDelete').submit();
+                }
+            });
+
         });
     </script>
 </body>

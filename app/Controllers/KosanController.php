@@ -233,6 +233,6 @@ class KosanController extends BaseController
            
             $foto->move(WRITEPATH . '../public/foto_kosan', $namaFoto);
         }
-        return dd("bisa update");
+        return redirect()->to('/owner/kosan_anda');
     }
 }
