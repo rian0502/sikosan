@@ -49,7 +49,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="sidebar-menu">
+                <div class="sidebar-menu mb-auto">
                     <div class="card">
                         <div class="card-body py-4 px-5">
                             <div class="d-flex align-items-center">
@@ -79,8 +79,20 @@
                             </a>
                         </li>
                     </ul>
-
+                    
+                    
+                    
+                    
                 </div>
+                <hr>
+                <ul class="menu">
+                <li class="sidebar-item">
+                            <a href="/logout" class='sidebar-link btn btn-outline-danger'>
+                                <i class="bi bi-door-open"></i>
+                                <span>Keluar</span>
+                            </a>
+                        </li>
+                </ul>
 
             </div>
         </div>
