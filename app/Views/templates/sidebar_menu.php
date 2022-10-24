@@ -48,7 +48,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="sidebar-menu">
+                <div class="sidebar-menu mb-auto">
                     <div class="card">
                         <div class="card-body py-4 px-5">
                             <div class="d-flex align-items-center">
@@ -64,22 +64,34 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item <?= ($title == "Profile") ? 'active' : ''?>" >
+                        <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
                             <a href="/owner/halaman_pemilik" class='sidebar-link'>
                                 <i class="bi bi-grid-fill"></i>
                                 <span>Dashboard</span>
                             </a>
                         </li>
 
-                        <li class="sidebar-item <?= ($title == "Kosan Anda | Owner") ? 'active' : ''?>">
+                        <li class="sidebar-item <?= ($title == "Kosan Anda | Owner") ? 'active' : '' ?>">
                             <a href="/owner/kosan_anda" class='sidebar-link'>
                                 <i class="bi bi-collection-fill"></i>
                                 <span>Kosan</span>
                             </a>
                         </li>
                     </ul>
-
+                    
+                    
+                    
+                    
                 </div>
+                <hr>
+                <ul class="menu">
+                <li class="sidebar-item">
+                            <a href="/logout" class='sidebar-link btn btn-outline-danger'>
+                                <i class="bi bi-door-open"></i>
+                                <span>Keluar</span>
+                            </a>
+                        </li>
+                </ul>
 
             </div>
         </div>
@@ -91,8 +103,8 @@
             </a>
         </header>
         <?= $this->renderSection('content'); ?>
-        
-        
+
+
         <?= $this->include('/globals/partials/footer'); ?>
     </div>
     </div>
