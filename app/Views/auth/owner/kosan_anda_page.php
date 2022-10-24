@@ -2,29 +2,6 @@
 
 <?= $this->section('content'); ?>
 
-<a href="/owner/tambah_kosan">Tambah Data Kosan</a>
-<br>
-<a href="/">Home</a>
-<p>Kosan Anda : </p>
-
-
-
-<!-- <?php foreach ($kosan as $kos) : ?>
-    
-    <ul>
-        <li>Nama Kosan : <?= $kos->namaKost; ?></li>
-        <li>Alamat : <?= $kos->alamat ?></li>
-        <li>Kota : <?= $kos->kota ?></li>
-        <li>Deskripsi : <?= $kos->deskripsi ?></li>
-        <li>Fasilitas : <?= $kos->fasilitas ?></li>
-        <li>Harga : <?= $kos->harga ?></li>
-        <li>Tipe : <?= $kos->type ?></li>
-        <li>
-            <a href="/owner/detail_kosan_anda/<?= $kos->id_kosan; ?>; ?>" class="btn btn-success">Detail</a>
-        </li>
-       
-    </ul>
-<?php endforeach; ?> -->
 
 <div class="page-heading">
     <h3>Kosan Anda</h3>
