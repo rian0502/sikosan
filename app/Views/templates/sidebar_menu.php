@@ -13,7 +13,7 @@
     <link rel="stylesheet" href="/adminTemplate/assets/css/shared/iconly.css">
     <link rel="stylesheet" href="/adminTemplate/assets/extensions/sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-
+    <link rel="stylesheet" href="/adminTemplate/assets/extensions/choices.js/public/assets/styles/choices.css">
 </head>
 
 <body>
@@ -119,6 +119,9 @@
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
 
+    <script src="/adminTemplate/assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+    <script src="/adminTemplate/assets/js/pages/form-element-select.js"></script>
+    
     <script>
         $.ajax({
             type: "GET",
