@@ -13,18 +13,18 @@
             <h6>Cari Kosan</h6>
             <div class="col-5">
                 <div class="form-group position-relative has-icon-right">
-                    <input type="text" class="form-control" placeholder="Masukkan Nama Kos">
+                    <input type="text" class="form-control" placeholder="Masukkan Nama Kos" id="search-input">
                     <div class="form-control-icon">
                         <i class="bi bi-search"></i>
                     </div>
                 </div>
             </div>
 
-            <div class="col-5">
+            <!-- <div class="col-5">
                 <a href="#" class="btn btn-outline-primary">Cari Kosan</a>
-            </div>
+            </div> -->
 
-            <div class="col-2 text-end">
+            <div class="col-2 text-end col-7">
                 <a href="/owner/tambah_kosan" class="btn btn-outline-primary"><i class="bi bi-plus-lg"></i> Kosan</a>
             </div>
         </div>
@@ -33,7 +33,7 @@
 
 
 <?php foreach ($kosan as $kos) : ?>
-    <div class="col-12">
+    <div class="col-12 list-group-item">
         <div class="card">
             <div class="row g-0">
                 <div class="col-md-3 m-3">
@@ -72,6 +72,36 @@
             </div>
         </div>
     </div>
+    <script>
+        //search function
+        document.querySelector('#search-input').addEventListener('input', filterList);
+        function filterList(){
+            const searchInput = document.querySelector('#search-input');
+            const filter = searchInput.value.toLowerCase();
+            const listItem = document.querySelectorAll('.list-group-item');
+            // const text2 = listItem.textContent;
+            // console.log(text2.split(" "));
+            
+
+            // const card = document.querySelectorAll('.list-group-flush');
+
+            listItem.forEach((item)=>{
+                let text = item.textContent;
+
+                
+                // console.log(text.split(" "));
+                // console.log(text);
+                if (text.toLowerCase().includes(filter.toLowerCase())) {
+                    item.style.display = '';
+                    
+                } else {
+                    item.style.display = 'none';
+                    // card.style.display = 'none';
+                }
+
+            });
+        }
+    </script>
 
 <?php endforeach; ?>
 
