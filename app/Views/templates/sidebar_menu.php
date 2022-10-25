@@ -79,19 +79,15 @@
                             </a>
                         </li>
                     </ul>
-                    
-                    
-                    
-                    
                 </div>
                 <hr>
                 <ul class="menu">
-                <li class="sidebar-item">
-                            <a href="/logout" class='sidebar-link btn btn-outline-danger'>
-                                <i class="bi bi-door-open"></i>
-                                <span>Keluar</span>
-                            </a>
-                        </li>
+                    <li class="sidebar-item">
+                        <a href="/logout" class='sidebar-link btn btn-outline-danger'>
+                            <i class="bi bi-door-open"></i>
+                            <span>Keluar</span>
+                        </a>
+                    </li>
                 </ul>
 
             </div>
@@ -104,24 +100,20 @@
             </a>
         </header>
         <?= $this->renderSection('content'); ?>
-
-
         <?= $this->include('/globals/partials/footer'); ?>
     </div>
     </div>
     <script src="/adminTemplate/assets/js/bootstrap.js"></script>
     <script src="/adminTemplate/assets/js/app.js"></script>
     <script src="/jquery/jquery.min.js"></script>
-    <!-- Need: Apexcharts -->
     <script src="/adminTemplate/assets/extensions/apexcharts/apexcharts.min.js"></script>
     <script src="/adminTemplate/assets/js/pages/dashboard.js"></script>
-    
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
 
     <script src="/adminTemplate/assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
     <script src="/adminTemplate/assets/js/pages/form-element-select.js"></script>
-    
+
     <script>
         $.ajax({
             type: "GET",
@@ -152,7 +144,7 @@
                 confirmButtonText: 'Ya, hapus!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                  $('#formDelete').submit();
+                    $('#formDelete').submit();
                 }
             });
 

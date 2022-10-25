@@ -10,6 +10,7 @@ class OwnerController extends BaseController
 
     public function index()
     {
+
         return view('auth/admin/data_owner_page');
     }
 
@@ -23,6 +24,7 @@ class OwnerController extends BaseController
 
     public function kosan_anda()
     {
+        
         $kosanModel = new KosanModel();
         $kosan = $kosanModel->getKosanByIdUser();
 
