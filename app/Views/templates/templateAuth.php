@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="/adminTemplate/assets/css/pages/auth.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
+    <link rel="stylesheet" href="/adminTemplate/assets/extensions/choices.js/public/assets/styles/choices.css">
 </head>
 
 <body>
@@ -23,6 +24,9 @@
 </body>
 <script src="/jquery/jquery.min.js"></script>
 <script src="/bootstrap/js/bootstrap.bundle.js"></script>
+
+<script src="/adminTemplate/assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
+<script src="/adminTemplate/assets/js/pages/form-element-select.js"></script>
 <script>
 </script>
 
