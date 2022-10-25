@@ -32,8 +32,10 @@
                         <span class="ms-2 align-self-center"> <?= number_to_currency($dataKos->harga, 'IDR', 'id_ID', 0); ?>/Bulan</span>
                     </div>
                     <h5 class="card-title mt-2"><?= $dataKos->namaKost ?></h5>
-                    <p class="card-text"><?= $dataKos->alamat ?>.</p>
-                    <a href="/detail" class="btn btn-outline-success">Detail</a>
+                    <p class="card-text "><?= $dataKos->alamat ?>.</p>
+                </div>
+                <div class="container mb-3">
+                <a href="/detail" class="btn btn-outline-success">Detail</a>
                 </div>
             </div>
         </div>
