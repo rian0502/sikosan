@@ -21,7 +21,7 @@
                         </div>
                         <label for="kota" class="form-label">Kota/Kabupaten</label>
                         <fieldset class="form-group">
-                            <select name="kota" id="nama_kota" class="form-select">
+                            <select name="kota" id="kota" class="form-select">
 
                             </select>
                         </fieldset>
@@ -117,6 +117,27 @@
 
 
 <script>
+    $.ajax({
+            type: "GET",
+            url: "http://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=18",
+            crossDomain: true,
+            dataType: "json",
+            success: function(response) {
+                for (let i = 0; i < response['kota_kabupaten'].length; i++) {
+                    var element = response['kota_kabupaten'][i]['nama'];
+                    element = element.split(" ");
+                    element.shift();
+                    element = element.join(" ");
+                    if (element == "<?= $kosan['kota'] ?>") {
+                        $('#kota').append('<option value="' + element + '" selected>' + response['kota_kabupaten'][i]['nama'] + '</option>');
+                    } else {
+                        $('#kota').append('<option value="' + element + '">' + response['kota_kabupaten'][i]['nama'] + '</option>');
+                    }
+                }
+
+            }
+        });
+
     function previewImage1() {
         const image = document.querySelector('#foto1');
         const imgPreview = document.querySelector('.img-preview');

@@ -14,6 +14,7 @@
     <link rel="stylesheet" href="/adminTemplate/assets/extensions/sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/adminTemplate/assets/extensions/choices.js/public/assets/styles/choices.css">
+    <script src="/jquery/jquery.min.js"></script>
 </head>
 
 <body>
@@ -105,7 +106,6 @@
     </div>
     <script src="/adminTemplate/assets/js/bootstrap.js"></script>
     <script src="/adminTemplate/assets/js/app.js"></script>
-    <script src="/jquery/jquery.min.js"></script>
     <script src="/adminTemplate/assets/extensions/apexcharts/apexcharts.min.js"></script>
     <script src="/adminTemplate/assets/js/pages/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
