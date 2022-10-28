@@ -118,15 +118,18 @@
         <div class="card-header">
             <h4 class="card-title"><?= $title ?></h4>
         </div>
-
         <div class="card-body">
+
             <form action="/owner/save_kosan" method="POST" enctype="multipart/form-data">
                 <?= csrf_field(); ?>
                 <div class="row">
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="namaKost" class="form-label">Nama Kost</label>
-                            <input type="text" class="form-control" id="namaKost" name="namaKost" placeholder="Nama Kost">
+                            <input type="text" class="form-control <?= ($validation->hasError('namaKost')) ? 'is-invalid' : ''; ?>" id="namaKost" name="namaKost" value="<?= set_value('namaKost'); ?>" autocomplete="off">
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('namaKost') ?>
+                            </div>
                         </div>
                         <label for="kota" class="form-label">Kota/Kabupaten</label>
                         <fieldset class="form-group">
@@ -139,45 +142,59 @@
                             <label for="type" class="form-label">Type</label>
                             <fieldset class="form-group">
                                 <select class="form-select" id="type" name="type">
-                                    <option value="Pria">Pria</option>
+                                    <option value="Pria">Putra</option>
                                     <option value="Putri">Putri</option>
                                 </select>
                             </fieldset>
                         </div>
                         <div class="form-group">
                             <label for="alamat" class="form-label">Alamat Lengkap</label>
-                            <textarea class="form-control" id="alamat" name="alamat" rows="3"></textarea>
+                            <textarea class="form-control <?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" id="alamat" autocomplete="off" name="alamat" rows="3"><?= old('alamat') ?></textarea>
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('alamat') ?>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="fasilitas" class="form-label">Fasilitas</label>
-                            <textarea class="form-control" id="fasilitas" name="fasilitas" rows="3"></textarea>
+                            <textarea class="form-control <?= ($validation->hasError('fasilitas')) ? 'is-invalid' : ''; ?>" id="fasilitas" name="fasilitas" rows="3"><?= old('fasilitas') ?></textarea>
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('alamat') ?>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
-                            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"></textarea>
+                            <textarea class="form-control  <?= ($validation->hasError('deskripsi')) ? 'is-invalid' : ''; ?>" id="deskripsi" name="deskripsi" rows="3"><?= old('deskripsi') ?></textarea>
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('deskripsi') ?>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="harga" class="form-label">Harga</label>
-                            <input type="number" class="form-control" id="harga" name="harga" placeholder="Harga">
+                            <input type="number" class="form-control <?= ($validation->hasError('harga')) ? 'is-invalid' : ''; ?>" id="harga" name="harga" placeholder="Harga" value="<?= old('harga') ?>">
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('harga') ?>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 1</label>
-                            <input name="foto_1" class="form-control" id="foto1" type='file' onchange="readURL1(this);" />
+                            <input name="foto_1" class="form-control" id="foto1" type='file' onchange="readURL1(this);"/>
                             <small class="text-muted">Foto pertama akan menjadi thumbnail postingan kosan anda.</small> <br>
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" id="btnft1">
                                 Lihat Foto
                             </button>
                             <img src="/foto_kosan/" id="foto1img" width="600" height="auto" hidden>
+                            
                             <div id="modalFoto1" class="modal">
 
                                 <span class="close" id="close" data-dismiss="modal">&times;</span>
-                                <div ></div>
+                                <div></div>
                                 <img class="modal-content" id="foto1imgs" alt="Belum ada Foto" style="object-fit:contain;width:700px; height:700px;">
                                 <!-- <div id="caption"></div> -->
                             </div>
                         </div>
+                        
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 2</label>
                             <input name="foto_2" class="form-control" id="foto2" type='file' onchange="readURL2(this);" />
@@ -326,26 +343,7 @@
     }
 </script>
 <!-- JS -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-OERcA2EqjJCMA+/3y+gxIOqMEjwtxJY7qPCqsdltbNJuaOe923+mo//f6V8Qbsw3" crossorigin="anonymous"></script>
-<script>
-    $.ajax({
-        type: "GET",
-        url: "http://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=18",
-        crossDomain: true,
-        dataType: "json",
-        success: function(response) {
-            for (let i = 0; i < response['kota_kabupaten'].length; i++) {
-                var element = response['kota_kabupaten'][i]['nama'];
-                element = element.split(" ");
-                element.shift();
-                element = element.join(" ");
-                $('#nama_kota').append('<option value="' + element + '">' + response['kota_kabupaten'][i]['nama'] + '</option>');
-            }
 
-        }
-    });
-</script>
 <!-- <script type="text/javascript">
     var harga = document.getElementById('harga');
     harga.addEventListener('keyup', function(e) {
