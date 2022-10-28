@@ -172,13 +172,10 @@ class KosanController extends BaseController
     // DELETE DATA KOSAN
     public function delete($id_kosan)
     {
-        $imageFile = $this->fotoKosanModel->find($id_kosan);
-        $imageName = $imageFile['nama_foto'];
-
-        if (fileExists('public/foto_kosan/' . $imageName)) {
-            unlink('../public/foto_kosan/' . $imageName);
+        $imageFile = $this->fotoKosanModel->where('id_kosan', $id_kosan)->findAll();
+        foreach ($imageFile as $image) {
+            unlink('../public/foto_kosan/' . $image['nama_foto']);
         }
-
         $this->kosanModel->delete($id_kosan);
 
         return redirect()->to('/owner/kosan_anda');
