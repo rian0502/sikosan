@@ -99,7 +99,7 @@ class KosanController extends BaseController
                     ]
                 ],
                 'type' => [
-                    'rules' => 'required|in_list[Putra,Putri]',
+                    'rules' => 'required|in_list[Putra,Putri,Campur]',
                     'errors' => [
                         'required' => 'Type kosan harus diisi',
                         'in_list' => 'Type kosan harus dipilih dengan benar',
@@ -252,7 +252,7 @@ class KosanController extends BaseController
                     ]
                 ],
                 'type' => [
-                    'rules' => 'required|in_list[Putra,Putri]',
+                    'rules' => 'required|in_list[Putra,Putri,Campur]',
                     'errors' => [
                         'required' => 'Type kosan harus diisi',
                         'in_list' => 'Type kosan harus dipilih dengan benar',
