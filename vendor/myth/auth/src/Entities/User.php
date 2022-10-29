@@ -33,7 +33,6 @@ class User extends Entity
      * when they are accessed.
      */
     protected $casts = [
-        'username'         => 'string',
         'email'            => 'string',
         'active'           => 'boolean',
         'force_pass_reset' => 'boolean',
