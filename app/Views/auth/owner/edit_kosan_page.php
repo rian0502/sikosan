@@ -7,10 +7,9 @@
         <div class="card-header">
             <h4 class="card-title"><?= $title ?></h4>
         </div>
-
         <div class="card-body">
 
-            <form action="/owner/update_kosan" method="POST" enctype="multipart/form-data">
+            <form action="<?= base_url('/owner/update_kosan') ?>" method="POST" enctype="multipart/form-data">
 
                 <?= csrf_field(); ?>
                 <div class="row">
@@ -122,9 +121,9 @@
                     <button type="submit" class="btn btn-primary me-3 mb-1">Submit</button>
                     <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
                 </div>
+   
+            </form>
         </div>
-        </form>
-    </div>
     </div>
 </section>
 
