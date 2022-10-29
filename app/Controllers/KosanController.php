@@ -196,7 +196,6 @@ class KosanController extends BaseController
     public function update()
     {
         $jumlahFoto = count($this->fotoKosanModel->where('id_kosan', $this->request->getVar('id_kosan'))->findAll());
-
         $data = [
             'namaKost' => $this->request->getVar('namaKost'),
             'alamat' => $this->request->getVar('alamat'),
@@ -260,9 +259,8 @@ class KosanController extends BaseController
                     ]
                 ],
                 'foto_1' => [
-                    'rules' => 'uploaded[foto_1]|max_size[foto_1,1024]|is_image[foto_1]|mime_in[foto_1,image/jpg,image/jpeg,image/png]',
+                    'rules' => 'max_size[foto_1,1024]|is_image[foto_1]|mime_in[foto_1,image/jpg,image/jpeg,image/png]',
                     'errors' => [
-                        'uploaded' => 'Foto kosan harus diisi',
                         'max_size' => 'Ukuran foto kosan maksimal 1 MB',
                         'is_image' => 'File yang diupload harus berupa gambar',
                         'mime_in' => 'File yang diupload harus berupa gambar',
@@ -270,7 +268,7 @@ class KosanController extends BaseController
                 ],
             ]
         );
-
+        
         // // jika validasi error
         if ($validated == FALSE) {
             return redirect()->back()->withInput();
