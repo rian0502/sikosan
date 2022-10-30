@@ -23,7 +23,7 @@
 <div class="row mb-3">
     <?php foreach ($kosan as $dataKos) : ?>
 
-        <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
+        <div class="col-lg-3 mb-4 col-md-4 col-sm-6 list-group-item2">
             <div class="card shadow" style="height: 450px;" name="kartu">
                 <img src="/foto_kosan/<?= $dataKos->nama_foto ?>" class="card-img-top">
                 <div class="card-body">
@@ -31,6 +31,7 @@
                         <button class="btn p-1 btn-outline-<?= ($dataKos->type == 'Pria') ? 'primary' : 'warning';?>" style="font-size: 10px;"><?= $dataKos->type ?></button>
                         <span class="ms-2 align-self-center"> <?= number_to_currency($dataKos->harga, 'IDR', 'id_ID', 0); ?>/Bulan</span>
                     </div>
+                    <li>Kota : <?= $dataKos->kota ?></li>
                     <h5 class="card-title mt-2"><?= $dataKos->namaKost ?></h5>
                     <p class="card-text "><?= $dataKos->alamat ?>.</p>
                 </div>
