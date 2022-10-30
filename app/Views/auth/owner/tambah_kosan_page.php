@@ -180,46 +180,46 @@
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 1</label>
-                            <input accept="image/png, image/gif, image/jpeg" name="foto_1" class="form-control" id="foto1" type='file' onchange="readURL1(this);" />
+                            <input name="foto_1" class="form-control" id="foto1" type='file' onchange="readURL1(this);" />
                             <small class="text-muted">Foto pertama akan menjadi thumbnail postingan kosan anda.</small> <br>
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" id="btnft1">
                                 Lihat Foto
                             </button>
-                            <img src="/foto_kosan/" id="foto1img" width="600" height="auto" hidden>
+                            <img src="/foto_kosan/" id="foto1img" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="600" height="auto" hidden>
 
                             <div id="modalFoto1" class="modal">
 
                                 <span class="close" id="close" data-dismiss="modal">&times;</span>
                                 <div></div>
-                                <img class="modal-content" id="foto1imgs" alt="Belum ada Foto" style="object-fit:contain;width:700px; height:700px;">
+                                <img class="modal-content" id="foto1imgs" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" alt="Belum ada Foto" style="object-fit:contain;width:700px; height:700px;">
                                 <!-- <div id="caption"></div> -->
                             </div>
                         </div>
 
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 2</label>
-                            <input accept="image/png, image/gif, image/jpeg" name="foto_2" class="form-control" id="foto2" type='file' onchange="readURL2(this);" />
+                            <input name="foto_2" class="form-control" id="foto2" type='file' onchange="readURL2(this);" />
 
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" id="btnft2">
                                 Lihat Foto
                             </button>
-                            <img src="/foto_kosan/" id="foto2img" width="600" height="auto" hidden>
+                            <img src="/foto_kosan/" id="foto2img" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="600" height="auto" hidden>
                             <div id="modalFoto2" class="modal">
                                 <span class="close" id="close">&times;</span>
-                                <img class="modal-content" id="foto2imgs" alt="Belum ada Foto" style="object-fit:contain;width:700px; height:700px;">
+                                <img class="modal-content" id="foto2imgs" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" alt="Belum ada Foto" style="object-fit:contain;width:700px; height:700px;">
                                 <!-- <div id="caption"></div> -->
                             </div>
                         </div>
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 3</label>
-                            <input accept="image/png, image/gif, image/jpeg" name="foto_3" class="form-control" id="foto3" type='file' onchange="readURL3(this);" />
+                            <input name="foto_3" class="form-control" id="foto3" type='file' onchange="readURL3(this);" />
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" id="btnft3">
                                 Lihat Foto
                             </button>
-                            <img src="/foto_kosan/" id="foto3img" width="600" height="auto" hidden>
+                            <img src="/foto_kosan/" id="foto3img" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="600" height="auto" hidden>
                             <div id="modalFoto3" class="modal">
                                 <span class="close" id="close">&times;</span>
-                                <img class="modal-content" id="foto3imgs" alt="Belum ada Foto" style="object-fit:contain;width:700px; height:700px;">
+                                <img class="modal-content" id="foto3imgs" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" alt="Belum ada Foto" style="object-fit:contain;width:700px; height:700px;">
                                 <!-- <div id="caption"></div> -->
                             </div>
                         </div>
@@ -240,8 +240,8 @@
     var modal1 = document.getElementById("modalFoto1");
 
     // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img1 = document.getElementById("foto1img");
-    var modalImg1 = document.getElementById("foto1imgs");
+    var img1 = document.getElementById("foto1img" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';");
+    var modalImg1 = document.getElementById("foto1imgs" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';");
     var preview1 = document.getElementById("btnft1")
     preview1.onclick = function() {
         modal1.style.display = "block";
@@ -262,8 +262,8 @@
     var modal2 = document.getElementById("modalFoto2");
 
     // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img2 = document.getElementById("foto2img");
-    var modalImg2 = document.getElementById("foto2imgs");
+    var img2 = document.getElementById("foto2img" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';");
+    var modalImg2 = document.getElementById("foto2imgs" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';");
     var preview2 = document.getElementById("btnft2")
     preview2.onclick = function() {
         modal2.style.display = "block";
@@ -284,8 +284,8 @@
     var modal3 = document.getElementById("modalFoto3");
 
     // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img3 = document.getElementById("foto3img");
-    var modalImg3 = document.getElementById("foto3imgs");
+    var img3 = document.getElementById("foto3img" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';");
+    var modalImg3 = document.getElementById("foto3imgs" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';");
     var preview3 = document.getElementById("btnft3")
     preview3.onclick = function() {
         modal3.style.display = "block";
