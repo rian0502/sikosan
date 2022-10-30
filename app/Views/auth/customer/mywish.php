@@ -1,3 +1,6 @@
+<?= $this->extend('templates/template'); ?>
+
+<?= $this->section('content'); ?>
 <style>
     @media screen and (min-width: 758px) {
         .kartu {
@@ -21,17 +24,17 @@
     }
 </style>
 <div class="row mb-3">
-    <?php foreach ($kosan as $dataKos) : ?>
+    <?php foreach ($wishlist as $wish) : ?>
         <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
             <div class="card shadow" style="height: 450px;" name="kartu">
-                <img src="/foto_kosan/<?= $dataKos->nama_foto ?>" class="card-img-top">
+                <img src="/foto_kosan/<?= $wish['nama_foto'] ?>" class="card-img-top">
                 <div class="card-body">
                     <div class="d-flex">
-                        <button class="btn p-1 btn-outline-<?= ($dataKos->type == 'Pria') ? 'primary' : 'warning'; ?>" style="font-size: 10px;"><?= $dataKos->type ?></button>
-                        <span class="ms-2 align-self-center"> <?= number_to_currency($dataKos->harga, 'IDR', 'id_ID', 0); ?>/Bulan</span>
+                        <button class="btn p-1 btn-outline-<?= ($wish['type'] == 'Pria') ? 'primary' : 'warning'; ?>" style="font-size: 10px;"><?= $wish['type'] ?></button>
+                        <span class="ms-2 align-self-center"> <?= number_to_currency($wish['harga'], 'IDR', 'id_ID', 0); ?>/Bulan</span>
                     </div>
-                    <h5 class="card-title mt-2"><?= $dataKos->namaKost ?></h5>
-                    <p class="card-text "><?= $dataKos->alamat ?>.</p>
+                    <h5 class="card-title mt-2"><?= $wish['namaKost'] ?></h5>
+                    <p class="card-text "><?= $wish['alamat'] ?>.</p>
                 </div>
                 <div class="container mb-3 d-flex">
                     <div>
@@ -39,11 +42,11 @@
                     </div>
                     <?php if (logged_in() && in_groups('customer')) : ?>
                         <div class="ms-auto pt-2 pe-2">
-                            <a href="/wishing_post/<?= $dataKos->id_kosan ?>/<?= user_id() ?>" class="text-decoration-none">
+                            <a href="/wishing_post/<?= $wish['id_kosan'] ?>/<?= user_id() ?>" class="text-decoration-none">
                                 <?php if (count($data_wish) != 0) : ?>
                                     <?php for ($i = 0; $i < count($data_wish); $i++) : ?>
                                         <?php $founded = false; ?>
-                                        <?php if ($dataKos->id_kosan == $data_wish[$i]['id_kosan']) : ?>
+                                        <?php if ($wish['id_kosan'] == $data_wish[$i]['id_kosan']) : ?>
                                             <?php $founded = true; ?>
                                             <?php break; ?>
                                         <?php endif; ?>
@@ -64,3 +67,5 @@
         </div>
     <?php endforeach ?>
 </div>
+
+<?= $this->endSection(); ?>
