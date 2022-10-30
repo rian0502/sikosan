@@ -12,22 +12,39 @@ class KosanSeed extends Seeder
     {
         $faker = Factory::create('id_ID');
         $kosan = new KosanModel();
-        for ($i = 0; $i <= 8; $i++) {
+        for ($i = 0; $i <= 100; $i++) {
             $kosan->save(
                 [
                     'namaKost' => "Kosan " . $faker->LastName(),
                     'alamat' => $faker->address(),
-                    'kota' => $faker->city(),
-                    'deskripsi' => $faker->sentence(5),
-                    'fasilitas' => $faker->sentence(10),
+                    'kota' => $faker->randomElement(
+                        [
+                            'Lampung Barat',
+                            'Tanggamus',
+                            'Lampung Selatan',
+                            'Lampung Timur',
+                            'Lampung Tengah',
+                            'Lampung Utara',
+                            'Way Kanan',
+                            'Pesawaran',
+                            'Tulang Bawang Barat',
+                            'Tulang Bawang',
+                            'Pesisir Barat',
+                            'Bandar Lampung',
+                            'Metro'
+                        ],
+                    ),
+                    'deskripsi' => $faker->sentence(100),
+                    'fasilitas' => $faker->sentence(100),
                     'harga' => $faker->numberBetween(500000, 1000000),
                     'type' => $faker->randomElement(
                         [
-                            'Pria',
-                            'Putri'
+                            'Putra',
+                            'Putri',
+                            'Campur'
                         ]
                     ),
-                    'idPemilik' => 6,
+                    'idPemilik' => 1,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                     'deleted_at' => date('Y-m-d H:i:s'),

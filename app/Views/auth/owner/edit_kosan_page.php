@@ -7,10 +7,9 @@
         <div class="card-header">
             <h4 class="card-title"><?= $title ?></h4>
         </div>
-
         <div class="card-body">
 
-            <form action="/owner/update_kosan" method="POST" enctype="multipart/form-data">
+            <form action="<?= base_url('/owner/update_kosan') ?>" method="POST" enctype="multipart/form-data">
 
                 <?= csrf_field(); ?>
                 <div class="row">
@@ -21,7 +20,7 @@
                         </div>
                         <label for="kota" class="form-label">Kota/Kabupaten</label>
                         <fieldset class="form-group">
-                            <select name="kota" id="nama_kota" class="form-select">
+                            <select name="kota" id="kota" class="form-select">
 
                             </select>
                         </fieldset>
@@ -30,8 +29,9 @@
                             <label for="type" class="form-label">Type</label>
                             <fieldset class="form-group">
                                 <select class="form-select" id="type" name="type">
-                                    <option <?= ($kosan['type'] == 'Pria') ? 'selected' : '' ?> value="Pria">Putra</option>
+                                    <option <?= ($kosan['type'] == 'Putra') ? 'selected' : '' ?> value="Putra">Putra</option>
                                     <option <?= ($kosan['type'] == 'Putri') ? 'selected' : '' ?> value="Putri">Putri</option>
+                                    <option <?= ($kosan['type'] == 'Campur') ? 'selected' : '' ?> value="Campur">Campur</option>
                                 </select>
                             </fieldset>
                         </div>
@@ -51,55 +51,70 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="harga" class="form-label">Harga</label>
-                            <input type="number" value="<?= $kosan['harga'] ?>" class="form-control" id="harga" name="harga" placeholder="Harga" onchange="previewImage1()">
+                            <input type="number" value="<?= $kosan['harga'] ?>" class="form-control" id="harga" name="harga" placeholder="Harga">
                         </div>
                         <div class="mb-3">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input name="foto_1" type="file" class="form-control" id="foto1">
+                            <label for="foto" class="form-label">Foto 1</label>
+                            <input accept="image/png, image/gif, image/jpeg" name="foto_1" type="file" class="form-control" id="foto1" onchange="previewImage1()">
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalFoto1">
                                 Lihat Foto
                             </button>
                             <div class="modal fade" id="modalFoto1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-body d-flex justify-content-center">
-                                        <img src="/foto_kosan/<?= $foto[0]['nama_foto'] ?>" width="600">
+                                        <img class="img-preview" src="/foto_kosan/<?= $foto[0]['nama_foto'] ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="600">
                                     </div>
                                 </div>
                             </div>
                         </div>
                         <div class="mb-3">
-
-                            <label for="foto" class="form-label">Foto</label>
-                            <input name="foto_2" type="file" class="form-control" id="foto2" onchange="previewImage2()">
+                            <label for="foto" class="form-label">Foto 2</label>
+                            <input accept="image/png, image/gif, image/jpeg" name="foto_2" type="file" class="form-control" id="foto2" onchange="previewImage2()">
+                            <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalFoto2">
+                                Lihat Foto
+                            </button>
                             <?php if (count($foto) >= 2) : ?>
-                                <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalFoto2">
-                                    Lihat Foto
-                                </button>
                                 <div class="modal fade" id="modalFoto2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-body d-flex justify-content-center">
-                                            <img src="/foto_kosan/<?= $foto[1]['nama_foto'] ?>" width="600">
+                                            <img class="img-preview1" src="/foto_kosan/<?= $foto[1]['nama_foto'] ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="600">
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php else : ?>
+                                <div class="modal fade" id="modalFoto2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-body d-flex justify-content-center">
+                                            <img class="img-preview1" width="600">
                                         </div>
                                     </div>
                                 </div>
                             <?php endif; ?>
                         </div>
                         <div class="mb-3">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input name="foto_3" type="file" class="form-control" id="foto3" onchange="previewImage3()">
+                            <label for="foto" class="form-label">Foto 3</label>
+                            <input accept="image/png, image/gif, image/jpeg" name="foto_3" type="file" class="form-control" id="foto3" onchange="previewImage3()">
+                            <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalFoto3">
+                                Lihat Foto
+                            </button>
                             <?php if (count($foto) >= 3) : ?>
-                                <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalFoto3">
-                                    Lihat Foto
-                                </button>
                                 <div class="modal fade" id="modalFoto3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-body d-flex justify-content-center">
-                                            <img src="/foto_kosan/<?= $foto[2]['nama_foto'] ?>" width="600" height="auto">
+                                            <img src="/foto_kosan/<?= $foto[2]['nama_foto'] ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';"  width="600" height="auto">
                                         </div>
                                     </div>
                                 </div>
+                                <?php else : ?>
+                                <div class="modal fade" id="modalFoto3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                                    <div class="modal-dialog">
+                                        <div class="modal-body d-flex justify-content-center">
+                                            <img class="img-preview2" width="600">
+                                        </div>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
                         </div>
-                    <?php endif; ?>
                     </div>
                 </div>
                 <input type="hidden" name="id_kosan" value="<?= $kosan['id_kosan'] ?>">
@@ -107,9 +122,9 @@
                     <button type="submit" class="btn btn-primary me-3 mb-1">Submit</button>
                     <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
                 </div>
+   
+            </form>
         </div>
-        </form>
-    </div>
     </div>
 </section>
 
@@ -117,21 +132,44 @@
 
 
 <script>
+    $.ajax({
+        type: "GET",
+        url: "http://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=18",
+        crossDomain: true,
+        dataType: "json",
+        success: function(response) {
+            for (let i = 0; i < response['kota_kabupaten'].length; i++) {
+                var element = response['kota_kabupaten'][i]['nama'];
+                element = element.split(" ");
+                element.shift();
+                element = element.join(" ");
+                if (element == "<?= $kosan['kota'] ?>") {
+                    $('#kota').append('<option value="' + element + '" selected>' + response['kota_kabupaten'][i]['nama'] + '</option>');
+                } else {
+                    $('#kota').append('<option value="' + element + '">' + response['kota_kabupaten'][i]['nama'] + '</option>');
+                }
+            }
+
+        }
+    });
+
     function previewImage1() {
         const image = document.querySelector('#foto1');
         const imgPreview = document.querySelector('.img-preview');
         const blob = URL.createObjectURL(image.files[0]);
         imgPreview.src = blob;
     }
+
     function previewImage2() {
         const image = document.querySelector('#foto2');
-        const imgPreview = document.querySelector('.img-preview');
+        const imgPreview = document.querySelector('.img-preview1');
         const blob = URL.createObjectURL(image.files[0]);
         imgPreview.src = blob;
     }
+
     function previewImage3() {
         const image = document.querySelector('#foto3');
-        const imgPreview = document.querySelector('.img-preview');
+        const imgPreview = document.querySelector('.img-preview2');
         const blob = URL.createObjectURL(image.files[0]);
         imgPreview.src = blob;
     }

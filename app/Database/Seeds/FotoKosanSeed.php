@@ -11,11 +11,12 @@ class FotoKosanSeed extends Seeder
     {
         $faker = Factory::create('id_ID');       
         $photo = new FotoKosanModel();
-        for($i = 0 ; $i <= 8 ; $i++){
+        for($i = 1 ; $i <= 101 ; $i++){
             $photo->save(
                 [
                     // 'id_photo' => $i,
                     'id_kosan' => $i,
+                    'nama_foto' => $faker->firstName(),
 
                 ]
             );

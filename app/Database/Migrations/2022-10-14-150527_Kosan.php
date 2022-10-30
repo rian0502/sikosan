@@ -42,7 +42,7 @@ class Kosan extends Migration
             ],
             'type' => [
                 'type' => 'ENUM',
-                'constraint' => ['Pria', 'Putri'],
+                'constraint' => ['Putra', 'Putri', 'Campur'],
             ],
             'idPemilik' => [
                 'type' => 'INT',
