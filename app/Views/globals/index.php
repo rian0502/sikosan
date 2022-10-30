@@ -2,15 +2,15 @@
 
 <?= $this->section('content'); ?>
 <div class="row d-flex justify-content-start">
-    <div class="col-md-4 mb-4">
-        <form action="/" method="get" class="d-flex flex-row justify-content-start">
-            <label for="nama_kota" class="align-self-center me-3">Wilayah</label>
-            <select class="form-select" aria-label="Default select example" style="max-width: 300px;" id="nama_kota">
-                <option value="">--Semua--</option>
+<div class="col-md-4 mb-4">
+    <form action="/" method="get" class="d-flex flex-row justify-content-start">
+        <label for="pilih_kota" class="align-self-center me-3">Wilayah</label>
+        <select class="form-select" aria-label="Default select example" style="max-width: 300px;" id="nama_kota">
+        <option value="" selected>--Semua--</option>
 
-            </select>
-        </form>
-    </div>
+        </select>
+    </form>
+</div>
 
     <div class="col mb-4">
         <form action="/" method="get" class="d-flex flex-row justify-content-start">
