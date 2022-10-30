@@ -11,15 +11,15 @@ class RoleSeeder extends Seeder
         $data = [
             [
                 'name' => 'admin',
-                'description' => 'administrator'
+                'description' => 'administrator, level entitas yang mengurusi seluruh sistem',
             ],
             [
                 'name' => 'customer',
-                'description' => 'customer'
+                'description' => 'customer, level entitas yang hanya dapat melakukan pencarian kost'
             ],
             [
                 'name' => 'owner',
-                'description' => 'owner'
+                'description' => 'owner, level entitas yang dapat melakukan untuk memasarkan kosannya'
             ],
         ];
 

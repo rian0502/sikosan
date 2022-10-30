@@ -142,8 +142,9 @@
                             <label for="type" class="form-label">Type</label>
                             <fieldset class="form-group">
                                 <select class="form-select" id="type" name="type">
-                                    <option value="Pria">Putra</option>
+                                    <option value="Putra">Putra</option>
                                     <option value="Putri">Putri</option>
+                                    <option value="Campur">Campur</option>
                                 </select>
                             </fieldset>
                         </div>
@@ -179,13 +180,13 @@
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 1</label>
-                            <input name="foto_1" class="form-control" id="foto1" type='file' onchange="readURL1(this);"/>
+                            <input name="foto_1" class="form-control" id="foto1" type='file' onchange="readURL1(this);" />
                             <small class="text-muted">Foto pertama akan menjadi thumbnail postingan kosan anda.</small> <br>
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" id="btnft1">
                                 Lihat Foto
                             </button>
                             <img src="/foto_kosan/" id="foto1img" width="600" height="auto" hidden>
-                            
+
                             <div id="modalFoto1" class="modal">
 
                                 <span class="close" id="close" data-dismiss="modal">&times;</span>
@@ -194,7 +195,7 @@
                                 <!-- <div id="caption"></div> -->
                             </div>
                         </div>
-                        
+
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 2</label>
                             <input name="foto_2" class="form-control" id="foto2" type='file' onchange="readURL2(this);" />
