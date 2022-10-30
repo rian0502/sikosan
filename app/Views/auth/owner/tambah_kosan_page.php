@@ -284,8 +284,8 @@
     var modal3 = document.getElementById("modalFoto3");
 
     // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img3 = document.getElementById("foto3img" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';");
-    var modalImg3 = document.getElementById("foto3imgs" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';");
+    var img3 = document.getElementById("foto3img");
+    var modalImg3 = document.getElementById("foto3imgs");
     var preview3 = document.getElementById("btnft3")
     preview3.onclick = function() {
         modal3.style.display = "block";
