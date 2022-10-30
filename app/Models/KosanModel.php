@@ -40,7 +40,7 @@ class KosanModel extends Model
     public function getAllKosan()
     {
         $queryKosan = $this->db->table('kosan')
-            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->groupBy('kosan.id_kosan')
+            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->groupBy('kosan.id_kosan')->orderBy('kosan.id_kosan', 'DESC')
             ->get();
         return $queryKosan;
     }
@@ -49,7 +49,7 @@ class KosanModel extends Model
     public function getKosanByIdUser()
     {
         $query = $this->db->table($this->table)
-            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->groupBy('kosan.id_kosan')
+            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->groupBy('kosan.id_kosan')->orderBy('kosan.id_kosan', 'DESC')
             ->getWhere(['kosan.idPemilik' => user_id()])->getResult();
         return $query;
     }
