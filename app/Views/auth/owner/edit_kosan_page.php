@@ -29,8 +29,9 @@
                             <label for="type" class="form-label">Type</label>
                             <fieldset class="form-group">
                                 <select class="form-select" id="type" name="type">
-                                    <option <?= ($kosan['type'] == 'Pria') ? 'selected' : '' ?> value="Pria">Putra</option>
+                                    <option <?= ($kosan['type'] == 'Putra') ? 'selected' : '' ?> value="Putra">Putra</option>
                                     <option <?= ($kosan['type'] == 'Putri') ? 'selected' : '' ?> value="Putri">Putri</option>
+                                    <option <?= ($kosan['type'] == 'Campur') ? 'selected' : '' ?> value="Campur">Campur</option>
                                 </select>
                             </fieldset>
                         </div>
