@@ -62,7 +62,7 @@
                             <div class="modal fade" id="modalFoto1" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                 <div class="modal-dialog">
                                     <div class="modal-body d-flex justify-content-center">
-                                        <img class="img-preview" src="/foto_kosan/<?= $foto[0]['nama_foto'] ?>" width="600">
+                                        <img class="img-preview" src="/foto_kosan/<?= $foto[0]['nama_foto'] ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="600">
                                     </div>
                                 </div>
                             </div>
@@ -77,7 +77,7 @@
                                 <div class="modal fade" id="modalFoto2" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-body d-flex justify-content-center">
-                                            <img class="img-preview1" src="/foto_kosan/<?= $foto[1]['nama_foto'] ?>" width="600">
+                                            <img class="img-preview1" src="/foto_kosan/<?= $foto[1]['nama_foto'] ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="600">
                                         </div>
                                     </div>
                                 </div>
@@ -101,7 +101,7 @@
                                 <div class="modal fade" id="modalFoto3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-body d-flex justify-content-center">
-                                            <img src="/foto_kosan/<?= $foto[2]['nama_foto'] ?>" width="600" height="auto">
+                                            <img src="/foto_kosan/<?= $foto[2]['nama_foto'] ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';"  width="600" height="auto">
                                         </div>
                                     </div>
                                 </div>

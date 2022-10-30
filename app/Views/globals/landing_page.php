@@ -25,7 +25,7 @@
 
         <div class="col-lg-3 mb-4 col-md-4 col-sm-6 list-group-item2">
             <div class="card shadow" style="height: 450px;" name="kartu">
-                <img src="/foto_kosan/<?= $dataKos->nama_foto ?>" class="card-img-top">
+                <img src="/foto_kosan/<?= $dataKos->nama_foto ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" class="card-img-top">
                 <div class="card-body">
                     <div class="d-flex">
                         <button class="btn p-1 btn-outline-<?php if($dataKos->type == 'Putra'){ echo 'primary'; }elseif($dataKos->type == 'Putri'){ echo "warning"; }else{echo "danger";} ?>" style="font-size: 10px;"><?= $dataKos->type ?></button>
