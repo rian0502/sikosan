@@ -28,6 +28,7 @@ class KosanController extends BaseController
     // CREATE DATA KOSAN
     public function create()
     {
+        
         session();
         $data = [
             'title' => 'Form Tambah Data Kosan | Owner',
