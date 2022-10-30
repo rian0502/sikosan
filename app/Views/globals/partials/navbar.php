@@ -8,20 +8,20 @@
         </button>
         <div class="collapse navbar-collapse ms-auto" id="navbarNav">
             <ul class="navbar-nav ms-auto">
-                <?php if (in_groups('owner') || in_groups('customer')) : ?>
-                    <li class="nav-item">
-                        <a class="nav-link active" aria-current="page" href="/">Home</a>
-                    </li>
-                <?php endif; ?>
+                <li class="nav-item">
+                    <a class="nav-link active" aria-current="page" href="/">Home</a>
+                </li>
                 <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/#about">About</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="/pusatBantuan">Pusat Bantuan</a>
-                </li>
-                <li class="nav-item">
                     <a class="nav-link active" aria-current="page" href="/terms">Syarat & Ketentuan</a>
                 </li>
+                <?php if (logged_in() === true && in_groups('customer')) : ?>
+                    <li class="nav-item">
+                        <a class="nav-link active" aria-current="page" href="/mywish">Favorit Saya</a>
+                    </li>
+                <?php endif ?>
                 <?php if (logged_in() === false) : ?>
                     <li class="nav-item">
                         <a href="<?= url_to('login'); ?>" class="btn btn-outline-primary ms-2">
@@ -42,7 +42,7 @@
                                             <li><a class="dropdown-item" href="owner/halaman_pemilik">Halaman Pemilik</a></li>
                                         <?php endif; ?>
                                         <?php if (in_groups('customer')) : ?>
-                                            <li><a class="dropdown-item" href="owner/halaman_pemilik">Profil</a></li>
+                                            <li><a class="dropdown-item" href="customer/profil">Profil</a></li>
                                         <?php endif; ?>
                                         <li><a class="dropdown-item" href="<?= url_to('logout'); ?>">Logout</a></li>
                                     </ul>

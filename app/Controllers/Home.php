@@ -2,7 +2,8 @@
 
 namespace App\Controllers;
 
-use App\Models\KosanModel; //
+use App\Models\KosanModel;
+use App\Models\WishlistModel;
 
 class Home extends BaseController
 {
@@ -10,16 +11,19 @@ class Home extends BaseController
     public function __construct()
     {
         $this->ModelKosan = new KosanModel();
-        # code...
+        $this->wishlistModel = new WishlistModel();
     }
     public function index()
     {
+
         $data_kosan = $this->ModelKosan->getAllKosan()->getResult();
+
         $data = array(
             'title' => 'Data Kosan',
-            'kosan' => $data_kosan
+            'kosan' => $data_kosan,
+            'data_wish' => $this->wishlistModel->where('id_user', user_id())->find(),
         );
-      
+
         return view('globals/index',  $data);
     }
 
