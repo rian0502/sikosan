@@ -180,7 +180,7 @@
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 1</label>
-                            <input name="foto_1" class="form-control" id="foto1" type='file' onchange="readURL1(this);" />
+                            <input accept="image/png, image/gif, image/jpeg" name="foto_1" class="form-control" id="foto1" type='file' onchange="readURL1(this);" />
                             <small class="text-muted">Foto pertama akan menjadi thumbnail postingan kosan anda.</small> <br>
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" id="btnft1">
                                 Lihat Foto
@@ -198,7 +198,7 @@
 
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 2</label>
-                            <input name="foto_2" class="form-control" id="foto2" type='file' onchange="readURL2(this);" />
+                            <input accept="image/png, image/gif, image/jpeg" name="foto_2" class="form-control" id="foto2" type='file' onchange="readURL2(this);" />
 
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" id="btnft2">
                                 Lihat Foto
@@ -212,7 +212,7 @@
                         </div>
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 3</label>
-                            <input name="foto_3" class="form-control" id="foto3" type='file' onchange="readURL3(this);" />
+                            <input accept="image/png, image/gif, image/jpeg" name="foto_3" class="form-control" id="foto3" type='file' onchange="readURL3(this);" />
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" id="btnft3">
                                 Lihat Foto
                             </button>

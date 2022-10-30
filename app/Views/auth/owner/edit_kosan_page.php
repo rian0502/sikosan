@@ -54,8 +54,8 @@
                             <input type="number" value="<?= $kosan['harga'] ?>" class="form-control" id="harga" name="harga" placeholder="Harga">
                         </div>
                         <div class="mb-3">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input name="foto_1" type="file" class="form-control" id="foto1" onchange="previewImage1()">
+                            <label for="foto" class="form-label">Foto 1</label>
+                            <input accept="image/png, image/gif, image/jpeg" name="foto_1" type="file" class="form-control" id="foto1" onchange="previewImage1()">
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalFoto1">
                                 Lihat Foto
                             </button>
@@ -68,8 +68,8 @@
                             </div>
                         </div>
                         <div class="mb-3">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input name="foto_2" type="file" class="form-control" id="foto2" onchange="previewImage2()">
+                            <label for="foto" class="form-label">Foto 2</label>
+                            <input accept="image/png, image/gif, image/jpeg" name="foto_2" type="file" class="form-control" id="foto2" onchange="previewImage2()">
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalFoto2">
                                 Lihat Foto
                             </button>
@@ -92,8 +92,8 @@
                             <?php endif; ?>
                         </div>
                         <div class="mb-3">
-                            <label for="foto" class="form-label">Foto</label>
-                            <input name="foto_3" type="file" class="form-control" id="foto3" onchange="previewImage3()">
+                            <label for="foto" class="form-label">Foto 3</label>
+                            <input accept="image/png, image/gif, image/jpeg" name="foto_3" type="file" class="form-control" id="foto3" onchange="previewImage3()">
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" data-bs-target="#modalFoto3">
                                 Lihat Foto
                             </button>
