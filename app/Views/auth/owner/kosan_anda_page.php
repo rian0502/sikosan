@@ -33,20 +33,21 @@
 
 
 <?php foreach ($kosan as $kos) : ?>
+
     <div class="col-12 list-group-item">
         <div class="card">
             <div class="row g-0">
                 <div class="col-md-3 m-3">
-                    <img src="/foto_kosan/<?= $kos->nama_foto; ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="100%" class="img-fluid rounded-2" alt="gambar_kosan" style="max-height : 250px;">
+                    <img src="/foto_kosan/<?= $kos['gambar'][0]['nama_foto']; ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="100%" class="img-fluid rounded-2" alt="gambar_kosan" style="max-height : 250px;">
                 </div>
                 <div class="col-md-6">
                     <div class="card-body">
-                        <h5 class="card-title"><?= $kos->namaKost; ?></h5>
+                        <h5 class="card-title"><?= $kos['namaKost']; ?></h5>
                         <ul>
-                            <li>Nama Kosan : <?= $kos->namaKost; ?></li>
-                            <li>Kota : <?= $kos->kota ?></li>
-                            <li>Harga : <?= $kos->harga ?></li>
-                            <li>Tipe : <?= $kos->type ?></li>
+                            <li>Nama Kosan : <?= $kos['namaKost']; ?></li>
+                            <li>Kota : <?= $kos['kota'] ?></li>
+                            <li>Harga : <?= $kos['harga'] ?></li>
+                            <li>Tipe : <?= $kos['type'] ?></li>
                         </ul>
                     </div>
                 </div>
@@ -54,10 +55,10 @@
                     <div class="position-absolute top-0 end-0 m-3">
                         <div class="row d-flex">
                             <div class="col">
-                                <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" href="/owner/edit_kost/<?= $kos->id_kosan ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+                                <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" href="/owner/edit_kost/<?= $kos['id_kosan'] ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
                             </div>
                             <div class="col">
-                                <form id="formDelete" action="/owner/delete_kosan/<?= $kos->id_kosan; ?>" method="post">
+                                <form id="formDelete" action="/owner/delete_kosan/<?= $kos['id_kosan']; ?>" method="post">
                                     <?= csrf_field() ?>
                                     <input type="hidden" name="_method" value="DELETE">
                                     <button data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" type="submit" class="btn btn-danger btn-delete"><i class="bi bi-trash"></i></button>
@@ -66,7 +67,8 @@
                         </div>
                     </div>
                     <div class="position-absolute bottom-0 end-0 m-3">
-                        <a data-bs-toggle="tooltip" data-bs-placement="top" title="View" href="/owner/detail_kosan_anda/<?= $kos->id_kosan; ?>" class="btn btn-outline-primary"><i class="bi bi-eye"></i></a>
+                        <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="View" href="/owner/detail_kosan_anda/<?= $kos['id_kosan']; ?>" class="btn btn-outline-primary"><i class="bi bi-eye"></i></a> -->
+                        <a data-bs-toggle="modal" data-bs-placement="top" title="View" data-bs-target="#detailModal" class="btn btn-outline-primary"><i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -75,25 +77,26 @@
     <script>
         //search function
         document.querySelector('#search-input').addEventListener('input', filterList);
-        function filterList(){
+
+        function filterList() {
             const searchInput = document.querySelector('#search-input');
             const filter = searchInput.value.toLowerCase();
             const listItem = document.querySelectorAll('.list-group-item');
             // const text2 = listItem.textContent;
             // console.log(text2.split(" "));
-            
+
 
             // const card = document.querySelectorAll('.list-group-flush');
 
-            listItem.forEach((item)=>{
+            listItem.forEach((item) => {
                 let text = item.textContent;
 
-                
+
                 // console.log(text.split(" "));
                 // console.log(text);
                 if (text.toLowerCase().includes(filter.toLowerCase())) {
                     item.style.display = '';
-                    
+
                 } else {
                     item.style.display = 'none';
                     // card.style.display = 'none';
@@ -103,7 +106,91 @@
         }
     </script>
 
+    <!-- Modal -->
+    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalCenterTitle"><?= $kos['namaKost']; ?>
+                    </h5>
+                    <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
+                        <i data-feather="x"></i>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <div class="col-12">
+                        <div class="row">
+                            <div class="col md-4">
+
+                                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                                    <ol class="carousel-indicators">
+                                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+                                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+                                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+                                    </ol>
+                                    <div class="carousel-inner">
+                                        <?php for ($i = 0; $i < count($kos['gambar']); $i++) : ?>
+                                            <?php if ($i == 0) : ?>
+                                                <div class="carousel-item active">
+                                                    <img src="/foto_kosan/<?= $kos['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" height="300" width="100" alt="...">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h5>Gambar <?= $i + 1; ?></h5>
+                                                    </div>
+                                                </div>
+                                            <?php else: ?> 
+                                                <div class="carousel-item">
+                                                    <img src="/foto_kosan/<?= $kos['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" height="300" width="100" alt="...">
+                                                    <div class="carousel-caption d-none d-md-block">
+                                                        <h5>Gambar <?= $i + 1; ?></h5>
+                                                    </div>
+                                                </div>
+                                            <?php endif; ?>
+                                        <?php endfor; ?>
+
+                                    </div>
+
+                                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+                                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Previous</span>
+                                    </a>
+                                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+                                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                                        <span class="visually-hidden">Next</span>
+                                    </a>
+                                </div>
+
+
+
+                            </div>
+                            <div class="col md-8">
+                                <ul>
+                                    <li>Nama Kosan : <?= $kos['namaKost']; ?></li>
+                                    <li>Kota : <?= $kos['kota'] ?></li>
+                                    <li>Harga : <?= $kos['harga'] ?></li>
+                                    <li>Tipe : <?= $kos['type'] ?></li>
+                                    <li>Alamat Lengkap : <?= $kos['alamat'] ?></li>
+                                    <li>Fasilitas : <?= $kos['fasilitas'] ?></li>
+                                    <li>Deskripsi : <?= $kos['deskripsi'] ?></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary ml-1" data-bs-dismiss="modal">
+                        <i class="bx bx-check d-block d-sm-none"></i>
+                        <span class="d-none d-sm-block">Close</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 <?php endforeach; ?>
+
+
+
 
 
 
