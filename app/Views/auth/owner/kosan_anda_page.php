@@ -7,6 +7,7 @@
     <h3>Kosan Anda</h3>
 </div>
 
+
 <div class="col-12">
     <div class="row">
         <div class="row match-height col-12">
@@ -31,7 +32,7 @@
     </div>
 </div>
 
-
+<?php $i=0; ?>
 <?php foreach ($kosan as $kos) : ?>
 
     <div class="col-12 list-group-item">
@@ -43,11 +44,11 @@
                 <div class="col-md-6">
                     <div class="card-body">
                         <h5 class="card-title"><?= $kos['namaKost']; ?></h5>
-                        <ul>
-                            <li>Nama Kosan : <?= $kos['namaKost']; ?></li>
-                            <li>Kota : <?= $kos['kota'] ?></li>
-                            <li>Harga : <?= $kos['harga'] ?></li>
-                            <li>Tipe : <?= $kos['type'] ?></li>
+                        <ul style="list-style-type:none;">
+                        
+                            <li><i class="bi bi-geo-alt-fill"></i>&nbsp&nbsp&nbsp<?= $kos['kota'] ?></li>
+                            <li><i class="bi bi-currency-dollar"></i>&nbsp&nbsp&nbsp<?= $kos['harga'] ?></li>
+                            <li><i class="bi bi-gender-ambiguous"></i>&nbsp&nbsp&nbsp<?= $kos['type'] ?></li>
                         </ul>
                     </div>
                 </div>
@@ -68,7 +69,7 @@
                     </div>
                     <div class="position-absolute bottom-0 end-0 m-3">
                         <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="View" href="/owner/detail_kosan_anda/<?= $kos['id_kosan']; ?>" class="btn btn-outline-primary"><i class="bi bi-eye"></i></a> -->
-                        <a data-bs-toggle="modal" data-bs-placement="top" title="View" data-bs-target="#detailModal" class="btn btn-outline-primary"><i class="bi bi-eye"></i></a>
+                        <a data-bs-toggle="modal" data-bs-placement="top" title="View" data-bs-target="#detailModal<?= $i; ?>" class="btn btn-outline-primary"><i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -83,7 +84,7 @@
             const filter = searchInput.value.toLowerCase();
             const listItem = document.querySelectorAll('.list-group-item');
             // const text2 = listItem.textContent;
-            // console.log(text2.split(" "));
+            // console.log(text2.split(" "))
 
 
             // const card = document.querySelectorAll('.list-group-flush');
@@ -105,14 +106,14 @@
             });
         }
     </script>
+  
 
     <!-- Modal -->
-    <div class="modal fade" id="detailModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="detailModal<?= $i; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalCenterTitle"><?= $kos['namaKost']; ?>
-                    </h5>
+                    <h5 class="modal-title" id="exampleModalCenterTitl">Detail Kosan</h5>
                     <button type="button" class="close" data-bs-dismiss="modal" aria-label="Close">
                         <i data-feather="x"></i>
                     </button>
@@ -163,8 +164,9 @@
 
                             </div>
                             <div class="col md-8">
+                                <h5><?= $kos['namaKost']; ?></h5>
                                 <ul>
-                                    <li>Nama Kosan : <?= $kos['namaKost']; ?></li>
+                                 
                                     <li>Kota : <?= $kos['kota'] ?></li>
                                     <li>Harga : <?= $kos['harga'] ?></li>
                                     <li>Tipe : <?= $kos['type'] ?></li>
@@ -186,7 +188,7 @@
             </div>
         </div>
     </div>
-
+    <?php $i++; ?>
 <?php endforeach; ?>
 
 

@@ -3,6 +3,7 @@
 namespace App\Controllers;
 
 use App\Models\KosanModel;
+use App\Models\FotoKosanModel;
 use App\Models\WishlistModel;
 
 class Home extends BaseController
@@ -43,9 +44,22 @@ class Home extends BaseController
         return view('globals/terms');
     }
 
-    public function detail()
+    public function detail($id)
     {
-        return view('globals/detail_page');
+        
+        $kosanModel = new KosanModel();
+        $kosan = $kosanModel->where(['id_kosan' => $id])->find();
+        for($i = 0 ; $i < count($kosan); $i++){
+            $kosan[$i]['gambar'] = (new FotoKosanModel())->where(['id_kosan'=>$kosan[$i]['id_kosan']])->findAll();
+        }
+        
+        $data = [
+            'title' => 'Kosan Anda | Owner',
+            'pemilik' => user()->namaLengkap,
+            'kosan' => $kosan
+        ];
+
+        return view('globals/detail_page', $data);
     }
 
     // public function owner($halaman)
