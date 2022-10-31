@@ -29,7 +29,7 @@ class OwnerController extends BaseController
         $kosanModel = new KosanModel();
         $kosan = $kosanModel->where(['idPemilik' => user_id()])->findAll();
         for($i = 0 ; $i < count($kosan); $i++){
-            $kosan[$i]['gambar'] = (new FotoKosanModel())->where(['id_kosan'=>105])->findAll();
+            $kosan[$i]['gambar'] = (new FotoKosanModel())->where(['id_kosan'=> $kosan[$i]['id_kosan']])->findAll();
         }
         
         $data = [

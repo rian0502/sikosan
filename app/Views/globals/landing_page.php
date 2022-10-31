@@ -43,7 +43,7 @@
                 </div>
                 <div class="container mb-3 d-flex">
                     <div>
-                        <a href="/detail" class="btn btn-outline-success">Detail</a>
+                        <a href="/detail/<?= $dataKos->id_kosan; ?>" class="btn btn-outline-success">Detail</a>
                     </div>
                     <?php if (logged_in() && in_groups('customer')) : ?>
                         <div class="ms-auto pt-2 pe-2">
