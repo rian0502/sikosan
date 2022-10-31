@@ -39,10 +39,10 @@
                                     </button>
                                     <ul class="dropdown-menu outline-primary" style="min-width: 100px !important;">
                                         <?php if (in_groups('owner')) : ?>
-                                            <li><a class="dropdown-item" href="owner/halaman_pemilik">Halaman Pemilik</a></li>
+                                            <li><a class="dropdown-item" href="/owner/halaman_pemilik">Halaman Pemilik</a></li>
                                         <?php endif; ?>
                                         <?php if (in_groups('customer')) : ?>
-                                            <li><a class="dropdown-item" href="customer/profil">Profil</a></li>
+                                            <li><a class="dropdown-item" href="/customer/profil">Profil</a></li>
                                         <?php endif; ?>
                                         <li><a class="dropdown-item" href="<?= url_to('logout'); ?>">Logout</a></li>
                                     </ul>
