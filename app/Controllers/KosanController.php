@@ -28,7 +28,7 @@ class KosanController extends BaseController
     // CREATE DATA KOSAN
     public function create()
     {
-        
+
         session();
         $data = [
             'title' => 'Form Tambah Data Kosan | Owner',
@@ -143,7 +143,7 @@ class KosanController extends BaseController
         $this->fotoKosanModel->insert($data_foto_kosan);
 
         // Memindahkan foto kosan ke local storage
-        $foto_1->move( '../public/foto_kosan', $name_foto1);
+        $foto_1->move('../public/foto_kosan', $name_foto1);
 
         if ($foto_2->getName() !== '') {
             $name_foto2 = $foto_2->getRandomName();
@@ -269,12 +269,12 @@ class KosanController extends BaseController
                 ],
             ]
         );
-        
+
         // // jika validasi error
         if ($validated == FALSE) {
             return redirect()->back()->withInput();
         }
-        
+
         $this->kosanModel->update($this->request->getVar('id_kosan'), $data);
         if ($this->request->getFile('foto_1')->getName() !== '') {
 
