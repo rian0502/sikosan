@@ -41,7 +41,7 @@ $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::index');
 $routes->get('/pusatBantuan', 'Home::pusatBantuan');
 $routes->get('/terms', 'Home::terms');
-$routes->get('/detail', 'Home::detail');
+$routes->get('/detail/(:num)', 'Home::detail/$1');
 // -------------------------------------------
 
 // For admin

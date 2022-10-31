@@ -1,48 +1,54 @@
 <?= $this->extend('templates/template'); ?>
 <?= $this->section('content'); ?>
 <!-- Content-->
+
 <section>
     <div class="container px-4 px-lg-5 my-5">
-        <!-- <div class="row">
-            <div class="col-md-8 align-items-center"><img class="img-fluid" src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/06/06/1021374220.jpg"></div>
-            <div class="col-md-4">
-                <div class="row"><img class="card-img-top img-fluid mb-3" style="height: 200px ;" src="https://www.uhb.ac.id/uploads/images/dsc052972_1.jpg"></div>
-                <div class="row"><img class="card-img-top img-fluid mt-3" src="https://cdn-image.hipwee.com/wp-content/uploads/2019/06/hipwee-54446509_344272106258262_4677517404827874741_n-750x422.jpg"></div>
-            </div>
-        </div> -->
-
-        <div class="card">
-
-            <div class="card-body">
-                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                    <ol class="carousel-indicators">
-                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
-                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
-                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
-                    </ol>
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <img src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/06/06/1021374220.jpg" style="object-fit: cover; height: 450px;" class="d-block w-100" alt="...">
+        
+            <div class="card">
+                <div class="card-body">
+                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                        <ol class="carousel-indicators">
+                            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+                            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+                            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <!-- <div class="carousel-item active">
+                                <img src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/06/06/1021374220.jpg" style="object-fit: cover; height: 450px;" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://www.uhb.ac.id/uploads/images/dsc052972_1.jpg" style="object-fit: cover; height: 450px;" class="d-block w-100" alt="...">
+                            </div>
+                            <div class="carousel-item">
+                                <img src="https://cdn-image.hipwee.com/wp-content/uploads/2019/06/hipwee-54446509_344272106258262_4677517404827874741_n-750x422.jpg" style="object-fit: cover; height: 450px;" class="d-block w-100" alt="...">
+                            </div> -->
+                            <?php for ($i = 0; $i < count($kosan[0]['gambar']); $i++) : ?>
+                                <?php if ($i == 0) : ?>
+                                    <div class="carousel-item active">
+                                        <img src="/foto_kosan/<?= $kosan[0]['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" style="object-fit: cover; height: 500px;" alt="...">
+                                        
+                                    </div>
+                                <?php else : ?>
+                                    <div class="carousel-item">
+                                        <img src="/foto_kosan/<?= $kosan[0]['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" style="object-fit: cover; height: 500px;" alt="...">
+                                        
+                                    </div>
+                                <?php endif; ?>
+                            <?php endfor; ?>
                         </div>
-                        <div class="carousel-item">
-                            <img src="https://www.uhb.ac.id/uploads/images/dsc052972_1.jpg" style="object-fit: cover; height: 450px;" class="d-block w-100" alt="...">
-                        </div>
-                        <div class="carousel-item">
-                            <img src="https://cdn-image.hipwee.com/wp-content/uploads/2019/06/hipwee-54446509_344272106258262_4677517404827874741_n-750x422.jpg" style="object-fit: cover; height: 450px;" class="d-block w-100" alt="...">
-                        </div>
+                        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="visually-hidden">Next</span>
+                        </a>
                     </div>
-                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="visually-hidden">Next</span>
-                    </a>
                 </div>
             </div>
 
-        </div>
 
 
 
@@ -50,10 +56,10 @@
         <div class="row">
             <div class="col-md-8 mt-5">
                 <div class="row">
-                    <h2 class="fw-bolder mb-4">Kost Rosnaningsih Bandar Lampung, Tanjung Karang Pusat</h2>
+                    <h2 class="fw-bolder mb-4"><?= $kosan[0]['namaKost']; ?></h2>
                     <div class="col-mt-4">
-                        <button type="button " class="btn btn-outline-primary " disabled>Kost Putra</button>
-                        <i class="bi bi-geo-alt">Bandar Lampung</i>
+                        <button type="button " class="btn btn-outline-primary " disabled><?=$kosan[0]['type']; ?></button>
+                        <i class="bi bi-geo-alt"><?= $kosan[0]['kota']; ?></i>
                     </div>
 
                     <div class="col-md-4 offset-md-10">
@@ -68,8 +74,7 @@
                 </div>
 
                 <div class="mt-3 mb-4">
-                    <h4 class="fw-bolder mb-1">Kos disewakan oleh Rosnaningsih</h4>
-                    <p class="fs-6 ">Terakhir dilihat 1 bulan yang lalu</p>
+                    <h4 class="fw-bolder mb-1">Kos disewakan oleh <?= user()->namaLengkap; ?></h4>
                 </div>
 
                 <div class="row">
@@ -79,11 +84,8 @@
                 </div>
 
                 <div class="mt-3 mb-4">
-                    <h4 class="fw-bolder mb-4">Spesifikasi Fasilitas Kamar</h4>
-                    <p class="fs-6 "><i class="bi bi-rulers"></i>&nbsp Luas Kamar 4x5 Meter</p>
-                    <p class="fs-6 "><i class="bi bi-lightning-charge"></i>&nbsp Sudah Termasuk Listrik</p>
-                    <p class="fs-6 "><i class="bi bi-droplet-half"></i>&nbsp Sudah Termasuk Air</p>
-                    <p class="fs-6 "><i class="bi bi-door-open"></i></i>&nbsp Kamar Mandi Dalam</p>
+                    <h4 class="fw-bolder mb-4">Deskripsi</h4>
+                    <p class="fs-5 "><?= $kosan[0]['deskripsi']; ?></p>
                 </div>
 
                 <div class="row">
@@ -93,8 +95,8 @@
                 </div>
 
                 <div class="mt-3 mb-4">
-                    <h4 class="fw-bolder mb-4">Fasilitas Umum</h4>
-                    <p class="fs-6 "><i class="bi bi-bicycle"></i>&nbsp Parkiran Motor & Mobil</p>
+                    <h4 class="fw-bolder mb-4">Fasilitas </h4>
+                    <p class="fs-5 "><?= $kosan[0]['fasilitas']; ?></p>
                 </div>
 
                 <div class="row">
@@ -104,40 +106,23 @@
                 </div>
 
                 <div class="mt-3 mb-4">
-                    <h4 class="fw-bolder mb-4">Peraturan Kos-Kosan</h4>
-                    <p class="fs-6 "><i class="bi bi-people-fill"></i>&nbsp Maks. 2 orang/kamar</p>
-                    <p class="fs-6 "><i class="bi bi-gender-male"></i>&nbsp Khusus putra, lawan jenis tidak boleh masuk</p>
-                    <p class="fs-6 "><i class="bi bi-clock-history"></i>&nbsp Akses 24 Jam</p>
+                    <h4 class="fw-bolder mb-4">Alamat Lengkap</h4>
+                    <p class="fs-5 "><?= $kosan[0]['alamat']; ?></p>
                 </div>
             </div>
 
             <div class="col-md-4 mt-5">
                 <div class="card">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item mt-1 mb-1">
-                            <i class="bi bi-droplet-half"></i>&nbsp Termasuk Air<br>
-                            <i class="bi bi-lightning-charge"></i>&nbsp Termasuk Listrik
-                        </li>
+                        
                         <li class="list-group-item">
                             Per Bulan
-                            <span class="text-muted text-decoration-line-through">
+                            <!-- <span class="text-muted text-decoration-line-through">
                                 <p class="fs-6" style="display: inline; text-align: right;">Rp.800.000</p>
-                            </span>
-                            <b>Rp.600.000</b>
+                            </span> -->
+                            <b> <?= number_to_currency($kosan[0]['harga'], 'IDR', 'id_ID', 0); ?></b>
                         </li>
                     </ul>
-                </div>
-
-                <div class="card mt-3">
-                    <div class="card-body">
-                        <form>
-                            <div class="form-group">
-                                <input type="date" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Masukkan Tanggal Masuk Kos">
-                            </div>
-                        </form>
-
-                        <button type="button" class="btn btn-outline-primary col-12 mt-2">Pesan Kos!</button>
-                    </div>
                 </div>
             </div>
         </div>
