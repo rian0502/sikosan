@@ -32,7 +32,7 @@
     </div>
 </div>
 
-<?php $i = 0; ?>
+<?php $index = 0; ?>
 <?php foreach ($kosan as $kos) : ?>
 
     <div class="col-12 list-group-item">
@@ -75,7 +75,7 @@
                     </div>
                     <div class="position-absolute bottom-0 end-0 m-3">
                         <!-- <a data-bs-toggle="tooltip" data-bs-placement="top" title="View" href="/owner/detail_kosan_anda/<?= $kos['id_kosan']; ?>" class="btn btn-outline-primary"><i class="bi bi-eye"></i></a> -->
-                        <a data-bs-toggle="modal" data-bs-placement="top" title="View" data-bs-target="#detailModal<?= $i; ?>" class="btn btn-outline-primary"><i class="bi bi-eye"></i></a>
+                        <a data-bs-toggle="modal" data-bs-placement="top" title="View" data-bs-target="#detailModal<?= $index; ?>" class="btn btn-outline-primary"><i class="bi bi-eye"></i></a>
                     </div>
                 </div>
             </div>
@@ -115,7 +115,7 @@
 
 
     <!-- Modal -->
-    <div class="modal fade" id="detailModal<?= $i; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal fade" id="detailModal<?= $index; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
         <div class="modal-dialog modal-dialog-centered modal-dialog-centered modal-dialog-scrollable modal-xl" role="document">
             <div class="modal-content">
                 <div class="modal-header">
@@ -129,38 +129,28 @@
                         <div class="row">
                             <div class="col md-4">
 
-                                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                                <div id="carouselExampleCaptions<?= $index; ?>" class="carousel slide" data-bs-ride="carousel">
                                     <ol class="carousel-indicators">
-                                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
-                                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
-                                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+                                        <li data-bs-target="#carouselExampleCaptions<?= $index; ?>" data-bs-slide-to="0" class="active"></li>
+                                        <li data-bs-target="#carouselExampleCaptions<?= $index; ?>" data-bs-slide-to="1"></li>
+                                        <li data-bs-target="#carouselExampleCaptions<?= $index; ?>" data-bs-slide-to="2"></li>
                                     </ol>
                                     <div class="carousel-inner">
                                         <?php for ($i = 0; $i < count($kos['gambar']); $i++) : ?>
-                                            <?php if ($i == 0) : ?>
-                                                <div class="carousel-item active">
-                                                    <img src="/foto_kosan/<?= $kos['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" height="300" width="100" alt="...">
-                                                    <div class="carousel-caption d-none d-md-block">
-                                                        <h5>Gambar <?= $i + 1; ?></h5>
-                                                    </div>
+                                            <div class="carousel-item <?= ($i == 0) ? 'active' : '' ?>">
+                                                <img src="/foto_kosan/<?= $kos['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" height="300" width="100" alt="...">
+                                                <div class="carousel-caption d-none d-md-block">
+                                                    <h5>Gambar <?= $i + 1; ?></h5>
                                                 </div>
-                                            <?php else : ?>
-                                                <div class="carousel-item">
-                                                    <img src="/foto_kosan/<?= $kos['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" height="300" width="100" alt="...">
-                                                    <div class="carousel-caption d-none d-md-block">
-                                                        <h5>Gambar <?= $i + 1; ?></h5>
-                                                    </div>
-                                                </div>
-                                            <?php endif; ?>
+                                            </div>
                                         <?php endfor; ?>
-
                                     </div>
 
-                                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+                                    <a class="carousel-control-prev" href="#carouselExampleCaptions<?= $index; ?>" role="button" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Previous</span>
                                     </a>
-                                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+                                    <a class="carousel-control-next" href="#carouselExampleCaptions<?= $index; ?>" role="button" data-bs-slide="next">
                                         <span class="carousel-control-next-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Next</span>
                                     </a>
@@ -194,7 +184,7 @@
             </div>
         </div>
     </div>
-    <?php $i++; ?>
+    <?php $index++; ?>
 <?php endforeach; ?>
 
 
