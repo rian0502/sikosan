@@ -39,6 +39,7 @@ class KosanModel extends Model
     // Ambil semua data kosan
     public function getAllKosan()
     {
+
         $queryKosan = $this->db->table('kosan')
             ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->groupBy('kosan.id_kosan')->orderBy('kosan.id_kosan', 'DESC')
             ->get();
