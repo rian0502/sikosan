@@ -67,7 +67,7 @@ $routes->get('/owner/edit_kost/(:any)', 'KosanController::edit/$1', ['filter' =>
 $routes->get('/customer/profil', 'CustomerController::profil', ['filter' => 'role:customer']);
 $routes->get('/wishing_post/(:any)/(:any)', 'WishlistController::check_is_wished/$1/$2', ['filter' => 'role:customer']);
 $routes->get('/wish/(:num)/(:num)', 'WishlistController::wish/$1/$2');
-$routes->get('/unwish/(:num)', 'WishlistController::unwish/$1');
+$routes->get('/unwish/(:num)/(:num)', 'WishlistController::unwish/$1/$2');
 $routes->get('/mywish', 'CustomerController::mywish');
 // --------------------------------------------------------------------------------------------------------
 

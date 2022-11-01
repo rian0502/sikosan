@@ -32,10 +32,9 @@
     </div>
 </div>
 
-
-<?php $i=0; ?>
+<?php $i = 0; ?>
 <?php foreach ($kosan as $kos) : ?>
-    
+
     <div class="col-12 list-group-item">
         <div class="card">
             <div class="row g-0">
@@ -46,7 +45,7 @@
                     <div class="card-body">
                         <h5 class="card-title"><?= $kos['namaKost']; ?></h5>
                         <ul style="list-style-type:none;">
-                        
+
                             <li><i class="bi bi-geo-alt-fill"></i>&nbsp&nbsp&nbsp<?= $kos['kota'] ?></li>
                             <li><i class="bi bi-currency-dollar"></i>&nbsp&nbsp&nbsp<?= $kos['harga'] ?></li>
                             <li><i class="bi bi-gender-ambiguous"></i>&nbsp&nbsp&nbsp<?= $kos['type'] ?></li>
@@ -107,7 +106,7 @@
             });
         }
     </script>
-  
+
 
     <!-- Modal -->
     <div class="modal fade" id="detailModal<?= $i; ?>" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
@@ -139,7 +138,7 @@
                                                         <h5>Gambar <?= $i + 1; ?></h5>
                                                     </div>
                                                 </div>
-                                            <?php else: ?> 
+                                            <?php else : ?>
                                                 <div class="carousel-item">
                                                     <img src="/foto_kosan/<?= $kos['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" height="300" width="100" alt="...">
                                                     <div class="carousel-caption d-none d-md-block">
@@ -167,7 +166,7 @@
                             <div class="col md-8">
                                 <h5><?= $kos['namaKost']; ?></h5>
                                 <ul>
-                                 
+
                                     <li>Kota : <?= $kos['kota'] ?></li>
                                     <li>Harga : <?= $kos['harga'] ?></li>
                                     <li>Tipe : <?= $kos['type'] ?></li>
