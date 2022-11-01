@@ -34,13 +34,13 @@ class WishlistController extends BaseController
 
         $this->wishlistModel->insert($data);
 
-        return redirect()->to('/detail/' . $id_kosan);
+        return redirect()->to('/');
     }
 
     public function unwish($id_kosan, $id_wishlist)
     {
         $this->wishlistModel->delete(['id_wishlist', $id_wishlist]);
 
-        return redirect()->to('/detail/' . $id_kosan);
+        return redirect()->to('/');
     }
 }
