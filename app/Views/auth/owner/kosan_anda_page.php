@@ -32,9 +32,10 @@
     </div>
 </div>
 
+
 <?php $i=0; ?>
 <?php foreach ($kosan as $kos) : ?>
-
+    
     <div class="col-12 list-group-item">
         <div class="card">
             <div class="row g-0">
