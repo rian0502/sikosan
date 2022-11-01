@@ -92,7 +92,7 @@
                 </div>
 
                 <div class="mt-3 mb-4">
-                    <h4 class="fw-bolder mb-1">Kos disewakan oleh <?= user()->namaLengkap; ?> </h4>
+                    <h4 class="fw-bolder mb-1">Kos disewakan oleh <?= $pemilik ?> </h4>
                 </div>
 
                 <div class="row">
