@@ -12,7 +12,7 @@ class KosanSeed extends Seeder
     {
         $faker = Factory::create('id_ID');
         $kosan = new KosanModel();
-        for ($i = 0; $i <= 100; $i++) {
+        for ($i = 1; $i <= 10; $i++) {
             $kosan->save(
                 [
                     'namaKost' => "Kosan " . $faker->LastName(),
@@ -44,7 +44,7 @@ class KosanSeed extends Seeder
                             'Campur'
                         ]
                     ),
-                    'idPemilik' => 1,
+                    'idPemilik' => 2,
                     'created_at' => date('Y-m-d H:i:s'),
                     'updated_at' => date('Y-m-d H:i:s'),
                     'deleted_at' => date('Y-m-d H:i:s'),

@@ -20,6 +20,11 @@ class Wishlist extends Migration
                 'constraint' => 11,
                 'unsigned' => true,
             ],
+            'id_user' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+            ],
         ]);
 
         $this->forge->addKey('id_wishlist', true);
