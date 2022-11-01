@@ -56,7 +56,8 @@ class Home extends BaseController
         $data = [
             'title' => 'Kosan Anda | Owner',
             'pemilik' => user()->namaLengkap,
-            'kosan' => $kosan
+            'kosan' => $kosan,
+            'data_wish' => $this->wishlistModel->where('id_user', user_id())->find(),
         ];
 
         return view('globals/detail_page', $data);
