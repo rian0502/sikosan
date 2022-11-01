@@ -39,7 +39,7 @@
         <div class="card">
             <div class="row g-0">
                 <div class="col-md-3 m-3">
-                    <img src="/foto_kosan/<?= @$kos['gambar'][0]['nama_foto']; ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="100%" class="img-fluid rounded-2" alt="gambar_kosan" style="max-height : 250px;">
+                    <img src="/foto_kosan/<?= $kos['gambar'][0]['nama_foto']; ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="100%" class="img-fluid rounded-2" alt="gambar_kosan" style="max-height : 250px;">
                 </div>
                 <div class="col-md-6">
                     <div class="card-body">
