@@ -48,10 +48,6 @@
                 </div>
             </div>
         </div>
-
-
-
-
         <!-- Detail KOS = nama,spefsifikasi,dll-->
         <div class="row">
             <div class="col-md-8 mt-5">
@@ -62,8 +58,15 @@
                         <i class="bi bi-geo-alt"><?= $kosan[0]['kota']; ?></i>
                     </div>
                     <?php if (logged_in() && in_groups('customer')) : ?>
-                        <?php if (count($data_wish) !== 0) : ?>
-                            <?php if ($data_wish[0]['id_kosan'] === $kosan[0]['id_kosan']) : ?>
+                        <?php if (count($data_wish) >= 0) : ?>
+                            <?php for ($i = 0; $i < count($data_wish); $i++) : ?>
+                                <?php $founded = false; ?>
+                                <?php if ($data_wish[$i]['id_kosan'] == $kosan[0]['id_kosan']) : ?>
+                                    <?php $founded = true; ?>
+                                    <?php break; ?>
+                                <?php endif; ?>
+                            <?php endfor; ?>
+                            <?php if ($founded == true) : ?>
                                 <div class="col-md-4 offset-md-10">
                                     <a href="/wishing_post/<?= $kosan[0]['id_kosan'] ?>/<?= user_id() ?>" type="button " class="btn btn-primary"><i class="bi bi-suit-heart"></i>&nbsp Tersimpan</a>
                                 </div>
