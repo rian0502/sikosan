@@ -91,10 +91,7 @@
             const listItem = document.querySelectorAll('.list-group-item');
             // const text2 = listItem.textContent;
             // console.log(text2.split(" "))
-
-
             // const card = document.querySelectorAll('.list-group-flush');
-
             listItem.forEach((item) => {
                 let text = item.textContent;
 
@@ -145,7 +142,6 @@
                                             </div>
                                         <?php endfor; ?>
                                     </div>
-
                                     <a class="carousel-control-prev" href="#carouselExampleCaptions<?= $index; ?>" role="button" data-bs-slide="prev">
                                         <span class="carousel-control-prev-icon" aria-hidden="true"></span>
                                         <span class="visually-hidden">Previous</span>
@@ -155,8 +151,6 @@
                                         <span class="visually-hidden">Next</span>
                                     </a>
                                 </div>
-
-
 
                             </div>
                             <div class="col md-8">
