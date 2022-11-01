@@ -46,17 +46,18 @@ class Home extends BaseController
 
     public function detail($id)
     {
-        
+
         $kosanModel = new KosanModel();
         $kosan = $kosanModel->where(['id_kosan' => $id])->find();
-        for($i = 0 ; $i < count($kosan); $i++){
-            $kosan[$i]['gambar'] = (new FotoKosanModel())->where(['id_kosan'=>$kosan[$i]['id_kosan']])->findAll();
+        for ($i = 0; $i < count($kosan); $i++) {
+            $kosan[$i]['gambar'] = (new FotoKosanModel())->where(['id_kosan' => $kosan[$i]['id_kosan']])->findAll();
         }
-        
+
         $data = [
             'title' => 'Kosan Anda | Owner',
             'pemilik' => user()->namaLengkap,
-            'kosan' => $kosan
+            'kosan' => $kosan,
+            'data_wish' => $this->wishlistModel->where('id_user', user_id())->find(),
         ];
 
         return view('globals/detail_page', $data);

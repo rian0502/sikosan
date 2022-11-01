@@ -19,7 +19,7 @@ class WishlistController extends BaseController
         $query = $this->wishlistModel->where('id_kosan', $id_kosan)->where('id_user', $id_user)->first();
 
         if ($query != null) {
-            return redirect()->to('/unwish/' . $query['id_wishlist']);
+            return redirect()->to('/unwish/' . $id_kosan . '/' . $query['id_wishlist']);
         } else {
             return redirect()->to('/wish/' . $id_kosan . '/' . $id_user);
         }
@@ -34,13 +34,13 @@ class WishlistController extends BaseController
 
         $this->wishlistModel->insert($data);
 
-        return redirect()->to('/');
+        return redirect()->to('/detail/' . $id_kosan);
     }
 
-    public function unwish($id_wishlist)
+    public function unwish($id_kosan, $id_wishlist)
     {
         $this->wishlistModel->delete(['id_wishlist', $id_wishlist]);
 
-        return redirect()->to('/');
+        return redirect()->to('/detail/' . $id_kosan);
     }
 }

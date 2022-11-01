@@ -4,17 +4,17 @@
 
 <section>
     <div class="container px-4 px-lg-5 my-5">
-    
-            <div class="card">
-                <div class="card-body">
-                    <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
-                        <ol class="carousel-indicators">
-                            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
-                            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
-                            <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
-                        </ol>
-                        <div class="carousel-inner">
-                            <!-- <div class="carousel-item active">
+
+        <div class="card">
+            <div class="card-body">
+                <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
+                    <ol class="carousel-indicators">
+                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="0" class="active"></li>
+                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="1"></li>
+                        <li data-bs-target="#carouselExampleCaptions" data-bs-slide-to="2"></li>
+                    </ol>
+                    <div class="carousel-inner">
+                        <!-- <div class="carousel-item active">
                                 <img src="https://assets.promediateknologi.com/crop/0x0:0x0/x/photo/2022/06/06/1021374220.jpg" style="object-fit: cover; height: 450px;" class="d-block w-100" alt="...">
                             </div>
                             <div class="carousel-item">
@@ -23,31 +23,31 @@
                             <div class="carousel-item">
                                 <img src="https://cdn-image.hipwee.com/wp-content/uploads/2019/06/hipwee-54446509_344272106258262_4677517404827874741_n-750x422.jpg" style="object-fit: cover; height: 450px;" class="d-block w-100" alt="...">
                             </div> -->
-                            <?php for ($i = 0; $i < count($kosan[0]['gambar']); $i++) : ?>
-                                <?php if ($i == 0) : ?>
-                                    <div class="carousel-item active">
-                                        <img src="/foto_kosan/<?= $kosan[0]['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" style="object-fit: cover; height: 500px;" alt="...">
-                                        
-                                    </div>
-                                <?php else : ?>
-                                    <div class="carousel-item">
-                                        <img src="/foto_kosan/<?= $kosan[0]['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" style="object-fit: cover; height: 500px;" alt="...">
-                                        
-                                    </div>
-                                <?php endif; ?>
-                            <?php endfor; ?>
-                        </div>
-                        <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
-                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Previous</span>
-                        </a>
-                        <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
-                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                            <span class="visually-hidden">Next</span>
-                        </a>
+                        <?php for ($i = 0; $i < count($kosan[0]['gambar']); $i++) : ?>
+                            <?php if ($i == 0) : ?>
+                                <div class="carousel-item active">
+                                    <img src="/foto_kosan/<?= $kosan[0]['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" style="object-fit: cover; height: 500px;" alt="...">
+
+                                </div>
+                            <?php else : ?>
+                                <div class="carousel-item">
+                                    <img src="/foto_kosan/<?= $kosan[0]['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" style="object-fit: cover; height: 500px;" alt="...">
+
+                                </div>
+                            <?php endif; ?>
+                        <?php endfor; ?>
                     </div>
+                    <a class="carousel-control-prev" href="#carouselExampleCaptions" role="button" data-bs-slide="prev">
+                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Previous</span>
+                    </a>
+                    <a class="carousel-control-next" href="#carouselExampleCaptions" role="button" data-bs-slide="next">
+                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                        <span class="visually-hidden">Next</span>
+                    </a>
                 </div>
             </div>
+        </div>
 
 
 
@@ -58,13 +58,28 @@
                 <div class="row">
                     <h2 class="fw-bolder mb-4"><?= $kosan[0]['namaKost']; ?></h2>
                     <div class="col-mt-4">
-                        <button type="button " class="btn btn-outline-primary " disabled><?=$kosan[0]['type']; ?></button>
+                        <button type="button " class="btn btn-outline-primary " disabled><?= $kosan[0]['type']; ?></button>
                         <i class="bi bi-geo-alt"><?= $kosan[0]['kota']; ?></i>
                     </div>
+                    <?php if (logged_in() && in_groups('customer')) : ?>
+                        <?php if (count($data_wish) !== 0) : ?>
+                            <?php if ($data_wish[0]['id_kosan'] === $kosan[0]['id_kosan']) : ?>
+                                <div class="col-md-4 offset-md-10">
+                                    <a href="/wishing_post/<?= $kosan[0]['id_kosan'] ?>/<?= user_id() ?>" type="button " class="btn btn-primary"><i class="bi bi-suit-heart"></i>&nbsp Tersimpan</a>
+                                </div>
+                            <?php else : ?>
+                                <div class="col-md-4 offset-md-10">
+                                    <a href="/wishing_post/<?= $kosan[0]['id_kosan'] ?>/<?= user_id() ?>" type="button " class="btn btn-outline-primary"><i class="bi bi-suit-heart"></i>&nbsp Simpan</a>
+                                </div>
+                            <?php endif; ?>
+                        <?php else : ?>
+                            <div class="col-md-4 offset-md-10">
+                                <a href="/wishing_post/<?= $kosan[0]['id_kosan'] ?>/<?= user_id() ?>" type="button " class="btn btn-outline-primary"><i class="bi bi-suit-heart"></i>&nbsp Simpan</a>
+                            </div>
+                        <?php endif; ?>
 
-                    <div class="col-md-4 offset-md-10">
-                        <a href="#" type="button " class="btn btn-outline-primary"><i class="bi bi-suit-heart"></i>&nbsp Simpan</a>
-                    </div>
+                    <?php endif; ?>
+
                 </div>
 
                 <div class="row">
@@ -114,7 +129,7 @@
             <div class="col-md-4 mt-5">
                 <div class="card">
                     <ul class="list-group list-group-flush">
-                        
+
                         <li class="list-group-item">
                             Per Bulan
                             <!-- <span class="text-muted text-decoration-line-through">
