@@ -44,9 +44,9 @@ class WishlistModel extends Model
             ->where('id_user', user_id())
             ->join('kosan', 'wishlist.id_kosan=kosan.id_kosan')
             ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')
+            ->groupBy('kosan.id_kosan')
             ->get()
             ->getResultArray();
-
         return $query;
     }
 }
