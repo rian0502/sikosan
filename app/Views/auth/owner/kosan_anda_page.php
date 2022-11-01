@@ -39,7 +39,13 @@
         <div class="card">
             <div class="row g-0">
                 <div class="col-md-3 m-3">
-                    <img src="/foto_kosan/<?= $kos['gambar'][0]['nama_foto']; ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="100%" class="img-fluid rounded-2" alt="gambar_kosan" style="max-height : 250px;">
+                    <?php for ($i = 0; $i < count($kos['gambar']); $i++) : ?>
+                        <?php if ($i == 0) : ?>
+                            <div class="carousel-item active">
+                                <img src="/foto_kosan/<?= $kos['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" height="300" width="100" alt="...">
+                            </div>
+                        <?php endif; ?>
+                    <?php endfor; ?>
                 </div>
                 <div class="col-md-6">
                     <div class="card-body">
