@@ -32,8 +32,6 @@
     </div>
 </div>
 
-
-<?php $p = 0; ?>
 <?php $i = 0; ?>
 <?php foreach ($kosan as $kos) : ?>
 
