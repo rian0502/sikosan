@@ -240,8 +240,8 @@
     var modal1 = document.getElementById("modalFoto1");
 
     // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img1 = document.getElementById("foto1img" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';");
-    var modalImg1 = document.getElementById("foto1imgs" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';");
+    var img1 = document.getElementById("foto1img");
+    var modalImg1 = document.getElementById("foto1imgs");
     var preview1 = document.getElementById("btnft1")
     preview1.onclick = function() {
         modal1.style.display = "block";
@@ -262,8 +262,8 @@
     var modal2 = document.getElementById("modalFoto2");
 
     // Get the image and insert it inside the modal - use its "alt" text as a caption
-    var img2 = document.getElementById("foto2img" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';");
-    var modalImg2 = document.getElementById("foto2imgs" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';");
+    var img2 = document.getElementById("foto2img");
+    var modalImg2 = document.getElementById("foto2imgs");
     var preview2 = document.getElementById("btnft2")
     preview2.onclick = function() {
         modal2.style.display = "block";
