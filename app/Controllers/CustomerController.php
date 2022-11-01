@@ -28,7 +28,6 @@ class CustomerController extends BaseController
             'title' => 'Favorit Saya',
             'wishlist' => $this->wishlistModel->getWishlist(),
             'data_wish' => $this->wishlistModel->where('id_user', user_id())->find(),
-
         ];
 
         return view('auth/customer/mywish', $data);
