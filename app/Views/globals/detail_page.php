@@ -4,7 +4,7 @@
 
 <section>
     <div class="container px-4 px-lg-5 my-5">
-        
+    
             <div class="card">
                 <div class="card-body">
                     <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -74,7 +74,7 @@
                 </div>
 
                 <div class="mt-3 mb-4">
-                    <h4 class="fw-bolder mb-1">Kos disewakan oleh <?= user()->namaLengkap; ?></h4>
+                    <h4 class="fw-bolder mb-1">Kos disewakan oleh <?= user()->namaLengkap; ?> </h4>
                 </div>
 
                 <div class="row">
