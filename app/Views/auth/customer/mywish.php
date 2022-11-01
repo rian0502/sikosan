@@ -27,7 +27,7 @@
     <?php foreach ($wishlist as $wish) : ?>
         <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
             <div class="card shadow" style="height: 450px;" name="kartu">
-                <img src="/foto_kosan/<?= $wish['nama_foto'] ?>" class="card-img-top">
+                <img src="/foto_kosan/<?= $wish['nama_foto'] ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" class="card-img-top">
                 <div class="card-body">
                     <div class="d-flex">
                         <button class="btn p-1 btn-outline-<?= ($wish['type'] == 'Pria') ? 'primary' : 'warning'; ?>" style="font-size: 10px;"><?= $wish['type'] ?></button>
