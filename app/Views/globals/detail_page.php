@@ -132,7 +132,7 @@
                             <b> <?= number_to_currency($kosan[0]['harga'], 'IDR', 'id_ID', 0); ?></b>
                         </li>
                         <li class="list-group-item">
-                            <a style="text-decoration: none;" target="_blank" href="https://api.whatsapp.com/send/?phone=62<?=$no?>&text=Apakah Kosannya Masih ada ?">WhatsApp</a>
+                            <a class="btn btn-success" style="text-decoration: none;" target="_blank" href="https://api.whatsapp.com/send/?phone=62<?=$no?>&text=Apakah Kosannya Masih ada ?"><i class="bi bi-whatsapp"></i> WhatsApp</a>
                         </li>
                     </ul>
                 </div>

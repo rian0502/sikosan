@@ -10,15 +10,17 @@
                 </div>
                 <h1 class="auth-title">Login.</h1>
                 <p class="auth-subtitle mb-5">Masuk SIKOSAN</p>
-                <?= view('Myth\Auth\Views\_message_block') ?>
+                <div class="container mb-5">
+                    <?= view('Myth\Auth\Views\_message_block') ?>
+                </div>
                 <form action="<?= url_to('login') ?>" method="post">
                     <?= csrf_field(); ?>
                     <div class="form-group position-relative has-icon-left mb-4">
                         <div class="form-control-icon">
-                            <i class="bi bi-person"></i>
+                            <i class="bi bi-envelope"></i>
                         </div>
                             <input type="text" name="login" class="form-control form-control-xl <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" placeholder="E-mail">
-                        <div class="invalid-feedback">
+                        <div class="invalid-feedback mt3">
                             <?= session('errors.login') ?>
                         </div>
                     </div>
