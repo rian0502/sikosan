@@ -94,7 +94,7 @@
 
                 <div class="mt-3 mb-4">
                     <h4 class="fw-bolder mb-4">Deskripsi</h4>
-                    <p class="fs-5 "><?= $kosan[0]['deskripsi']; ?></p>
+                    <p class="fs-5 "><?= htmlspecialchars($kosan[0]['deskripsi']); ?></p>
                 </div>
 
                 <div class="row">
@@ -105,7 +105,7 @@
 
                 <div class="mt-3 mb-4">
                     <h4 class="fw-bolder mb-4">Fasilitas </h4>
-                    <p class="fs-5 "><?= $kosan[0]['fasilitas']; ?></p>
+                    <p class="fs-5 "><?= htmlspecialchars($kosan[0]['fasilitas']); ?></p>
                 </div>
 
                 <div class="row">
@@ -116,7 +116,7 @@
 
                 <div class="mt-3 mb-4">
                     <h4 class="fw-bolder mb-4">Alamat Lengkap</h4>
-                    <p class="fs-5 "><?= $kosan[0]['alamat']; ?></p>
+                    <p class="fs-5 "><?= htmlspecialchars($kosan[0]['alamat']); ?></p>
                 </div>
             </div>
 
@@ -132,7 +132,7 @@
                             <b> <?= number_to_currency($kosan[0]['harga'], 'IDR', 'id_ID', 0); ?></b>
                         </li>
                         <li class="list-group-item">
-                            <a style="text-decoration: none;" target="_blank" href="https://api.whatsapp.com/send/?phone=62<?=$no?>&text=Apakah Kosannya Masih ada ?">WhatsApp</a>
+                            <a class="btn btn-success" style="text-decoration: none;" target="_blank" href="https://api.whatsapp.com/send/?phone=62<?=$no?>&text=Apakah Kosannya Masih ada ?"><i class="bi bi-whatsapp"></i> WhatsApp</a>
                         </li>
                     </ul>
                 </div>
@@ -142,122 +142,17 @@
 </section>
 
 <!-- Related items section-->
-<section class="py-5">
-    <div class="container px-4 px-lg-5 mt-5">
-        <h4 class="fw-bolder mb-4">Kos serupa yang mungkin kamu cari</h4>
-        <div class="row gx-4 gx-lg-5 row-cols-2 row-cols-md-3 row-cols-xl-4 justify-content-center">
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Product image-->
-                    <img class="card-img-top" src="https://www.cari-kos.com/blog/wp-content/uploads/2016/07/1872815_orig.jpg" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder">Kost Ibu Toha Type C Bandar Lampung</h5>
-                            <!-- Product price-->
-                            <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                            </div>
-                            <p class="fs-6"><b>Rp.950.000</b>/Bulan</p>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-primary mt-auto" href="#">Lihat Detail</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="card-img-top" src="https://kostjakarta.net/uploads/2017/02/558118-450x300.jpg" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder">Kost Ibu Retno Tipe C Bandar Lampung</h5>
-                            <!-- Product reviews-->
-                            <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                            </div>
-                            <!-- Product price-->
-                            <span class="text-muted text-decoration-line-through">Rp.900.000</span>
-                            <p class="fs-6"><b>Rp.700.000</b>/Bulan</p>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-primary mt-auto" href="#">Lihat Detail</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Sale badge-->
-                    <div class="badge bg-dark text-white position-absolute" style="top: 0.5rem; right: 0.5rem">Sale</div>
-                    <!-- Product image-->
-                    <img class="card-img-top" src="https://www.sewakost.com/files/11-2018/ad21009/15426966441271165459_large.jpg" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder">Kost Desma Pringsewu Lampung</h5>
-                            <!-- Product price-->
-                            <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                            </div>
-                            <span class="text-muted text-decoration-line-through">Rp.800.000</span>
-                            <p class="fs-6"><b>Rp.650.000</b>/Bulan</p>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-primary mt-auto" href="#">Lihat Detail</a></div>
-                    </div>
-                </div>
-            </div>
-            <div class="col mb-5">
-                <div class="card h-100">
-                    <!-- Product image-->
-                    <img class="card-img-top" src="https://infokost.id/wp-content/uploads/2022/02/0502202216440231087-450x300.jpeg" alt="..." />
-                    <!-- Product details-->
-                    <div class="card-body p-4">
-                        <div class="text-center">
-                            <!-- Product name-->
-                            <h5 class="fw-bolder">Kos Green House Kampung Baru Unila</h5>
-                            <!-- Product reviews-->
-                            <div class="d-flex justify-content-center small text-warning mb-2">
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                                <div class="bi-star-fill"></div>
-                            </div>
-                            <!-- Product price-->
-                            <p class="fs-6"><b>Rp.760.000</b>/Bulan</p>
-                        </div>
-                    </div>
-                    <!-- Product actions-->
-                    <div class="card-footer p-4 pt-0 border-top-0 bg-transparent">
-                        <div class="text-center"><a class="btn btn-outline-primary mt-auto" href="#">Lihat Detail</a></div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
+<hr><hr>
+<?php foreach($komentar as $km): ?>
+    <h2><?= $km['komentar'] ?></h2>
+    <hr>
+    <?php for($i = 0 ; $i < count($km['reply']); $i++) :?>
+        <h4><?= $km['reply'][$i]['reply']; ?></h4>
+        <hr>
+    <?php endfor;?>
+    <hr>
+<?php endforeach;?>
+
 
 <!-- Bootstrap core JS-->
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
