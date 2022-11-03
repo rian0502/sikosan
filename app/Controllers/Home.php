@@ -65,8 +65,4 @@ class Home extends BaseController
         return view('globals/detail_page', $data);
     }
 
-    // public function owner($halaman)
-    // {
-    //     return view('auth/owner/' . $halaman);
-    // }
 }
