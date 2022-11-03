@@ -37,9 +37,9 @@
                                                             } ?>" style="font-size: 10px;"><?= $dataKos->type ?></button>
                         <span class="ms-2 align-self-center"> <?= number_to_currency($dataKos->harga, 'IDR', 'id_ID', 0); ?>/Bulan</span>
                     </div>
-                    <li hidden>Kota : <?= $dataKos->kota ?></li>
-                    <h5 class="card-title mt-2"><?= $dataKos->namaKost ?></h5>
-                    <p class="card-text "><?= $dataKos->alamat ?>.</p>
+                    <li hidden>Kota : <?= htmlspecialchars($dataKos->kota) ?></li>
+                    <h5 class="card-title mt-2"><?= htmlspecialchars($dataKos->namaKost) ?></h5>
+                    <p class="card-text "><?= htmlspecialchars($dataKos->alamat) ?>.</p>
                 </div>
                 <div class="container mb-3 d-flex">
                     <div>

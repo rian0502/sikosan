@@ -33,8 +33,8 @@
                         <button class="btn p-1 btn-outline-<?= ($wish['type'] == 'Pria') ? 'primary' : 'warning'; ?>" style="font-size: 10px;"><?= $wish['type'] ?></button>
                         <span class="ms-2 align-self-center"> <?= number_to_currency($wish['harga'], 'IDR', 'id_ID', 0); ?>/Bulan</span>
                     </div>
-                    <h5 class="card-title mt-2"><?= $wish['namaKost'] ?></h5>
-                    <p class="card-text "><?= $wish['alamat'] ?>.</p>
+                    <h5 class="card-title mt-2"><?= htmlspecialchars($wish['namaKost']) ?></h5>
+                    <p class="card-text "><?= htmlspecialchars($wish['alamat']) ?>.</p>
                 </div>
                 <div class="container mb-3 d-flex">
                     <div>

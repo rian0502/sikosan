@@ -4,6 +4,8 @@ namespace App\Controllers;
 
 use App\Models\KosanModel;
 use App\Models\FotoKosanModel;
+use App\Models\Komentar;
+use App\Models\ReplyKomentar;
 use App\Models\WishlistModel;
 
 class Home extends BaseController
@@ -13,6 +15,8 @@ class Home extends BaseController
     {
         $this->ModelKosan = new KosanModel();
         $this->wishlistModel = new WishlistModel();
+        $this->komentar = new Komentar();
+        $this->replyKomen = new ReplyKomentar();
     }
     public function index()
     {
@@ -53,6 +57,10 @@ class Home extends BaseController
         for ($i = 0; $i < count($kosan); $i++) {
             $kosan[$i]['gambar'] = (new FotoKosanModel())->where(['id_kosan' => $kosan[$i]['id_kosan']])->findAll();
         }
+        $komen = $this->komentar->where('id_kosan', $id)->findAll();
+        for ($i = 0; $i < count($komen); $i++) {
+            $komen[$i]['reply'] = $this->replyKomen->where('id_komentar', $komen[$i]['id'])->findAll();
+        }
 
         $data = [
             'title' => 'Kosan Anda | Owner',
@@ -60,6 +68,8 @@ class Home extends BaseController
             'no' => substr($pemilik->notlp,1),
             'kosan' => $kosan,
             'data_wish' => $this->wishlistModel->where('id_user', user_id())->find(),
+            'komentar' => $komen,
+   
         ];
 
         return view('globals/detail_page', $data);
