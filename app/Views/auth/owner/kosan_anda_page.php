@@ -35,14 +35,14 @@
 <?php $index = 0; ?>
 <?php foreach ($kosan as $kos) : ?>
 
-    <div class="col-12 list-group-item">
-        <div class="card">
+    <div  class="col-12 list-group-item">
+        <div loading="lazy" class="card">
             <div class="row g-0">
                 <div class="col-md-3 m-3">
                     <?php for ($i = 0; $i < count($kos['gambar']); $i++) : ?>
                         <?php if ($i == 0) : ?>
                             <div class="carousel-item active">
-                                <img src="/foto_kosan/<?= $kos['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" height="300" width="100" alt="...">
+                                <img loading="lazy" src="/foto_kosan/<?= $kos['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" height="300" width="100" alt="...">
                             </div>
                         <?php endif; ?>
                     <?php endfor; ?>
@@ -135,7 +135,7 @@
                                     <div class="carousel-inner">
                                         <?php for ($i = 0; $i < count($kos['gambar']); $i++) : ?>
                                             <div class="carousel-item <?= ($i == 0) ? 'active' : '' ?>">
-                                                <img src="/foto_kosan/<?= $kos['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" height="300" width="100" alt="...">
+                                                <img loading="lazy" src="/foto_kosan/<?= $kos['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" height="300" width="100" alt="...">
                                                 <div class="carousel-caption d-none d-md-block">
                                                     <h5>Gambar <?= $i + 1; ?></h5>
                                                 </div>
