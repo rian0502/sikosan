@@ -66,10 +66,11 @@ class KosanController extends BaseController
                     ]
                 ],
                 'alamat' => [
-                    'rules' => 'required|min_length[5]',
+                    'rules' => 'required|min_length[5]|max_length[50]',
                     'errors' => [
                         'required' => 'Alamat kosan harus diisi',
                         'min_length' => 'Alamat kosan minimal 5 karakter',
+                        'max_length' => 'Alamat kosan maksimal 50 karakter',
                     ]
                 ],
                 'kota' => [
@@ -80,16 +81,19 @@ class KosanController extends BaseController
                     ]
                 ],
                 'deskripsi' => [
-                    'rules' => 'required|min_length[5]',
+                    'rules' => 'required|min_length[5]|max_length[150]',
                     'errors' => [
                         'required' => 'Deskripsi kosan harus diisi',
                         'min_length' => 'Deskripsi kosan minimal 5 karakter',
+                        'max_length' => 'Deskripsi kosan maksimal 150 karakter',
                     ]
                 ],
                 'fasilitas' => [
-                    'rules' => 'required',
+                    'rules' => 'required|min_length[5]|max_length[150]',
                     'errors' => [
                         'required' => 'Fasilitas kosan harus diisi',
+                        'min_length' => 'Fasilitas kosan minimal 5 karakter',
+                        'max_length' => 'Fasilitas kosan maksimal 150 karakter',
                     ]
                 ],
                 'harga' => [
@@ -219,7 +223,7 @@ class KosanController extends BaseController
                     ]
                 ],
                 'alamat' => [
-                    'rules' => 'required|min_length[5]',
+                    'rules' => 'required|min_length[5]|max_length[50]',
                     'errors' => [
                         'required' => 'Alamat kosan harus diisi',
                         'min_length' => 'Alamat kosan minimal 5 karakter',
@@ -233,14 +237,14 @@ class KosanController extends BaseController
                     ]
                 ],
                 'deskripsi' => [
-                    'rules' => 'required|min_length[5]',
+                    'rules' => 'required|min_length[5]|max_length[150]',
                     'errors' => [
                         'required' => 'Deskripsi kosan harus diisi',
                         'min_length' => 'Deskripsi kosan minimal 5 karakter',
                     ]
                 ],
                 'fasilitas' => [
-                    'rules' => 'required',
+                    'rules' => 'required|max_length[100]',
                     'errors' => [
                         'required' => 'Fasilitas kosan harus diisi',
                     ]

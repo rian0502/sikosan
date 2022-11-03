@@ -160,9 +160,9 @@
                                     <li>Kota : <?= $kos['kota'] ?></li>
                                     <li>Harga : <?= $kos['harga'] ?></li>
                                     <li>Tipe : <?= $kos['type'] ?></li>
-                                    <li>Alamat Lengkap : <?= $kos['alamat'] ?></li>
-                                    <li>Fasilitas : <?= $kos['fasilitas'] ?></li>
-                                    <li>Deskripsi : <?= $kos['deskripsi'] ?></li>
+                                    <li>Alamat Lengkap : <?= htmlspecialchars($kos['alamat']) ?></li>
+                                    <li>Fasilitas : <?= htmlspecialchars($kos['fasilitas']) ?></li>
+                                    <li>Deskripsi : <?= htmlspecialchars($kos['deskripsi']) ?></li>
                                 </ul>
                             </div>
                         </div>

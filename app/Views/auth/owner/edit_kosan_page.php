@@ -16,7 +16,8 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="namaKost" class="form-label">Nama Kost</label>
-                            <input type="text" value="<?= $kosan['namaKost'] ?>" class="form-control" id="namaKost" name="namaKost" placeholder="Nama Kost">
+                            <input type="text" value="<?= $kosan['namaKost'] ?>" class="form-control" id="namaKost" 
+                            name="namaKost" placeholder="Nama Kost">
                         </div>
                         <label for="kota" class="form-label">Kota/Kabupaten</label>
                         <fieldset class="form-group">
@@ -38,6 +39,8 @@
                         <div class="form-group">
                             <label for="alamat" class="form-label">Alamat Lengkap</label>
                             <textarea class="form-control" id="alamat" name="alamat" rows="3"><?= $kosan['alamat'] ?></textarea>
+                            <div class="position-relative mb-3">
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="fasilitas" class="form-label">Fasilitas</label>
@@ -131,7 +134,15 @@
 </div>
 
 
-<script>
+<script>    
+    $('#alamat').keypress(function (e) { 
+        var maxLength = 30;  
+        
+        if ($(this).val().length > maxLength) {  
+            
+            $(this).val($(this).val().substring(0, maxLength));  
+        }  
+    });
     $.ajax({
         type: "GET",
         url: "http://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=18",
