@@ -286,7 +286,7 @@ CREATE TABLE `users` (
 --
 
 INSERT INTO `users` (`id`, `namaLengkap`, `notlp`, `email`, `password_hash`, `reset_hash`, `reset_at`, `reset_expires`, `activate_hash`, `status`, `status_message`, `active`, `force_pass_reset`, `created_at`, `updated_at`, `deleted_at`) VALUES
-(1, 'Muhammad Febrian Hasibuan', '082310385532', 'muhammadfebrianhasibuan@gmail.com', '$2y$10$k9dTKjpBo/BWVWvB8BQTJuFCQGTJ4rdnLrji1TKmfG3oNXj/2Xrbm', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-10-31 11:55:56', '2022-10-31 11:55:56', NULL),
+(1, 'Muhammad Febrian Hasibuan', '082310385532', 'ngademin@gmail.com', '$2y$10$k9dTKjpBo/BWVWvB8BQTJuFCQGTJ4rdnLrji1TKmfG3oNXj/2Xrbm', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-10-31 11:55:56', '2022-10-31 11:55:56', NULL),
 (2, 'Ngab Owi TB', '08231038553', 'nevsisipitnya@gmail.com', '$2y$10$jXDiqgXE9Em9K80JN9MpIOpAIN4Wzlu1CeNwZ5oeFMf.CdnUsK5GO', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-10-31 23:41:45', '2022-10-31 23:41:45', NULL),
 (3, 'Pak Makmur', '08231038553', 'febrianhasibuan090@gmail.com', '$2y$10$jAJ5mu0FsUG1AShetX4vzOHj.9itNyXkvJlONdIVFr5r49Jr2BQIG', NULL, NULL, NULL, NULL, NULL, NULL, 1, 0, '2022-11-01 23:23:14', '2022-11-01 23:23:14', NULL);
 
