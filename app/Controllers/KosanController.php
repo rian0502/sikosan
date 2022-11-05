@@ -189,10 +189,12 @@ class KosanController extends BaseController
     // EDIT DATA KOSAN
     public function edit($id_kosan)
     {
+        session();
         $data = [
             'title' => 'Ubah Data Kosan',
             'kosan' => (new KosanModel())->where('id_kosan', $id_kosan)->first(),
             'foto' => (new FotoKosanModel())->where('id_kosan', $id_kosan)->findAll(),
+            'validation' => \Config\Services::validation(),
         ];
         return view('auth/owner/edit_kosan_page', $data);
     }
