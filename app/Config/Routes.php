@@ -42,6 +42,7 @@ $routes->get('/about', 'Home::index');
 $routes->get('/pusatBantuan', 'Home::pusatBantuan');
 $routes->get('/terms', 'Home::terms');
 $routes->get('/detail/(:num)', 'Home::detail/$1');
+$routes->get('/detail/(:num)/tulis_komentar', 'Home::detail/$1');
 // -------------------------------------------
 
 // For admin
@@ -70,6 +71,11 @@ $routes->get('/wish/(:num)/(:num)', 'WishlistController::wish/$1/$2');
 $routes->get('/unwish/(:num)/(:num)', 'WishlistController::unwish/$1/$2');
 $routes->get('/mywish', 'CustomerController::mywish');
 // --------------------------------------------------------------------------------------------------------
+
+// Komentar
+$routes->post('/save_komentar', 'KomentarController::save_komentar', ['filter' => 'role:customer, owner']);
+$routes->post('/reply_komentar', 'KomentarController::reply_komentar', ['filter' => 'role:customer, owner']);
+
 
 //@yogiandaru98 route testing
 // $routes->get('/sidebar_menu', function () {
