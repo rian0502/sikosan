@@ -16,8 +16,10 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="namaKost" class="form-label">Nama Kost</label>
-                            <input type="text" value="<?= $kosan['namaKost'] ?>" class="form-control" id="namaKost" 
-                            name="namaKost" placeholder="Nama Kost">
+                            <input type="text" value="<?= old($kosan['namaKost']) ?>" class="form-control <?= ($validation->hasError('namaKost')) ? 'is-invalid' : ''; ?>" id="namaKost" name="namaKost" placeholder="Nama Kost">
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('namaKost') ?>
+                            </div>
                         </div>
                         <label for="kota" class="form-label">Kota/Kabupaten</label>
                         <fieldset class="form-group">
@@ -104,11 +106,11 @@
                                 <div class="modal fade" id="modalFoto3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-body d-flex justify-content-center">
-                                            <img src="/foto_kosan/<?= $foto[2]['nama_foto'] ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';"  width="600" height="auto">
+                                            <img src="/foto_kosan/<?= $foto[2]['nama_foto'] ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="600" height="auto">
                                         </div>
                                     </div>
                                 </div>
-                                <?php else : ?>
+                            <?php else : ?>
                                 <div class="modal fade" id="modalFoto3" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
                                     <div class="modal-dialog">
                                         <div class="modal-body d-flex justify-content-center">
@@ -125,7 +127,7 @@
                     <button type="submit" class="btn btn-primary me-3 mb-1">Submit</button>
                     <button type="reset" class="btn btn-light-secondary me-1 mb-1">Reset</button>
                 </div>
-   
+
             </form>
         </div>
     </div>
@@ -134,14 +136,14 @@
 </div>
 
 
-<script>    
-    $('#alamat').keypress(function (e) { 
-        var maxLength = 30;  
-        
-        if ($(this).val().length > maxLength) {  
-            
-            $(this).val($(this).val().substring(0, maxLength));  
-        }  
+<script>
+    $('#alamat').keypress(function(e) {
+        var maxLength = 30;
+
+        if ($(this).val().length > maxLength) {
+
+            $(this).val($(this).val().substring(0, maxLength));
+        }
     });
     $.ajax({
         type: "GET",
