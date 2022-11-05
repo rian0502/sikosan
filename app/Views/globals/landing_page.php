@@ -41,7 +41,7 @@
                     <h5 class="card-title mt-2"><?= htmlspecialchars($dataKos->namaKost) ?></h5>
                     <p class="card-text "><?= htmlspecialchars($dataKos->alamat) ?>.</p>
                 </div>
-                <div class="container mb-3 d-flex">
+                <div class="container mb-3 ms-3 d-flex">
                     <div>
                         <a href="/detail/<?= $dataKos->id_kosan; ?>" class="btn btn-outline-success">Detail</a>
                     </div>

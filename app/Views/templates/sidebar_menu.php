@@ -132,23 +132,7 @@
             }
         });
 
-        $('.btn-delete').click(function(e) {
-            e.preventDefault();
-            Swal.fire({
-                title: 'Apakah anda yakin?',
-                text: "Data yang dihapus tidak dapat dikembalikan!",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Ya, hapus!'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    $('#formDelete').submit();
-                }
-            });
 
-        });
     </script>
 </body>
 

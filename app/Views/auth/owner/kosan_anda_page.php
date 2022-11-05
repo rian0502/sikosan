@@ -35,14 +35,14 @@
 <?php $index = 0; ?>
 <?php foreach ($kosan as $kos) : ?>
 
-    <div  class="col-12 list-group-item">
+    <div class="col-12 list-group-item">
         <div loading="lazy" class="card">
             <div class="row g-0">
                 <div class="col-md-3 m-3">
                     <?php for ($i = 0; $i < count($kos['gambar']); $i++) : ?>
                         <?php if ($i == 0) : ?>
                             <div class="carousel-item active">
-                                <img loading="lazy" src="/foto_kosan/<?= $kos['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" height="300" width="100" alt="...">
+                                <img src="/foto_kosan/<?= $kos['gambar'][$i]['nama_foto']; ?>" class="d-block w-100" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" height="300" width="100" alt="...">
                             </div>
                         <?php endif; ?>
                     <?php endfor; ?>
@@ -64,10 +64,11 @@
                             <div class="col">
                                 <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" href="/owner/edit_kost/<?= $kos['id_kosan'] ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
                             </div>
-                            <div class="col">
-                                <form id="formDelete" action="/owner/delete_kosan/<?= $kos['id_kosan']; ?>" method="post">
+                            <div class="col" id="<?= $index ?>">
+                                <form id="formDelete<?= $index ?>" action="/owner/delete_kosan/<?= $kos['id_kosan']; ?>" method="post">
                                     <?= csrf_field() ?>
                                     <input type="hidden" name="_method" value="DELETE">
+
                                     <button data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" type="submit" class="btn btn-danger btn-delete"><i class="bi bi-trash"></i></button>
                                 </form>
                             </div>
@@ -184,6 +185,27 @@
 
 
 
+<script>
+    $(document).ready(function() {
+        $('.btn-delete').click(function(e) {
+            e.preventDefault();
+            var id = $(this).parents("div").attr("id");
+            Swal.fire({
+                title: 'Apakah anda yakin?',
+                text: "Data yang dihapus tidak dapat dikembalikan!",
+                icon: 'warning',
+                showCancelButton: true,
+                confirmButtonColor: '#3085d6',
+                cancelButtonColor: '#d33',
+                confirmButtonText: 'Ya, hapus!'
+            }).then((result) => {
+                if (result.isConfirmed) {
+                    $('#formDelete'+id).submit();
+                }
+            });
 
+        });
+    });
+</script>
 
 <?= $this->endSection(); ?>

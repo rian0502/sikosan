@@ -180,7 +180,7 @@
                     <div class="col-md-6">
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 1</label>
-                            <input name="foto_1" class="form-control" id="foto1" type='file' onchange="readURL1(this);" />
+                            <input name="foto_1" class="form-control<?= ($validation->hasError('foto_1')) ? 'is-invalid' : ''; ?>" id="foto1" type='file' onchange="readURL1(this);" />
                             <small class="text-muted">Foto pertama akan menjadi thumbnail postingan kosan anda.</small> <br>
                             <button type="button" class="btn btn-primary mt-2" data-bs-toggle="modal" id="btnft1">
                                 Lihat Foto
@@ -193,6 +193,9 @@
                                 <div></div>
                                 <img class="modal-content" id="foto1imgs" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" alt="Belum ada Foto" style="object-fit:contain;width:700px; height:700px;">
                                 <!-- <div id="caption"></div> -->
+                            </div>
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('foto_1') ?>
                             </div>
                         </div>
 

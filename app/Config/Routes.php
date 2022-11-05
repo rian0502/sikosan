@@ -1,7 +1,7 @@
 <?php
 
 namespace Config;
-
+use CodeIgniter\I18n\Time;
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
 
