@@ -48,12 +48,13 @@ class Home extends BaseController
         return view('globals/terms');
     }
 
-    public function detail($id){
+    public function detail($id)
+    {
 
         $kosanModel = new KosanModel();
         $kosan = $kosanModel->where(['id_kosan' => $id])->find();
         $pemilik =  $kosanModel->join('users', ' users.id = kosan.idPemilik')->getWhere(['id_kosan' => $id])->getResult()[0];
-   
+
         for ($i = 0; $i < count($kosan); $i++) {
             $kosan[$i]['gambar'] = (new FotoKosanModel())->where(['id_kosan' => $kosan[$i]['id_kosan']])->findAll();
         }
@@ -65,14 +66,13 @@ class Home extends BaseController
         $data = [
             'title' => 'Kosan Anda | Owner',
             'pemilik' => $pemilik->namaLengkap,
-            'no' => substr($pemilik->notlp,1),
+            'no' => substr($pemilik->notlp, 1),
             'kosan' => $kosan,
             'data_wish' => $this->wishlistModel->where('id_user', user_id())->find(),
             'komentar' => $komen,
-   
+
         ];
 
         return view('globals/detail_page', $data);
     }
-
 }
