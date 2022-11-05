@@ -16,7 +16,7 @@
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="namaKost" class="form-label">Nama Kost</label>
-                            <input type="text" value="<?= old($kosan['namaKost']) ?>" class="form-control <?= ($validation->hasError('namaKost')) ? 'is-invalid' : ''; ?>" id="namaKost" name="namaKost" placeholder="Nama Kost">
+                            <input type="text" value="<?= old('namaKost',$kosan['namaKost']) ?>" class="form-control <?= ($validation->hasError('namaKost')) ? 'is-invalid' : ''; ?>" id="namaKost" name="namaKost" placeholder="Nama Kost">
                             <div class="invalid-feedback">
                                 <?= $validation->getError('namaKost') ?>
                             </div>
@@ -40,24 +40,35 @@
                         </div>
                         <div class="form-group">
                             <label for="alamat" class="form-label">Alamat Lengkap</label>
-                            <textarea class="form-control" id="alamat" name="alamat" rows="3"><?= $kosan['alamat'] ?></textarea>
-                            <div class="position-relative mb-3">
+                            <textarea class="form-control  <?= ($validation->hasError('alamat')) ? 'is-invalid' : ''; ?>" id="alamat" name="alamat" rows="3"><?= old('alamat',$kosan['alamat']) ?></textarea>
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('alamat') ?>
                             </div>
                         </div>
                         <div class="form-group">
                             <label for="fasilitas" class="form-label">Fasilitas</label>
-                            <textarea class="form-control" id="fasilitas" name="fasilitas" rows="3"><?= $kosan['fasilitas'] ?></textarea>
+                            <textarea class="form-control<?= ($validation->hasError('fasilitas')) ? 'is-invalid' : ''; ?>" id="fasilitas" name="fasilitas" rows="3"><?= old('fasilitas',$kosan['fasilitas']) ?></textarea>
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('fasilitas') ?>
+                            </div>
                         </div>
                         <div class="form-group">
                             <label for="deskripsi" class="form-label">Deskripsi</label>
-                            <textarea class="form-control" id="deskripsi" name="deskripsi" rows="3"><?= $kosan['deskripsi'] ?></textarea>
+                            <textarea class="form-control<?= ($validation->hasError('deskripsi')) ? 'is-invalid' : ''; ?>" id="deskripsi" name="deskripsi" rows="3"><?= old('fasilitas',$kosan['deskripsi']) ?></textarea>
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('deskripsi') ?>
+                            </div>
                         </div>
                     </div>
                     <div class="col-md-6">
                         <div class="form-group">
                             <label for="harga" class="form-label">Harga</label>
                             <input type="number" value="<?= $kosan['harga'] ?>" class="form-control" id="harga" name="harga" placeholder="Harga">
+                            <div class="invalid-feedback">
+                                <?= $validation->getError('harga') ?>
+                            </div>
                         </div>
+
                         <div class="mb-3">
                             <label for="foto" class="form-label">Foto 1</label>
                             <input accept="image/png, image/gif, image/jpeg" name="foto_1" type="file" class="form-control" id="foto1" onchange="previewImage1()">
