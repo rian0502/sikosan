@@ -175,6 +175,7 @@ class KosanController extends BaseController
     // DELETE DATA KOSAN
     public function delete($id_kosan)
     {
+   
         $imageFile = $this->fotoKosanModel->where('id_kosan', $id_kosan)->findAll();
         foreach ($imageFile as $image) {
             unlink('../public/foto_kosan/' . $image['nama_foto']);
@@ -232,7 +233,7 @@ class KosanController extends BaseController
                 'kota' => [
                     'rules' => 'required|in_list[Lampung Barat,Tanggamus,Lampung Selatan,Lampung Timur,Lampung Tengah,Lampung Utara,Way Kanan,Pesawaran,Tulang Bawang Barat,Tulang Bawang,Pesisir Barat,Bandar Lampung,Metro]',
                     'errors' => [
-                        'required' => 'Kecamatan kosan harus diisi',
+                        'required' => 'Kota kosan harus diisi',
                         'in_list' => 'Kota/Kabupaten kosan harus dipilih dengan benar',
                     ]
                 ],
