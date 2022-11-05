@@ -6,8 +6,6 @@ use App\Controllers\BaseController;
 use App\Models\FotoKosanModel;
 use App\Models\KosanModel;
 
-use function PHPUnit\Framework\fileExists;
-
 class KosanController extends BaseController
 {
 
@@ -42,13 +40,13 @@ class KosanController extends BaseController
     public function save()
     {
         $data_kosan = [
-            'namaKost' => $this->request->getVar('namaKost'),
-            'alamat' => $this->request->getVar('alamat'),
-            'kota' => $this->request->getVar('kota'),
-            'deskripsi' => $this->request->getVar('deskripsi'),
-            'fasilitas' => $this->request->getVar('fasilitas'),
-            'harga' => $this->request->getVar('harga'),
-            'type' => $this->request->getVar('type'),
+            'namaKost' => htmlspecialchars($this->request->getVar('namaKost')),
+            'alamat' => htmlspecialchars($this->request->getVar('alamat')),
+            'kota' => htmlspecialchars($this->request->getVar('kota')),
+            'deskripsi' => htmlspecialchars($this->request->getVar('deskripsi')),
+            'fasilitas' => htmlspecialchars($this->request->getVar('fasilitas')),
+            'harga' => htmlspecialchars($this->request->getVar('harga')),
+            'type' => htmlspecialchars($this->request->getVar('type')),
             'idPemilik' => user_id(),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
@@ -204,13 +202,13 @@ class KosanController extends BaseController
     {
         $jumlahFoto = count($this->fotoKosanModel->where('id_kosan', $this->request->getVar('id_kosan'))->findAll());
         $data = [
-            'namaKost' => $this->request->getVar('namaKost'),
-            'alamat' => $this->request->getVar('alamat'),
-            'kota' => $this->request->getVar('kota'),
-            'deskripsi' => $this->request->getVar('deskripsi'),
-            'fasilitas' => $this->request->getVar('fasilitas'),
-            'harga' => $this->request->getVar('harga'),
-            'type' => $this->request->getVar('type'),
+            'namaKost' => htmlspecialchars($this->request->getVar('namaKost')),
+            'alamat' => htmlspecialchars($this->request->getVar('alamat')),
+            'kota' => htmlspecialchars($this->request->getVar('kota')),
+            'deskripsi' => htmlspecialchars($this->request->getVar('deskripsi')),
+            'fasilitas' => htmlspecialchars($this->request->getVar('fasilitas')),
+            'harga' => htmlspecialchars($this->request->getVar('harga')),
+            'type' => htmlspecialchars($this->request->getVar('type')),
             'idPemilik' => user_id(),
             'updated_at' => date('Y-m-d H:i:s'),
         ];
