@@ -118,6 +118,16 @@
                     <h4 class="fw-bolder mb-4">Alamat Lengkap</h4>
                     <p class="fs-5 "><?= htmlspecialchars($kosan[0]['alamat']); ?></p>
                 </div>
+                <div class="mt-3 mb-4">
+                    <div class="row">
+                        <div class="col">
+                            <p>Ada pertanyaan? Diskusikan dengan pemilik kos atau pengguna lain.</p>
+                        </div>
+                        <div class="col">
+                            <a href="#tulis_komentar" class="btn btn-success">Tulis Komentar</a>
+                        </div>
+                    </div>
+                </div>
             </div>
 
             <div class="col-md-4 mt-5">
@@ -132,7 +142,7 @@
                             <b> <?= number_to_currency($kosan[0]['harga'], 'IDR', 'id_ID', 0); ?></b>
                         </li>
                         <li class="list-group-item">
-                            <a class="btn btn-success" style="text-decoration: none;" target="_blank" href="https://api.whatsapp.com/send/?phone=62<?=$no?>&text=Apakah Kosannya Masih ada ?"><i class="bi bi-whatsapp"></i> WhatsApp</a>
+                            <a class="btn btn-success" style="text-decoration: none;" target="_blank" href="https://api.whatsapp.com/send/?phone=62<?= $no ?>&text=Apakah Kosannya Masih ada ?"><i class="bi bi-whatsapp"></i> WhatsApp</a>
                         </li>
                     </ul>
                 </div>
@@ -142,16 +152,45 @@
 </section>
 
 <!-- Related items section-->
-<hr><hr>
-<?php foreach($komentar as $km): ?>
+<hr>
+<hr>
+<?php foreach ($komentar as $km) : ?>
     <h2><?= $km['komentar'] ?></h2>
     <hr>
-    <?php for($i = 0 ; $i < count($km['reply']); $i++) :?>
+    <?php for ($i = 0; $i < count($km['reply']); $i++) : ?>
         <h4><?= $km['reply'][$i]['reply']; ?></h4>
         <hr>
-    <?php endfor;?>
+    <?php endfor; ?>
+    <div class="form-floating" id="reply">
+        <form action="<?= base_url() ?>/reply_komentar" method="post">
+            <?= csrf_field() ?>
+            <textarea class="form-control" name="reply" placeholder="Tulis balasan Anda!" id="floatingTextarea"></textarea>
+            <label for="floatingTextarea"></label>
+            <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
+            <input type="hidden" value="<?= $km['id'] ?>" name="id_komentar">
+            <button type="submit" class="btn btn-success mt-2">Kirim</button>
+        </form>
+    </div>
+
     <hr>
-<?php endforeach;?>
+<?php endforeach; ?>
+
+<!-- Form tulis komentar -->
+<?php if (session()->getFlashdata('pesan')) : ?>
+    <div class="alert alert-success" role="alert">
+        <?= session()->getFlashdata('pesan'); ?>
+    </div>
+<?php endif; ?>
+<h4 class="fw-bolder mb-4 mt-5">TUlis Komentar</h4>
+<div class="form-floating" id="tulis_komentar">
+    <form action="<?= base_url() ?>/save_komentar" method="post">
+        <?= csrf_field() ?>
+        <textarea class="form-control" name="komentar" placeholder="Apa yang ingin anda tanyakan tentang kosan ini?" id="floatingTextarea"></textarea>
+        <label for="floatingTextarea"></label>
+        <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
+        <button type="submit" class="btn btn-success mt-2">Kirim</button>
+    </form>
+</div>
 
 
 <!-- Bootstrap core JS-->
