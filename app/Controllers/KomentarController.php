@@ -25,6 +25,7 @@ class KomentarController extends BaseController
             'updated_at' => date('Y-m-d H:i:s'),
         ];
 
+
         $this->komentarModel->insert($data);
 
         session()->setFlashdata('pesan', 'Komentar Berhasil ditambahkan');
