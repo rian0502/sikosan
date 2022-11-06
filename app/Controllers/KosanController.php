@@ -64,11 +64,11 @@ class KosanController extends BaseController
                     ]
                 ],
                 'alamat' => [
-                    'rules' => 'required|min_length[5]|max_length[50]',
+                    'rules' => 'required|min_length[5]|max_length[100]',
                     'errors' => [
                         'required' => 'Alamat kosan harus diisi',
                         'min_length' => 'Alamat kosan minimal 5 karakter',
-                        'max_length' => 'Alamat kosan maksimal 50 karakter',
+                        'max_length' => 'Alamat kosan maksimal 100 karakter',
                     ]
                 ],
                 'kota' => [
@@ -224,7 +224,7 @@ class KosanController extends BaseController
                     ]
                 ],
                 'alamat' => [
-                    'rules' => 'required|min_length[5]|max_length[50]',
+                    'rules' => 'required|min_length[5]|max_length[100]',
                     'errors' => [
                         'required' => 'Alamat kosan harus diisi',
                         'min_length' => 'Alamat kosan minimal 5 karakter',
