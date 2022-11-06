@@ -200,9 +200,11 @@
 
 <hr>
 <?php foreach ($komentar as $km) : ?>
+
     <h2><?= $km['komentar'] ?></h2>
     <hr>
     <?php for ($i = 0; $i < count($km['reply']); $i++) : ?>
+        <p><?= $km['reply'][$i]['namaLengkap'] ?></p>
         <h4><?= $km['reply'][$i]['reply']; ?></h4>
         <hr>
     <?php endfor; ?>
@@ -211,8 +213,9 @@
             <?= csrf_field() ?>
             <textarea class="form-control" name="reply" placeholder="Tulis balasan Anda!" id="floatingTextarea"></textarea>
             <label for="floatingTextarea"></label>
+
             <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
-            <input type="hidden" value="<?= $km['id'] ?>" name="id_komentar">
+            <input type="hidden" value="<?= $km['id_komentar'] ?>" name="id_komentar">
             <button type="submit" class="btn btn-success mt-2">Kirim</button>
         </form>
     </div>
