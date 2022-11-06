@@ -60,9 +60,11 @@ class Home extends BaseController
         }
 
         $komen = $this->komentar->join('users', 'users.id = komentar.id_user')->where('id_kosan', $id)->findAll();
+        
         for ($i = 0; $i < count($komen); $i++) {
-            $komen[$i]['reply'] = $this->replyKomen->join('users', 'users.id = reply_komentar.id_user')->where(['reply_komentar.id_komentar' => $komen[$i]['id']])->findAll();
+            $komen[$i]['reply'] = $this->replyKomen->join('users', 'users.id = reply_komentar.id_user')->where(['reply_komentar.id_komentar' => $komen[$i]['id_komentar']])->findAll();
         }
+
 
         $data = [
             'title' => 'Kosan Anda | Owner',
