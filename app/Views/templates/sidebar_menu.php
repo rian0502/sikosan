@@ -116,23 +116,23 @@
 
     <script>
         $.ajax({
-            type: "GET",
-            url: "http://dev.farizdotid.com/api/daerahindonesia/kota?id_provinsi=18",
-            crossDomain: true,
-            dataType: "json",
-            success: function(response) {
-                for (let i = 0; i < response['kota_kabupaten'].length; i++) {
-                    var element = response['kota_kabupaten'][i]['nama'];
-                    element = element.split(" ");
-                    element.shift();
-                    element = element.join(" ");
-                    $('#nama_kota').append('<option value="' + element + '">' + response['kota_kabupaten'][i]['nama'] + '</option>');
-                }
-
+        type: "GET",
+        url: "<?= base_url() ?>/provinsi.json",
+        crossDomain: true,
+        dataType: "json",
+        success: function(response) {
+            
+            for (let i = 0; i < response.length; i++) {
+                var element = response[i].name;
+                element = element.split(" ");
+                element.shift();
+                element = element.join(" ");
+                console.log(element);
+                $('#nama_kota').append('<option value="' + element + '">' + response[i].name + '</option>');
             }
-        });
 
-
+        }
+    });
     </script>
 </body>
 
