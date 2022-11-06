@@ -10,7 +10,7 @@ class Komentar extends Migration
     {
         //make table comment
         $this->forge->addField([
-            'id' => [
+            'id_komentar' => [
                 'type' => 'INT',
                 'constraint' => 11,
                 'unsigned' => true,
