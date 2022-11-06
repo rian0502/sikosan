@@ -1,0 +1,77 @@
+[
+    {
+        "id": "1801",
+        "province_id": "18",
+        "name": "Kabupaten Lampung Barat"
+    },
+    {
+        "id": "1802",
+        "province_id": "18",
+        "name": "Kabupaten Tanggamus"
+    },
+    {
+        "id": "1803",
+        "province_id": "18",
+        "name": "Kabupaten Lampung Selatan"
+    },
+    {
+        "id": "1804",
+        "province_id": "18",
+        "name": "Kabupaten Lampung Timur"
+    },
+    {
+        "id": "1805",
+        "province_id": "18",
+        "name": "Kabupaten Lampung Tengah"
+    },
+    {
+        "id": "1806",
+        "province_id": "18",
+        "name": "Kabupaten Lampung Utara"
+    },
+    {
+        "id": "1807",
+        "province_id": "18",
+        "name": "Kabupaten Way Kanan"
+    },
+    {
+        "id": "1808",
+        "province_id": "18",
+        "name": "Kabupaten Tulang Bawang"
+    },
+    {
+        "id": "1809",
+        "province_id": "18",
+        "name": "Kabupaten Peswaran"
+    },
+    {
+        "id": "1810",
+        "province_id": "18",
+        "name": "Kabupaten Pringsewu"
+    },
+    {
+        "id": "1811",
+        "province_id": "18",
+        "name": "Kabupaten Mesuji"
+    },
+    {
+        "id": "1812",
+        "province_id": "18",
+        "name": "Kabupaten Tulang Bawang Barat"
+    },
+    {
+        "id": "1813",
+        "province_id": "18",
+        "name": "Kabupaten Pesisir Barat"
+    },
+    {
+        "id": "1871",
+        "province_id": "18",
+        "name": "Kota Bandar Lampung"
+    },
+    {
+        "id": "1872",
+        "province_id": "18",
+        "name": "Kota Metro"
+    }
+]
