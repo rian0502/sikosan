@@ -153,6 +153,51 @@
 
 <!-- Related items section-->
 <hr>
+<section>
+    <div class=" d-flex flex-start mb-4 mt-4">
+        <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65" height="65" />
+        <div class="card w-100">
+            <div class="card-body p-4">
+                <div class="">
+                    <h5>Johny Cash</h5>
+                    <p class="small">3 hours ago</p>
+                    <p>
+                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
+                        ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
+                        viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
+                        Donec lacinia congue felis in faucibus ras purus odio, vestibulum in
+                        vulputate at, tempus viverra turpis.
+                    </p>
+                    <div class="d-flex justify-content-end align-items-center">
+                        <a href="#!" class="link-muted"><i class="bi bi-reply"></i> Reply</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="d-flex flex-start">
+        <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" alt="avatar" width="65" height="65" />
+        <div class="card w-100">
+            <div class="card-body p-4">
+                <div class="">
+                    <h5>Mindy Campbell</h5>
+                    <p class="small">5 hours ago</p>
+                    <p>
+                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus
+                        cumque doloribus dolorum dolor repellat nemo animi at iure autem fuga
+                        cupiditate architecto ut quam provident neque, inventore nisi eos quas?
+                    </p>
+                    <div class="d-flex justify-content-end align-items-center">
+                        <a href="#!" class="link-muted"><i class="bi bi-reply"></i> Reply</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
 <hr>
 <?php foreach ($komentar as $km) : ?>
     <h2><?= $km['komentar'] ?></h2>
@@ -181,19 +226,28 @@
         <?= session()->getFlashdata('pesan'); ?>
     </div>
 <?php endif; ?>
-<h4 class="fw-bolder mb-4 mt-5">TUlis Komentar</h4>
+
+
+
+
+<h4 class="fw-bolder mb-4 mt-5">Komentar</h4>
 <div class="form-floating" id="tulis_komentar">
     <form action="<?= base_url() ?>/save_komentar" method="post">
         <?= csrf_field() ?>
         <textarea class="form-control" name="komentar" placeholder="Apa yang ingin anda tanyakan tentang kosan ini?" id="floatingTextarea"></textarea>
         <label for="floatingTextarea"></label>
         <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
-        <button type="submit" class="btn btn-success mt-2">Kirim</button>
+        <div class="d-flex justify-content-end">
+            <button type="submit" class="btn btn-success mt-2">Kirim</button>
+        </div>
     </form>
 </div>
 
 
 <!-- Bootstrap core JS-->
+<script src="adminTemplate/assets/extensions/jquery/jquery.min.js"></script>
+<script src="adminTemplate/assets/extensions/summernote/summernote-lite.min.js"></script>
+<script src="adminTemplate/assets/js/pages/summernote.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
