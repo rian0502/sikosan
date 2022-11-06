@@ -58,9 +58,10 @@ class Home extends BaseController
         for ($i = 0; $i < count($kosan); $i++) {
             $kosan[$i]['gambar'] = (new FotoKosanModel())->where(['id_kosan' => $kosan[$i]['id_kosan']])->findAll();
         }
-        $komen = $this->komentar->where('id_kosan', $id)->findAll();
+
+        $komen = $this->komentar->join('users', 'users.id = komentar.id_user')->where('id_kosan', $id)->findAll();
         for ($i = 0; $i < count($komen); $i++) {
-            $komen[$i]['reply'] = $this->replyKomen->where('id_komentar', $komen[$i]['id'])->findAll();
+            $komen[$i]['reply'] = $this->replyKomen->join('users', 'users.id = reply_komentar.id_user')->where(['reply_komentar.id_komentar' => $komen[$i]['id']])->findAll();
         }
 
         $data = [
@@ -70,9 +71,7 @@ class Home extends BaseController
             'kosan' => $kosan,
             'data_wish' => $this->wishlistModel->where('id_user', user_id())->find(),
             'komentar' => $komen,
-
         ];
-
         return view('globals/detail_page', $data);
     }
 }
