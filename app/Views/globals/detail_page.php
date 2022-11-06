@@ -244,8 +244,6 @@
 </div>
 
 
-
-
 <!-- Bootstrap core JS-->
 <script src="adminTemplate/assets/extensions/jquery/jquery.min.js"></script>
 <script src="adminTemplate/assets/extensions/summernote/summernote-lite.min.js"></script>
