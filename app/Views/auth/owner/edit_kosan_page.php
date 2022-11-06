@@ -176,6 +176,28 @@
 
         }
     });
+    $.ajax({
+        type: "GET",
+        url: "<?= base_url() ?>/provinsi.json",
+        crossDomain: true,
+        dataType: "json",
+        success: function(response) {
+
+            for (let i = 0; i < response.length; i++) {
+                var element = response[i].name;
+                element = element.split(" ");
+                element.shift();
+                element = element.join(" ");
+                console.log(element);
+                if (element == "<?= $kosan['kota'] ?>") {
+                    $('#kota').append('<option value="' + element + '" selected>' + response[i].name + '</option>');
+                } else {
+                    $('#kota').append('<option value="' + element + '">' + response[i].name + '</option>');
+                }
+            }
+
+        }
+    });
 
     function previewImage1() {
         const image = document.querySelector('#foto1');
