@@ -59,7 +59,7 @@ class Home extends BaseController
             $kosan[$i]['gambar'] = (new FotoKosanModel())->where(['id_kosan' => $kosan[$i]['id_kosan']])->findAll();
         }
 
-        $komen = $this->komentar->join('users', 'users.id = komentar.id_user')->where('id_kosan', $id)->findAll();
+        $komen = $this->komentar->select('komentar.*, users.id,users.namaLengkap ')->join('users', 'users.id = komentar.id_user')->where('id_kosan', $id)->findAll();
         
         for ($i = 0; $i < count($komen); $i++) {
             $komen[$i]['reply'] = $this->replyKomen->join('users', 'users.id = reply_komentar.id_user')->where(['reply_komentar.id_komentar' => $komen[$i]['id_komentar']])->findAll();
