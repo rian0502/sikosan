@@ -1,7 +1,7 @@
 <?= $this->extend('templates/template'); ?>
 <?= $this->section('content'); ?>
 <!-- Content-->
-
+<?php use CodeIgniter\I18n\Time; ?>
 <section>
     <div class="container px-4 px-lg-5 my-5">
 
@@ -46,11 +46,11 @@
                     <h2 class="fw-bolder mb-4"><?= $kosan[0]['namaKost']; ?></h2>
                     <div class="col-mt-4">
                         <button type="button " class="btn btn-outline-primary " disabled><?= $kosan[0]['type']; ?></button>
-                        <i class="bi bi-geo-alt"><?= $kosan[0]['kota']; ?></i>
+                        <i class="bi bi-geo-alt ms-3"><?= $kosan[0]['kota']; ?></i>
                     </div>
                     <?php if (logged_in() && in_groups('customer')) : ?>
                         <?php if (count($data_wish) >= 0) : ?>
-                            <?php for ($i = 0; $i < count($data_wish); $i++) : ?>
+                        <?php for ($i = 0; $i < count($data_wish); $i++) : ?>
                                 <?php $founded = false; ?>
                                 <?php if ($data_wish[$i]['id_kosan'] == $kosan[0]['id_kosan']) : ?>
                                     <?php $founded = true; ?>
@@ -118,6 +118,7 @@
                     <h4 class="fw-bolder mb-4">Alamat Lengkap</h4>
                     <p class="fs-5 "><?= htmlspecialchars($kosan[0]['alamat']); ?></p>
                 </div>
+                <hr>
                 <div class="mt-3 mb-4">
                     <div class="row">
                         <div class="col">
@@ -152,76 +153,89 @@
 </section>
 
 <!-- Related items section-->
-<hr>
-<section>
-    <div class=" d-flex flex-start mb-4 mt-4">
-        <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65" height="65" />
-        <div class="card w-100">
-            <div class="card-body p-4">
-                <div class="">
-                    <h5>Johny Cash</h5>
-                    <p class="small">3 hours ago</p>
-                    <p>
-                        Cras sit amet nibh libero, in gravida nulla. Nulla vel metus scelerisque
-                        ante sollicitudin. Cras purus odio, vestibulum in vulputate at, tempus
-                        viverra turpis. Fusce condimentum nunc ac nisi vulputate fringilla.
-                        Donec lacinia congue felis in faucibus ras purus odio, vestibulum in
-                        vulputate at, tempus viverra turpis.
-                    </p>
-                    <div class="d-flex justify-content-end align-items-center">
-                        <a href="#!" class="link-muted"><i class="bi bi-reply"></i> Reply</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
 
-    <div class="d-flex flex-start">
-        <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(31).webp" alt="avatar" width="65" height="65" />
-        <div class="card w-100">
-            <div class="card-body p-4">
-                <div class="">
-                    <h5>Mindy Campbell</h5>
-                    <p class="small">5 hours ago</p>
-                    <p>
-                        Lorem ipsum dolor sit, amet consectetur adipisicing elit. Delectus
-                        cumque doloribus dolorum dolor repellat nemo animi at iure autem fuga
-                        cupiditate architecto ut quam provident neque, inventore nisi eos quas?
-                    </p>
-                    <div class="d-flex justify-content-end align-items-center">
-                        <a href="#!" class="link-muted"><i class="bi bi-reply"></i> Reply</a>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-
-<hr>
 <?php foreach ($komentar as $km) : ?>
+<section>
+        <div class=" d-flex flex-column mb-2 mt-0">
+            <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65" height="65" />
+            <div class="card bg-secondary">
+                <div class="card w-100 mb-1 shadow-sm">
+                    <div class="card-body p-4 shadow-sm">
+                        <div class="">
+                            <h5><?= $km['namaLengkap']  ?></h5>
+                        <p class="small"><?=  (new Time($km['created_at']))->humanize() ?></p>
+                            <p>
+                                <?= $km['komentar'] ?>
+                            </p>
+                            <div class="d-flex justify-content-end align-items-center">
 
-    <h2><?= $km['komentar'] ?></h2>
-    <hr>
-    <?php for ($i = 0; $i < count($km['reply']); $i++) : ?>
-        <p><?= $km['reply'][$i]['namaLengkap'] ?></p>
-        <h4><?= $km['reply'][$i]['reply']; ?></h4>
-        <hr>
-    <?php endfor; ?>
-    <div class="form-floating" id="reply">
-        <form action="<?= base_url() ?>/reply_komentar" method="post">
-            <?= csrf_field() ?>
-            <textarea class="form-control" name="reply" placeholder="Tulis balasan Anda!" id="floatingTextarea"></textarea>
-            <label for="floatingTextarea"></label>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <?php for ($i = 0; $i < count($km['reply']); $i++) : ?>
+                    <div class="ms-5 mt-4">
+                        <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65" height="65" />
+                        <div class="card m-2 ms-5 shadow-lg">
+                            <div class="card-body p-4">
+                                <div class="">
+                                    <h5><?= $km['reply'][$i]['namaLengkap'] ?></h5>
+                                    <p class="small"><?= (new Time($km['reply'][$i]['created_at']))->humanize() ?></p>
+                                    <p>
+                                        <?= $km['reply'][$i]['reply'] ?>
+                                    </p>
+                                    <div class="d-flex justify-content-end align-items-center">
 
-            <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
-            <input type="hidden" value="<?= $km['id_komentar'] ?>" name="id_komentar">
-            <button type="submit" class="btn btn-success mt-2">Kirim</button>
-        </form>
-    </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <?php endfor; ?>
+                    <div class="ms-5">
+                        <div class="form-floating card m-2 ms-5 shadow-lg" id="reply">
+                            <div class="card-body" id="reply">
 
-    <hr>
-<?php endforeach; ?>
+                                <div class="m-0">
+                                    <form action="<?= base_url() ?>/reply_komentar" method="post">
+                                        <?= csrf_field() ?>
+                                        <textarea class="form-control" name="reply" placeholder="Tulis balasan Anda!" id="floatingTextarea"></textarea>
+                                        <label for="floatingTextarea"></label>
+
+                                        <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
+                                        <input type="hidden" value="<?= $km['id_komentar'] ?>" name="id_komentar">
+                                        <button type="submit" class="btn btn-primary btn-sm float-end mt-2">Kirim</button>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <?php endforeach; ?>
+        
+        <div class="form-floating card m-2 ms-2 shadow-sm" id="tulis_komentar">
+            <div class="card-body" id="reply">
+                <div class="m-0">
+                    <form action="<?= base_url() ?>/save_komentar" method="post">
+                        <?= csrf_field() ?>
+                        <textarea class="form-control" name="komentar" placeholder="Apa yang ingin anda tanyakan tentang kosan ini?" id="floatingTextarea"></textarea>
+                        <label for="floatingTextarea"></label>
+                        <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
+                        <div class="d-flex justify-content-end">
+                            <button type="submit" class="btn btn-primary btn-sm float-end mt-2">Kirim</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+
 
 <!-- Form tulis komentar -->
 <?php if (session()->getFlashdata('pesan')) : ?>
@@ -233,18 +247,7 @@
 
 
 
-<h4 class="fw-bolder mb-4 mt-5">Komentar</h4>
-<div class="form-floating" id="tulis_komentar">
-    <form action="<?= base_url() ?>/save_komentar" method="post">
-        <?= csrf_field() ?>
-        <textarea class="form-control" name="komentar" placeholder="Apa yang ingin anda tanyakan tentang kosan ini?" id="floatingTextarea"></textarea>
-        <label for="floatingTextarea"></label>
-        <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
-        <div class="d-flex justify-content-end">
-            <button type="submit" class="btn btn-success mt-2">Kirim</button>
-        </div>
-    </form>
-</div>
+
 
 
 <!-- Bootstrap core JS-->
