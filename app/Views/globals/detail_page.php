@@ -1,7 +1,9 @@
 <?= $this->extend('templates/template'); ?>
 <?= $this->section('content'); ?>
 <!-- Content-->
-<?php use CodeIgniter\I18n\Time; ?>
+<?php
+
+use CodeIgniter\I18n\Time; ?>
 <section>
     <div class="container px-4 px-lg-5 my-5">
 
@@ -50,7 +52,7 @@
                     </div>
                     <?php if (logged_in() && in_groups('customer')) : ?>
                         <?php if (count($data_wish) >= 0) : ?>
-                        <?php for ($i = 0; $i < count($data_wish); $i++) : ?>
+                            <?php for ($i = 0; $i < count($data_wish); $i++) : ?>
                                 <?php $founded = false; ?>
                                 <?php if ($data_wish[$i]['id_kosan'] == $kosan[0]['id_kosan']) : ?>
                                     <?php $founded = true; ?>
@@ -121,10 +123,10 @@
                 <hr>
                 <div class="mt-3 mb-4">
                     <div class="row">
-                        <div class="col">
+                        <div class="col-8">
                             <p>Ada pertanyaan? Diskusikan dengan pemilik kos atau pengguna lain.</p>
                         </div>
-                        <div class="col">
+                        <div class="col-4 text-end">
                             <a href="#tulis_komentar" class="btn btn-success">Tulis Komentar</a>
                         </div>
                     </div>
@@ -155,7 +157,7 @@
 <!-- Related items section-->
 
 <?php foreach ($komentar as $km) : ?>
-<section>
+    <section>
         <div class=" d-flex flex-column mb-2 mt-0">
             <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65" height="65" />
             <div class="card bg-secondary">
@@ -163,7 +165,7 @@
                     <div class="card-body p-4 shadow-sm">
                         <div class="">
                             <h5><?= $km['namaLengkap']  ?></h5>
-                        <p class="small"><?=  (new Time($km['created_at']))->humanize() ?></p>
+                            <p class="small"><?= (new Time($km['created_at']))->humanize() ?></p>
                             <p>
                                 <?= $km['komentar'] ?>
                             </p>
@@ -191,51 +193,45 @@
                             </div>
                         </div>
                     </div>
-                    <?php endfor; ?>
-                    <div class="ms-5">
-                        <div class="form-floating card m-2 ms-5 shadow-lg" id="reply">
-                            <div class="card-body" id="reply">
+                <?php endfor; ?>
+                <div class="ms-5">
+                    <div class="form-floating card m-2 ms-5 shadow-lg" id="reply">
+                        <div class="card-body" id="reply">
 
-                                <div class="m-0">
-                                    <form action="<?= base_url() ?>/reply_komentar" method="post">
-                                        <?= csrf_field() ?>
-                                        <textarea class="form-control" name="reply" placeholder="Tulis balasan Anda!" id="floatingTextarea"></textarea>
-                                        <label for="floatingTextarea"></label>
+                            <div class="m-0">
+                                <form action="<?= base_url() ?>/reply_komentar" method="post">
+                                    <?= csrf_field() ?>
+                                    <textarea class="form-control" name="reply" placeholder="Tulis balasan Anda!" id="floatingTextarea"></textarea>
+                                    <label for="floatingTextarea"></label>
 
-                                        <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
-                                        <input type="hidden" value="<?= $km['id_komentar'] ?>" name="id_komentar">
-                                        <button type="submit" class="btn btn-primary btn-sm float-end mt-2">Kirim</button>
-                                    </form>
-                                </div>
+                                    <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
+                                    <input type="hidden" value="<?= $km['id_komentar'] ?>" name="id_komentar">
+                                    <button type="submit" class="btn btn-primary btn-sm float-end mt-2">Kirim</button>
+                                </form>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
-        </section>
-        <?php endforeach; ?>
-        
-        <div class="form-floating card m-2 ms-2 shadow-sm" id="tulis_komentar">
-            <div class="card-body" id="reply">
-                <div class="m-0">
-                    <form action="<?= base_url() ?>/save_komentar" method="post">
-                        <?= csrf_field() ?>
-                        <textarea class="form-control" name="komentar" placeholder="Apa yang ingin anda tanyakan tentang kosan ini?" id="floatingTextarea"></textarea>
-                        <label for="floatingTextarea"></label>
-                        <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
-                        <div class="d-flex justify-content-end">
-                            <button type="submit" class="btn btn-primary btn-sm float-end mt-2">Kirim</button>
-                        </div>
-                    </form>
-                </div>
-            </div>
         </div>
+    </section>
+<?php endforeach; ?>
 
-
-
-
-
-
+<div class="form-floating card m-2 ms-2 shadow-sm" id="tulis_komentar">
+    <div class="card-body" id="reply">
+        <div class="m-0">
+            <form action="<?= base_url() ?>/save_komentar" method="post">
+                <?= csrf_field() ?>
+                <textarea class="form-control" name="komentar" placeholder="Apa yang ingin anda tanyakan tentang kosan ini?" id="floatingTextarea"></textarea>
+                <label for="floatingTextarea"></label>
+                <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
+                <div class="d-flex justify-content-end">
+                    <button type="submit" class="btn btn-primary btn-sm float-end mt-2">Kirim</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 
 <!-- Form tulis komentar -->
 <?php if (session()->getFlashdata('pesan')) : ?>
@@ -243,12 +239,6 @@
         <?= session()->getFlashdata('pesan'); ?>
     </div>
 <?php endif; ?>
-
-
-
-
-
-
 
 <!-- Bootstrap core JS-->
 <script src="adminTemplate/assets/extensions/jquery/jquery.min.js"></script>
