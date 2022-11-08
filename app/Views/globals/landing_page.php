@@ -26,7 +26,7 @@
         <div class="col-lg-3 mb-4 col-md-4 col-sm-6 list-group-item2">
             <div class="card shadow" style="height: 450px;" name="kartu">
                 <img src="/foto_kosan/<?= $dataKos->nama_foto ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" class="card-img-top">
-                <div class="card-body">
+                <div class="card-body overflow-auto">
                     <div class="d-flex">
                         <button class="btn p-1 btn-outline-<?php if ($dataKos->type == 'Putra') {
                                                                 echo 'primary';
@@ -41,7 +41,7 @@
                     <h5 class="card-title mt-2"><?= htmlspecialchars($dataKos->namaKost) ?></h5>
                     <p class="card-text "><?= htmlspecialchars($dataKos->alamat) ?>.</p>
                 </div>
-                <div class="container mb-3 ms-3 d-flex">
+                <div class="p-3 d-flex">
                     <div>
                         <a href="/detail/<?= $dataKos->id_kosan; ?>" class="btn btn-outline-success">Detail</a>
                     </div>
