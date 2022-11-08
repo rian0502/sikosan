@@ -16,7 +16,13 @@
     <link rel="stylesheet" href="/adminTemplate/assets/extensions/choices.js/public/assets/styles/choices.css">
     <script src="/jquery/jquery.min.js"></script>
 </head>
-
+<style>
+    #footer {
+    position: fixed;
+    bottom: 0;
+    width: 80%;
+}
+</style>
 <body>
     <div id="app">
         <div id="sidebar" class="active">
@@ -101,7 +107,9 @@
             </a>
         </header>
         <?= $this->renderSection('content'); ?>
+        <div id="footer">
         <?= $this->include('/globals/partials/footer'); ?>
+        </div>
     </div>
     </div>
     <script src="/adminTemplate/assets/js/bootstrap.js"></script>
