@@ -46,7 +46,7 @@
                         <a href="/detail/<?= $dataKos->id_kosan; ?>" class="btn btn-outline-success">Detail</a>
                     </div>
                     <?php if (logged_in() && in_groups('customer')) : ?>
-                        <div class="ms-auto pt-2 pe-2">
+                        <div class="ms-auto me-3 pt-2 pe-2">
                             <a href="/wishing_post/<?= $dataKos->id_kosan ?>/<?= user_id() ?>" class="text-decoration-none">
                                 <?php if (count($data_wish) != 0) : ?>
                                     <?php for ($i = 0; $i < count($data_wish); $i++) : ?>
