@@ -28,7 +28,7 @@
         <div class="col-lg-3 mb-4 col-md-4 col-sm-6">
             <div class="card shadow" style="height: 450px;" name="kartu">
                 <img src="/foto_kosan/<?= $wish['nama_foto'] ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" class="card-img-top">
-                <div class="card-body">
+                <div class="card-body overflow-auto">
                     <div class="d-flex">
                         <button class="btn p-1 btn-outline-<?= ($wish['type'] == 'Pria') ? 'primary' : 'warning'; ?>" style="font-size: 10px;"><?= $wish['type'] ?></button>
                         <span class="ms-2 align-self-center"> <?= number_to_currency($wish['harga'], 'IDR', 'id_ID', 0); ?>/Bulan</span>
@@ -36,7 +36,7 @@
                     <h5 class="card-title mt-2"><?= htmlspecialchars($wish['namaKost']) ?></h5>
                     <p class="card-text "><?= htmlspecialchars($wish['alamat']) ?>.</p>
                 </div>
-                <div class="container mb-3 d-flex">
+                <div class="p-3 d-flex">
                     <div>
                         <a href="/detail/<?= $wish['id_kosan'] ?>" class="btn btn-outline-success">Detail</a>
                     </div>
