@@ -38,7 +38,7 @@ class Komentar extends Migration
                 'null' => true,
             ],
         ]);
-        $this->forge->addKey('id', true);
+        $this->forge->addKey('id_komentar', true);
         $this->forge->addForeignKey('id_kosan', 'kosan', 'id_kosan', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('id_user', 'users', 'id', 'CASCADE', 'CASCADE');
 
