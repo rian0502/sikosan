@@ -62,4 +62,15 @@ class KosanModel extends Model
             ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->getWhere(['kosan.id_kosan' => $id_kosan])->getFirstRow();
         return $queryKosan;
     }
+
+    public function getKosanForReport($id)
+    {
+        $data = $this->db->table('kosan')
+            ->where('id_kosan', $id)
+            ->get()
+            ->getResultArray();
+
+        // dd($data);
+        return $data;
+    }
 }
