@@ -4,8 +4,6 @@
     html {
         scroll-behavior: smooth;
     }
-
-    
 </style>
 
 <head>

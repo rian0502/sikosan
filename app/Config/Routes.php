@@ -1,6 +1,7 @@
 <?php
 
 namespace Config;
+
 use CodeIgniter\I18n\Time;
 // Create a new instance of our RouteCollection class.
 $routes = Services::routes();
@@ -43,13 +44,15 @@ $routes->get('/pusatBantuan', 'Home::pusatBantuan');
 $routes->get('/terms', 'Home::terms');
 $routes->get('/detail/(:num)', 'Home::detail/$1');
 $routes->get('/detail/(:num)/tulis_komentar', 'Home::detail/$1');
+$routes->get('/detail/(:num)/report', 'Home::detail/$1');
 // -------------------------------------------
 
 // For admin
+$routes->get('/admin/dashboard_admin', 'AdminController::index', ['filter' => 'role:admin']);
 $routes->get('/admin/data_owner', 'OwnerController::index', ['filter' => 'role:admin']);
 $routes->get('/admin/data_customer', 'CustomerController::index', ['filter' => 'role:admin']);
 $routes->get('/admin/data_kosan', 'KosanController::index', ['filter' => 'role:admin']);
-$routes->get('/admin/data_laporan', 'LaporanController::index', ['filter' => 'role:admin']);
+$routes->get('/admin/data_report_kosan', 'ReportKosanController::index', ['filter' => 'role:admin']);
 // -----------------------------------------------------------------------------------------------
 
 // For Penyewa Kos
@@ -75,6 +78,10 @@ $routes->get('/mywish', 'CustomerController::mywish');
 // Komentar
 $routes->post('/save_komentar', 'KomentarController::save_komentar', ['filter' => 'role:customer, owner']);
 $routes->post('/reply_komentar', 'KomentarController::reply_komentar', ['filter' => 'role:customer, owner']);
+
+// Report Kosan
+$routes->get('/report_kosan/create/(:num)', 'ReportKosan::create/$1', ['filter' => 'role:customer']);
+$routes->post('/report_kosan/save', 'ReportKosan::save', ['filter' => 'role:customer']);
 
 
 //@yogiandaru98 route testing

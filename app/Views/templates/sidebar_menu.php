@@ -18,11 +18,12 @@
 </head>
 <style>
     #footer {
-    position: fixed;
-    bottom: 0;
-    width: 80%;
-}
+        position: fixed;
+        bottom: 0;
+        width: 80%;
+    }
 </style>
+
 <body>
     <div id="app">
         <div id="sidebar" class="active">
@@ -72,19 +73,38 @@
                     <ul class="menu">
                         <li class="sidebar-title">Menu</li>
 
-                        <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
-                            <a href="/owner/halaman_pemilik" class='sidebar-link'>
-                                <i class="bi bi-grid-fill"></i>
-                                <span>Dashboard</span>
-                            </a>
-                        </li>
+                        <!-- untuk admin -->
+                        <?php if (in_groups('admin')) : ?>
+                            <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
+                                <a href="/admin/dashboard_admin" class='sidebar-link'>
+                                    <i class="bi bi-grid-fill"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
+                                <a href="/admin/data_report_kosan" class='sidebar-link'>
+                                    <i class="bi bi-collection-fill"></i>
+                                    <span>Data Laporan Kosan</span>
+                                </a>
+                            </li>
+                        <?php endif ?>
 
-                        <li class="sidebar-item <?= ($title == "Kosan Anda | Owner") ? 'active' : '' ?>">
-                            <a href="/owner/kosan_anda" class='sidebar-link'>
-                                <i class="bi bi-collection-fill"></i>
-                                <span>Kosan</span>
-                            </a>
-                        </li>
+                        <!-- untuk owner -->
+                        <?php if (in_groups('owner')) : ?>
+                            <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
+                                <a href="/owner/halaman_pemilik" class='sidebar-link'>
+                                    <i class="bi bi-grid-fill"></i>
+                                    <span>Dashboard</span>
+                                </a>
+                            </li>
+
+                            <li class="sidebar-item <?= ($title == "Kosan Anda | Owner") ? 'active' : '' ?>">
+                                <a href="/owner/kosan_anda" class='sidebar-link'>
+                                    <i class="bi bi-collection-fill"></i>
+                                    <span>Kosan</span>
+                                </a>
+                            </li>
+                        <?php endif ?>
                     </ul>
                 </div>
                 <hr>
@@ -108,7 +128,7 @@
         </header>
         <?= $this->renderSection('content'); ?>
         <div id="footer">
-        <?= $this->include('/globals/partials/footer'); ?>
+            <?= $this->include('/globals/partials/footer'); ?>
         </div>
     </div>
     </div>
@@ -124,23 +144,23 @@
 
     <script>
         $.ajax({
-        type: "GET",
-        url: "<?= base_url() ?>/provinsi.json",
-        crossDomain: true,
-        dataType: "json",
-        success: function(response) {
-            
-            for (let i = 0; i < response.length; i++) {
-                var element = response[i].name;
-                element = element.split(" ");
-                element.shift();
-                element = element.join(" ");
-                console.log(element);
-                $('#nama_kota').append('<option value="' + element + '">' + response[i].name + '</option>');
-            }
+            type: "GET",
+            url: "<?= base_url() ?>/provinsi.json",
+            crossDomain: true,
+            dataType: "json",
+            success: function(response) {
 
-        }
-    });
+                for (let i = 0; i < response.length; i++) {
+                    var element = response[i].name;
+                    element = element.split(" ");
+                    element.shift();
+                    element = element.join(" ");
+                    console.log(element);
+                    $('#nama_kota').append('<option value="' + element + '">' + response[i].name + '</option>');
+                }
+
+            }
+        });
     </script>
 </body>
 
