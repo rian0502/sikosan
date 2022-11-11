@@ -178,6 +178,9 @@ class Auth extends BaseConfig
      */
     public $allowRegistration = true;
 
+    // allow registration admin
+    // public $allowAdminRegistration = true;
+
     /**
      * --------------------------------------------------------------------
      * Require Confirmation Registration via Email

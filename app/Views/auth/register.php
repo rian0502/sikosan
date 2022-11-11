@@ -50,6 +50,9 @@
                     </div>
                     <div class="form-group">
                         <select class="choices form-select" aria-label="Default select example" name="group_id">
+                            <?php if ($config->allowAdminRegistration === true) : ?>
+                                <option value="admin">Admin</option>
+                            <?php endif; ?>
                             <option value="customer">Customer</option>
                             <option value="owner">Owner</option>
                         </select>
