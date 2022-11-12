@@ -179,7 +179,7 @@ class Auth extends BaseConfig
     public $allowRegistration = true;
 
     // allow registration admin
-    // public $allowAdminRegistration = true;
+    public $allowAdminRegistration = false;
 
     /**
      * --------------------------------------------------------------------
