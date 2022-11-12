@@ -188,7 +188,6 @@
                 element = element.split(" ");
                 element.shift();
                 element = element.join(" ");
-                console.log(element);
                 if (element == "<?= $kosan['kota'] ?>") {
                     $('#kota').append('<option value="' + element + '" selected>' + response[i].name + '</option>');
                 } else {

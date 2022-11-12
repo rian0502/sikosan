@@ -25,7 +25,7 @@
 
         <div class="col-lg-3 mb-4 col-md-4 col-sm-6 list-group-item2">
             <div class="card shadow" style="height: 450px;" name="kartu">
-                <img src="/foto_kosan/<?= $dataKos->nama_foto ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" class="card-img-top">
+                <img alt="gambarkost" src="/foto_kosan/<?= $dataKos->nama_foto ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" class="card-img-top">
                 <div class="card-body overflow-auto">
                     <div class="d-flex">
                         <button class="btn p-1 btn-outline-<?php if ($dataKos->type == 'Putra') {
@@ -57,12 +57,12 @@
                                         <?php endif; ?>
                                     <?php endfor; ?>
                                     <?php if ($founded == true) : ?>
-                                        <img src="/assets/img/filled_love.png" alt="" style="max-width: 30px;">
+                                        <img  src="/assets/img/filled_love.png" alt="gambarLIke" style="max-width: 30px;">
                                     <?php else : ?>
-                                        <img src="/assets/img/outline_love.png" alt="" style="max-width: 30px;">
+                                        <img src="/assets/img/outline_love.png" alt="gambarLIke" style="max-width: 30px;">
                                     <?php endif; ?>
                                 <?php else : ?>
-                                    <img src="/assets/img/outline_love.png" alt="" style="max-width: 30px;">
+                                    <img src="/assets/img/outline_love.png" alt="gambarLIke" style="max-width: 30px;">
                                 <?php endif; ?>
                             </a>
                         </div>
