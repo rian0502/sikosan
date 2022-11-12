@@ -42,7 +42,6 @@
                 element = element.split(" ");
                 element.shift();
                 element = element.join(" ");
-                console.log(element);
                 $('#nama_kota').append('<option value="' + element + '">' + response[i].name + '</option>');
             }
 
