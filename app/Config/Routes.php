@@ -49,10 +49,12 @@ $routes->get('/detail/(:num)/report', 'Home::detail/$1');
 
 // For admin
 $routes->get('/admin/dashboard_admin', 'AdminController::index', ['filter' => 'role:admin']);
-$routes->get('/admin/data_owner', 'OwnerController::index', ['filter' => 'role:admin']);
-$routes->get('/admin/data_customer', 'CustomerController::index', ['filter' => 'role:admin']);
-$routes->get('/admin/data_kosan', 'KosanController::index', ['filter' => 'role:admin']);
+// $routes->get('/admin/data_kosan', 'KosanController::index', ['filter' => 'role:admin']);
+// $routes->get('/admin/data_owner', 'OwnerController::index', ['filter' => 'role:admin']);
+// $routes->get('/admin/data_customer', 'CustomerController::index', ['filter' => 'role:admin']);
 $routes->get('/admin/data_report_kosan', 'ReportKosanController::index', ['filter' => 'role:admin']);
+$routes->get('/admin/detail_kosan/(:num)', 'ReportKosanController::detail_kosan/$1', ['filter' => 'role:admin']);
+$routes->delete('/admin/hapus_kosan', 'ReportKosanController::delete', ['filter' => 'role:admin']);
 // -----------------------------------------------------------------------------------------------
 
 // For Penyewa Kos
@@ -80,8 +82,8 @@ $routes->post('/save_komentar', 'KomentarController::save_komentar', ['filter' =
 $routes->post('/reply_komentar', 'KomentarController::reply_komentar', ['filter' => 'role:customer, owner']);
 
 // Report Kosan
-$routes->get('/report_kosan/create/(:num)', 'ReportKosan::create/$1', ['filter' => 'role:customer']);
-$routes->post('/report_kosan/save', 'ReportKosan::save', ['filter' => 'role:customer']);
+$routes->get('/report_kosan/create/(:num)', 'ReportKosanController::create/$1', ['filter' => 'role:customer']);
+$routes->post('/report_kosan/save', 'ReportKosanController::save', ['filter' => 'role:customer']);
 
 
 //@yogiandaru98 route testing
