@@ -73,4 +73,11 @@ class KosanModel extends Model
         // dd($data);
         return $data;
     }
+    public function getDashboardData(){
+        $data = $this->db->table('kosan')->select('COUNT(kosan.namaKost) as jumlah_kos, SUM(kosan.harga) as total_harga')
+            ->where('idPemilik', user_id())
+            ->get()
+            ->getResultArray();
+        return $data;
+    }
 }
