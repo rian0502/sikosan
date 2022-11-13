@@ -17,11 +17,7 @@
     <script src="/jquery/jquery.min.js"></script>
 </head>
 <style>
-    #footer {
-        position: fixed;
-        bottom: 0;
-        width: 80%;
-    }
+
 </style>
 
 <body>

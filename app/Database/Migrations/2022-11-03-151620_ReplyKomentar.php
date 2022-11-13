@@ -40,7 +40,7 @@ class ReplyKomentar extends Migration
             ],
         ]);
         $this->forge->addKey('id', true);
-        $this->forge->addForeignKey('id_komentar', 'komentar', 'id', 'CASCADE', 'CASCADE');
+        $this->forge->addForeignKey('id_komentar', 'komentar', 'id_komentar', 'CASCADE', 'CASCADE');
         $this->forge->addForeignKey('id_user', 'users', 'id', 'CASCADE', 'CASCADE');
         $this->forge->createTable('reply_komentar');
     }
