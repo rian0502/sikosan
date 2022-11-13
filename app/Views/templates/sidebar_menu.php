@@ -78,9 +78,27 @@
                                 </a>
                             </li>
                             <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
+                                <a href="#" class='sidebar-link'>
+                                    <i class="bi bi-house-fill"></i>
+                                    <span>Data Kosan</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
+                                <a href="#" class='sidebar-link'>
+                                    <i class="bi bi-person-lines-fill"></i>
+                                    <span>Data User</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
                                 <a href="/admin/data_report_kosan" class='sidebar-link'>
-                                    <i class="bi bi-collection-fill"></i>
-                                    <span>Data Laporan Kosan</span>
+                                    <i class="bi bi-exclamation-diamond-fill"></i>
+                                    <span>Laporan Kosan</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
+                                <a href="#" class='sidebar-link'>
+                                    <i class="bi bi-wechat"></i>
+                                    <span>Laporan Komentar</span>
                                 </a>
                             </li>
                         <?php endif ?>

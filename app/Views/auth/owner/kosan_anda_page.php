@@ -68,7 +68,6 @@
                                 <form id="formDelete<?= $index ?>" action="/owner/delete_kosan/<?= $kos['id_kosan']; ?>" method="post">
                                     <?= csrf_field() ?>
                                     <input type="hidden" name="_method" value="DELETE">
-
                                     <button data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" type="submit" class="btn btn-danger btn-delete"><i class="bi bi-trash"></i></button>
                                 </form>
                             </div>
@@ -200,7 +199,7 @@
                 confirmButtonText: 'Ya, hapus!'
             }).then((result) => {
                 if (result.isConfirmed) {
-                    $('#formDelete'+id).submit();
+                    $('#formDelete' + id).submit();
                 }
             });
 
