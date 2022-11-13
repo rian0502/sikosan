@@ -7,7 +7,10 @@ use App\Models\FotoKosanModel;
 use App\Models\KosanModel;
 
 class OwnerController extends BaseController
-{
+{  
+    public function __construct(){
+        $this->kosanModel = new KosanModel();
+    }
 
     public function index()
     {
@@ -17,9 +20,15 @@ class OwnerController extends BaseController
 
     public function halaman_pemilik()
     {
+        $info = $this->kosanModel->getDashboardData();
+        
         $data = [
             'title' => 'Profile',
+            'jumlah_kos' => $info[0]['jumlah_kos'],
+            'rata_rata' =>    floatval($info[0]['total_harga'])/floatval($info[0]['jumlah_kos']) ,
         ];
+
+
         return view('auth/owner/halaman_pemilik_page', $data);
     }
 
