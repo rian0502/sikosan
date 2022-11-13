@@ -31,35 +31,35 @@
     <section class="row">
         <div class="col-12 col-lg-9">
             <div class="row">
-                <div class="col-6 col-lg-5 col-md-6">
+                <div class="col-md-5">
                     <div class="card">
-                        <div class="card-body px-4 py-4-5">
+                        <div class="card-body py-3">
                             <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-center ">
                                     <div class="stats-icon purple mb-2">
                                         <i class="iconly-boldHome"></i>
                                     </div>
                                 </div>
                                 <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
                                     <h6 class="text-muted font-semibold">Total Kosan</h6>
-                                    <h6 class="font-extrabold mb-0">112.000</h6>
+                                    <h6 class="font-extrabold mb-0"><?= ($jumlah_kos < 1 ) ? '0':$jumlah_kos ?> Unit</h6>
                                 </div>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div class="col-6 col-lg-5 col-md-6">
+                <div class="col-md-5">
                     <div class="card">
-                        <div class="card-body px-4 py-4-5">
+                        <div class="card-body py-3">
                             <div class="row">
-                                <div class="col-md-4 col-lg-12 col-xl-12 col-xxl-5 d-flex justify-content-start ">
+                                <div class="col-xxl-5 d-flex justify-content-center ">
                                     <div class="stats-icon green mb-2">
                                     <i class="bi bi-currency-dollar mb-4 me-3"></i>
                                     </div>
                                 </div>
-                                <div class="col-md-8 col-lg-12 col-xl-12 col-xxl-7">
+                                <div class="col-xxl-7">
                                     <h6 class="text-muted font-semibold">Harga Rata - Rata</h6>
-                                    <h6 class="font-extrabold mb-0">183.000</h6>
+                                    <h6 class="font-extrabold mb-0"><?= ($rata_rata  < 1) ? number_to_currency(0, 'IDR', 'id_ID', 0) :  number_to_currency($rata_rata, 'IDR', 'id_ID', 0)?></h6>
                                 </div>
                             </div>
                         </div>
