@@ -19,8 +19,11 @@ class KosanController extends BaseController
     // INDEX
     public function index()
     {
+        $data = [
+            'title' => 'Cari Kosan',
+        ];
 
-        return view('auth/admin/data_kosan_page');
+        return view('auth/admin/data_kosan_page', $data);
     }
 
     // CREATE DATA KOSAN
@@ -175,7 +178,7 @@ class KosanController extends BaseController
     // DELETE DATA KOSAN
     public function delete($id_kosan)
     {
-   
+
         $imageFile = $this->fotoKosanModel->where('id_kosan', $id_kosan)->findAll();
         foreach ($imageFile as $image) {
             unlink('../public/foto_kosan/' . $image['nama_foto']);
