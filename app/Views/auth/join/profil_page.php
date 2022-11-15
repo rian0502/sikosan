@@ -10,13 +10,13 @@
     <div class="card">
         <div class="card-header">
             <h4 class="card-title">Profil Anda
-            <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" href="/customer/profil/edit<?= user_id() ?>" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
+            <a data-bs-toggle="tooltip" data-bs-placement="top" title="Edit" href="/profil/edit/" class="btn btn-warning"><i class="bi bi-pencil-square"></i></a>
         </div>
         <div class="card-content">
             <div class="card-body">
                 <form class="form form-horizontal">
                     <div class="avatar avatar-xl mb-4 col-md-10 mb-3">
-                        <img src="/foto_profil/<?= user()->foto ?>" id="foto1img" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="600" height="auto">
+                        <img src="/foto_profile/<?= user()->foto ?>" id="foto1img" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="600" height="auto">
 
                     </div>
                     <div class="form-body">

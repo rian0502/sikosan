@@ -45,6 +45,9 @@ $routes->get('/terms', 'Home::terms');
 $routes->get('/detail/(:num)', 'Home::detail/$1');
 $routes->get('/detail/(:num)/tulis_komentar', 'Home::detail/$1');
 $routes->get('/detail/(:num)/report', 'Home::detail/$1');
+$routes->get('/profil/edit/', 'Profil::edit/', ['filter' => 'role:admin,owner,customer']);
+
+$routes->post('/profile/update', 'Profil::update', ['filter' => 'role:admin,owner,customer']);
 // -------------------------------------------
 
 // For admin
