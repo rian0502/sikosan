@@ -1,6 +1,22 @@
 <?= $this->extend('templates/templateAuth') ?>
 
 <?= $this->section('content') ?>
+
+<style>
+    .center {
+        display: flex;
+        position: absolute;
+        top: 13%;
+        left: 55%;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    #ilustrasi {
+        background-color: #A9C7E8;
+    }
+</style>
+
 <div id="auth">
     <div class="row h-100">
         <div class="col-lg-5 col-12">
@@ -64,9 +80,9 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-7 d-none d-lg-block">
-            <div id="auth-right">
-            </div>
+        <div id="ilustrasi" class="col-lg-7 d-none d-lg-block">
+            <div id=""></div>
+            <img src="/assets/img/regis_ilustrasi.svg" class="center" alt="login_ilustrasi" height="700" width="700">
         </div>
     </div>
 </div>

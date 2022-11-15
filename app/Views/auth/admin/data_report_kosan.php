@@ -11,8 +11,13 @@
                     <p class="mb-4">
                         <?= $report['report'] ?>
                     </p>
-                    <a href="#" class="btn btn-sm btn-outline-danger">Tindakan</a>
-
+                    <a href="/admin/detail_kosan/<?= $report['id_kosan'] ?>" class="btn btn-sm btn-outline-primary">Review Kosan</a>
+                    <form action="/admin/hapus_kosan" method="post" class="d-inline">
+                        <?= csrf_field() ?>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="id_kosan" value="<?= $report['id_kosan'] ?>">
+                        <button data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin mengapus kosan ini?');">Hapus Kosan</button>
+                    </form>
                 </div>
             </div>
         </div>
