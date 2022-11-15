@@ -45,8 +45,10 @@ $routes->get('/terms', 'Home::terms');
 $routes->get('/detail/(:num)', 'Home::detail/$1');
 $routes->get('/detail/(:num)/tulis_komentar', 'Home::detail/$1');
 $routes->get('/detail/(:num)/report', 'Home::detail/$1');
-$routes->get('/profil/edit/', 'Profil::edit/', ['filter' => 'role:admin,owner,customer']);
+// -------------------------------------------
 
+//For owner or user  profile
+$routes->get('/profil/edit/', 'Profil::edit/', ['filter' => 'role:admin,owner,customer']);
 $routes->post('/profile/update', 'Profil::update', ['filter' => 'role:admin,owner,customer']);
 // -------------------------------------------
 
@@ -89,18 +91,6 @@ $routes->get('/report_kosan/create/(:num)', 'ReportKosanController::create/$1', 
 $routes->post('/report_kosan/save', 'ReportKosanController::save', ['filter' => 'role:customer']);
 
 
-//@yogiandaru98 route testing
-// $routes->get('/sidebar_menu', function () {
-//     return view('templates/sidebar_menu');
-// });
-// $routes->get('/tambah_kosan', function () {
-//     return view('auth\owner\tambah_kosan_page');
-// });
-// save testing method
-// $routes->post('/dummy_test', 'KosanController::save');
-
-$routes->get('/editkost_dummy/(:any)', 'KosanController::edit/$1');
-$routes->post('/updatekost_dummy', 'KosanController::update');
 
 
 
