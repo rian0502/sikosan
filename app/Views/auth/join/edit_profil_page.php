@@ -13,9 +13,10 @@
         </div>
         <div class="card-content">
             <div class="card-body">
-                <form class="form form-horizontal">
+                <form class="form form-horizontal" action="/profile/update" method="POST" enctype="multipart/form-data">
+                    <?= csrf_field(); ?>
                     <div class="avatar avatar-xl mb-4 col-md-10 mb-3">
-                    <img src="/foto_profil/<?= user()->foto ?>" id="foto1img" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="600" height="auto">
+                    <img src="/foto_profile/<?= user()->foto ?>" id="foto1img" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" width="600" height="auto">
                         <button type="button" class="btn btn-outline-primary block ms-4" data-bs-toggle="modal" data-bs-target="#border-less">
                             Edit Foto
                         </button>
@@ -30,7 +31,7 @@
                                     </div>
                                     <div class="modal-body">
                                         <p>
-                                        <input name="foto_1" class="form-control" id="foto1" type='file' onchange="readURL1(this);" image-crop-aspect-ratio="1:1"/>
+                                        <input name="foto" class="form-control" id="foto1" type='file' onchange="readURL1(this);" image-crop-aspect-ratio="1:1"/>
                                         </p>
                                     </div>
                                     <div class="modal-footer">
@@ -53,19 +54,19 @@
                                 <label>Nama Lengkap</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="text" id="nama-lengkap" class="form-control" name="fname" placeholder="First Name" value="<?= user()->namaLengkap ?>">
+                                <input type="text" id="nama-lengkap" class="form-control" name="namaLengkap" placeholder="First Name" value="<?= user()->namaLengkap ?>">
                             </div>
                             <div class="col-md-4">
                                 <label>Email</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="email" id="email-id" class="form-control" name="email-id" placeholder="Email" value="<?= user()->email ?>">
-                            </div>
+                                <input type="email" id="email-id" class="form-control" name="email" placeholder="Email" value="<?= user()->email ?>" readonly>
+                            </div> 
                             <div class="col-md-4">
                                 <label>No Telepon</label>
                             </div>
                             <div class="col-md-8 form-group">
-                                <input type="number" id="contact-info" class="form-control" name="contact" placeholder="No Telepon" value="<?= user()->notlp ?>">
+                                <input type="number" id="contact-info" class="form-control" name="notlp" placeholder="No Telepon" value="<?= user()->notlp ?>">
                             </div>
                             <div class="col-sm-12 d-flex justify-content-end">
                                 <button type="submit" class="btn btn-primary me-1 mb-1">Submit</button>
