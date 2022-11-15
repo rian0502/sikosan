@@ -82,9 +82,7 @@
                                             <li><a class="dropdown-item" href="<?= url_to('logout'); ?>">Logout</a></li>
                                         </ul>
                                     </div>
-                                    <div class="col">
-                                        <img src="/assets/img/user_logged.png" alt="" style="width: 30px;" class="">
-                                    </div>
+               
                                 </div>
 
                             </div>
