@@ -16,8 +16,8 @@
     <div id="error">
         <div class="error-page container">
             <div class="col-md-8 col-12 offset-md-2">
+                <img class="img-error" src="/adminTemplate/assets/images/samples/error-404.png" alt="Not Found">
                 <div class="text-center">
-                    <img class="img-error" src="/adminTemplate/assets/images/samples/error-404.png" width="700" alt="Not Found">
                     <h1 class="error-title">NOT FOUND</h1>
                     <p>
                         <?php if (ENVIRONMENT !== 'production') : ?>
