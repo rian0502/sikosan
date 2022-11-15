@@ -13,8 +13,11 @@ class Profil extends BaseController
     public function index()
     {
         //
-    
         return view('auth/join/profil_page');
     
+    }
+    public function edit(){
+
+        return view('auth/join/edit_profil_page');
     }
 }
