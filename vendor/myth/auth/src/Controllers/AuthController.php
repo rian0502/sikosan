@@ -146,6 +146,10 @@ class AuthController extends Controller
         if (!$this->config->allowRegistration) {
             return redirect()->back()->withInput()->with('error', lang('Auth.registerDisabled'));
         }
+        // cek if user to bypass admin
+        if($this->request->getPost('group_id') == '1' or $this->request->getPost('group_id') == 'admin'){
+            return redirect()->back()->withInput()->with('error', 'Pilih Kategori User dengan benar');
+        }
 
         $users = model(UserModel::class);
         $users->withGroup($userGroup);
