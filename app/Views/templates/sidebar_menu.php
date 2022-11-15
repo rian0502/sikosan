@@ -96,7 +96,7 @@
                                 </a>
                             </li>
                             <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
-                                <a href="#" class='sidebar-link'>
+                                <a href="/admin/data_report_komentar" class='sidebar-link'>
                                     <i class="bi bi-wechat"></i>
                                     <span>Laporan Komentar</span>
                                 </a>

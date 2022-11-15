@@ -8,6 +8,11 @@
 use CodeIgniter\I18n\Time; ?>
 <section>
     <div class="container px-4 px-lg-5 my-5">
+        <?php if (session()->getFlashdata('pesan')) : ?>
+            <div class="alert alert-success" role="alert">
+                <?= session()->getFlashdata('pesan'); ?>
+            </div>
+        <?php endif; ?>
         <div class="card">
             <div class="card-body">
                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -43,7 +48,7 @@ use CodeIgniter\I18n\Time; ?>
             </div>
         </div>
         <!-- Detail KOS = nama,spefsifikasi,dll-->
-        <?php if (in_groups('customer') && logged_in()) : ?>
+        <?php if ((in_groups('customer') || in_groups('owner')) && user_id() !== $kosan[0]['idPemilik']) : ?>
             <a href="/report_kosan/create/<?= $kosan[0]['id_kosan']; ?>" class="btn btn-danger mb-3" style="text-decoration: none;"><i class="bi bi-exclamation-circle" id="report"></i> Laporkan</a>
         <?php endif; ?>
         <?php if (session()->getFlashdata('pesan_laporan')) : ?>
@@ -51,7 +56,6 @@ use CodeIgniter\I18n\Time; ?>
                 <?= session()->getFlashdata('pesan_laporan'); ?>
             </div>
         <?php endif; ?>
-
         <div class="row">
             <div class="col-md-8 mt-5">
                 <div class="row">
@@ -179,10 +183,15 @@ use CodeIgniter\I18n\Time; ?>
                             <p>
                                 <?= $km['komentar'] ?>
                             </p>
-                            <div class="d-flex justify-content-end align-items-center">
-
-                            </div>
                         </div>
+                        <?php if (in_groups('customer') || in_groups('owner')) : ?>
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col text-end">
+                                    <a href="/report_komentar/create/<?= $kosan[0]['id_kosan'] ?>/<?= $km['id_komentar'] ?>/<?= $km['id_user'] ?>/<?= $km['komentar'] ?>" class="text-danger">Laporkan</a>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
                 <?php for ($i = 0; $i < count($km['reply']); $i++) : ?>
@@ -196,11 +205,16 @@ use CodeIgniter\I18n\Time; ?>
                                     <p>
                                         <?= $km['reply'][$i]['reply'] ?>
                                     </p>
-                                    <div class="d-flex justify-content-end align-items-center">
-
-                                    </div>
                                 </div>
                             </div>
+                            <?php if (in_groups('customer') || in_groups('owner')) : ?>
+                                <div class="row me-3 mb-3">
+                                    <div class="col"></div>
+                                    <div class="col text-end">
+                                        <a href="/report_reply_komentar/create/<?= $kosan[0]['id_kosan'] ?>/<?= $km['reply'][$i]['id'] ?>/<?= $km['reply'][$i]['id_user'] ?>/<?= $km['reply'][$i]['reply'] ?>" class="text-danger">Laporkan</a>
+                                    </div>
+                                </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endfor; ?>
@@ -213,7 +227,6 @@ use CodeIgniter\I18n\Time; ?>
                                     <?= csrf_field() ?>
                                     <textarea class="form-control" name="reply" placeholder="Tulis balasan Anda!" id="floatingTextarea"></textarea>
                                     <label for="floatingTextarea"></label>
-
                                     <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
                                     <input type="hidden" value="<?= $km['id_komentar'] ?>" name="id_komentar">
                                     <button type="submit" class="btn btn-primary btn-sm float-end mt-2">Kirim</button>
@@ -242,13 +255,6 @@ use CodeIgniter\I18n\Time; ?>
         </div>
     </div>
 </div>
-
-<!-- Form tulis komentar -->
-<?php if (session()->getFlashdata('pesan')) : ?>
-    <div class="alert alert-success" role="alert">
-        <?= session()->getFlashdata('pesan'); ?>
-    </div>
-<?php endif; ?>
 
 <!-- Bootstrap core JS-->
 <script src="adminTemplate/assets/extensions/jquery/jquery.min.js"></script>
