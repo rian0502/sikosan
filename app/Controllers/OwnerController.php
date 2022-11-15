@@ -25,7 +25,7 @@ class OwnerController extends BaseController
         $data = [
             'title' => 'Profile',
             'jumlah_kos' => $info[0]['jumlah_kos'],
-            'rata_rata' =>    floatval($info[0]['total_harga'])/floatval($info[0]['jumlah_kos']) ,
+            'rata_rata' =>    ($info[0]['jumlah_kos'] < 1) ? '0' : floatval($info[0]['total_harga'])/floatval($info[0]['jumlah_kos']) ,
         ];
 
 
