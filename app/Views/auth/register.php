@@ -82,7 +82,7 @@
         </div>
         <div id="ilustrasi" class="col-lg-7 d-none d-lg-block">
             <div id=""></div>
-            <img src="/assets/img/regis_ilustrasi.svg" class="center" alt="login_ilustrasi" height="700" width="700">
+            <img src="/assets/img/regis_ilustrasi.svg" class="center" alt="register_ilustrasi" height="700" width="700">
         </div>
     </div>
 </div>
