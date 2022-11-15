@@ -4,17 +4,17 @@ namespace App\Models;
 
 use CodeIgniter\Model;
 
-class ReportKosanModel extends Model
+class ReportKomentarModel extends Model
 {
     protected $DBGroup          = 'default';
-    protected $table            = 'report_kosan';
-    protected $primaryKey       = 'id_report';
+    protected $table            = 'report_komentar';
+    protected $primaryKey       = 'id_report_komentar';
     protected $useAutoIncrement = true;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_kosan', 'id_user', 'report', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['id_user', 'id_user_komentar', 'laporan_komentar', 'komentar_dilaporkan', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = false;
@@ -43,8 +43,8 @@ class ReportKosanModel extends Model
     public function getReport()
     {
         $data = $this->db->table($this->table)
-            ->join('kosan', 'kosan.id_kosan = report_kosan.id_kosan')
-            ->join('users', 'users.id = report_kosan.id_user')
+            ->join('users', 'users.id = report_komentar.id_user')
+            ->orderBy('report_komentar.id_report_komentar', 'DESC')
             ->get()
             ->getResultArray();
 
@@ -53,10 +53,11 @@ class ReportKosanModel extends Model
         return $data;
     }
 
-    public function getReportByIDKosan($id)
+    public function getUserKomentar()
     {
-        $data = $this->db->table($this->table)
-            ->where('id_kosan', $id)
+        $data = $this->db->table('report_komentar')
+            ->join('users', 'users.id=report_komentar.id_user_komentar')
+            ->orderBy('report_komentar.id_report_komentar', 'DESC')
             ->get()
             ->getResultArray();
 

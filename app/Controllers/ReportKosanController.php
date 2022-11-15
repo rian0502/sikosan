@@ -5,7 +5,7 @@ namespace App\Controllers;
 use App\Controllers\BaseController;
 use App\Models\KosanModel;
 use App\Models\ReportKosanModel;
-use Myth\Auth\Models\UserModel;
+use App\Models\FotoKosanModel;
 
 class ReportKosanController extends BaseController
 {
@@ -58,13 +58,17 @@ class ReportKosanController extends BaseController
 
     public function detail_kosan($id)
     {
+        $kosan = $this->kosanModel->getKosanForReport($id);
+        $kosan[0]['gambar'] = (new FotoKosanModel())->where('id_kosan', $id)->get()->getResultArray();
+        $pemilik = $this->kosanModel->join('users', 'users.id = kosan.idPemilik')->getWhere(['id_kosan' => $id])->getResultArray()[0];
+        // dd($pemilik);
+
+
         $data = [
             'title' => 'Review Kosan',
-            'dataKosan' => $this->kosanModel->getKosanByIdKosan($id),
-            'penyewa' => user()->namaLengkap,
+            'kosan' => $kosan,
+            'pemilik' => $pemilik,
         ];
-
-        // dd($data);
 
         return view('auth/admin/detail_kosan_page', $data);
     }
