@@ -76,7 +76,7 @@
                                             <?php if (in_groups('owner')) : ?>
                                                 <li><a class="dropdown-item" href="/owner/halaman_pemilik">Halaman Pemilik</a></li>
                                             <?php endif; ?>
-                                            <?php if (in_groups('customer')) : ?>
+                                            <?php if (logged_in()) : ?>
                                                 <li><a class="dropdown-item" href="/customer/profil">Profil</a></li>
                                             <?php endif; ?>
                                             <li><a class="dropdown-item" href="<?= url_to('logout'); ?>">Logout</a></li>
