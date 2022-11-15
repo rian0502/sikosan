@@ -52,4 +52,15 @@ class ReportKosanModel extends Model
 
         return $data;
     }
+
+    public function getReportByIDKosan($id)
+    {
+        $data = $this->db->table($this->table)
+            ->where('id_kosan', $id)
+            ->get()
+            ->getResultArray();
+
+        // dd($data);
+        return $data;
+    }
 }
