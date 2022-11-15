@@ -17,10 +17,7 @@ class CustomerController extends BaseController
         return view('auth/admin/data_customer_page');
     }
 
-    public function profil()
-    {
-        return view('auth/join/profil_page');
-    }
+
 
     public function mywish()
     {
@@ -32,4 +29,5 @@ class CustomerController extends BaseController
 
         return view('auth/customer/mywish', $data);
     }
+    
 }
