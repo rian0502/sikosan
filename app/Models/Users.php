@@ -14,7 +14,7 @@ class Users extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['namaLengkap','notlp','foto','status','status_message', 'updated_at'];
+    protected $allowedFields    = ['namaLengkap', 'notlp', 'foto', 'status', 'status_message', 'updated_at'];
 
     // Dates
     protected $useTimestamps = false;
