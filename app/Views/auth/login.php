@@ -62,6 +62,7 @@
 
 
         <div id="ilustrasi" class="col-lg-7 d-none d-lg-block">
+            <div id=""></div>
             <img src="/assets/img/login_ilustrasi.svg" class="center" alt="login_ilustrasi" height="700" width="700">
         </div>
 

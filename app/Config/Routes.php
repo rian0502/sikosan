@@ -45,7 +45,6 @@ $routes->get('/terms', 'Home::terms');
 $routes->get('/detail/(:num)', 'Home::detail/$1');
 $routes->get('/detail/(:num)/tulis_komentar', 'Home::detail/$1');
 $routes->get('/detail/(:num)/report', 'Home::detail/$1');
-$routes->get('/profile/(:num)', 'Profil::publicProfile/$1');
 // -------------------------------------------
 
 // For admin

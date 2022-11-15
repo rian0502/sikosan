@@ -13,23 +13,8 @@ class Profil extends BaseController
     public function index()
     {
         //
+    
         return view('auth/join/profil_page');
-    }
-    public function edit(){
-
-        return view('auth/join/edit_profil_page');
-    }
-    public function update(){
-        return view('auth/join/profile_page');
-    }
-
-    public function publicProfile($id){
-        $user = $this->userModel->find($id);
-        $data = [
-            'user' => $user
-        ];
-
-        dd($data);
-        return view('auth/join/public_profile_page', $data);
+    
     }
 }

@@ -73,9 +73,7 @@ class Home extends BaseController
             'kosan' => $kosan,
             'data_wish' => $this->wishlistModel->where('id_user', user_id())->find(),
             'komentar' => $komen,
-            'id_pemilik' => $pemilik->id,
         ];
-
         return view('globals/detail_page', $data);
     }
 }
