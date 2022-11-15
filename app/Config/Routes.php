@@ -47,11 +47,18 @@ $routes->get('/detail/(:num)/tulis_komentar', 'Home::detail/$1');
 $routes->get('/detail/(:num)/report', 'Home::detail/$1');
 // -------------------------------------------
 
+
 // for customer and owner
 $routes->get('/report_komentar/create/(:num)/(:num)/(:num)/(:any)', 'ReportKomentar::create/$1/$2/$3/$4', ['filter' => 'role:customer, owner']);
 $routes->post('/report_komentar/save', 'ReportKomentar::save', ['filter' => 'role:customer, owner']);
 // $routes->get('/report_reply_komentar/create/(:num)/(:num)/(:num)/(:any)', 'ReportReplyKomentar::create/$1/$2/$3/$4', ['filter' => 'role:customer, owner']);
 // $routes->post('/report_reply_komentar/save', 'ReportReplyKomentar::save', ['filter' => 'role:customer, owner']);
+
+//For owner or user  profile
+$routes->get('/profil/edit/', 'Profil::edit/', ['filter' => 'role:admin,owner,customer']);
+$routes->post('/profile/update', 'Profil::update', ['filter' => 'role:admin,owner,customer']);
+// -------------------------------------------
+
 
 // For admin
 $routes->get('/admin/dashboard_admin', 'AdminController::index', ['filter' => 'role:admin']);
@@ -93,18 +100,6 @@ $routes->get('/report_kosan/create/(:num)', 'ReportKosanController::create/$1', 
 $routes->post('/report_kosan/save', 'ReportKosanController::save', ['filter' => 'role:customer']);
 
 
-//@yogiandaru98 route testing
-// $routes->get('/sidebar_menu', function () {
-//     return view('templates/sidebar_menu');
-// });
-// $routes->get('/tambah_kosan', function () {
-//     return view('auth\owner\tambah_kosan_page');
-// });
-// save testing method
-// $routes->post('/dummy_test', 'KosanController::save');
-
-$routes->get('/editkost_dummy/(:any)', 'KosanController::edit/$1');
-$routes->post('/updatekost_dummy', 'KosanController::update');
 
 
 

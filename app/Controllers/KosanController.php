@@ -178,6 +178,10 @@ class KosanController extends BaseController
     // DELETE DATA KOSAN
     public function delete($id_kosan)
     {
+        $kost = $this->kosanModel->where('id_kosan', $id_kosan)->first();
+        if ($kost['idPemilik'] != user_id()) {
+            return redirect()->to('/owner/kosan_anda');
+        }
 
         $imageFile = $this->fotoKosanModel->where('id_kosan', $id_kosan)->findAll();
         foreach ($imageFile as $image) {
@@ -190,11 +194,15 @@ class KosanController extends BaseController
 
     // EDIT DATA KOSAN
     public function edit($id_kosan)
-    {
+    {   
+        $kost = $this->kosanModel->where('id_kosan', $id_kosan)->first();
+        if ($kost['idPemilik'] != user_id()) {
+            return redirect()->to('/owner/kosan_anda');
+        }
         session();
         $data = [
             'title' => 'Ubah Data Kosan',
-            'kosan' => (new KosanModel())->where('id_kosan', $id_kosan)->first(),
+            'kosan' => $kost,
             'foto' => (new FotoKosanModel())->where('id_kosan', $id_kosan)->findAll(),
             'validation' => \Config\Services::validation(),
         ];
