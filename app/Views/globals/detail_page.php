@@ -95,7 +95,7 @@ use CodeIgniter\I18n\Time; ?>
                 </div>
 
                 <div class="mt-3 mb-4">
-                    <h4 class="fw-bolder mb-1">Kos disewakan oleh <?= $pemilik ?> </h4>
+                    <h4 class="fw-bolder mb-1">Kos disewakan oleh <a href="/profile/public/<?= $id_pemilik ?>"><?= $pemilik ?></a> </h4>
                 </div>
 
                 <div class="row">
