@@ -208,7 +208,7 @@ use CodeIgniter\I18n\Time; ?>
                                 </div>
                             </div>
                             <?php if (in_groups('customer') || in_groups('owner')) : ?>
-                                <div class="row me-3 mb-3">
+                                <div class="row me-3 mb-3" hidden>
                                     <div class="col"></div>
                                     <div class="col text-end">
                                         <a href="/report_reply_komentar/create/<?= $kosan[0]['id_kosan'] ?>/<?= $km['reply'][$i]['id'] ?>/<?= $km['reply'][$i]['id_user'] ?>/<?= $km['reply'][$i]['reply'] ?>" class="text-danger">Laporkan</a>
