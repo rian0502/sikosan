@@ -69,8 +69,8 @@
                             <?php if ($config->allowAdminRegistration === true) : ?>
                                 <option value="admin">Admin</option>
                             <?php endif; ?>
-                            <option value="customer">Customer</option>
-                            <option value="owner">Owner</option>
+                            <option value="customer">Pencari Kost</option>
+                            <option value="owner">Pemilik Kost</option>
                         </select>
                     </div>
                     <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
