@@ -124,7 +124,8 @@ class Auth extends BaseConfig
      */
     public $personalFields = [
         'namaLengkap',
-        'notlp'
+        'notlp',
+        'foto',
     ];
 
     /**
