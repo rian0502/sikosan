@@ -78,8 +78,7 @@
         </div>
     </div>
 </div>
-<script src="/adminTemplate/assets/js/bootstrap.js"></script>
-    <script src="/adminTemplate/assets/js/app.js"></script>
+
     
 <script src="/adminTemplate/assets/extensions/filepond/filepond.js"></script>
 <script src="/adminTemplate/assets/extensions/toastify-js/src/toastify.js"></script>
@@ -98,11 +97,5 @@
         }
     }
 </script>
-
-<?= user()->namaLengkap ?>
-<br>
-<?= user()->notlp ?>
-<br>
-<?= user()->foto ?>
 
 <?= $this->endSection(); ?>
