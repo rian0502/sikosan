@@ -94,6 +94,8 @@ $routes->get('/mywish', 'CustomerController::mywish');
 // Komentar
 $routes->post('/save_komentar', 'KomentarController::save_komentar', ['filter' => 'role:customer, owner']);
 $routes->post('/reply_komentar', 'KomentarController::reply_komentar', ['filter' => 'role:customer, owner']);
+$routes->post('/delete/komentar', 'KomentarController::hapus_komentar',['filter' => 'role:customer, owner, admin']);
+$routes->post('/delete/reply_komentar', 'KomentarController::hapusReplyKomentar',['filter' => 'role:customer, owner, admin']);
 
 // Report Kosan
 $routes->get('/report_kosan/create/(:num)', 'ReportKosanController::create/$1', ['filter' => 'role:customer']);

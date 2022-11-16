@@ -173,7 +173,7 @@ use CodeIgniter\I18n\Time; ?>
 <?php foreach ($komentar as $km) : ?>
     <section>
         <div class=" d-flex flex-column mb-2 mt-0">
-            <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65" height="65" />
+            <img class="rounded-circle shadow-1-strong me-3" src="/foto_profile/<?= $km['foto'] ?>" alt="avatar" width="65" height="65" />
             <div class="card bg-secondary">
                 <div class="card w-100 mb-1 shadow-sm">
                     <div class="card-body p-4 shadow-sm">
@@ -184,7 +184,7 @@ use CodeIgniter\I18n\Time; ?>
                                 <?= $km['komentar'] ?>
                             </p>
                         </div>
-                        <?php if (in_groups('customer') || in_groups('owner')) : ?>
+                        <?php if ($km['id_user'] != user()->id && (in_groups('customer') || in_groups('owner'))) : ?>
                             <div class="row">
                                 <div class="col"></div>
                                 <div class="col text-end">
@@ -192,11 +192,26 @@ use CodeIgniter\I18n\Time; ?>
                                 </div>
                             </div>
                         <?php endif; ?>
+
+                        <!-- untuk button hapus komentar head -->
+                        <?php if ($km['id_user'] == user()->id  || in_groups('admin')) : ?>
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col text-end">
+                                    <form action="/delete/komentar" method="post">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="id_komentar" value="<?= $km['id_komentar'] ?>">
+                                        <button class="btn btn-danger" type="submit">Hapus</button>
+                                    </form>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
+
                 <?php for ($i = 0; $i < count($km['reply']); $i++) : ?>
                     <div class="ms-5 mt-4">
-                        <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65" height="65" />
+                        <img class="rounded-circle shadow-1-strong me-3" src="/foto_profile/<?= $km['reply'][$i]['foto'] ?>" alt="avatar" width="65" height="65" />
                         <div class="card m-2 ms-5 shadow-lg">
                             <div class="card-body p-4">
                                 <div class="">
@@ -206,6 +221,18 @@ use CodeIgniter\I18n\Time; ?>
                                         <?= $km['reply'][$i]['reply'] ?>
                                     </p>
                                 </div>
+                                <?php if ($km['reply'][$i]['id'] == user()->id  || in_groups('admin')) : ?>
+                                    <div class="row">
+                                        <div class="col"></div>
+                                        <div class="col text-end">
+                                            <form action="/delete/reply_komentar" method="post">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="id_reply" value="<?= $km['reply'][$i]['id_reply'] ?>">
+                                                <button class="btn btn-danger" type="submit">Hapus</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
                             </div>
                             <?php if (in_groups('customer') || in_groups('owner')) : ?>
                                 <div class="row me-3 mb-3" hidden>
