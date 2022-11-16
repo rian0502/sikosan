@@ -58,7 +58,7 @@
                         <div class="card-body py-4 px-5">
                             <div class="d-flex align-items-center">
                                 <div class="avatar avatar-xl">
-                                    <img src="/adminTemplate/assets/images/faces/1.jpg" alt="Face 1">
+                                    <img src="/foto_profile/<?= user()->foto ?>" alt="Face 1">
                                 </div>
                                 <div class="ms-3 name">
                                     <h5 class="font-bold"><?= user()->namaLengkap ?></h5>
@@ -152,7 +152,6 @@
     <script src="/adminTemplate/assets/js/pages/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
-
     <script src="/adminTemplate/assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
     <script src="/adminTemplate/assets/js/pages/form-element-select.js"></script>
 

@@ -45,35 +45,35 @@
                     <p class="card-text "><?= htmlspecialchars($dataKos->alamat) ?>.</p>
                 </div>
 
-                <div class="d-flex ms-3 my-2 me-3">
-                    <div class="d-flex bd-highlight mb-3">
+                <div class="d-flex ms-3 my-2">
+                    <div class="d-flex bd-highlight mb-3 me-4">
                         <a href="/detail/<?= $dataKos->id_kosan; ?>" class="btn btn-outline-success p-2 bd-highlight">Detail</a>
-                        </div>
-                        <?php if (logged_in() && in_groups('customer')) : ?>
-                            <div class="pt-2 ms-5 ps-5">
-                                <a href="/wishing_post/<?= $dataKos->id_kosan ?>/<?= user_id() ?>" class="text-decoration-none ms-5 ps-4">
-                                    <?php if (count($data_wish) != 0) : ?>
-                                        <?php for ($i = 0; $i < count($data_wish); $i++) : ?>
-                                            <?php $founded = false; ?>
-                                            <?php if ($dataKos->id_kosan == $data_wish[$i]['id_kosan']) : ?>
-                                                <?php $founded = true; ?>
-                                                <?php break; ?>
-                                            <?php endif; ?>
-                                        <?php endfor; ?>
-                                        <?php if ($founded == true) : ?>
-                                            <img src="/assets/img/filled_love.png" alt="gambarLIke" style="max-width: 30px;">
-                                        <?php else : ?>
-                                            <img src="/assets/img/outline_love.png" alt="gambarLIke" style="max-width: 30px;">
+                    </div>
+                    <?php if (logged_in() && in_groups('customer')) : ?>
+                        <div class="mt-2 ms-5">
+                            <a href="/wishing_post/<?= $dataKos->id_kosan ?>/<?= user_id() ?>" class="text-decoration-none ms-5 ps-4">
+                                <?php if (count($data_wish) != 0) : ?>
+                                    <?php for ($i = 0; $i < count($data_wish); $i++) : ?>
+                                        <?php $founded = false; ?>
+                                        <?php if ($dataKos->id_kosan == $data_wish[$i]['id_kosan']) : ?>
+                                            <?php $founded = true; ?>
+                                            <?php break; ?>
                                         <?php endif; ?>
+                                    <?php endfor; ?>
+                                    <?php if ($founded == true) : ?>
+                                        <img src="/assets/img/filled_love.png" alt="gambarLIke" style="max-width: 30px;">
                                     <?php else : ?>
                                         <img src="/assets/img/outline_love.png" alt="gambarLIke" style="max-width: 30px;">
                                     <?php endif; ?>
-                                </a>
-                            </div>
-                        <?php endif; ?>
-                    
+                                <?php else : ?>
+                                    <img src="/assets/img/outline_love.png" alt="gambarLIke" style="max-width: 30px;">
+                                <?php endif; ?>
+                            </a>
+                        </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </div>
-    <?php endforeach ?>
+
+<?php endforeach ?>
 </div>
