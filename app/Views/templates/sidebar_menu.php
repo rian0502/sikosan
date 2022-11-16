@@ -58,7 +58,11 @@
                         <div class="card-body py-4 px-5">
                             <div class="d-flex align-items-center">
                                 <div class="avatar avatar-xl">
-                                    <img src="/foto_profile/<?= user()->foto ?>" alt="Face 1">
+
+                                 
+
+                                    <img src="/foto_profile/<?= user()->foto ?>"  onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" alt="Foto Profil">
+
                                 </div>
                                 <div class="ms-3 name">
                                     <h5 class="font-bold"><?= user()->namaLengkap ?></h5>
@@ -71,7 +75,7 @@
 
                         <!-- untuk admin -->
                         <?php if (in_groups('admin')) : ?>
-                            <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
+                            <li class="sidebar-item <?= ($title == "Dashboard Admin") ? 'active' : '' ?>">
                                 <a href="/admin/dashboard_admin" class='sidebar-link'>
                                     <i class="bi bi-grid-fill"></i>
                                     <span>Dashboard</span>
@@ -89,13 +93,13 @@
                                     <span>Data User</span>
                                 </a>
                             </li>
-                            <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
+                            <li class="sidebar-item <?= ($title == "Laporan Kosan") ? 'active' : '' ?>">
                                 <a href="/admin/data_report_kosan" class='sidebar-link'>
                                     <i class="bi bi-exclamation-diamond-fill"></i>
                                     <span>Laporan Kosan</span>
                                 </a>
                             </li>
-                            <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
+                            <li class="sidebar-item <?= ($title == "Laporan Komentar") ? 'active' : '' ?>">
                                 <a href="/admin/data_report_komentar" class='sidebar-link'>
                                     <i class="bi bi-wechat"></i>
                                     <span>Laporan Komentar</span>
