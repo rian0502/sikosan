@@ -50,4 +50,13 @@ class KomentarController extends BaseController
 
         return redirect()->to('/detail/' . $this->request->getVar('id_kosan') . '/#tulis_komentar');
     }
+    public function hapus_komentar() {
+       $this->komentarModel->where('id_komentar', $this->request->getVar('id_komentar'))->delete();
+       return redirect()->back();
+    }
+
+    public function hapusReplyKomentar() {
+        $this->replyKomentar->where('id', $this->request->getVar('id_reply'))->delete();
+        return redirect()->back();
+    }
 }
