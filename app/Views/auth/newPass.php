@@ -14,18 +14,17 @@
                     <?= csrf_field(); ?>
 
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input  name="token" type="text" class="form-control form-control-xl  <?php if (session('errors.token')) : ?>is-invalid<?php endif ?>" 
-                            placeholder="Token" value="<?= old('token', $token ?? '') ?>">
+                        <input name="token" type="text" class="form-control form-control-xl  <?php if (session('errors.token')) : ?>is-invalid<?php endif ?>" placeholder="Token" value="<?= old('token', $token ?? '') ?>">
                         <div class="form-control-icon">
                             <i class="bi bi-key-fill"></i>
                         </div>
                         <div class="invalid-feedback">
-                        <?= session('errors.token') ?>
+                            <?= session('errors.token') ?>
                         </div>
                     </div>
 
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input  name="email" type="email" class="form-control form-control-xl  <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Email">
+                        <input name="email" type="email" class="form-control form-control-xl  <?php if (session('errors.email')) : ?>is-invalid<?php endif ?>" placeholder="Email">
                         <div class="form-control-icon">
                             <i class="bi bi-person-circle"></i>
                         </div>
@@ -35,7 +34,7 @@
                     </div>
 
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input  name="password" type="password" class="form-control form-control-xl  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="New Password">
+                        <input name="password" type="password" class="form-control form-control-xl  <?php if (session('errors.password')) : ?>is-invalid<?php endif ?>" placeholder="New Password">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
@@ -45,7 +44,7 @@
                     </div>
 
                     <div class="form-group position-relative has-icon-left mb-4">
-                        <input  name="pass_confirm" type="password" class="form-control form-control-xl  <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" placeholder="Password Confirmation">
+                        <input name="pass_confirm" type="password" class="form-control form-control-xl  <?php if (session('errors.pass_confirm')) : ?>is-invalid<?php endif ?>" placeholder="Password Confirmation">
                         <div class="form-control-icon">
                             <i class="bi bi-shield-lock"></i>
                         </div>
@@ -60,8 +59,8 @@
             </div>
         </div>
         <div class="col-lg-7 d-none d-lg-block">
-            <div id="auth-right">
-
+            <div id="ilustrasi" class="col-lg-7 d-none d-lg-block">
+                <img src="/assets/img/forget_ilustrasi.svg" class="center" alt="forget_ilustrasi">
             </div>
         </div>
     </div>
