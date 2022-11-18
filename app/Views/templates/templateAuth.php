@@ -13,6 +13,28 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/bootstrap/css/bootstrap.css">
     <link rel="stylesheet" href="/adminTemplate/assets/extensions/choices.js/public/assets/styles/choices.css">
+    <style>
+        /* pada tag img */
+        .center {
+            position: absolute;
+            margin: auto;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            height: 700px;
+            width: 700px;
+            max-width: 100%;
+        }
+
+        /* pada tag div */
+        #ilustrasi {
+            position: relative;
+            background-color: #A9C7E8;
+            align-items: center;
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
