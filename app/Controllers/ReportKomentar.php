@@ -52,6 +52,7 @@ class ReportKomentar extends BaseController
             'id_user_komentar' => $this->request->getVar('id_user_komentar'),
             'laporan_komentar' => $this->request->getVar('laporan_komentar'),
             'komentar_dilaporkan' => $this->request->getVar('komentar_dilaporkan'),
+            'isReply' => $this->request->getVar('isReply'),
             'created_at' => date('Y-m-d H:i:s'),
             'updated_at' => date('Y-m-d H:i:s'),
         ];
