@@ -31,6 +31,9 @@ class ReportKomentar extends Migration
             'komentar_dilaporkan' => [
                 'type' => 'TEXT',
             ],
+            'isReply' => [
+                'type' => 'INT',
+            ],
             'created_at' => [
                 'type' => 'DATETIME',
                 'null' => true,

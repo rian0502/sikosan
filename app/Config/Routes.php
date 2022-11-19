@@ -51,8 +51,8 @@ $routes->get('/detail/(:num)/report', 'Home::detail/$1');
 // for customer and owner
 $routes->get('/report_komentar/create/(:num)/(:num)/(:num)/(:any)', 'ReportKomentar::create/$1/$2/$3/$4', ['filter' => 'role:customer, owner']);
 $routes->post('/report_komentar/save', 'ReportKomentar::save', ['filter' => 'role:customer, owner']);
-// $routes->get('/report_reply_komentar/create/(:num)/(:num)/(:num)/(:any)', 'ReportReplyKomentar::create/$1/$2/$3/$4', ['filter' => 'role:customer, owner']);
-// $routes->post('/report_reply_komentar/save', 'ReportReplyKomentar::save', ['filter' => 'role:customer, owner']);
+$routes->get('/report_reply_komentar/create/(:num)/(:num)/(:num)/(:any)', 'ReportReplyKomentar::create/$1/$2/$3/$4', ['filter' => 'role:customer, owner']);
+$routes->post('/report_reply_komentar/save', 'ReportReplyKomentar::save', ['filter' => 'role:customer, owner']);
 
 //For owner or user  profile
 $routes->get('/profil/edit/', 'Profil::edit/', ['filter' => 'role:admin,owner,customer']);
@@ -94,8 +94,8 @@ $routes->get('/mywish', 'CustomerController::mywish');
 // Komentar
 $routes->post('/save_komentar', 'KomentarController::save_komentar', ['filter' => 'role:customer, owner']);
 $routes->post('/reply_komentar', 'KomentarController::reply_komentar', ['filter' => 'role:customer, owner']);
-$routes->post('/delete/komentar', 'KomentarController::hapus_komentar',['filter' => 'role:customer, owner, admin']);
-$routes->post('/delete/reply_komentar', 'KomentarController::hapusReplyKomentar',['filter' => 'role:customer, owner, admin']);
+$routes->post('/delete/komentar', 'KomentarController::hapus_komentar', ['filter' => 'role:customer, owner, admin']);
+$routes->post('/delete/reply_komentar', 'KomentarController::hapusReplyKomentar', ['filter' => 'role:customer, owner, admin']);
 
 // Report Kosan
 $routes->get('/report_kosan/create/(:num)', 'ReportKosanController::create/$1', ['filter' => 'role:customer']);

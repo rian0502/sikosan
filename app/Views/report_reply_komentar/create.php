@@ -7,6 +7,7 @@
     <input type="hidden" name="id_reply_komentar" value="<?= $id_reply_komentar ?>">
     <input type="hidden" name="id_user_reply_komentar" value="<?= $id_user_reply_komentar ?>">
     <input type="hidden" name="komentar_dilaporkan" value="<?= $komentar_dilaporkan ?>">
+    <input type="hidden" name="isReply" value="1">
     <input type="hidden" name="id_user" id="" value="<?= user_id() ?>">
     <label for="" class="fs-3 text-black fw-semibold mb-3 d-block">Laporkan Komentar</label>
     <div class="row">
