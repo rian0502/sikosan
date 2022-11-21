@@ -3,12 +3,18 @@
 
 <?= $this->section('content'); ?>
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 <?php if (session()->getFlashdata('pesan')) : ?>
     <div class="alert alert-success" role="alert">
         <?= session()->getFlashdata('pesan'); ?>
     </div>
 <?php endif; ?>
+<<<<<<< HEAD
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
+=======
 >>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 <?php foreach ($reports as $report) : ?>
     <div class="card">
@@ -16,7 +22,11 @@
             <div class="col-sm-7">
                 <div class="card-body">
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <h1 class="text-primary fs-3">Laporan Oleh : <?= $report['namaLengkap'] ?></h1>
+=======
+                    <h1 class="text-primary fs-3">Laporan Kepada : <?= $report['namaLengkap'] ?></h1>
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 =======
                     <h1 class="text-primary fs-3">Laporan Kepada : <?= $report['namaLengkap'] ?></h1>
 >>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
@@ -30,10 +40,13 @@
                     <h6 class="text-primary">Oleh</h6>
                     <p><?= $pemilik_komentar[$index]['namaLengkap'] ?></p>
 <<<<<<< HEAD
+<<<<<<< HEAD
                     <a href="#" class="btn btn-outline-danger btn-sm">Hapus Komentar</a>
                     <a href="#" class="btn btn-outline-danger btn-sm">Banned User</a>
                     <a href="#" class="btn btn-outline-danger btn-sm">Hapus Laporan</a>
 =======
+=======
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 
                     <form action="/admin/report_komentar/delete_laporan" method="post" class="d-inline">
                         <?= csrf_field() ?>
@@ -58,6 +71,9 @@
                         <input type="hidden" name="isReply" value="<?= $report['isReply'] ?>">
                         <button data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin mengapus komentar ini?');">Hapus Komentar</button>
                     </form>
+<<<<<<< HEAD
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
+=======
 >>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
                 </div>
             </div>

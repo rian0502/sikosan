@@ -4,12 +4,18 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 <<<<<<< HEAD
+<<<<<<< HEAD
 use App\Models\ReportKomentarModel;
 =======
+=======
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 use App\Models\Komentar;
 use App\Models\ReplyKomentar;
 use App\Models\ReportKomentarModel;
 use App\Models\Users;
+<<<<<<< HEAD
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
+=======
 >>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 use Myth\Auth\Models\UserModel;
 
@@ -21,6 +27,10 @@ class ReportKomentar extends BaseController
         $this->userModel = new UserModel();
         $this->reportKomentarModel = new ReportKomentarModel();
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+        $this->userInternal = new Users();
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 =======
         $this->userInternal = new Users();
 >>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
@@ -31,7 +41,10 @@ class ReportKomentar extends BaseController
 
         $pemilik_komentar = $this->reportKomentarModel->getUserKomentar();
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 =======
 >>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
         $data = [
@@ -40,7 +53,10 @@ class ReportKomentar extends BaseController
             'pemilik_komentar' => $pemilik_komentar,
         ];
 <<<<<<< HEAD
+<<<<<<< HEAD
 
+=======
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 =======
 >>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
         return view('auth/admin/data_report_komentar', $data);
@@ -67,6 +83,10 @@ class ReportKomentar extends BaseController
         $data = [
             'id_user' => $this->request->getVar('id_user'),
 <<<<<<< HEAD
+<<<<<<< HEAD
+=======
+            'id_komentar' => $this->request->getVar('id_komentar'),
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 =======
             'id_komentar' => $this->request->getVar('id_komentar'),
 >>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
@@ -85,7 +105,10 @@ class ReportKomentar extends BaseController
         return redirect()->to('/detail/' . $this->request->getVar('id_kosan'));
     }
 <<<<<<< HEAD
+<<<<<<< HEAD
 =======
+=======
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 
     public function delete_laporan()
     {
@@ -167,5 +190,8 @@ class ReportKomentar extends BaseController
         session()->setFlashdata('pesan', 'User Berhasil Di Pulihkan');
         return redirect()->to('/admin/data_user_banned');
     }
+<<<<<<< HEAD
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
+=======
 >>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 }
