@@ -4,6 +4,7 @@ namespace App\Controllers;
 
 use App\Controllers\BaseController;
 use App\Models\ReportKomentarModel;
+use App\Models\Users;
 use Myth\Auth\Models\UserModel;
 
 class ReportKomentar extends BaseController
@@ -13,6 +14,7 @@ class ReportKomentar extends BaseController
     {
         $this->userModel = new UserModel();
         $this->reportKomentarModel = new ReportKomentarModel();
+        $this->userInternal = new Users();
     }
 
     public function index()
@@ -62,5 +64,18 @@ class ReportKomentar extends BaseController
         session()->setFlashdata('pesan', 'Komentar Berhasil Dilaporkan');
 
         return redirect()->to('/detail/' . $this->request->getVar('id_kosan'));
+    }
+
+    public function banned()
+    {
+        $id_user = $this->request->getVar('id_user');
+        $data = [
+            'status' => 'banned',
+            'status_message' => 'Melakukan Komentar yang tidak pantas, pada komentar yang dilaporkan',
+            'updated_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->userInternal->update($id_user, $data);
+        session()->setFlashdata('pesan', 'User Berhasil Dibanned');
+        return redirect()->to('/report_komen');
     }
 }
