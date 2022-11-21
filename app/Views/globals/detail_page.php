@@ -9,7 +9,6 @@
 use CodeIgniter\I18n\Time; ?>
 
 <style>
-    @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
 
     body {
         background: #f5f5f5;
@@ -158,33 +157,7 @@ use CodeIgniter\I18n\Time; ?>
                 </div>
 
                 <div class="mt-3 mb-4">
-<<<<<<< HEAD
-                    <h4 class="fw-bolder mb-1">Kos disewakan oleh <a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><?= $pemilik ?></a> </h4>
-                </div>
-
-
-
-                <!-- Modal -->
-                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                    <div class="modal-dialog modal-dialog-centered">
-                        <div class="modal-content">
-                            <div class="modal-header">
-                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                            </div>
-                            <div class="profile-card card rounded-lg p-4 p-xl-5 text-center position-relative overflow-hidden">
-                                <div class="banner"></div>
-                                <img src="/foto_profile/<?= user()->foto ?>" alt="" class="img-circle mx-auto mb-3">
-                                <h3 class="mb-4"><?= $pemilik ?></h3>
-                                <div class="text-left mb-4">
-                                    <p class="mb-2"><i class="bi bi-envelope-fill"></i>&nbsp<?= user()->email ?></p>
-                                    <p class="mb-2"><i class="bi bi-telephone-fill"></i>&nbsp<?= user()->notlp ?></i></p>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-=======
                     <h4 class="fw-bolder mb-1">Kos disewakan oleh <a href="/profile/public/<?= $id_pemilik ?>"><?= $pemilik ?></a> </h4>
->>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
                 </div>
 
                 <div class="row">
