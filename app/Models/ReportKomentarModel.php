@@ -14,7 +14,7 @@ class ReportKomentarModel extends Model
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_user', 'id_user_komentar', 'laporan_komentar', 'isReply', 'komentar_dilaporkan', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['id_user', 'id_komentar', 'id_user_komentar', 'laporan_komentar', 'isReply', 'komentar_dilaporkan', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = false;

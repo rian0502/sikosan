@@ -2,9 +2,11 @@
 <?= $this->extend('templates/sidebar_menu'); ?>
 
 <?= $this->section('content'); ?>
-
-
-
+<?php if (session()->getFlashdata('pesan')) : ?>
+    <div class="alert alert-success" role="alert">
+        <?= session()->getFlashdata('pesan'); ?>
+    </div>
+<?php endif; ?>
 <?php foreach ($reports as $report) : ?>
     <div class="card">
         <div class="d-flex align-items-end row">
@@ -20,13 +22,19 @@
                     <p><?= $report['komentar_dilaporkan'] ?></p>
                     <h6 class="text-primary">Oleh</h6>
                     <p><?= $pemilik_komentar[$index]['namaLengkap'] ?></p>
-                    <a href="#" class="btn btn-outline-danger btn-sm">Hapus Komentar</a>
+
+                    <form action="/admin/report_komentar/delete_laporan" method="post" class="d-inline">
+                        <?= csrf_field() ?>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="id_report_komentar" value="<?= $report['id_report_komentar'] ?>">
+                        <button data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin mengapus laporan ini?');">Hapus Laporan</button>
+                    </form>
 
                     <?php if ($pemilik_komentar[$index]['status'] == 'banned') : ?>
                         <form class="d-inline" action="/report_komen/pulihkan/" method="post" enctype="multipart/form-data">
                             <?= csrf_field(); ?>
                             <input type="hidden" name="id_user" value="<?= $report['id_user_komentar'] ?>">
-                            <button type="submit" class="btn btn-outline-warning btn-sm">Pulihkan User</button>
+                            <button type="submit" class="btn btn-outline-primary btn-sm">Pulihkan User</button>
                         </form>
                     <?php else : ?>
                         <form class="d-inline" action="/report_komen/banned/" method="post" enctype="multipart/form-data">
@@ -35,7 +43,15 @@
                             <button type="submit" class="btn btn-outline-danger btn-sm">Banned User</button>
                         </form>
                     <?php endif; ?>
-                    <a href="#" class="btn btn-outline-danger btn-sm">Hapus Laporan</a>
+
+                    <form action="/admin/report_komentar/delete_komentar" method="post" class="d-inline">
+                        <?= csrf_field() ?>
+                        <input type="hidden" name="_method" value="DELETE">
+                        <input type="hidden" name="id_report_komentar" value="<?= $report['id_report_komentar'] ?>">
+                        <input type="hidden" name="id_komentar" value="<?= $report['id_komentar'] ?>">
+                        <input type="hidden" name="isReply" value="<?= $report['isReply'] ?>">
+                        <button data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin mengapus komentar ini?');">Hapus Komentar</button>
+                    </form>
                 </div>
             </div>
         </div>
