@@ -5,6 +5,7 @@
 <!-- Content-->
 <?php
 
+<<<<<<< HEAD
 use CodeIgniter\I18n\Time; ?>
 
 <style>
@@ -60,6 +61,10 @@ use CodeIgniter\I18n\Time; ?>
     }
 </style>
 
+=======
+
+use CodeIgniter\I18n\Time; ?>
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 <section>
     <div class="container px-4 px-lg-5 my-5">
         <?php if (session()->getFlashdata('pesan')) : ?>
@@ -153,6 +158,7 @@ use CodeIgniter\I18n\Time; ?>
                 </div>
 
                 <div class="mt-3 mb-4">
+<<<<<<< HEAD
                     <h4 class="fw-bolder mb-1">Kos disewakan oleh <a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><?= $pemilik ?></a> </h4>
                 </div>
 
@@ -176,6 +182,9 @@ use CodeIgniter\I18n\Time; ?>
                             </div>
                         </div>
                     </div>
+=======
+                    <h4 class="fw-bolder mb-1">Kos disewakan oleh <a href="/profile/public/<?= $id_pemilik ?>"><?= $pemilik ?></a> </h4>
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
                 </div>
 
                 <div class="row">
@@ -260,7 +269,11 @@ use CodeIgniter\I18n\Time; ?>
                                 <?= $km['komentar'] ?>
                             </p>
                         </div>
+<<<<<<< HEAD
                         <?php if ($km['id_user'] != user()->id && (in_groups('customer') || in_groups('owner'))) : ?>
+=======
+                        <?php if (logged_in() && ($km['id_user'] != user()->id && (in_groups('customer') || in_groups('owner')))) : ?>
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
                             <div class="row">
                                 <div class="col"></div>
                                 <div class="col text-end">
@@ -270,7 +283,11 @@ use CodeIgniter\I18n\Time; ?>
                         <?php endif; ?>
 
                         <!-- untuk button hapus komentar head -->
+<<<<<<< HEAD
                         <?php if ($km['id_user'] == user()->id  || in_groups('admin')) : ?>
+=======
+                        <?php if ((logged_in() && ($km['id_user'] == user()->id  || in_groups('admin')))) : ?>
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
                             <div class="row">
                                 <div class="col"></div>
                                 <div class="col text-end">
@@ -297,7 +314,11 @@ use CodeIgniter\I18n\Time; ?>
                                         <?= $km['reply'][$i]['reply'] ?>
                                     </p>
                                 </div>
+<<<<<<< HEAD
                                 <?php if ($km['reply'][$i]['id'] == user()->id  || in_groups('admin')) : ?>
+=======
+                                <?php if (logged_in() && ($km['reply'][$i]['id'] == user()->id  || in_groups('admin'))) : ?>
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
                                     <div class="row">
                                         <div class="col"></div>
                                         <div class="col text-end">
@@ -310,11 +331,20 @@ use CodeIgniter\I18n\Time; ?>
                                     </div>
                                 <?php endif; ?>
                             </div>
+<<<<<<< HEAD
                             <?php if ($km['reply'][$i]['id'] != user()->id && (in_groups('customer') || in_groups('owner'))) : ?>
                                 <div class="row me-3 mb-3">
                                     <div class="col"></div>
                                     <div class="col text-end">
                                         <a href="/report_reply_komentar/create/<?= $kosan[0]['id_kosan'] ?>/<?= $km['reply'][$i]['id'] ?>/<?= $km['reply'][$i]['id_user'] ?>/<?= $km['reply'][$i]['reply'] ?>" class="text-danger">Laporkan</a>
+=======
+
+                            <?php if (logged_in() && ($km['reply'][$i]['id'] != user()->id && (in_groups('customer') || in_groups('owner')))) : ?>
+                                <div class="row me-3 mb-3">
+                                    <div class="col"></div>
+                                    <div class="col text-end">
+                                        <a href="/report_reply_komentar/create/<?= $kosan[0]['id_kosan'] ?>/<?= $km['reply'][$i]['id_reply'] ?>/<?= $km['reply'][$i]['id_user'] ?>/<?= $km['reply'][$i]['reply'] ?>" class="text-danger">Laporkan</a>
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
                                     </div>
                                 </div>
                             <?php endif; ?>

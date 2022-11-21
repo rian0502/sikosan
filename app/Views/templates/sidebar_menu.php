@@ -58,9 +58,15 @@
                             <div class="d-flex align-items-center">
                                 <div class="avatar avatar-xl">
 
+<<<<<<< HEAD
                                  
 
                                     <img src="/foto_profile/<?= user()->foto ?>"  onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" alt="Foto Profil">
+=======
+
+
+                                    <img src="/foto_profile/<?= user()->foto ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" alt="Foto Profil">
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 
                                 </div>
                                 <div class="ms-3 name">
@@ -80,6 +86,7 @@
                                     <span>Dashboard</span>
                                 </a>
                             </li>
+<<<<<<< HEAD
                             <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
                                 <a href="#" class='sidebar-link'>
                                     <i class="bi bi-house-fill"></i>
@@ -90,6 +97,12 @@
                                 <a href="#" class='sidebar-link'>
                                     <i class="bi bi-person-lines-fill"></i>
                                     <span>Data User</span>
+=======
+                            <li class="sidebar-item <?= ($title == "Data User Banned") ? 'active' : '' ?>">
+                                <a href="/admin/data_user_banned" class='sidebar-link'>
+                                    <i class="bi bi-person-lines-fill"></i>
+                                    <span>Data User Banned</span>
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
                                 </a>
                             </li>
                             <li class="sidebar-item <?= ($title == "Laporan Kosan") ? 'active' : '' ?>">

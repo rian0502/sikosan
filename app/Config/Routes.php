@@ -62,13 +62,24 @@ $routes->post('/profile/update', 'Profil::update', ['filter' => 'role:admin,owne
 
 // For admin
 $routes->get('/admin/dashboard_admin', 'AdminController::index', ['filter' => 'role:admin']);
+<<<<<<< HEAD
 // $routes->get('/admin/data_kosan', 'KosanController::index', ['filter' => 'role:admin']);
 // $routes->get('/admin/data_owner', 'OwnerController::index', ['filter' => 'role:admin']);
 // $routes->get('/admin/data_customer', 'CustomerController::index', ['filter' => 'role:admin']);
+=======
+$routes->get('/admin/data_user_banned', 'AdminController::data_user_banned', ['filter' => 'role:admin']);
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 $routes->get('/admin/data_report_kosan', 'ReportKosanController::index', ['filter' => 'role:admin']);
 $routes->get('/admin/detail_kosan/(:num)', 'ReportKosanController::detail_kosan/$1', ['filter' => 'role:admin']);
 $routes->delete('/admin/hapus_kosan', 'ReportKosanController::delete', ['filter' => 'role:admin']);
 $routes->get('/admin/data_report_komentar', 'ReportKomentar::index', ['filter' => 'role:admin']);
+<<<<<<< HEAD
+=======
+$routes->delete('/admin/report_komentar/delete_laporan', 'ReportKomentar::delete_laporan', ['filter' => 'role:admin']);
+$routes->delete('/admin/report_komentar/delete_komentar', 'ReportKomentar::delete_komentar', ['filter' => 'role:admin']);
+$routes->post('/report_komen/banned', 'ReportKomentar::banned', ['filter' => 'role:admin']);
+$routes->post('/report_komen/pulihkan', 'ReportKomentar::pulihkan', ['filter' => 'role:admin']);
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 // -----------------------------------------------------------------------------------------------
 
 // For Penyewa Kos

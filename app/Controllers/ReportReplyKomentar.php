@@ -17,6 +17,10 @@ class ReportReplyKomentar extends BaseController
 
     public function create($id_kosan, $id_reply_komentar, $id_user_reply_komentar, $reply)
     {
+<<<<<<< HEAD
+=======
+
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
         $user_reply = $this->userModel->where('id', $id_user_reply_komentar)->get()->getResultArray()[0];
 
         $data = [
@@ -33,10 +37,16 @@ class ReportReplyKomentar extends BaseController
 
     public function save()
     {
+<<<<<<< HEAD
         // dd($this->request->getVar());
 
         $data = [
             'id_user' => $this->request->getVar('id_user'),
+=======
+        $data = [
+            'id_user' => $this->request->getVar('id_user'),
+            'id_komentar' => $this->request->getVar('id_reply_komentar'),
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
             'id_user_komentar' => $this->request->getVar('id_user_reply_komentar'),
             'laporan_komentar' => $this->request->getVar('laporan_reply_komentar'),
             'komentar_dilaporkan' => $this->request->getVar('komentar_dilaporkan'),

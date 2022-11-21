@@ -15,6 +15,14 @@ class ReportKomentar extends Migration
                 'unsigned' => true,
                 'auto_increment' => true,
             ],
+<<<<<<< HEAD
+=======
+            'id_komentar' => [
+                'type' => 'INT',
+                'constraint' => 11,
+                'unsigned' => true,
+            ],
+>>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
             'id_user' => [
                 'type' => 'INT',
                 'constraint' => 11,
