@@ -19,7 +19,12 @@
                     <h6 class="text-primary">Oleh</h6>
                     <p><?= $pemilik_komentar[$index]['namaLengkap'] ?></p>
                     <a href="#" class="btn btn-outline-danger btn-sm">Hapus Komentar</a>
-                    <a href="#" class="btn btn-outline-danger btn-sm">Banned User</a>
+                    <form action="/report_komen/banned/">
+                        <?= csrf_field(); ?>
+                        <input type="hidden" name="id_user" value="<?= $report['id'] ?>">
+                        <button type="submit">Banned User</button>
+                    </form>
+                    <a href="/report_komen/banned/" class="btn btn-outline-danger btn-sm">Banned User</a>
                     <a href="#" class="btn btn-outline-danger btn-sm">Hapus Laporan</a>
                 </div>
             </div>
