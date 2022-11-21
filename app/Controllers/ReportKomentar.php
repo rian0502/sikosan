@@ -132,7 +132,7 @@ class ReportKomentar extends BaseController
         ];
         $this->userInternal->update($id_user, $data);
         session()->setFlashdata('pesan', 'User Berhasil Dibanned');
-        return redirect()->to('/admin/data_report_komentar');
+        return redirect()->to('/admin/data_user_banned');
     }
 
     public function pulihkan()
@@ -145,6 +145,6 @@ class ReportKomentar extends BaseController
         ];
         $this->userInternal->update($id_user, $data);
         session()->setFlashdata('pesan', 'User Berhasil Di Pulihkan');
-        return redirect()->to('/admin/data_report_komentar');
+        return redirect()->to('/admin/data_user_banned');
     }
 }

@@ -30,13 +30,7 @@
                         <button data-bs-toggle="tooltip" data-bs-placement="top" title="Delete" type="submit" class="btn btn-outline-danger btn-sm" onclick="return confirm('Apakah anda yakin ingin mengapus laporan ini?');">Hapus Laporan</button>
                     </form>
 
-                    <?php if ($pemilik_komentar[$index]['status'] == 'banned') : ?>
-                        <form class="d-inline" action="/report_komen/pulihkan/" method="post" enctype="multipart/form-data">
-                            <?= csrf_field(); ?>
-                            <input type="hidden" name="id_user" value="<?= $report['id_user_komentar'] ?>">
-                            <button type="submit" class="btn btn-outline-primary btn-sm">Pulihkan User</button>
-                        </form>
-                    <?php else : ?>
+                    <?php if ($pemilik_komentar[$index]['status'] != 'banned') : ?>
                         <form class="d-inline" action="/report_komen/banned/" method="post" enctype="multipart/form-data">
                             <?= csrf_field(); ?>
                             <input type="hidden" name="id_user" value="<?= $report['id_user_komentar'] ?>">
