@@ -2,7 +2,6 @@
 <link rel="shortcut icon" href="/adminTemplate/assets/images/logo/favicon.png" type="image/png">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <link rel="stylesheet" href="/adminTemplate/assets/css/shared/iconly.css">
-<link rel="stylesheet" href="/adminTemplate/assets/extensions/sweetalert2/sweetalert2.min.css">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
 <link rel="stylesheet" href="/adminTemplate/assets/extensions/choices.js/public/assets/styles/choices.css">
 <script src="/jquery/jquery.min.js"></script>
@@ -97,7 +96,6 @@
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF" crossorigin="anonymous"></script>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.bundle.min.js" integrity="sha384-MrcW6ZMFYlzcLA8Nl+NtUVF0sA7MsXsP1UyJoMp4YLEuNSfAP+JcXn/tWtIaxVXM" crossorigin="anonymous"></script> -->
-<script src="/adminTemplate/assets/extensions/apexcharts/apexcharts.min.js"></script>
 <script src="/adminTemplate/assets/js/pages/dashboard.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
