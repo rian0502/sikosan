@@ -62,9 +62,7 @@ $routes->post('/profile/update', 'Profil::update', ['filter' => 'role:admin,owne
 
 // For admin
 $routes->get('/admin/dashboard_admin', 'AdminController::index', ['filter' => 'role:admin']);
-// $routes->get('/admin/data_kosan', 'KosanController::index', ['filter' => 'role:admin']);
-// $routes->get('/admin/data_owner', 'OwnerController::index', ['filter' => 'role:admin']);
-// $routes->get('/admin/data_customer', 'CustomerController::index', ['filter' => 'role:admin']);
+$routes->get('/admin/data_user_banned', 'AdminController::data_user_banned', ['filter' => 'role:admin']);
 $routes->get('/admin/data_report_kosan', 'ReportKosanController::index', ['filter' => 'role:admin']);
 $routes->get('/admin/detail_kosan/(:num)', 'ReportKosanController::detail_kosan/$1', ['filter' => 'role:admin']);
 $routes->delete('/admin/hapus_kosan', 'ReportKosanController::delete', ['filter' => 'role:admin']);
