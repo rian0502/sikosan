@@ -74,10 +74,10 @@ class Auth extends BaseConfig
      * @var array
      */
     public $views = [
-        'login'           => 'Myth\Auth\Views\login',
-        'register'        => 'Myth\Auth\Views\register',
-        'forgot'          => 'Myth\Auth\Views\forgot',
-        'reset'           => 'Myth\Auth\Views\reset',
+        'login'           => 'App\Views\auth\login',
+        'register'        => 'App\Views\auth\register',
+        'forgot'          => 'App\Views\auth\forgot',
+        'reset'           => 'App\Views\auth\newPass',
         'emailForgot'     => 'Myth\Auth\Views\emails\forgot',
         'emailActivation' => 'Myth\Auth\Views\emails\activation',
     ];
@@ -101,8 +101,7 @@ class Auth extends BaseConfig
      * @var string[]
      */
     public $validFields = [
-        'email',
-        'username',
+        'email'
     ];
 
     /**
@@ -123,7 +122,11 @@ class Auth extends BaseConfig
      *
      * @var string[]
      */
-    public $personalFields = [];
+    public $personalFields = [
+        'namaLengkap',
+        'notlp',
+        'foto',
+    ];
 
     /**
      * --------------------------------------------------------------------
@@ -176,6 +179,9 @@ class Auth extends BaseConfig
      */
     public $allowRegistration = true;
 
+    // allow registration admin
+    public $allowAdminRegistration = false;
+
     /**
      * --------------------------------------------------------------------
      * Require Confirmation Registration via Email
@@ -186,7 +192,12 @@ class Auth extends BaseConfig
      *
      * @var string|null Name of the ActivatorInterface class
      */
-    public $requireActivation = 'Myth\Auth\Authentication\Activators\EmailActivator';
+
+
+
+    // public $requireActivation = 'Myth\Auth\Authentication\Activators\EmailActivator';
+    public $requireActivation = null;
+
 
     /**
      * --------------------------------------------------------------------
@@ -198,7 +209,11 @@ class Auth extends BaseConfig
      *
      * @var string|null Name of the ResetterInterface class
      */
+
     public $activeResetter = 'Myth\Auth\Authentication\Resetters\EmailResetter';
+    // public $activeResetter = null;
+
+
 
     /**
      * --------------------------------------------------------------------
