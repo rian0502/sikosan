@@ -21,13 +21,12 @@ class ReportKomentar extends BaseController
     {
 
         $pemilik_komentar = $this->reportKomentarModel->getUserKomentar();
-
+        $userBanned = $this->userModel->where(['status'=>'banned'])->findAll();
         $data = [
             'title' => 'Laporan Komentar',
             'reports' => $this->reportKomentarModel->getReport(),
             'pemilik_komentar' => $pemilik_komentar,
         ];
-
         return view('auth/admin/data_report_komentar', $data);
     }
 
@@ -76,6 +75,19 @@ class ReportKomentar extends BaseController
         ];
         $this->userInternal->update($id_user, $data);
         session()->setFlashdata('pesan', 'User Berhasil Dibanned');
-        return redirect()->to('/report_komen');
+        return redirect()->to('/admin/data_report_komentar');
+    }
+
+    public function pulihkan()
+    {
+        $id_user = $this->request->getVar('id_user');
+        $data = [
+            'status' => NULL,
+            'status_message' => NULL,
+            'updated_at' => date('Y-m-d H:i:s'),
+        ];
+        $this->userInternal->update($id_user, $data);
+        session()->setFlashdata('pesan', 'User Berhasil Dibanned');
+        return redirect()->to('/admin/data_report_komentar');
     }
 }

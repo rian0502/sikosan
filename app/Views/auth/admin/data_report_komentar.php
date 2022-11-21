@@ -3,6 +3,8 @@
 
 <?= $this->section('content'); ?>
 
+
+
 <?php foreach ($reports as $report) : ?>
     <div class="card">
         <div class="d-flex align-items-end row">
@@ -19,12 +21,20 @@
                     <h6 class="text-primary">Oleh</h6>
                     <p><?= $pemilik_komentar[$index]['namaLengkap'] ?></p>
                     <a href="#" class="btn btn-outline-danger btn-sm">Hapus Komentar</a>
-                    <form action="/report_komen/banned/">
-                        <?= csrf_field(); ?>
-                        <input type="hidden" name="id_user" value="<?= $report['id'] ?>">
-                        <button type="submit">Banned User</button>
-                    </form>
-                    <a href="/report_komen/banned/" class="btn btn-outline-danger btn-sm">Banned User</a>
+
+                    <?php if ($pemilik_komentar[$index]['status'] == 'banned') : ?>
+                        <form class="d-inline" action="/report_komen/pulihkan/" method="post" enctype="multipart/form-data">
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="id_user" value="<?= $report['id_user_komentar'] ?>">
+                            <button type="submit" class="btn btn-outline-warning btn-sm">Pulihkan User</button>
+                        </form>
+                    <?php else : ?>
+                        <form class="d-inline" action="/report_komen/banned/" method="post" enctype="multipart/form-data">
+                            <?= csrf_field(); ?>
+                            <input type="hidden" name="id_user" value="<?= $report['id_user_komentar'] ?>">
+                            <button type="submit" class="btn btn-outline-danger btn-sm">Banned User</button>
+                        </form>
+                    <?php endif; ?>
                     <a href="#" class="btn btn-outline-danger btn-sm">Hapus Laporan</a>
                 </div>
             </div>
