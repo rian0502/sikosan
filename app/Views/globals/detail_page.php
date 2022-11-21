@@ -70,6 +70,7 @@ use CodeIgniter\I18n\Time; ?>
 use CodeIgniter\I18n\Time; ?>
 >>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 <section>
+
     <div class="container px-4 px-lg-5 my-5">
         <?php if (session()->getFlashdata('pesan')) : ?>
             <div class="alert alert-success" role="alert">
@@ -332,7 +333,7 @@ use CodeIgniter\I18n\Time; ?>
 =======
 >>>>>>> 0170a1a02b6f1496392b03855728d684f2276f78
 
-                            <?php if (logged_in() && ($km['reply'][$i]['id'] != user()->id && (in_groups('customer') || in_groups('owner')))) : ?>
+                            <?php if ( logged_in() && ($km['reply'][$i]['id'] != user()->id && (in_groups('customer') || in_groups('owner')))) : ?>
                                 <div class="row me-3 mb-3">
                                     <div class="col"></div>
                                     <div class="col text-end">
@@ -347,6 +348,9 @@ use CodeIgniter\I18n\Time; ?>
                         </div>
                     </div>
                 <?php endfor; ?>
+
+                <?php 
+                if(!in_groups("admin") && logged_in()) : ?>
                 <div class="ms-5">
                     <div class="form-floating card m-2 ms-5 shadow-lg" id="reply">
                         <div class="card-body" id="reply">
@@ -364,11 +368,12 @@ use CodeIgniter\I18n\Time; ?>
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </section>
 <?php endforeach; ?>
-
+<?php if(!in_groups("admin") && logged_in()) : ?>
 <div class="form-floating card m-2 ms-2 shadow-sm" id="tulis_komentar">
     <div class="card-body" id="reply">
         <div class="m-0">
@@ -384,7 +389,7 @@ use CodeIgniter\I18n\Time; ?>
         </div>
     </div>
 </div>
-
+<?php endif; ?>
 <!-- Bootstrap core JS-->
 <script src="adminTemplate/assets/extensions/jquery/jquery.min.js"></script>
 <script src="adminTemplate/assets/extensions/summernote/summernote-lite.min.js"></script>
