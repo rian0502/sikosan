@@ -69,7 +69,8 @@ $routes->get('/admin/data_report_kosan', 'ReportKosanController::index', ['filte
 $routes->get('/admin/detail_kosan/(:num)', 'ReportKosanController::detail_kosan/$1', ['filter' => 'role:admin']);
 $routes->delete('/admin/hapus_kosan', 'ReportKosanController::delete', ['filter' => 'role:admin']);
 $routes->get('/admin/data_report_komentar', 'ReportKomentar::index', ['filter' => 'role:admin']);
-$routes->post('/report_komen/banned/', 'ReportKomentar::banned', ['filter' => 'role:admin']);
+$routes->post('/report_komen/banned', 'ReportKomentar::banned', ['filter' => 'role:admin']);
+$routes->post('/report_komen/pulihkan', 'ReportKomentar::pulihkan', ['filter' => 'role:admin']);
 // -----------------------------------------------------------------------------------------------
 
 // For Penyewa Kos
