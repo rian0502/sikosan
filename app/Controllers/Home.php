@@ -68,7 +68,7 @@ class Home extends BaseController
 
         $data = [
             'title' => 'Kosan Anda | Owner',
-            'pemilik' => $pemilik->namaLengkap,
+            'pemilik' => $pemilik,
             'no' => substr($pemilik->notlp, 1),
             'kosan' => $kosan,
             'data_wish' => $this->wishlistModel->where('id_user', user_id())->find(),
