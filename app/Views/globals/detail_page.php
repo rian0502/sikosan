@@ -7,6 +7,59 @@
 
 
 use CodeIgniter\I18n\Time; ?>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+
+    body {
+        background: #f5f5f5;
+    }
+
+    .shadow {
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06) !important;
+    }
+
+    .main-content {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .banner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 125px;
+        background-image: url("../img/banner.jpg");
+        background-position: center;
+        background-size: cover;
+    }
+
+    .img-circle {
+        height: 150px;
+        width: 150px;
+        border-radius: 150px;
+        border: 3px solid #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+    }
+
+    .social-links a {
+        transition: all 0.2s;
+    }
+
+    .social-links a img {
+        height: 30px;
+    }
+
+    .social-links a:hover {
+        transform: translateY(-3px);
+    }
+
+    .card {
+        margin-bottom: 0px;
+    }
+</style>
+
 <section>
 
     <div class="container px-4 px-lg-5 my-5">
@@ -101,7 +154,27 @@ use CodeIgniter\I18n\Time; ?>
                 </div>
 
                 <div class="mt-3 mb-4">
-                    <h4 class="fw-bolder mb-1">Kos disewakan oleh <a href="/profile/public/<?= $id_pemilik ?>"><?= $pemilik ?></a> </h4>
+                    <h4 class="fw-bolder mb-1">Kos disewakan oleh <a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><?= $pemilik ?></a> </h4>
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="profile-card card rounded-lg p-4 p-xl-5 text-center position-relative overflow-hidden">
+                                <div class="banner"></div>
+                                <img onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" src="/foto_profile/<?= user()->foto ?>" alt="" class="img-circle mx-auto mb-3">
+                                <h3 class="mb-4"><?= $pemilik ?></h3>
+                                <div class="text-left mb-4">
+                                    <p class="mb-2"><i class="bi bi-envelope-fill"></i>&nbsp<?= user()->email ?></p>
+                                    <p class="mb-2"><i class="bi bi-telephone-fill"></i>&nbsp<?= user()->notlp ?></i></p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -175,7 +248,7 @@ use CodeIgniter\I18n\Time; ?>
 <?php foreach ($komentar as $km) : ?>
     <section>
         <div class=" d-flex flex-column mb-2 mt-0">
-            <img class="rounded-circle shadow-1-strong me-3" src="/foto_profile/<?= $km['foto'] ?>" alt="avatar" width="65" height="65" />
+            <img onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" class="rounded-circle shadow-1-strong me-3" src="/foto_profile/<?= $km['foto'] ?>" alt="avatar" width="65" height="65" />
             <div class="card bg-secondary">
                 <div class="card w-100 mb-1 shadow-sm">
                     <div class="card-body p-4 shadow-sm">
@@ -213,7 +286,7 @@ use CodeIgniter\I18n\Time; ?>
 
                 <?php for ($i = 0; $i < count($km['reply']); $i++) : ?>
                     <div class="ms-5 mt-4">
-                        <img class="rounded-circle shadow-1-strong me-3" src="/foto_profile/<?= $km['reply'][$i]['foto'] ?>" alt="avatar" width="65" height="65" />
+                        <img onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" class="rounded-circle shadow-1-strong me-3" src="/foto_profile/<?= $km['reply'][$i]['foto'] ?>" alt="avatar" width="65" height="65" />
                         <div class="card m-2 ms-5 shadow-lg">
                             <div class="card-body p-4">
                                 <div class="">
