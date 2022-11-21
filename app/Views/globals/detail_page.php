@@ -154,7 +154,9 @@ use CodeIgniter\I18n\Time; ?>
                 </div>
 
                 <div class="mt-3 mb-4">
+
                     <h4 class="fw-bolder mb-1">Kos disewakan oleh <a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><?= $pemilik->namaLengkap ?></a> </h4>
+
                 </div>
 
                 <!-- Modal -->
@@ -167,10 +169,12 @@ use CodeIgniter\I18n\Time; ?>
                             <div class="profile-card card rounded-lg p-4 p-xl-5 text-center position-relative overflow-hidden">
                                 <div class="banner"></div>
                                 <img onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" src="/foto_profile/<?= user()->foto ?>" alt="" class="img-circle mx-auto mb-3">
+
                                 <h3 class="mb-4"><?= $pemilik->namaLengkap ?></h3>
                                 <div class="text-left mb-4">
                                     <p class="mb-2"><i class="bi bi-envelope-fill"></i>&nbsp<?= $pemilik->email ?></p>
                                     <p class="mb-2"><i class="bi bi-telephone-fill"></i>&nbsp<?= $pemilik->notlp ?></i></p>
+
                                 </div>
                             </div>
                         </div>
