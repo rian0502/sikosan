@@ -5,6 +5,7 @@
 <!-- Content-->
 <?php
 
+
 use CodeIgniter\I18n\Time; ?>
 <section>
     <div class="container px-4 px-lg-5 my-5">
@@ -184,7 +185,7 @@ use CodeIgniter\I18n\Time; ?>
                                 <?= $km['komentar'] ?>
                             </p>
                         </div>
-                        <?php if ($km['id_user'] != user()->id && (in_groups('customer') || in_groups('owner'))) : ?>
+                        <?php if (logged_in() && ($km['id_user'] != user()->id && (in_groups('customer') || in_groups('owner')))) : ?>
                             <div class="row">
                                 <div class="col"></div>
                                 <div class="col text-end">
@@ -194,7 +195,7 @@ use CodeIgniter\I18n\Time; ?>
                         <?php endif; ?>
 
                         <!-- untuk button hapus komentar head -->
-                        <?php if ($km['id_user'] == user()->id  || in_groups('admin')) : ?>
+                        <?php if ((logged_in() && ($km['id_user'] == user()->id  || in_groups('admin')))) : ?>
                             <div class="row">
                                 <div class="col"></div>
                                 <div class="col text-end">
@@ -221,7 +222,7 @@ use CodeIgniter\I18n\Time; ?>
                                         <?= $km['reply'][$i]['reply'] ?>
                                     </p>
                                 </div>
-                                <?php if ($km['reply'][$i]['id'] == user()->id  || in_groups('admin')) : ?>
+                                <?php if (logged_in() && ($km['reply'][$i]['id'] == user()->id  || in_groups('admin'))) : ?>
                                     <div class="row">
                                         <div class="col"></div>
                                         <div class="col text-end">
@@ -234,11 +235,12 @@ use CodeIgniter\I18n\Time; ?>
                                     </div>
                                 <?php endif; ?>
                             </div>
-                            <?php if ($km['reply'][$i]['id'] != user()->id && (in_groups('customer') || in_groups('owner'))) : ?>
+
+                            <?php if (logged_in() && ($km['reply'][$i]['id'] != user()->id && (in_groups('customer') || in_groups('owner')))) : ?>
                                 <div class="row me-3 mb-3">
                                     <div class="col"></div>
                                     <div class="col text-end">
-                                        <a href="/report_reply_komentar/create/<?= $kosan[0]['id_kosan'] ?>/<?= $km['reply'][$i]['id'] ?>/<?= $km['reply'][$i]['id_user'] ?>/<?= $km['reply'][$i]['reply'] ?>" class="text-danger">Laporkan</a>
+                                        <a href="/report_reply_komentar/create/<?= $kosan[0]['id_kosan'] ?>/<?= $km['reply'][$i]['id_reply'] ?>/<?= $km['reply'][$i]['id_user'] ?>/<?= $km['reply'][$i]['reply'] ?>" class="text-danger">Laporkan</a>
                                     </div>
                                 </div>
                             <?php endif; ?>
