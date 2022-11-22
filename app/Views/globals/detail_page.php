@@ -116,7 +116,7 @@ use CodeIgniter\I18n\Time; ?>
                 <div class="row">
                     <h2 class="fw-bolder mb-4"><?= $kosan[0]['namaKost']; ?></h2>
                     <div class="col-mt-4">
-                        <button type="button " class="btn btn-outline-primary " disabled><?= $kosan[0]['type']; ?></button>
+                        <button type="button " class="btn btn-outline-<?php if($kosan[0]['type'] == 'Campur'){echo 'danger';}else if($kosan[0]['type'] == 'Putri'){echo "warning";}else{echo "primary";}  ?> " disabled><?= $kosan[0]['type']; ?></button>
                         <i class="bi bi-geo-alt ms-3"><?= $kosan[0]['kota']; ?></i>
                     </div>
                     <?php if (logged_in() && in_groups('customer')) : ?>
@@ -168,8 +168,7 @@ use CodeIgniter\I18n\Time; ?>
                             </div>
                             <div class="profile-card card rounded-lg p-4 p-xl-5 text-center position-relative overflow-hidden">
                                 <div class="banner"></div>
-                                <img onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" src="/foto_profile/<?= user()->foto ?>" alt="" class="img-circle mx-auto mb-3">
-
+                                <img onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" src="/foto_profile/<?= $pemilik->foto ?>" alt="" class="img-circle mx-auto mb-3">
                                 <h3 class="mb-4"><?= $pemilik->namaLengkap ?></h3>
                                 <div class="text-left mb-4">
                                     <p class="mb-2"><i class="bi bi-envelope-fill"></i>&nbsp<?= $pemilik->email ?></p>
