@@ -42,9 +42,9 @@ $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::index');
 $routes->get('/pusatBantuan', 'Home::pusatBantuan');
 $routes->get('/terms', 'Home::terms');
-$routes->get('/detail/(:num)', 'Home::detail/$1');
-$routes->get('/detail/(:num)/tulis_komentar', 'Home::detail/$1');
-$routes->get('/detail/(:num)/report', 'Home::detail/$1');
+$routes->get('/detail/(:any)', 'Home::detail/$1');
+$routes->get('/detail/(:any)/tulis_komentar', 'Home::detail/$1');
+$routes->get('/detail/(:any)/report', 'Home::detail/$1');
 // -------------------------------------------
 
 

@@ -9,7 +9,7 @@ class Email extends BaseConfig
     /**
      * @var string
      */
-    public $fromEmail = "zakimubarok551@gmail.com";
+    public $fromEmail = "admin@sikosan.my.id";
 
     /**
      * @var string
@@ -47,21 +47,21 @@ class Email extends BaseConfig
      *
      * @var string
      */
-    public $SMTPHost = 'smtp.gmail.com';
+    public $SMTPHost = 'sikosan.my.id';
 
     /**
      * SMTP Username
      *
      * @var string
      */
-    public $SMTPUser = 'zakimubarok551@gmail.com';
+    public $SMTPUser = 'admin@sikosan.my.id';
 
     /**
      * SMTP Password
      *
      * @var string
      */
-    public $SMTPPass = 'noldfcpqsmwxgmfq';
+    public $SMTPPass = '@]y16o9mNMv9';
 
     /**
      * SMTP Port

@@ -9,12 +9,12 @@ class Users extends Model
     protected $DBGroup          = 'default';
     protected $table            = 'users';
     protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
+    protected $useAutoIncrement = false;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['namaLengkap', 'notlp', 'foto', 'status', 'status_message', 'updated_at'];
+    protected $allowedFields    = ['id','namaLengkap', 'notlp', 'foto', 'status', 'status_message', 'updated_at'];
 
     // Dates
     protected $useTimestamps = false;

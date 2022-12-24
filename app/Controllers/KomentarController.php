@@ -13,11 +13,14 @@ class KomentarController extends BaseController
     {
         $this->komentarModel = new Komentar();
         $this->replyKomentar = new ReplyKomentar();
+        $this->faker = \Faker\Factory::create('id_ID');
     }
 
     public function save_komentar()
     {
+
         $data = [
+            'id_komentar' => $this->faker->unique()->uuid(),
             'id_user' => user_id(),
             'id_kosan' => $this->request->getVar('id_kosan'),
             'komentar' => htmlspecialchars($this->request->getVar('komentar')),
@@ -36,6 +39,7 @@ class KomentarController extends BaseController
     public function reply_komentar()
     {
         $data = [
+            'id' => $this->faker->unique()->uuid(), 
             'id_user' => user_id(),
             'id_komentar' => $this->request->getVar('id_komentar'),
             'id_kosan' => $this->request->getVar('id_kosan'),

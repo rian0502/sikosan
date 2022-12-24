@@ -14,6 +14,7 @@ class ReportKosanController extends BaseController
     {
         $this->reportKosanModel = new ReportKosanModel();
         $this->kosanModel = new KosanModel();
+        $this->faker = \Faker\Factory::create('id_ID');
     }
 
     public function index()
@@ -42,6 +43,7 @@ class ReportKosanController extends BaseController
         // dd($this->request->getVar());
 
         $data = [
+            'id_report' => $this->faker->unique()->uuid(),
             'id_kosan' => $this->request->getVar('id_kosan'),
             'id_user' => $this->request->getVar('id_user'),
             'report' => $this->request->getVar('report'),

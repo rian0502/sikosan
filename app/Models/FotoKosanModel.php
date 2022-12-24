@@ -8,12 +8,11 @@ class FotoKosanModel extends Model
 {
     protected $table            = 'foto_kosan';
     protected $primaryKey       = 'id_foto';
-    protected $useAutoIncrement = true;
+    protected $useAutoIncrement = false;
     protected $insertID         = 0;
     protected $returnType       = 'array';
-    // protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
-        'id_kosan', 'nama_foto'
+        'id_kosan','id_foto' ,'nama_foto'
     ];
 }

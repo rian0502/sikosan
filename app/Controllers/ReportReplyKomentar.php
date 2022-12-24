@@ -13,6 +13,7 @@ class ReportReplyKomentar extends BaseController
     {
         $this->userModel = new UserModel();
         $this->reportKomentarModel = new ReportKomentarModel();
+        $this->faker = \Faker\Factory::create('id_ID');
     }
 
     public function create($id_kosan, $id_reply_komentar, $id_user_reply_komentar, $reply)
@@ -35,6 +36,7 @@ class ReportReplyKomentar extends BaseController
     public function save()
     {
         $data = [
+            'id_report_komentar' => $this->faker->unique()->uuid(),
             'id_user' => $this->request->getVar('id_user'),
             'id_komentar' => $this->request->getVar('id_reply_komentar'),
             'id_user_komentar' => $this->request->getVar('id_user_reply_komentar'),

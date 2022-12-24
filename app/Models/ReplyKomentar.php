@@ -9,12 +9,13 @@ class ReplyKomentar extends Model
     protected $DBGroup          = 'default';
     protected $table            = 'reply_komentar';
     protected $primaryKey       = 'id';
-    protected $useAutoIncrement = true;
+    protected $useAutoIncrement = false;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
+        'id',
         'id_komentar',
         'id_user',
         'reply',
