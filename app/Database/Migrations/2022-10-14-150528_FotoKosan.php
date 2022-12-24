@@ -10,15 +10,12 @@ class FotoKosan extends Migration
     {
         $this->forge->addField([
             'id_kosan' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
+                'type' => 'VARCHAR',
+                'constraint' => '50',
             ],
             'id_foto' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
-                'auto_increment' => true,
+                'type' => 'VARCHAR',
+                'constraint' => '50',
             ],
             'nama_foto' => [
                 'type' => 'VARCHAR',

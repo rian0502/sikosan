@@ -10,15 +10,12 @@ class ReportKomentar extends Migration
     {
         $this->forge->addField([
             'id_report_komentar' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
-                'auto_increment' => true,
+                'type' => 'VARCHAR',
+                'constraint' => '50',
             ],
             'id_komentar' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
+                'type' => 'VARCHAR',
+                'constraint' => '50',
             ],
             'id_user' => [
                 'type' => 'INT',
@@ -26,9 +23,8 @@ class ReportKomentar extends Migration
                 'unsigned' => true,
             ],
             'id_user_komentar' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
+                'type' => 'VARCHAR',
+                'constraint' => '50',
             ],
             'laporan_komentar' => [
                 'type' => 'TEXT',

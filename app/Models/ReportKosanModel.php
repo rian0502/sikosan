@@ -9,12 +9,12 @@ class ReportKosanModel extends Model
     protected $DBGroup          = 'default';
     protected $table            = 'report_kosan';
     protected $primaryKey       = 'id_report';
-    protected $useAutoIncrement = true;
+    protected $useAutoIncrement = false;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_kosan', 'id_user', 'report', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['id_report','id_kosan', 'id_user', 'report', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = false;

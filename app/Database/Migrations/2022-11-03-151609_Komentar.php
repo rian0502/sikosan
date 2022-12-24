@@ -11,15 +11,12 @@ class Komentar extends Migration
         //make table comment
         $this->forge->addField([
             'id_komentar' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
-                'auto_increment' => true,
+                'type' => 'VARCHAR',
+                'constraint' => '50',
             ],
             'id_kosan' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
+                'type' => 'VARCHAR',
+                'constraint' => '50',
             ],
             'id_user' => [
                 'type' => 'INT',

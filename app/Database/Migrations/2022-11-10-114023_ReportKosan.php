@@ -10,15 +10,12 @@ class ReportKosan extends Migration
     {
         $this->forge->addField([
             'id_report' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
-                'auto_increment' => true,
+                'type' => 'VARCHAR',
+                'constraint' => '50',
             ],
             'id_kosan' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
+                'type' => 'VARCHAR',
+                'constraint' => '50',
             ],
             'id_user' => [
                 'type' => 'INT',

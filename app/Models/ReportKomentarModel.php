@@ -9,12 +9,12 @@ class ReportKomentarModel extends Model
     protected $DBGroup          = 'default';
     protected $table            = 'report_komentar';
     protected $primaryKey       = 'id_report_komentar';
-    protected $useAutoIncrement = true;
+    protected $useAutoIncrement = false;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $useSoftDeletes   = false;
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_user', 'id_komentar', 'id_user_komentar', 'laporan_komentar', 'isReply', 'komentar_dilaporkan', 'created_at', 'updated_at'];
+    protected $allowedFields    = ['id_report_komentar','id_user', 'id_komentar', 'id_user_komentar', 'laporan_komentar', 'isReply', 'komentar_dilaporkan', 'created_at', 'updated_at'];
 
     // Dates
     protected $useTimestamps = false;
