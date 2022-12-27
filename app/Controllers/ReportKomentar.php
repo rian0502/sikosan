@@ -17,6 +17,7 @@ class ReportKomentar extends BaseController
         $this->userModel = new UserModel();
         $this->reportKomentarModel = new ReportKomentarModel();
         $this->userInternal = new Users();
+        $this->faker = \Faker\Factory::create('id_ID');
     }
 
     public function index()
@@ -50,6 +51,7 @@ class ReportKomentar extends BaseController
     public function save()
     {
         $data = [
+            'id_report_komentar' => $this->faker->unique()->uuid,
             'id_user' => $this->request->getVar('id_user'),
             'id_komentar' => $this->request->getVar('id_komentar'),
             'id_user_komentar' => $this->request->getVar('id_user_komentar'),
