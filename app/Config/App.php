@@ -25,6 +25,7 @@ class App extends BaseConfig
      * @var string
      */
     public $baseURL = 'http://localhost:8080/';
+    public array $allowedHostnames = [];
 
     /**
      * --------------------------------------------------------------------------
@@ -343,7 +344,7 @@ class App extends BaseConfig
      *
      * @var string|string[]
      */
-    public $proxyIPs = '';
+    public $proxyIPs = [];
 
     /**
      * --------------------------------------------------------------------------

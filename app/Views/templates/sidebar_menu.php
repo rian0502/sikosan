@@ -10,18 +10,13 @@
     <link rel="shortcut icon" href="/adminTemplate/assets/images/logo/favicon.svg" type="image/x-icon">
     <link rel="shortcut icon" href="/adminTemplate/assets/images/logo/favicon.png" type="image/png">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
-    <link rel="stylesheet" href="/adminTemplate/assets/css/shared/iconly.css">
     <link rel="stylesheet" href="/adminTemplate/assets/extensions/sweetalert2/sweetalert2.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.9.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="/adminTemplate/assets/extensions/choices.js/public/assets/styles/choices.css">
     <script src="/jquery/jquery.min.js"></script>
 </head>
 <style>
-    #footer {
-        position: fixed;
-        bottom: 0;
-        width: 80%;
-    }
+
 </style>
 
 <body>
@@ -62,7 +57,11 @@
                         <div class="card-body py-4 px-5">
                             <div class="d-flex align-items-center">
                                 <div class="avatar avatar-xl">
-                                    <img src="/adminTemplate/assets/images/faces/1.jpg" alt="Face 1">
+
+
+
+                                    <img src="/foto_profile/<?= user()->foto ?>" onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" alt="Foto Profil">
+
                                 </div>
                                 <div class="ms-3 name">
                                     <h5 class="font-bold"><?= user()->namaLengkap ?></h5>
@@ -75,16 +74,28 @@
 
                         <!-- untuk admin -->
                         <?php if (in_groups('admin')) : ?>
-                            <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
+                            <li class="sidebar-item <?= ($title == "Dashboard Admin") ? 'active' : '' ?>">
                                 <a href="/admin/dashboard_admin" class='sidebar-link'>
                                     <i class="bi bi-grid-fill"></i>
                                     <span>Dashboard</span>
                                 </a>
                             </li>
-                            <li class="sidebar-item <?= ($title == "Profile") ? 'active' : '' ?>">
+                            <li class="sidebar-item <?= ($title == "Data User Banned") ? 'active' : '' ?>">
+                                <a href="/admin/data_user_banned" class='sidebar-link'>
+                                    <i class="bi bi-person-lines-fill"></i>
+                                    <span>Data User Banned</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item <?= ($title == "Laporan Kosan") ? 'active' : '' ?>">
                                 <a href="/admin/data_report_kosan" class='sidebar-link'>
-                                    <i class="bi bi-collection-fill"></i>
-                                    <span>Data Laporan Kosan</span>
+                                    <i class="bi bi-exclamation-diamond-fill"></i>
+                                    <span>Laporan Kosan</span>
+                                </a>
+                            </li>
+                            <li class="sidebar-item <?= ($title == "Laporan Komentar") ? 'active' : '' ?>">
+                                <a href="/admin/data_report_komentar" class='sidebar-link'>
+                                    <i class="bi bi-wechat"></i>
+                                    <span>Laporan Komentar</span>
                                 </a>
                             </li>
                         <?php endif ?>
@@ -134,11 +145,9 @@
     </div>
     <script src="/adminTemplate/assets/js/bootstrap.js"></script>
     <script src="/adminTemplate/assets/js/app.js"></script>
-    <script src="/adminTemplate/assets/extensions/apexcharts/apexcharts.min.js"></script>
     <script src="/adminTemplate/assets/js/pages/dashboard.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.js"></script>
     <link rel="stylesheet" type="text/css" href="https://cdn.jsdelivr.net/npm/sweetalert2@9.17.2/dist/sweetalert2.min.css">
-
     <script src="/adminTemplate/assets/extensions/choices.js/public/assets/scripts/choices.js"></script>
     <script src="/adminTemplate/assets/js/pages/form-element-select.js"></script>
 

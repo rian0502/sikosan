@@ -12,6 +12,7 @@ class WishlistController extends BaseController
     public function __construct()
     {
         $this->wishlistModel = new WishlistModel();
+        $this->faker = \Faker\Factory::create('id_ID');
     }
 
     public function check_is_wished($id_kosan, $id_user)
@@ -28,6 +29,7 @@ class WishlistController extends BaseController
     public function wish($id_kosan, $id_user)
     {
         $data = [
+            'id_wishlist' => $this->faker->unique()->uuid,
             'id_kosan' => $id_kosan,
             'id_user' => $id_user
         ];

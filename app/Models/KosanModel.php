@@ -9,12 +9,13 @@ class KosanModel extends Model
     protected $DBGroup          = 'default';
     protected $table            = 'kosan';
     protected $primaryKey       = 'id_kosan';
-    protected $useAutoIncrement = true;
+    protected $useAutoIncrement = false;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     // protected $useSoftDeletes   = false;
     protected $protectFields    = true;
     protected $allowedFields    = [
+        'id_kosan',
         'namaKost',
         'alamat',
         'kecamatan',
@@ -39,19 +40,25 @@ class KosanModel extends Model
     // Ambil semua data kosan
     public function getAllKosan()
     {
-
         $queryKosan = $this->db->table('kosan')
-            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->groupBy('kosan.id_kosan')->orderBy('kosan.id_kosan', 'DESC')
+            ->select('kosan.*, MIN(foto_kosan.nama_foto) as nama_foto') 
+            ->join('foto_kosan', 'kosan.id_kosan = foto_kosan.id_kosan', 'left')
+            ->groupBy('kosan.id_kosan')
+            ->orderBy('kosan.id_kosan', 'DESC')
             ->get();
         return $queryKosan;
     }
 
     // Ambil kosan berdasarkan id user
-    public function getKosanByIdUser()
+   public function getKosanByIdUser()
     {
         $query = $this->db->table($this->table)
-            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->groupBy('kosan.id_kosan')->orderBy('kosan.id_kosan', 'DESC')
-            ->getWhere(['kosan.idPemilik' => user_id()])->getResult();
+            ->select('kosan.*, MIN(foto_kosan.nama_foto) as nama_foto')
+            ->join('foto_kosan', 'kosan.id_kosan = foto_kosan.id_kosan', 'left')
+            ->groupBy('kosan.id_kosan')
+            ->orderBy('kosan.id_kosan', 'DESC')
+            ->getWhere(['kosan.idPemilik' => user_id()])
+            ->getResult();
         return $query;
     }
 
@@ -71,6 +78,13 @@ class KosanModel extends Model
             ->getResultArray();
 
         // dd($data);
+        return $data;
+    }
+    public function getDashboardData(){
+        $data = $this->db->table('kosan')->select('COUNT(kosan.namaKost) as jumlah_kos, SUM(kosan.harga) as total_harga')
+            ->where('idPemilik', user_id())
+            ->get()
+            ->getResultArray();
         return $data;
     }
 }

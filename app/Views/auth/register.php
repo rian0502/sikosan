@@ -1,6 +1,7 @@
 <?= $this->extend('templates/templateAuth') ?>
 
 <?= $this->section('content') ?>
+
 <div id="auth">
     <div class="row h-100">
         <div class="col-lg-5 col-12">
@@ -53,8 +54,8 @@
                             <?php if ($config->allowAdminRegistration === true) : ?>
                                 <option value="admin">Admin</option>
                             <?php endif; ?>
-                            <option value="customer">Customer</option>
-                            <option value="owner">Owner</option>
+                            <option value="customer">Pencari Kost</option>
+                            <option value="owner">Pemilik Kost</option>
                         </select>
                     </div>
                     <button class="btn btn-primary btn-block btn-lg shadow-lg mt-5">Sign Up</button>
@@ -64,9 +65,8 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-7 d-none d-lg-block">
-            <div id="auth-right">
-            </div>
+        <div id="ilustrasi" class="col-lg-7 d-none d-lg-block">
+            <img src="/assets/img/regis_ilustrasi.svg" class="center" alt="login_ilustrasi">
         </div>
     </div>
 </div>

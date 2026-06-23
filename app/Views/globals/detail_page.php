@@ -5,9 +5,69 @@
 <!-- Content-->
 <?php
 
+
 use CodeIgniter\I18n\Time; ?>
+<style>
+    @import url("https://fonts.googleapis.com/css?family=Roboto:300,400,500,700&display=swap");
+
+    body {
+        background: #f5f5f5;
+    }
+
+    .shadow {
+        box-shadow: 0 5px 20px rgba(0, 0, 0, 0.06) !important;
+    }
+
+    .main-content {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .banner {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 125px;
+        background-image: url("../img/banner.jpg");
+        background-position: center;
+        background-size: cover;
+    }
+
+    .img-circle {
+        height: 150px;
+        width: 150px;
+        border-radius: 150px;
+        border: 3px solid #fff;
+        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        z-index: 1;
+    }
+
+    .social-links a {
+        transition: all 0.2s;
+    }
+
+    .social-links a img {
+        height: 30px;
+    }
+
+    .social-links a:hover {
+        transform: translateY(-3px);
+    }
+
+    .card {
+        margin-bottom: 0px;
+    }
+</style>
+
 <section>
+
     <div class="container px-4 px-lg-5 my-5">
+        <?php if (session()->getFlashdata('pesan')) : ?>
+            <div class="alert alert-success" role="alert">
+                <?= session()->getFlashdata('pesan'); ?>
+            </div>
+        <?php endif; ?>
         <div class="card">
             <div class="card-body">
                 <div id="carouselExampleCaptions" class="carousel slide" data-bs-ride="carousel">
@@ -43,7 +103,7 @@ use CodeIgniter\I18n\Time; ?>
             </div>
         </div>
         <!-- Detail KOS = nama,spefsifikasi,dll-->
-        <?php if (in_groups('customer') && logged_in()) : ?>
+        <?php if ((in_groups('customer') || in_groups('owner')) && user_id() !== $kosan[0]['idPemilik']) : ?>
             <a href="/report_kosan/create/<?= $kosan[0]['id_kosan']; ?>" class="btn btn-danger mb-3" style="text-decoration: none;"><i class="bi bi-exclamation-circle" id="report"></i> Laporkan</a>
         <?php endif; ?>
         <?php if (session()->getFlashdata('pesan_laporan')) : ?>
@@ -51,13 +111,12 @@ use CodeIgniter\I18n\Time; ?>
                 <?= session()->getFlashdata('pesan_laporan'); ?>
             </div>
         <?php endif; ?>
-
         <div class="row">
             <div class="col-md-8 mt-5">
                 <div class="row">
                     <h2 class="fw-bolder mb-4"><?= $kosan[0]['namaKost']; ?></h2>
                     <div class="col-mt-4">
-                        <button type="button " class="btn btn-outline-primary " disabled><?= $kosan[0]['type']; ?></button>
+                        <button type="button " class="btn btn-outline-<?php if($kosan[0]['type'] == 'Campur'){echo 'danger';}else if($kosan[0]['type'] == 'Putri'){echo "warning";}else{echo "primary";}  ?> " disabled><?= $kosan[0]['type']; ?></button>
                         <i class="bi bi-geo-alt ms-3"><?= $kosan[0]['kota']; ?></i>
                     </div>
                     <?php if (logged_in() && in_groups('customer')) : ?>
@@ -95,7 +154,30 @@ use CodeIgniter\I18n\Time; ?>
                 </div>
 
                 <div class="mt-3 mb-4">
-                    <h4 class="fw-bolder mb-1">Kos disewakan oleh <?= $pemilik ?> </h4>
+
+                    <h4 class="fw-bolder mb-1">Kos disewakan oleh <a href="#exampleModal" data-bs-toggle="modal" data-bs-target="#exampleModal"><?= $pemilik->namaLengkap ?></a> </h4>
+
+                </div>
+
+                <!-- Modal -->
+                <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            </div>
+                            <div class="profile-card card rounded-lg p-4 p-xl-5 text-center position-relative overflow-hidden">
+                                <div class="banner"></div>
+                                <img onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" src="/foto_profile/<?= $pemilik->foto ?>" alt="" class="img-circle mx-auto mb-3">
+                                <h3 class="mb-4"><?= $pemilik->namaLengkap ?></h3>
+                                <div class="text-left mb-4">
+                                    <p class="mb-2"><i class="bi bi-envelope-fill"></i>&nbsp<?= $pemilik->email ?></p>
+                                    <p class="mb-2"><i class="bi bi-telephone-fill"></i>&nbsp<?= $pemilik->notlp ?></i></p>
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
 
                 <div class="row">
@@ -169,7 +251,7 @@ use CodeIgniter\I18n\Time; ?>
 <?php foreach ($komentar as $km) : ?>
     <section>
         <div class=" d-flex flex-column mb-2 mt-0">
-            <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65" height="65" />
+            <img onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" class="rounded-circle shadow-1-strong me-3" src="/foto_profile/<?= $km['foto'] ?>" alt="avatar" width="65" height="65" />
             <div class="card bg-secondary">
                 <div class="card w-100 mb-1 shadow-sm">
                     <div class="card-body p-4 shadow-sm">
@@ -179,15 +261,35 @@ use CodeIgniter\I18n\Time; ?>
                             <p>
                                 <?= $km['komentar'] ?>
                             </p>
-                            <div class="d-flex justify-content-end align-items-center">
-
-                            </div>
                         </div>
+                        <?php if (logged_in() && ($km['id_user'] != user()->id && (in_groups('customer') || in_groups('owner')))) : ?>
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col text-end">
+                                    <a href="/report_komentar/create/<?= $kosan[0]['id_kosan'] ?>/<?= $km['id_komentar'] ?>/<?= $km['id_user'] ?>/<?= $km['komentar'] ?>" class="text-danger">Laporkan</a>
+                                </div>
+                            </div>
+                        <?php endif; ?>
+
+                        <!-- untuk button hapus komentar head -->
+                        <?php if ((logged_in() && ($km['id_user'] == user()->id  || in_groups('admin')))) : ?>
+                            <div class="row">
+                                <div class="col"></div>
+                                <div class="col text-end">
+                                    <form action="/delete/komentar" method="post">
+                                        <?= csrf_field(); ?>
+                                        <input type="hidden" name="id_komentar" value="<?= $km['id_komentar'] ?>">
+                                        <button class="btn btn-danger" type="submit">Hapus</button>
+                                    </form>
+                                </div>
+                            </div>
+                        <?php endif; ?>
                     </div>
                 </div>
+
                 <?php for ($i = 0; $i < count($km['reply']); $i++) : ?>
                     <div class="ms-5 mt-4">
-                        <img class="rounded-circle shadow-1-strong me-3" src="https://mdbcdn.b-cdn.net/img/Photos/Avatars/img%20(32).webp" alt="avatar" width="65" height="65" />
+                        <img onerror="if (this.src != '/foto_kosan/notfound.jpg') this.src = '/foto_kosan/notfound.jpg';" class="rounded-circle shadow-1-strong me-3" src="/foto_profile/<?= $km['reply'][$i]['foto'] ?>" alt="avatar" width="65" height="65" />
                         <div class="card m-2 ms-5 shadow-lg">
                             <div class="card-body p-4">
                                 <div class="">
@@ -196,14 +298,35 @@ use CodeIgniter\I18n\Time; ?>
                                     <p>
                                         <?= $km['reply'][$i]['reply'] ?>
                                     </p>
-                                    <div class="d-flex justify-content-end align-items-center">
+                                </div>
+                                <?php if (logged_in() && ($km['reply'][$i]['id'] == user()->id  || in_groups('admin'))) : ?>
+                                    <div class="row">
+                                        <div class="col"></div>
+                                        <div class="col text-end">
+                                            <form action="/delete/reply_komentar" method="post">
+                                                <?= csrf_field(); ?>
+                                                <input type="hidden" name="id_reply" value="<?= $km['reply'][$i]['id_reply'] ?>">
+                                                <button class="btn btn-danger" type="submit">Hapus</button>
+                                            </form>
+                                        </div>
+                                    </div>
+                                <?php endif; ?>
+                            </div>
 
+                            <?php if ( logged_in() && ($km['reply'][$i]['id'] != user()->id && (in_groups('customer') || in_groups('owner')))) : ?>
+                                <div class="row me-3 mb-3">
+                                    <div class="col"></div>
+                                    <div class="col text-end">
+                                        <a href="/report_reply_komentar/create/<?= $kosan[0]['id_kosan'] ?>/<?= $km['reply'][$i]['id_reply'] ?>/<?= $km['reply'][$i]['id_user'] ?>/<?= $km['reply'][$i]['reply'] ?>" class="text-danger">Laporkan</a>
                                     </div>
                                 </div>
-                            </div>
+                            <?php endif; ?>
                         </div>
                     </div>
                 <?php endfor; ?>
+
+                <?php 
+                if(!in_groups("admin") && logged_in()) : ?>
                 <div class="ms-5">
                     <div class="form-floating card m-2 ms-5 shadow-lg" id="reply">
                         <div class="card-body" id="reply">
@@ -213,7 +336,6 @@ use CodeIgniter\I18n\Time; ?>
                                     <?= csrf_field() ?>
                                     <textarea class="form-control" name="reply" placeholder="Tulis balasan Anda!" id="floatingTextarea"></textarea>
                                     <label for="floatingTextarea"></label>
-
                                     <input type="hidden" name="id_kosan" value="<?= $kosan[0]['id_kosan'] ?>">
                                     <input type="hidden" value="<?= $km['id_komentar'] ?>" name="id_komentar">
                                     <button type="submit" class="btn btn-primary btn-sm float-end mt-2">Kirim</button>
@@ -222,11 +344,12 @@ use CodeIgniter\I18n\Time; ?>
                         </div>
                     </div>
                 </div>
+                <?php endif; ?>
             </div>
         </div>
     </section>
 <?php endforeach; ?>
-
+<?php if(!in_groups("admin") && logged_in()) : ?>
 <div class="form-floating card m-2 ms-2 shadow-sm" id="tulis_komentar">
     <div class="card-body" id="reply">
         <div class="m-0">
@@ -242,14 +365,7 @@ use CodeIgniter\I18n\Time; ?>
         </div>
     </div>
 </div>
-
-<!-- Form tulis komentar -->
-<?php if (session()->getFlashdata('pesan')) : ?>
-    <div class="alert alert-success" role="alert">
-        <?= session()->getFlashdata('pesan'); ?>
-    </div>
 <?php endif; ?>
-
 <!-- Bootstrap core JS-->
 <script src="adminTemplate/assets/extensions/jquery/jquery.min.js"></script>
 <script src="adminTemplate/assets/extensions/summernote/summernote-lite.min.js"></script>

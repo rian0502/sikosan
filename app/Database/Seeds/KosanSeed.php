@@ -5,7 +5,7 @@ namespace App\Database\Seeds;
 use CodeIgniter\Database\Seeder;
 use App\Models\KosanModel;
 use Faker\Factory;
-
+use CodeIgniter\I18n\Time;
 class KosanSeed extends Seeder
 {
     public function run()
@@ -13,8 +13,10 @@ class KosanSeed extends Seeder
         $faker = Factory::create('id_ID');
         $kosan = new KosanModel();
         for ($i = 1; $i <= 10; $i++) {
+            $uuid = bin2hex(random_bytes(16));
             $kosan->save(
                 [
+                    'id_kosan'  => $uuid,
                     'namaKost' => "Kosan " . $faker->LastName(),
                     'alamat' => $faker->address(),
                     'kota' => $faker->randomElement(

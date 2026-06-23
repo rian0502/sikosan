@@ -8,11 +8,11 @@ class WishlistModel extends Model
 {
     protected $table            = 'wishlist';
     protected $primaryKey       = 'id_wishlist';
-    protected $useAutoIncrement = true;
+    protected $useAutoIncrement = false;
     protected $insertID         = 0;
     protected $returnType       = 'array';
     protected $protectFields    = true;
-    protected $allowedFields    = ['id_kosan', 'id_user'];
+    protected $allowedFields    = ['id_wishlist','id_kosan', 'id_user'];
 
     // Dates
     protected $useTimestamps = false;

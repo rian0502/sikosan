@@ -111,6 +111,7 @@ nbactions.xml
 nb-configuration.xml
 .nb-gradle/
 foto_kosan
+foto_profile
 # Sublime Text
 *.tmlanguage.cache
 *.tmPreferences.cache

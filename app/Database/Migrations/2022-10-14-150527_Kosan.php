@@ -11,10 +11,8 @@ class Kosan extends Migration
         //
         $this->forge->addField([
             'id_kosan' => [
-                'type' => 'INT',
-                'constraint' => 11,
-                'unsigned' => true,
-                'auto_increment' => true,
+                'type' => 'VARCHAR',
+                'constraint' => '50',
             ],
             'namaKost' => [
                 'type' => 'VARCHAR',

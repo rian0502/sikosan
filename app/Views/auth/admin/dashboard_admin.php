@@ -1,7 +1,13 @@
 <?= $this->extend('templates/sidebar_menu'); ?>
 
 <?= $this->section('content'); ?>
-
+<style>
+        #footer {
+        position: fixed;
+        bottom: 0;
+        width: 70%;
+    }
+</style>
 <div class="card">
     <div class="d-flex align-items-end row">
         <div class="col-sm-7">

@@ -1,6 +1,7 @@
 <?= $this->extend('templates/templateAuth') ?>
 
 <?= $this->section('content') ?>
+
 <div id="auth">
     <div class="row h-100">
         <div class="col-lg-5 col-12">
@@ -19,7 +20,7 @@
                         <div class="form-control-icon">
                             <i class="bi bi-envelope"></i>
                         </div>
-                            <input type="text" name="login" class="form-control form-control-xl <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" placeholder="E-mail">
+                        <input type="text" name="login" class="form-control form-control-xl <?php if (session('errors.login')) : ?>is-invalid<?php endif ?>" placeholder="E-mail">
                         <div class="invalid-feedback mt3">
                             <?= session('errors.login') ?>
                         </div>
@@ -43,10 +44,13 @@
                 </div>
             </div>
         </div>
-        <div class="col-lg-7 d-none d-lg-block">
-            <div id="auth-right"></div>
-            
+
+
+        <div id="ilustrasi" class="col-lg-7 d-none d-lg-block">
+            <img src="/assets/img/login_ilustrasi.svg" class="center" alt="login_ilustrasi">
         </div>
+
+
     </div>
 </div>
 <?= $this->endSection(); ?>

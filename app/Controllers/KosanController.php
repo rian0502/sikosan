@@ -19,8 +19,11 @@ class KosanController extends BaseController
     // INDEX
     public function index()
     {
+        $data = [
+            'title' => 'Cari Kosan',
+        ];
 
-        return view('auth/admin/data_kosan_page');
+        return view('auth/admin/data_kosan_page', $data);
     }
 
     // CREATE DATA KOSAN
@@ -39,7 +42,9 @@ class KosanController extends BaseController
     // SAVE CREATE DATA KOSAN
     public function save()
     {
+        $faker = \Faker\Factory::create('id_ID');
         $data_kosan = [
+            'id_kosan' => $faker->unique()->uuid,
             'namaKost' => htmlspecialchars($this->request->getVar('namaKost')),
             'alamat' => htmlspecialchars($this->request->getVar('alamat')),
             'kota' => htmlspecialchars($this->request->getVar('kota')),
@@ -139,6 +144,7 @@ class KosanController extends BaseController
 
         $data_foto_kosan = [
             'id_kosan' => $idKosanInsert,
+            'id_foto' => $faker->unique()->uuid,
             'nama_foto' => $name_foto1,
         ];
 
@@ -151,6 +157,7 @@ class KosanController extends BaseController
             $name_foto2 = $foto_2->getRandomName();
             $data_foto_kosan = [
                 'id_kosan' => $idKosanInsert,
+                'id_foto' => $faker->unique()->uuid,
                 'nama_foto' => $name_foto2,
             ];
 
@@ -163,6 +170,7 @@ class KosanController extends BaseController
             $name_foto3 = $foto_3->getRandomName();
             $data_foto_kosan = [
                 'id_kosan' => $idKosanInsert,
+                'id_foto' => $faker->unique()->uuid,
                 'nama_foto' => $name_foto3,
             ];
             $this->fotoKosanModel->insert($data_foto_kosan);
@@ -175,7 +183,11 @@ class KosanController extends BaseController
     // DELETE DATA KOSAN
     public function delete($id_kosan)
     {
-   
+        $kost = $this->kosanModel->where('id_kosan', $id_kosan)->first();
+        if ($kost['idPemilik'] != user_id()) {
+            return redirect()->to('/owner/kosan_anda');
+        }
+
         $imageFile = $this->fotoKosanModel->where('id_kosan', $id_kosan)->findAll();
         foreach ($imageFile as $image) {
             unlink('../public/foto_kosan/' . $image['nama_foto']);
@@ -187,11 +199,15 @@ class KosanController extends BaseController
 
     // EDIT DATA KOSAN
     public function edit($id_kosan)
-    {
+    {   
+        $kost = $this->kosanModel->where('id_kosan', $id_kosan)->first();
+        if ($kost['idPemilik'] != user_id()) {
+            return redirect()->to('/owner/kosan_anda');
+        }
         session();
         $data = [
             'title' => 'Ubah Data Kosan',
-            'kosan' => (new KosanModel())->where('id_kosan', $id_kosan)->first(),
+            'kosan' => $kost,
             'foto' => (new FotoKosanModel())->where('id_kosan', $id_kosan)->findAll(),
             'validation' => \Config\Services::validation(),
         ];
@@ -201,6 +217,7 @@ class KosanController extends BaseController
     // UPDATE EDITED DATA KOSAN
     public function update()
     {
+        $faker = \Faker\Factory::create('id_ID');
         $jumlahFoto = count($this->fotoKosanModel->where('id_kosan', $this->request->getVar('id_kosan'))->findAll());
         $data = [
             'namaKost' => htmlspecialchars($this->request->getVar('namaKost')),
@@ -288,6 +305,7 @@ class KosanController extends BaseController
             unlink('../public/foto_kosan/' . $this->fotoKosanModel->where('id_kosan', $this->request->getVar('id_kosan'))->findAll()[0]['nama_foto']);
             $data_foto = [
                 'nama_foto' => $namaFoto,
+                'id_foto' => $faker->unique()->uuid,
                 'id_kosan' => $this->request->getVar('id_kosan'),
             ];
             $this->fotoKosanModel->update($this->fotoKosanModel->where('id_kosan', $this->request->getVar('id_kosan'))->findAll()[0]['id_foto'], $data_foto);
@@ -298,6 +316,7 @@ class KosanController extends BaseController
             $namaFoto = $foto->getRandomName();
             $data_foto = [
                 'nama_foto' => $namaFoto,
+                'id_foto' => $faker->unique()->uuid,
                 'id_kosan' => $this->request->getVar('id_kosan'),
             ];
             if ($jumlahFoto > 1) {
@@ -313,6 +332,7 @@ class KosanController extends BaseController
             $namaFoto = $foto->getRandomName();
             $data_foto = [
                 'nama_foto' => $namaFoto,
+                'id_foto' => $faker->unique()->uuid,
                 'id_kosan' => $this->request->getVar('id_kosan'),
             ];
             if ($jumlahFoto > 2) {
