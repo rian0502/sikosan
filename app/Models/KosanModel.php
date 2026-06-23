@@ -40,19 +40,25 @@ class KosanModel extends Model
     // Ambil semua data kosan
     public function getAllKosan()
     {
-
         $queryKosan = $this->db->table('kosan')
-            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->groupBy('kosan.id_kosan')->orderBy('kosan.id_kosan', 'DESC')
+            ->select('kosan.*, MIN(foto_kosan.nama_foto) as nama_foto') 
+            ->join('foto_kosan', 'kosan.id_kosan = foto_kosan.id_kosan', 'left')
+            ->groupBy('kosan.id_kosan')
+            ->orderBy('kosan.id_kosan', 'DESC')
             ->get();
         return $queryKosan;
     }
 
     // Ambil kosan berdasarkan id user
-    public function getKosanByIdUser()
+   public function getKosanByIdUser()
     {
         $query = $this->db->table($this->table)
-            ->join('foto_kosan', 'kosan.id_kosan=foto_kosan.id_kosan')->groupBy('kosan.id_kosan')->orderBy('kosan.id_kosan', 'DESC')
-            ->getWhere(['kosan.idPemilik' => user_id()])->getResult();
+            ->select('kosan.*, MIN(foto_kosan.nama_foto) as nama_foto')
+            ->join('foto_kosan', 'kosan.id_kosan = foto_kosan.id_kosan', 'left')
+            ->groupBy('kosan.id_kosan')
+            ->orderBy('kosan.id_kosan', 'DESC')
+            ->getWhere(['kosan.idPemilik' => user_id()])
+            ->getResult();
         return $query;
     }
 

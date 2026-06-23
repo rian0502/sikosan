@@ -9,17 +9,16 @@ class FotoKosanSeed extends Seeder
 {
     public function run()
     {
-        $faker = Factory::create('id_ID');       
-        $photo = new FotoKosanModel();
-        for($i = 1 ; $i <= 10 ; $i++){
-            $photo->save(
-                [
-                    // 'id_photo' => $i,
-                    'id_kosan' => $i,
-                    'nama_foto' => $faker->firstName(),
+        $faker = Factory::create('id_ID');
 
-                ]
-            );
+        $kosanList = $this->db->table('kosan')->get()->getResultArray();
+        
+        foreach ($kosanList as $kosan) {
+            $this->db->table('foto_kosan')->insert([
+                'id_foto'   => bin2hex(random_bytes(16)),
+                'id_kosan'  => $kosan['id_kosan'], 
+                'nama_foto' => $faker->firstName(),
+            ]);
         }
     }
 }
